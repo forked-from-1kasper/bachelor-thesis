@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[threshold=0]{csquotes}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{totcount}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hhline}
+\usepackage{array}
+
+\newtheorem*{consequence*}{Следствие}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem*{lemma*}{Лемма}
+
+\def\paddedtext#1#2{\leavevmode\hbox to#1{\hss#2\hss}\ignorespaces}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\begin{document}
+
+старт
+
+\tableofcontents
+
+\section{Введение}
+
+\section{Вычет Гротендика}
+
+\section{Кобордизмы и теория Морса}
+
+\section{Алгебраические подгруппы тора}
+
+\section{Заключение}
+
+\section{Приложение. Категории с кобордизмами}
+
+\end{document}
