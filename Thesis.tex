@@ -27,13 +27,36 @@
 
 \begin{document}
 
-старт
+\titlelabel{\thetitle.\:}
+
+\begin{titlepage}
+  \centering
+
+  {\LargeТема:\vspace{0.2cm}}\par
+  {\largeТеория Морса и кобордизмов, применение к изучению полиэдров Вейля}
+\end{titlepage}
 
 \tableofcontents
 
 \section{Введение}
 
 \section{Вычет Гротендика}
+
+Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$.
+Обозначим $g(z)~= g_1(z) \ldots g_n(z)$ и~$\Gamma~= \{ z \in \mathbb{C}^n \ | \ g(z) = 0 \}$.
+
+Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq \mathbb{C}^n$.
+Почти для~всех точек $\epsilon \in \mathbb{R}_{+}^n$ множество $\gamma_{z, \epsilon} = \{ z \in \mathbb{C}^n \ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$~—
+гладкое вещественное подмногообразие $U$. Для~достаточно малых ненулевых $\epsilon$ многообразие $\gamma_{z, \epsilon}$ является компактным
+подмногообразием $U \setminus \Gamma$. Определим на~нём ориентацию с~помощью дифференциальной формы $d(\mathrm{Arg}\ g_1) \wedge \ldots \wedge d(\mathrm{Arg}\ g_n)$.
+
+\textit{Циклом Гротендика} $\gamma_z$ изолированного корня $z$ системы $g_1(z) = \ldots = g_n(z) = 0$ назовём многообразие $\gamma_{z, \epsilon}$ для~достаточно малого $\epsilon$.
+Класс цикла в~$n$-мерной группе гомологий $U \setminus \Gamma$ не~зависит от~выбора $\epsilon$, но,~очевидно, зависит от~порядка уравнений $g_1(z) = 0, \ldots, g_n(z) = 0$.
+
+Зафиксируем также ещё один многочлен Лорана $f$. \textit{Вычетом Гротендика} назовём следующий интеграл:
+$$
+  \mathrm{res}_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n} dz_1 \ldots dz_n
+$$
 
 \section{Кобордизмы и теория Морса}
 
