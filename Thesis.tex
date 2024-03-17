@@ -40,10 +40,63 @@
 
 \section{Введение}
 
+Важнейшим инструментом в~комплексном анализе является понятие \textit{вычета} голоморфной функции.
+Напомним основные сведения из~одномерной теории вычетов.
+
+Множество функций, голоморфных в~открытом множестве $D \subseteq \mathbb{C}$ (или, более общо, в~$D \subseteq \mathbb{C}^n$), обозначим как $\mathrm{Hol}(D)$.
+
+\begin{theorem*}
+  Пусть $D \subseteq \mathbb{C}$~— область. Если $f \in \mathrm{Hol}(D)$, а~кусочно-гладкие кривые $\gamma_1$
+  и~$\gamma_2 \subseteq D$ гомотопны в~$D$, то
+  $$
+    \int_{\gamma_1} f(z)dz = \int_{\gamma_2} f(z)dz.
+  $$
+\end{theorem*}
+
+Рассмотрим область $D$ и~её подмножество $D^\prime = D \setminus \{ z_1, \ldots, z_k \} \subseteq D$, где $z_i \in D$.
+
+Из~теоремы в~частности следует, что для~произвольной $f \in \mathrm{Hol}(D^\prime)$ и~её изолированной
+особой точки $z_0 \in D \setminus D^\prime$ интегралы $\oint_{\Gamma_\epsilon} f(z)dz$ по~окружностям
+$\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят от~$\epsilon \in \mathbb{R}_{+}$
+при~достаточно малом $\epsilon$ (конкретнее, таком, что в~круг $\{ z \in D \ | \ |z - z_0| < \epsilon \}$
+не~попадают никакие другие особые точки $f$, кроме выбранной $z_0$).
+
+В~таком случае \textit{вычетом} $f$ в~точке $z = z_0$ называют интеграл
+$$
+  \operatorname*{res}\limits_{z_0} f = \operatorname*{res}\limits_{z = z_0} f(z) = \lim\limits_{\epsilon \to 0} \frac{1}{2 \pi i} \oint_{\Gamma_\epsilon} f(z)dz = \frac{1}{2 \pi i} \oint_{\Gamma_{\epsilon_0}} f(z)dz,
+$$
+где $\epsilon_0$ достаточно мало в~описанном выше смысле.
+
+Следующая теорема позволяет сводить вычисление интеграла от~голоморфной функции к~вычислению вычетов в~её особых точках,
+что вместе со~сравнительной простотой вычисления обосновывает их практическое применение.
+\begin{theorem*}[основная о вычетах]
+  Пусть $D \subseteq \mathbb{C}$~— односвязная область, $\gamma \subseteq D$~— замкнутая кусочно-гладкая кривая,
+  $z_i \in D$, $f \in \mathrm{Hol}(D^\prime)$, где $D^\prime = D \setminus \{ z_1, \ldots, z_k \}$.
+  Тогда:
+  $$
+    \oint_{\gamma} f(z)dz = 2 \pi i \sum_{k = 1}^{n} \mathrm{Ind}_{\gamma}(z_k) \operatorname*{res}\limits_{z_k} f,
+  $$
+  где $\mathrm{Ind}_{\gamma}(z)$~— индекс точки $z$ относительно кривой $\gamma$.
+\end{theorem*}
+
+Для~построения описанных конструкций существенным фактом было то, что одномерные голоморфные функции допускают
+существование \textit{изолированных} особых точек. Однако, как показывает следующая теорема \cite{ShaII}, в~многомерном случае
+это допущение неверно.
+
+\begin{theorem*}[о стирании компактных особенностей]
+  Пусть $D \subseteq \mathbb{C}^n$~— область, причём $n > 1$, $\overline{K} \subseteq D$,
+  $D \setminus K$ связно. Тогда всякая $f \in \mathrm{Hol}(D \setminus K)$
+  голоморфно продолжается в~$D$.
+\end{theorem*}
+
+Таким образом, в~случае $n > 1$ невозможно вокруг особой точки голоморфной функции
+выбрать малую сферу так, чтобы функция была голоморфна на~всей сфере (в~противном случае,
+функцию можно было~бы продолжить внутрь сферы); а~потому интеграл по~такой сфере, в~общем случае, не~определён.
+
 \section{Вычет Гротендика}
 
 Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$.
-Обозначим $g(z)~= g_1(z) \ldots g_n(z)$ и~$\Gamma~= \{ z \in (\mathbb{C}^\times)^n \ | \ g(z) = 0 \}$.
+Обозначим $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\mathbb{C}^\times)^n \ | \ g(z) = 0 \}$.
 
 Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\mathbb{C}^\times)^n$.
 Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим $\gamma_{z, \epsilon} = \{ z \in (\mathbb{C}^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$.
@@ -57,25 +110,34 @@
 
 Зафиксируем также ещё один многочлен Лорана $f$. \textit{Вычетом Гротендика} назовём следующий интеграл:
 $$
-  \mathrm{res}_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n} dz_1 \ldots dz_n
+  \operatorname*{res}\limits_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n}
 $$
 
 \section{Кобордизмы и теория Морса}
 
 \section{Алгебраические подгруппы тора}
 
+\section{Торическое разложение цикла Гротендика}
+
 \section{Заключение}
+
+\pagebreak
+
+\titleformat{\section}{\centering\normalfont\Large\bfseries}{}{0em}{}
+\section{Приложение. Категории с кобордизмами}
+
+?
+
+\pagebreak
 
 \section{Список использованных источников}
 
 \begin{thebibliography}{9}
 
+\bibitem{ShaII} B.~V.~Shabat, “Introduction to~complex analysis Part~II. Functions of~several variables.” (1992).
+
 \bibitem{GelKho02} O.~A.~Gelfond, A.~G.~Khovanskii, “Toric geometry and Grothendieck residues”, Mosc.~Math.~J., 2:1~(2002), 99–112.
 
 \end{thebibliography}
-
-\pagebreak
-
-\section{Приложение. Категории с кобордизмами}
 
 \end{document}
