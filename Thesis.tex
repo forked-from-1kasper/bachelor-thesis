@@ -43,14 +43,16 @@
 \section{Вычет Гротендика}
 
 Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$.
-Обозначим $g(z)~= g_1(z) \ldots g_n(z)$ и~$\Gamma~= \{ z \in \mathbb{C}^n \ | \ g(z) = 0 \}$.
+Обозначим $g(z)~= g_1(z) \ldots g_n(z)$ и~$\Gamma~= \{ z \in (\mathbb{C}^\times)^n \ | \ g(z) = 0 \}$.
 
-Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq \mathbb{C}^n$.
-Почти для~всех точек $\epsilon \in \mathbb{R}_{+}^n$ множество $\gamma_{z, \epsilon} = \{ z \in \mathbb{C}^n \ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$~—
-гладкое вещественное подмногообразие $U$. Для~достаточно малых ненулевых $\epsilon$ многообразие $\gamma_{z, \epsilon}$ является компактным
-подмногообразием $U \setminus \Gamma$. Определим на~нём ориентацию с~помощью дифференциальной формы $d(\mathrm{Arg}\ g_1) \wedge \ldots \wedge d(\mathrm{Arg}\ g_n)$.
+Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\mathbb{C}^\times)^n$.
+Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим $\gamma_{z, \epsilon} = \{ z \in (\mathbb{C}^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$.
 
-\textit{Циклом Гротендика} $\gamma_z$ изолированного корня $z$ системы $g_1(z) = \ldots = g_n(z) = 0$ назовём многообразие $\gamma_{z, \epsilon}$ для~достаточно малого $\epsilon$.
+Почти для~всех $\epsilon$ множество $\gamma_{z, \epsilon}$ представляет собой гладкое вещественное подмногообразие многообразия $U$.
+Для~достаточно малых ненулевых $\epsilon$ многообразие $\gamma_{z, \epsilon}$ является компактным подмногообразием $U \setminus \Gamma$.
+Определим на~нём ориентацию с~помощью дифференциальной формы $d(\mathrm{Arg}\ g_1) \wedge \ldots \wedge d(\mathrm{Arg}\ g_n)$.
+
+\textit{Циклом Гротендика} $\gamma_z$ \cite{GelKho02} изолированного корня $z$ системы $g_1(z) = \ldots = g_n(z) = 0$ назовём многообразие $\gamma_{z, \epsilon}$ для~достаточно малого $\epsilon$.
 Класс цикла в~$n$-мерной группе гомологий $U \setminus \Gamma$ не~зависит от~выбора $\epsilon$, но,~очевидно, зависит от~порядка уравнений $g_1(z) = 0, \ldots, g_n(z) = 0$.
 
 Зафиксируем также ещё один многочлен Лорана $f$. \textit{Вычетом Гротендика} назовём следующий интеграл:
@@ -63,6 +65,16 @@ $$
 \section{Алгебраические подгруппы тора}
 
 \section{Заключение}
+
+\section{Список использованных источников}
+
+\begin{thebibliography}{9}
+
+\bibitem{GelKho02} O.~A.~Gelfond, A.~G.~Khovanskii, “Toric geometry and Grothendieck residues”, Mosc.~Math.~J., 2:1~(2002), 99–112.
+
+\end{thebibliography}
+
+\pagebreak
 
 \section{Приложение. Категории с кобордизмами}
 
