@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[threshold=0]{csquotes}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{totcount}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hhline}
+\usepackage{array}
+
+\input{Common}
+
+\begin{document}
+
+Множество гомоморфизмов между группами $G$ и~$H$ обозначим как~$\Hom(G, H)$.
+
+Пусть $G$~— группа, $K$~— поле, а~$K^{\times}$~— его мультипликативная группа.
+В~таком случае произвольный гомоморфизм $f \in \Hom(G, K^{\times})$ называют \textbf{характером.}
+Говорят, что характеры $f_1, f_2, \ldots, f_n$ \textbf{линейно независимы,}
+если
+$$
+    \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K{:}\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
+$$
+
+\begin{theorem*}[Артин]
+    Любые $n$ попарно различных характеров линейно независимы.
+\end{theorem*}
+
+\begin{proof}
+
+Докажем индукцией по~числу характеров $n$.
+
+Возьмём произвольный характер $f$. Поскольку он является гомоморфизмом,
+то~$f(1_G) = 1$, где $1_G$~— единица в~группе $G$. Но~тогда если $\alpha f = 0$,
+то~и~$\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$, что доказывает базу индукции.
+
+Пусть теперь утверждение теоремы верно для~любых $n$ различных характеров. Докажем его для~$(n + 1)$ характера.
+Пусть $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
+
+Зафиксируем произвольный $y \in G$. Тогда для~любого $x \in G$ имеем:
+\begin{equation}\label{Artin:first}
+    \alpha_1 f_1(yx) + \alpha_2 f_2(yx) + \ldots + \alpha_n f_n(yx) + \alpha_{n + 1} f_{n + 1}(yx) = 0
+\end{equation}
+
+Поскольку все $f_i$~— гомоморфизмы, $f_i(yx) = f_i(y) f_i(x)$, а~потому:
+$$
+    \alpha_1 f_1(y) f_1(x) + \alpha_2 f_2(y) f_2(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+$$
+
+С~другой стороны, для~$x \in G$ также верно, что:
+$$
+    \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0
+$$
+
+Умножим это равенство на~$f_{n + 1}(y)$:
+\begin{equation}\label{Artin:second}
+    \alpha_1 f_{n + 1}(y) f_1(x) + \alpha_2 f_{n + 1}(y) f_2(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+\end{equation}
+
+Вычитая \eqref{Artin:first} из~\eqref{Artin:second}, получаем:
+$$
+    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0
+$$
+
+Тогда, в~силу произвольности $x$, получаем линейную комбинацию $n$ характеров:
+$$
+    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0
+$$
+
+Но~в~таком случае, по~индуктивной гипотезе, $\alpha_i (f_{n + 1}(y) - f_i(y)) = 0$.
+Теперь, выбрав для~каждого $i = 1, \ldots, n$ такое $y$, что $f_{n + 1}(y) \neq f_i(y)$
+(это возможно, потому~что, по~условию теоремы, все $f_i$ попарно различны), получим,
+что $\alpha_1 = \alpha_2 = \ldots = \alpha_n = 0$.
+
+Наконец, $\alpha_{n + 1} f_{n + 1} = \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
+Согласно базе индукции, $\alpha_{n + 1} = 0$.
+
+\end{proof}
+
+\textbf{Алгебраической подгруппой} группы $K$ называется подгруппа, также являющася
+алгебраическим многообразием, то~есть задаваемая системой полиномиальных уравнений.
+
+Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
+обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
+
+\begin{theorem*}[Шмидт]
+    Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
+    системой биномиальных уравнений, то~есть $H = \{ z \in (K^{\times})^n\ |\ \forall i{:}\ z^{\alpha_i} = z^{\beta_i} \}$
+    для~некоторых коэффициентов $\alpha_i, \beta_i \in \mathbb{Z}^n$.
+\end{theorem*}
+
+\begin{proof}
+    Пусть $I \subseteq \mathbb{Z}^n$~— конечное множество индексов,
+    а~$P_j(z) = \sum_{i \in I} a_{ji} z^i$~— многочлены ($k$ штук), задающие подгруппу $H$;
+    то~есть $H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}$.
+
+    Поскольку $z_1^{i} z_2^{i} = (z_1 z_2)^i$, отображение $z \mapsto z^i$ определяет
+    характер $\chi_i \in \Hom(H, K^{\times})$.
+
+    Рассмотрим на~множестве $I$ отношение эквивалентности $i \sim j \Leftrightarrow \chi_i = \chi_j$.
+    Оно разбивает $I$ на~$m$ классов $I_1$, $I_2$, …, $I_m$. В~таком случае, для~всех $i_1, i_2 \in I_j$ верно, что $\chi_{i_1} = \chi_{i_2}$.
+    Обозначим этот характер, соответствующий каждому $I_k$, как $\chi_k = \chi_{i_1} = \chi_{i_2}$.
+
+    Собрав подобные слагаемые при~каждом $\chi_k$ в~многочленах $P_j$, получим:
+    $$
+        P_j = \sum_{i \in I} a_{ji} \chi_i = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k
+    $$
+
+    Но~$P_j$ равны нулю на~всём $H$, поэтому:
+    $$
+    \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k = 0
+    $$
+
+    Все $\chi_k$ попарно различны по~их заданию, поэтому к~ним применима теорема Артина.
+    Из~неё заключаем, что:
+    $$
+    \sum_{i \in I_k} a_{ji} = 0
+    $$
+
+    Наконец, пусть $N_k$ = $\mathrm{card}(I_k)$ (мощность $I_k$) и~$I_k = \{i_{k, 1}, i_{k, 2}, \ldots, i_{k, N_k}\}$. В~качестве $\alpha_i$ и~$\beta_i$ положим подряд идущие индексы $i_{k, j}$ и~$i_{k, j + 1}$.
+    Тогда подгруппа $G = \{ z \in (K^{\times})^n\ |\ \forall i{:}\ z^{\alpha_i} = z^{\beta_i} \}$ задаётся уравнениями
+    $z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}$, $\ldots$, $z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}$, $z^{i_{2, 1}} = z^{i_{2, 2}}$, $\ldots$, $z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}$.
+
+    Покажем, что $G$ совпадает с~$H$. Действительно, пусть $z \in H$. Тогда, по построению $I_k$,
+    $z^{i_{k, j}} = \chi_k(z) = z^{i_{k, j + 1}}$; то~есть $z \in G$, и~$H \subseteq G$.
+
+    Наоборот, пусть $z \in G$. Тогда, по~заданию $G$, $z^{i_k} = z^{i_{k, j_1}} = z^{i_{k, j_2}}$
+    для~любых $j_1$ и~$j_2$. Снова собирая подобные слагаемые в~$P_j$, окончательно получим:
+    $$
+        P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0
+    $$
+
+    Таким образом, $G \subseteq H$, что и~требовалось.
+\end{proof}
+
+\end{document}

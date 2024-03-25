@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[threshold=0]{csquotes}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{totcount}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hhline}
+\usepackage{array}
+
+\input{Common}
+
+\begin{document}
+
+Зафиксируем векторное пространство $V$. Структура векторного пространства индуцирует
+на~$V$ структуру метрического пространства. Пользуясь этим, \textit{решёткой} назовём
+всякую дискретную подгруппу аддитивной группы $V$.
+В~частности, подгруппы $\Z^n$ представляют собой решётки над~$\R^n$.
+
+Ясно, что для~произвольной решётки $L$ и~вектора $u \in L$ верно, что $zu \in L$ для~всякого $z \in \Z$.
+В~решётке $L$ векторы $u_1, \ldots, u_k \in L$ назовём линейно независимыми, если:
+$$
+    \forall \alpha_1, \ldots, \alpha_k \in \Z{:}\ \alpha_1 u_1 + \ldots + \alpha_k u_k = 0 \Rightarrow \alpha_1 = \ldots = \alpha_k = 0.
+$$
+
+\textit{Размерностью} решётки $L$ назовём максимальное число линейно независимых векторов $n$, обозначая $\dim_{\Z}(L) = n$,
+если таковое существует, и~$\infty$ в~противном случае.
+
+Пусть $\mathrm{Lin}_{\subseteq}(V)$~— множество всех линейных подпространств пространства $V$.
+Как известно, $\mathrm{Lin}_{\subseteq}(V)$ замкнуто относительно произвольных пересечений.
+Всякой решётке $L$ пространства $V$ сопоставим векторное подпространство $L[\R] = \bigcap\limits_{L \subseteq U \in \mathrm{Lin}_{\subseteq}(V)} U$.
+
+\begin{lemma*}
+    Пусть $V$~— векторное пространство, $L$~— решётка над~ним, $v_1, \ldots, v_k \in L$ линейно независимы над~$L$.
+    Тогда $v_1, \ldots, v_k$ линейно независимы и~над~$V$.
+\end{lemma*}
+
+\begin{proof}
+    Пусть $\alpha_1 u_1 + \ldots + \alpha_k u_k = 0$, где $\alpha_k \in \R$. Приблизим $\alpha_i$ рациональными числами:
+    пусть $p^n_i \in \Z$, $q^n_i \in \mathbb{N} \setminus \{ 0 \}$ и~$\alpha_i = \lim\limits_{n \rightarrow \infty} (p^n_i / q^n_i)$.
+
+    Пользуясь линейностью предела, получаем:
+    $$
+        \lim\limits_{n \rightarrow \infty} \left( \frac{p^n_1}{q^n_1} u_1 + \ldots + \frac{p^n_k}{q^n_k} u_k \right) =
+        \left( \lim\limits_{n \rightarrow \infty} \frac{p^n_k}{q^n_k} \right) u_1 + \ldots + \left( \lim\limits_{n \rightarrow \infty} \frac{p^n_k}{q^n_k} \right) u_k =
+        \alpha_1 u_1 + \ldots + \alpha_k u_k = 0
+    $$
+
+    ????
+\end{proof}
+
+\begin{theorem*}
+    Для~всякой решётки $L$ верно, что $\dim_\Z(L) = \dim(L[\R])$.
+\end{theorem*}
+
+\begin{proof}
+    ???
+\end{proof}
+
+\end{document}

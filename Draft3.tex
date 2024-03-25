@@ -1,0 +1,287 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[threshold=0]{csquotes}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{totcount}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hhline}
+\usepackage{array}
+
+\input{Common}
+
+\begin{document}
+
+Для~$n$ векторов $\alpha_i \in \Z^k$ рассмотрим отображение $\phi_\alpha(t) = (t^{\alpha_1}, t^{\alpha_2}, \ldots, t^{\alpha_n})$,
+где $t \in (\torus)^k$, а~$\alpha$~— матрица со~строками $\alpha_i$.
+Отображение $\phi_\alpha$ задаёт \textit{параметризацию} некоторой алгебраической группы.
+
+$j$-ю компоненту вектора $\alpha_i$ обозначим как $\alpha_i^j$, а~вектор, состоящий
+из~$j$-х компонент, как $\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
+
+Обозначим \textit{$\Z$-линейную оболочку} векторов $\alpha_1, \ldots, \alpha_n$ как
+$\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1, \ldots, k_n \in \Z \}$.
+
+Говорим, что $\alpha_1, \ldots, \alpha_n$ порождают всю решётку, если $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k$.
+
+Как $e_i$ обозначим \textit{естественный базис} над~$\Z^k$, то~есть такой вектор, у~которого на~$i$-м месте единица, а~на~остальных~— нули.
+В~таком случае очевидно следующее утверждение.
+
+\begin{statement*}
+    $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k \Leftrightarrow \forall i{:}\ e_i \in \Span_\Z(\alpha_1, \ldots, \alpha_n)$.
+\end{statement*}
+
+\begin{lemma*}
+    Если $\alpha_i \in \Z^k$ порождают всю решётку, то~$\phi_\alpha$ инъективно.
+\end{lemma*}
+
+\begin{proof}
+    $\phi_\alpha$~— гомоморфизм, потому достаточно показать, что $\ker(\phi_\alpha) = \{1\}$.
+
+    Возьмём $t \in (\torus)^k$ такой, что $\phi_\alpha(t) = 1$, и~докажем, что $t = 1$.
+
+    Действительно, поскольку $\alpha_i$ порождают всю решётку, каждый $e_j$ выражается как линейная комбинация векторов $\alpha_i$:
+    $$
+        e_j = b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n.
+    $$
+
+    $\phi_\alpha(t) = 1$ означает, что $t^{\alpha_i} = 1$ для~всех $1 \leq i \leq n$.
+    Зафиксируем $1 \leq j \leq k$ и~возведём это равенство в~степень $b^j_i$: $t^{b^j_i \alpha_i} = (t^{\alpha_i})^{b^j_i} = 1^{b^j_i} = 1$.
+    Наконец, перемножим полученные равенства:
+    $$
+        t_j = t^{e_j} = t^{b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n} = t^{b^j_1 \alpha_1} \ldots t^{b^j_n \alpha_n} = 1 \cdot \ldots \cdot 1 = 1,
+    $$
+    что и~требовалось.
+\end{proof}
+
+Теперь покажем, что полученное в~лемме небходимое условие является также и~достаточным.
+Для~этого сначала сведём задачу к~более простому условию.
+
+\begin{lemma*}
+    Если $\alpha^j$ линейно независимы над~кольцами $\R$ и~$\R / 2 \pi \Z$, то $\phi_\alpha$ инъективно.
+\end{lemma*}
+
+\begin{proof}
+    Снова рассмотрим $t \in (\torus)^k$ такой, что $\phi_\alpha(t) = 1$, и~докажем, что $t = 1$.
+
+    Представим компоненты $t_i$ в~показательной форме: $t_i = r_i e^{i {\theta_i}}$, где $r_i \in \R_{>0}^\times$ и~$\theta_i \in \R / 2 \pi \Z$.
+    Но~тогда, поскольку $\phi_\alpha(t) = 1$, имеем:
+    $$
+        r_1^{\alpha_i^1} \ldots r_k^{\alpha_i^k} e^{i(\alpha_i^1 \theta_1 + \ldots + \alpha_i^k \theta_k)} =
+        r_1^{\alpha_i^1} e^{i(\alpha_i^1 \theta_1)} \ldots r_k^{\alpha_i^k} e^{i(\alpha_i^k \theta_k)} =
+        t_1^{\alpha_i^1} \ldots t_k^{\alpha_i^k} =
+        t^{\alpha_i} = 1.
+    $$
+
+    В~силу единственности показательного представления заключаем, что
+    $r_1^{\alpha_i^1} \ldots r_k^{\alpha_i^k} = 1$ и~$\alpha_i^1 \theta_1 + \ldots + \alpha_i^k \theta_k = 0$.
+
+    Взяв логарифм от~первого уравнения, получим:
+    $ \alpha_i^1 \log(r_1) + \ldots + \alpha_i^k \log(r_k) = 0$.
+
+    Наконец, в~силу линейной независимости, $\log(r_1) = \ldots = \log(r_k) = 0 \Leftrightarrow r_1 = \ldots = r_k = 0$
+    и~$\theta_1 = \ldots = \theta_k = 0$; то~есть $t_i = r_i e^{i \theta_i} = 1 \cdot e^0 = 1$.
+\end{proof}
+
+\begin{lemma*}
+    Если $\phi_\alpha$ инъективно, то $\alpha^j$ линейно независимы над~$\R$.
+\end{lemma*}
+
+\begin{proof}
+    Действительно, рассмотрим произвольную линейную комбинацию $ \beta_1 \alpha^1 + \beta_2 \alpha^2 + \ldots + \beta_k \alpha^k = 0$,
+    где $\beta_j \in \R$.
+
+    Тогда для~всякого $i$ верно, что $ \beta_1 \alpha_i^1 + \beta_2 \alpha_i^2 + \ldots + \beta_k \alpha_i^k = 0$.
+    Откуда получаем:
+    $$
+        (e^{\beta_1})^{\alpha_i^1} (e^{\beta_2})^{\alpha_i^2} \ldots (e^{\beta_k})^{\alpha_i^k} =
+        e^{\beta_1 \alpha_i^1} e^{\beta_2 \alpha_i^2} \ldots e^{\beta_k \alpha_i^k} =
+        e^{\beta_1 \alpha_i^1 + \beta_2 \alpha_i^2 + \ldots + \beta_k \alpha_i^k} =
+        e^0 = 1.
+    $$
+
+    Рассмотрим вектора $x = (e^{\beta_1}, e^{\beta_2}, \ldots, e^{\beta_k})$ и~$y = (1, 1, \ldots, 1)$.
+    Выражение выше в~точности означает, что $\phi_\alpha(x) = \phi_\alpha(y)$. В~силу инъективности, $x = y$;
+    то~есть $e^{\beta_j} = 1 \Leftrightarrow \beta_j = 0$.
+\end{proof}
+
+\begin{consequence*}
+    Если $\phi_\alpha$ инъективно, то~$\rank(\alpha) = k$.
+\end{consequence*}
+
+В~частности, это означает, что параметризация с~числом переменных $k > n$ заведомо неинъективна, чего и~следовало ожидать.
+
+\begin{lemma*}
+    Если $\phi_\alpha$ инъективно, то $\alpha^j$ линейно независимы над~$\R / 2 \pi \Z$.
+\end{lemma*}
+
+\begin{proof}
+    Аналогично, рассмотрим произвольную линейную комбинацию $\beta_1 \alpha^1 + \beta_2 \alpha^2 + \ldots + \beta_k \alpha^k = 0$,
+    где $\beta_j \in \R / 2 \pi \Z$. Откуда получаем:
+    $$
+        (e^{i\beta_1})^{\alpha_i^1} (e^{i\beta_2})^{\alpha_i^2} \ldots (e^{i\beta_k})^{\alpha_i^k} =
+        e^{i\beta_1 \alpha_i^1} e^{i\beta_2 \alpha_i^2} \ldots e^{i\beta_k \alpha_i^k} =
+        e^{i\beta_1 \alpha_i^1 + i\beta_2 \alpha_i^2 + \ldots + i\beta_k \alpha_i^k} =
+        e^0 = 1.
+    $$
+
+    Рассмотрим вектора $x = (e^{i\beta_1}, e^{i\beta_2}, \ldots, e^{i\beta_k})$ и~$y = (1, 1, \ldots, 1)$.
+    Из~равенства выше получаем, что $\phi_\alpha(x) = \phi_\alpha(y)$, а~потому $x = y$, и~$e^{i\beta_j} = 1 \Leftrightarrow \beta_j = 0$
+    (то~есть существуют такие $k_j \in \Z$, что $\beta_j = 2 \pi k_j$).
+\end{proof}
+
+Таким образом, верна следующая теорема.
+
+\begin{theorem*}
+    $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~кольцами $\R$ и~$\R / 2 \pi \Z$.
+\end{theorem*}
+
+Нетрудно видеть, что подобное условие проистекает из~того факта, что группа $\torus$ изоморфна прямому произведению
+$\R_{>0}^\times \times \R / 2 \pi \Z \cong \R_{>0}^\times \times S^1$. Заметив, что $\R_{>0}^\times \cong \R_{>0}^\times \times \Z / 1\Z$,
+$\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$ и~$\quaternion^\times \cong \R_{>0}^\times \times S^3$ (кватернионы), несложно получить
+подобные условия для~инъективности $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quaternion^\times$.
+
+Изучим подробнее следствия из~линейной независимости над~$\R / 2 \pi \Z$.
+
+\begin{statement*}
+    $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / 2 \pi \Z$
+    тогда и~только тогда, когда они~же линейно независимы над~$\R / \Z$.
+\end{statement*}
+
+\begin{proof}
+    Непосредственно следует из~цепочки эквивалентностей:
+    \begin{align*}
+                         & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / 2 \pi \Z \\
+        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R / 2 \pi \Z{:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 0 \Rightarrow \theta_1 = \ldots = \theta_n = 0 \\
+        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 2 \pi k \Rightarrow
+                           \exists k_1, \ldots, k_n{:}\ \theta_1 = 2 \pi k_1 \wedge \ldots \wedge \theta_n = 2 \pi k_n \\
+        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \frac{\theta_1}{2\pi} \mu_1 + \ldots + \frac{\theta_n}{2 \pi} \mu_n = k \Rightarrow
+                           \exists k_1, \ldots, k_n{:}\ \frac{\theta_1}{2 \pi} = k_1 \wedge \ldots \wedge \frac{\theta_n}{2 \pi} = k_n \\
+        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R{:}\ \forall k \in \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = k \Rightarrow
+                           \exists k_1, \ldots, k_n{:}\ \rho_1 = k_1 \wedge \ldots \wedge \rho_n = k_n \\
+        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R / \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = 0 \Rightarrow \rho_1 = \ldots = \rho_n = 0 \\
+        \Leftrightarrow\ & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / \Z.
+    \end{align*}
+\end{proof}
+
+Далее для~числа $d \in \Z$ и~вектора $x \in \Z^k$ под~$d \divides x$ понимаем, что $d \divides x_i$ для~всех $1 \leq i \leq k$
+или, что эквивалентно, $d \divides \gcd(x_1, \ldots, x_n)$.
+
+\begin{lemma*}
+    Если $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / \Z$, то:
+    $$
+        \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x.
+    $$
+\end{lemma*}
+
+\begin{proof}
+    Действительно, рассмотрим дроби $q_i = x_i / d \in \R / \Z$. Делимость $x_1 \mu_1 + \ldots + x_n \mu_n$ на~$d$ означает,
+    что в~$\R / \Z$ выполнено $(x_1 \mu_1 + \ldots + x_n \mu_n) / d = 0$, то~есть $q_1 \mu_1 + \ldots + q_n \mu_n = 0$.
+    Однако в~силу линейной независимости верно, что $q_1 = \ldots = q_n = 0$, а~это означает $d \divides x_i$ для~всех $1 \leq i \leq n$.
+\end{proof}
+
+Отметим простой критерий для~проверки неинъективности $\phi_\alpha$.
+
+\begin{lemma*}
+    Если $\phi_\alpha$ инъективно, то~$\forall j{:}\ \gcd(\alpha^j) = 1$.
+\end{lemma*}
+
+\begin{consequence*}
+    Если $\exists j{:}\ \gcd(\alpha^j) \neq 1$, то~$\phi_\alpha$ не~является инъективным отображением.
+\end{consequence*}
+
+\begin{proof}
+    Выбрав $x_j = 1$ и~$x_1 = \ldots = x_{j - 1} = x_{j + 1} = \ldots = x_k = 0$, получим, что:
+    \begin{align*}
+                         & \forall d \in \Z{:}\ \forall x \in \Z^k{:}\ d \divides x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \divides x \\
+            \Rightarrow\ & \forall j{:}\ \forall d \in \Z{:}\ d \divides \alpha^j \Rightarrow d \divides 1 \\
+        \Leftrightarrow\ & \forall j{:}\ \gcd(\alpha^j) = 1.
+    \end{align*}
+
+    Нетрудно видеть, что использование поля $\complex$ в~этой лемме \textit{существенно;} поскольку, например,
+    отображение $t \mapsto (t^3, t^2)$ инъективно над~$\R$, но~не~над~$\complex$.
+\end{proof}
+
+Множество простых чисел обозначим как $\primes \subseteq \Z$.
+
+\begin{lemma*}
+    Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
+    \begin{align*}
+                         & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall \beta \in \N{:}\ \forall x \in \Z^n{:}\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in \Z^n{:}\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x
+    \end{align*}
+\end{lemma*}
+
+\begin{proof}
+    Импликации слева направо очевидны. Докажем импликации справа налево.
+
+    Зафиксируем произвольное $d \in \Z$ и~некоторый вектор $x \in \Z^k$.
+    Разложим $d$ на~простые множители: $d = p_1^{\beta_1} \ldots p_m^{\beta_m}$.
+
+    Поскольку $x_1 \mu_1 + \ldots + x_n \mu_n$ делится на~$d$, то~оно делится и~на~каждое $p_i^{\beta_i}$.
+    Пользуясь предпосылкой, получаем, что $p_i^{\beta_i} \divides x$ для~всех $1 \leq i \leq m$;
+    но~тогда и~$d = p_1^{\beta_1} \ldots p_m^{\beta_m} \divides x$, что и~требовалось.
+
+    Далее, зафиксируем степень $\beta \in \N$ и~простое число $p$.
+    Поскольку $x_1 \mu_1 + \ldots + x_n \mu_n$ делится на~$p^\beta$,
+    то~оно делится и~на~$p$, поэтому из~предпосылки следует, что $p \divides x$.
+
+    Но~это означает, что $x_i / p$~— целые числа, а~$(x_1 / p) \mu_1 + \ldots + (x_n / p) \mu_n$ делится на~$p^{\beta - 1}$.
+    Снова применив предпосылку, получим, что $p \divides x / p$.
+    Повторив эту процедуру $\beta$ раз, окончательно заключим, что $p \divides x / p^{\beta - 1}$;
+    но~это эквивалентно $p^k \divides x$.
+\end{proof}
+
+Последнее условие можно переписать как линейную независимость векторов $\mu_i$ над~полями $\Z / p\Z$ для~всех простых $p$,
+что эквивалентно условию на~максимальность ранга матрицы $\mu$.
+
+\begin{consequence*}
+    Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
+    \begin{align*}
+                         & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in (\Z / p\Z)^n{:}\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \mu_1, \ldots, \mu_n\ \text{линейно независимы над~полем}\ \Z / p\Z \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \rank_{\Z / p \Z}(\mu) = \max(n, k).
+    \end{align*}
+\end{consequence*}
+
+Перед тем, как доказать достаточность, сформулируем необходимую для~доказательства теорему.
+
+\begin{theorem*}
+    $\alpha_i \in \Z^k$ порождают всю решётку $\Z^k$ тогда и~только тогда,
+    когда миноры максимальной размерности матрицы $\alpha$ взаимно просты.
+\end{theorem*}
+
+Наконец, докажем упомянутое достаточное условие.
+
+\begin{lemma*}
+    Если $\phi_\alpha$ инъективно, то~$\alpha_i$ порождают всю решётку.
+\end{lemma*}
+
+\begin{proof}
+    От~противного. Пусть $\alpha_i$ не~порождают решётку. Тогда, по~отмеченной теореме,
+    миноры максимальной размерности матрицы $\alpha$ имеют общий делитель $d > 1$.
+
+    Возьмём некоторый простой делитель $p$ числа $d$. Поскольку максимальные миноры
+    делятся на~$d$, то~они делятся и~на~$p$; поэтому в~поле $\Z / p \Z$
+    все максимальные миноры $\alpha$ равны нулю, что означает $\rank_{\Z / p \Z}(\alpha) < \max(n, k)$,
+    но~это противоречит заключению из~следствия.
+\end{proof}
+
+Таким образом, следующая теорема также верна.
+
+\begin{theorem*}
+    $\phi_\alpha$ инъективно тогда и~только тогда, когда~$\alpha_i$ порождают всю решётку.
+\end{theorem*}
+
+\end{document}
