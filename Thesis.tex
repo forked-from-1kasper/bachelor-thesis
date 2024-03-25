@@ -14,16 +14,10 @@
 \usepackage{etoolbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
 \usepackage{hhline}
 \usepackage{array}
 
-\newtheorem*{consequence*}{Следствие}
-\newtheorem*{theorem*}{Теорема}
-\newtheorem*{lemma*}{Лемма}
-
-\def\paddedtext#1#2{\leavevmode\hbox to#1{\hss#2\hss}\ignorespaces}
-\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\input{Common}
 
 \begin{document}
 
@@ -43,10 +37,10 @@
 Важнейшим инструментом в~комплексном анализе является понятие \textit{вычета} голоморфной функции.
 Напомним основные сведения из~одномерной теории вычетов.
 
-Множество функций, голоморфных в~открытом множестве $D \subseteq \mathbb{C}$ (или, более общо, в~$D \subseteq \mathbb{C}^n$), обозначим как $\mathrm{Hol}(D)$.
+Множество функций, голоморфных в~открытом множестве $D \subseteq \complex$ (или, более общо, в~$D \subseteq \complex^n$), обозначим как $\Hol(D)$.
 
 \begin{theorem*}
-  Пусть $D \subseteq \mathbb{C}$~— область. Если $f \in \mathrm{Hol}(D)$, а~кусочно-гладкие кривые $\gamma_1$
+  Пусть $D \subseteq \complex$~— область. Если $f \in \Hol(D)$, а~кусочно-гладкие кривые $\gamma_1$
   и~$\gamma_2 \subseteq D$ гомотопны в~$D$, то
   $$
     \int_{\gamma_1} f(z)dz = \int_{\gamma_2} f(z)dz.
@@ -55,7 +49,7 @@
 
 Рассмотрим область $D$ и~её подмножество $D^\prime = D \setminus \{ z_1, \ldots, z_k \} \subseteq D$, где $z_i \in D$.
 
-Из~теоремы в~частности следует, что для~произвольной $f \in \mathrm{Hol}(D^\prime)$ и~её изолированной
+Из~теоремы в~частности следует, что для~произвольной $f \in \Hol(D^\prime)$ и~её изолированной
 особой точки $z_0 \in D \setminus D^\prime$ интегралы $\oint_{\Gamma_\epsilon} f(z)dz$ по~окружностям
 $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят от~$\epsilon \in \mathbb{R}_{+}$
 при~достаточно малом $\epsilon$ (конкретнее, таком, что в~круг $\{ z \in D \ | \ |z - z_0| < \epsilon \}$
@@ -70,8 +64,8 @@ $$
 Следующая теорема позволяет сводить вычисление интеграла от~голоморфной функции к~вычислению вычетов в~её особых точках,
 что вместе со~сравнительной простотой вычисления обосновывает их практическое применение.
 \begin{theorem*}[основная о вычетах]
-  Пусть $D \subseteq \mathbb{C}$~— односвязная область, $\gamma \subseteq D$~— замкнутая кусочно-гладкая кривая,
-  $z_i \in D$, $f \in \mathrm{Hol}(D^\prime)$, где $D^\prime = D \setminus \{ z_1, \ldots, z_k \}$.
+  Пусть $D \subseteq \complex$~— односвязная область, $\gamma \subseteq D$~— замкнутая кусочно-гладкая кривая,
+  $z_i \in D$, $f \in \Hol(D^\prime)$, где $D^\prime = D \setminus \{ z_1, \ldots, z_k \}$.
   Тогда:
   $$
     \oint_{\gamma} f(z)dz = 2 \pi i \sum_{k = 1}^{n} \mathrm{Ind}_{\gamma}(z_k) \operatorname*{res}\limits_{z_k} f,
@@ -84,8 +78,8 @@ $$
 это допущение неверно.
 
 \begin{theorem*}[о стирании компактных особенностей]
-  Пусть $D \subseteq \mathbb{C}^n$~— область, причём $n > 1$, $\overline{K} \subseteq D$,
-  $D \setminus K$ связно. Тогда всякая $f \in \mathrm{Hol}(D \setminus K)$
+  Пусть $D \subseteq \complex^n$~— область, причём $n > 1$, $\overline{K} \subseteq D$,
+  $D \setminus K$ связно. Тогда всякая $f \in \Hol(D \setminus K)$
   голоморфно продолжается в~$D$.
 \end{theorem*}
 
@@ -93,7 +87,7 @@ $$
 выбрать малую сферу так, чтобы функция была голоморфна на~всей сфере (в~противном случае,
 функцию можно было~бы продолжить внутрь сферы); а~потому интеграл по~такой сфере, в~общем случае, не~определён.
 
-В~отличие от~многомерных голоморфных функций, голоморфные отображение, то~есть функции $\mathbb{C}^n \rightarrow \mathbb{C}^n$,
+В~отличие от~многомерных голоморфных функций, голоморфные отображение, то~есть функции $\complex^n \rightarrow \complex^n$,
 \textit{могут} иметь изолированные нули или особые точки. Этот факт приводит к~построению так называемого \textit{вычета Гротендика.}
 
 \section{Вычет Гротендика}
@@ -114,11 +108,11 @@ $$
 \textit{Многочленом Лорана} над~кольцом $K$ называется функция вида $z \mapsto \sum_{i \in I} a_i z^{\alpha_i}$ из~$(K^\times)^k$ в~$K$,
 где $a_i \in K$ и~$I \subseteq \mathbb{Z}^k$~— конечный набор индексов.
 
-Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$ над~$\mathbb{C}$.
-Обозначим $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\mathbb{C}^\times)^n \ | \ g(z) = 0 \}$.
+Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$ над~$\complex$.
+Обозначим $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
 
-Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\mathbb{C}^\times)^n$.
-Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим $\gamma_{z, \epsilon} = \{ z \in (\mathbb{C}^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$.
+Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
+Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим $\gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$.
 
 Почти для~всех $\epsilon$ множество $\gamma_{z, \epsilon}$ представляет собой гладкое вещественное подмногообразие многообразия $U$.
 Для~достаточно малых ненулевых $\epsilon$ многообразие $\gamma_{z, \epsilon}$ является компактным подмногообразием $U \setminus \Gamma$.
