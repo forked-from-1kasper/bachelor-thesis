@@ -79,7 +79,7 @@ $$
 \end{proof}
 
 Будем пользоваться существованием для~целочисленных матриц \textit{нормальной формы Смита.}
-Пусть $\mathrm{diag}^{m \times n}_r(x_1, \ldots, x_r)$~— диагональная матрица $\mathrm{diag}(x_1, \ldots, x_r)$,
+Пусть $\diag^{m \times n}_r(x_1, \ldots, x_r)$~— диагональная матрица $\diag(x_1, \ldots, x_r)$,
 дополненная (или обрезанная) справа снизу нулями до~матрицы размера $m \times n$.
 
 \begin{theorem*}[о существовании нормальной формы Смита]
@@ -87,14 +87,14 @@ $$
         \forall \alpha \in \Z^{m \times n}{:}\
         \exists \beta_1 \in \GL^m(\Z), \beta_2 \in \GL^n(\Z){:} \
         \exists \varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}{:} \
-        \beta_1 \alpha \beta_2 = \mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
+        \beta_1 \alpha \beta_2 = \diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
     $$
     причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ (так называемые инвариантные факторы).
 \end{theorem*}
 
 Поскольку числа $\varepsilon_1$, $\ldots$, $\varepsilon_r$ выбираются единственным образом с~точностью
 до~обратимого элемента, то~есть в~случае $\Z$ с~точностью до~$\pm 1$, можем всегда выбрать их положительными.
-Для~них матрицу $\mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$ обозначим как $\mathrm{SNF}(\alpha)$.
+Для~них матрицу $\diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$ обозначим как $\SNF(\alpha)$.
 
 Помимо этого, с~учётом функториальности $\phi$, ясно, что $\phi_\beta$ биективно, если $\beta \in \GL^n(\Z)$.
 Действительно, $\phi_\beta \circ \phi_{\beta^{-1}} = \phi_{\beta \beta^{-1}} = \phi_E = 1_{(K^\times)^n}$
@@ -104,15 +104,15 @@ $$
 \begin{lemma*}
     $\phi_\alpha : (\complex^\times)^k \rightarrow (\complex^\times)^n$ инъективна тогда и~только тогда, когда
     $$
-        \mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_k(1, 1, \ldots, 1).
+        \SNF(\alpha) = \diag^{n \times k}_k(1, 1, \ldots, 1).
     $$
 \end{lemma*}
 
 \begin{proof}
     Пользуясь теоремой, возьмём унимодулярные матрицы $\beta_1 \in \GL^n(\Z)$ и~$\beta_2 \in \GL^k(\Z)$
-    такие, что $\beta_1 \alpha \beta_2 = \mathrm{SNF}(\alpha)$.
-    В~таком случае, $\alpha = \beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}$, и~$\phi_\alpha = \phi_{\beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}}
-                                                                                    = \phi_{\beta_1^{-1}} \circ \phi_{\mathrm{SNF}(\alpha)} \circ \phi_{\beta_2^{-1}}$.
+    такие, что $\beta_1 \alpha \beta_2 = \SNF(\alpha)$.
+    В~таком случае, $\alpha = \beta_1^{-1} \SNF(\alpha) \beta_2^{-1}$, и~$\phi_\alpha = \phi_{\beta_1^{-1} \SNF(\alpha) \beta_2^{-1}}
+                                                                                      = \phi_{\beta_1^{-1}} \circ \phi_{\SNF(\alpha)} \circ \phi_{\beta_2^{-1}}$.
 
     Поскольку, по~замечанию выше, $\phi_{\beta_1^{-1}}$ и~$\phi_{\beta_2^{-1}}$ биективны, то~$\phi_\alpha$
     инъективно тогда и~только тогда, когда инъективно $\phi_{\mathrm{SNF(\alpha)}}$.
@@ -136,7 +136,7 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     \begin{enumerate}
         \item Строки матрицы $\alpha$ порождают всю решётку $\Z^k$.
         \item Миноры максимальной размерности матрицы $\alpha$ взаимно просты.
-        \item $\mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_k(1, \ldots, 1)$.
+        \item $\SNF(\alpha) = \diag^{n \times k}_k(1, \ldots, 1)$.
     \end{enumerate}
 \end{theorem*}
 
@@ -146,8 +146,8 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     $\phi_\alpha$ инъективно тогда и~только тогда, когда~$\alpha_i$ порождают всю решётку $\Z^k$.
 \end{theorem*}
 
-Поскольку $\phi_\alpha$~— гомоморфизм, образ $\mathrm{Im}(\phi_\alpha)$ является подгруппой в~$(K^\times)^n$.
-Изучим два вопроса: является~ли $\mathrm{Im}(\phi_\alpha)$ алгебраической подгруппой и~всякая~ли алгебраическая подгруппа задаётся некоторым $\phi_\alpha$.
+Поскольку $\phi_\alpha$~— гомоморфизм, образ $\image(\phi_\alpha)$ является подгруппой в~$(K^\times)^n$.
+Изучим два вопроса: является~ли $\image(\phi_\alpha)$ алгебраической подгруппой и~всякая~ли алгебраическая подгруппа задаётся некоторым $\phi_\alpha$.
 
 Для~этого, прежде всего, заметим, что система биномиальных уравнений $z^{\beta'_i} = z^{\beta''^i}$ эквивалентна
 системе $z^{\beta'_i - \beta''_i} = 1$, то~есть в~точности ядру оператора $\phi_{\beta'_i - \beta''_i}$;
@@ -160,9 +160,9 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 \end{lemma*}
 
 \begin{proof}
-    Действительно, $(f \circ g - 1_H) \circ f = f \circ g \circ f - f = f - f = 0$, то~есть $\mathrm{Im}(f) \subseteq \ker(f \circ g - 1_H)$. 
-    Обратно, пусть $h \in \ker(f \circ g - 1_H)$. Тогда $f(g(h)) - h = 0 \Leftrightarrow h = f(g(h))$, то~есть $h \in \mathrm{Im}(f)$,
-    и~$\ker(f \circ g - 1_H) \subseteq \mathrm{Im}(f)$.
+    Действительно, $(f \circ g - 1_H) \circ f = f \circ g \circ f - f = f - f = 0$, то~есть $\image(f) \subseteq \ker(f \circ g - 1_H)$. 
+    Обратно, пусть $h \in \ker(f \circ g - 1_H)$. Тогда $f(g(h)) - h = 0 \Leftrightarrow h = f(g(h))$, то~есть $h \in \image(f)$,
+    и~$\ker(f \circ g - 1_H) \subseteq \image(f)$.
 \end{proof}
 
 \begin{theorem*}
@@ -172,16 +172,16 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 \begin{proof}
     Снова представим $\alpha$ в~виде $\alpha = \beta_1^{-1} \varepsilon \beta_2^{-1}$, где
     $$
-        \varepsilon = \mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_r(\varepsilon_1, \ldots, \varepsilon_r).
+        \varepsilon = \SNF(\alpha) = \diag^{n \times k}_r(\varepsilon_1, \ldots, \varepsilon_r).
     $$
 
-    Рассмотрим $\delta = \mathrm{diag}^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
+    Рассмотрим $\delta = \diag^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
     $\phi_{\alpha'}$ инъективна как композиция инъективных функций. С~другой стороны, очевидно, что:
     $$
-        \mathrm{Im}(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} ((\complex^\times)^k)))
-                                 = \phi_{\beta_1^{-1}} (\phi_\varepsilon ((\complex^\times)^k))
-                                 = \phi_{\beta_1^{-1}} (\phi_{\delta} ((\complex^\times)^r))
-                                 = \mathrm{Im}(\phi_{\alpha'}).
+        \image(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} ((\complex^\times)^k)))
+                            = \phi_{\beta_1^{-1}} (\phi_\varepsilon ((\complex^\times)^k))
+                            = \phi_{\beta_1^{-1}} (\phi_{\delta} ((\complex^\times)^r))
+                            = \image(\phi_{\alpha'}).
     $$
 
     Нетрудно видеть, что $\alpha'$ имеет левой обратной матрицу $\beta' = \delta^{\top} \beta$,
@@ -194,7 +194,7 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 то~легко видеть, что она не~может быть параметризована никакой $\phi_\alpha$.
 
 Действительно, $\phi_\alpha$~— голоморфное отображение, $(\complex^\times)^k$~— открытое множество,
-поэтому всякая проекция полного образа $\mathrm{Im}(\phi_\alpha) = \phi_\alpha((\complex^\times)^k)$ либо, в~силу
+поэтому всякая проекция полного образа $\image(\phi_\alpha) = \phi_\alpha((\complex^\times)^k)$ либо, в~силу
 открытости непостоянных голоморфных отображений, открыта, либо состоит из~одной точки; но~$z^n = 1$
 открыто, только если $n = 0$, и~состоит из~одной точки, только если $n = \pm 1$.
 
@@ -220,13 +220,13 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     $$
 
     Пусть также $\alpha = \beta_2 \delta$. Тогда $\phi_\alpha$ инъективно по~построению,
-    а~$\mathrm{Im}(\phi_{\alpha})$~— искомая алгебраическая подгруппа.
+    а~$\image(\phi_{\alpha})$~— искомая алгебраическая подгруппа.
     Действительно, по~заданию $\delta$, $\varepsilon \delta = 0$, поэтому 
     $\phi_{\beta} \circ \phi_{\alpha} = \phi_{\beta_1^{-1} \varepsilon \beta_2^{-1} \beta_2 \delta} = \phi_{\beta_1^{-1} \varepsilon \delta} = \phi_{0} = 1$,
-    то~есть $\mathrm{Im}(\phi_{\alpha}) \subseteq \ker(\phi_{\beta})$.
+    то~есть $\image(\phi_{\alpha}) \subseteq \ker(\phi_{\beta})$.
 
     Кроме того, $H = \ker(\phi_{\beta})$ задаётся $k$ уравнениями, а~потому (локально) не~более
-    чем $n - k$ независимыми параметрами, как и~$\mathrm{Im}(\phi_{\alpha})$.
+    чем $n - k$ независимыми параметрами, как и~$\image(\phi_{\alpha})$.
 \end{proof}
 
 \end{document}
