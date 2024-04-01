@@ -30,9 +30,36 @@
 
 \begin{proof}
 
-Рассмотрим вещественный тор $T_\varepsilon = \{ z \in (\torus)^n\ |\ |z_1| = \varepsilon \wedge \ldots \wedge |z_n| = \varepsilon \}$.
+Обозначим вещественный тор как $T_\varepsilon = \{ z \in (\torus)^n\ |\ |z_1| = \varepsilon \wedge \ldots \wedge |z_n| = \varepsilon \}$.
 
-???
+Зафиксируем $f$ и~рассмотрим интегралы:
+$$
+    I_k(w) = \oint_{T_\varepsilon} \frac{f(z \cdot w)}{z^k} \frac{dz_1}{z_1} \wedge \ldots \wedge \frac{dz_n}{z_n},
+$$
+где $w \in (\torus)^n$ и~$k \in \Z^n$.
+
+Сделав замену $z \mapsto z \cdot w = \xi$, получим:
+$$
+    I_k(w) = \oint_{T_\varepsilon} \frac{f(\xi)}{(\xi / w)^k} \frac{d(\xi_1 / w_1)}{\xi_1 / w_1} \wedge \ldots \wedge \frac{d(\xi_n / w_n)}{\xi_n / w_n}
+           = w^k \oint_{T_\varepsilon} \frac{f(\xi)}{\xi} \frac{d\xi_1}{\xi_1} \wedge \ldots \wedge \frac{d\xi_n}{\xi_n}.
+$$
+
+С~другой стороны, $f$~— гомоморфизм, поэтому:
+$$
+    I_k(w) = f(w) \oint_{T_\varepsilon} \frac{f(z)}{z^k} \frac{dz_1}{z_1} \wedge \ldots \wedge \frac{dz_n}{z_n}.
+$$
+
+Таким образом, имеет место тождество:
+$$
+    (f(w) - w^k) \oint_{T_\varepsilon} \frac{f(z)}{z^k} \frac{dz_1}{z_1} \wedge \ldots \wedge \frac{dz_n}{z_n} = 0,
+$$
+говорящее о~том, что если для~$k \in \Z^n$ интеграл в~левой части не~равен нулю, то
+$$
+    \forall u \in (\torus)^n{:}\ f(u) = u^k.
+$$
+
+Но~такой интеграл выражает коэффициент Лорана функции $f$. $f$ голоморфна и~не~равна нулю
+во~всём $(\torus)^n$, поэтому существует значение $k$, для~которого интеграл не~равен нулю.
 
 \end{proof}
 
