@@ -63,4 +63,40 @@ $$
 
 \end{proof}
 
+Ослабив условия на~функцию $f$, можно обобщить эту теорему на~случай произвольного поля $K$.
+Для~этого для~каждого многочлена Лорана $f = \sum_{i \in I} a_i z^i$ и~индекса $k \in \Z^n$ рассмотрим отображение
+$$
+    \mathrm{coeff}_k(f) =
+    \begin{cases}
+        a_k, & \text{если $k \in I$}; \\
+        0,   & \text{иначе.}
+    \end{cases}
+$$
+
+Тогда, очевидно, справедлива следующая лемма.
+\begin{lemma*}
+    Для~любых многочленов Лорана $f$ и~$g$ и~вектора $w \in K^n$ верно, что:
+    \begin{enumerate}
+        \item $\mathrm{coeff}_k(f + g) = \mathrm{coeff}_k(f) + \mathrm{coeff}_k(g)$.
+        \item $\mathrm{coeff}_k(w f) = w \cdot \mathrm{coeff}_k(f)$.
+        \item $\mathrm{coeff}_k(f \circ (z \mapsto wz)) = w^k \cdot \mathrm{coeff}_k(f)$.
+    \end{enumerate}
+\end{lemma*}
+
+Рассмотрим теперь вместо голомфорных гомоморфизмом~— полиномиальные.
+\begin{lemma*}
+    Всякий многочлен Лорана $f \in \Hom((K^\times)^n, K^\times)$ является мономом.
+\end{lemma*}
+
+\begin{proof}
+    Действительно, для~произвольного $w \in K^n$ в~силу того, что $f$~— гомоморфизм,
+    выполняется равенство $f \circ (z \mapsto wz) = f(w) \cdot f$. Откуда:
+    $$
+        w^k \cdot \mathrm{coeff}_k(f) = \mathrm{coeff}_k(f \circ (z \mapsto wz)) = \mathrm{coeff}_k(f(w) \cdot f) = f(w) \cdot \mathrm{coeff}_k(f),
+    $$
+    а~значит $(f(w) - w^k) \cdot \mathrm{coeff}_k(f) = 0$.
+    Поскольку $f$ нигде не~равен нулю, существует $k_0$ такой, что $\mathrm{coeff}_{k_0}(f) \neq 0$;
+    но~тогда $f(w) - w^{k_0} = 0$ для~всех $w$.
+\end{proof}
+
 \end{document}
