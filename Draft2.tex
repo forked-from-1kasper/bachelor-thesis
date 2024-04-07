@@ -201,9 +201,32 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 Более того, из~этих рассуждений видно, что~по~всякой системе биномиальных уравнений можно построить новую систему,
 которая гарантированно не~параметризуется целиком, возведя, например, произвольное уравнение в~степень $n > 1$.
 
-\begin{theorem*}
-    Всякая алгебраическая подгруппа тора $(\complex^\times)^n$ содержит параметризуемую подгруппу той~же размерности.
-\end{theorem*}
+Чтобы понять, при~каких условиях существует параметризация, сначала заметим, что группа $\image(\phi_\alpha)$
+изоморфна группе $(K^\times)^r$. Действительно, в~доказательстве теоремы мы видели, что для~всякого $\phi_\alpha$
+можно построить инъективный $\phi_{\alpha'} : (K^\times)^r \rightarrow (K^\times)^n$ такой, что $\image(\phi_\alpha) = \image(\phi_{\alpha'})$;
+но~тогда $\phi_{\alpha'}$ и~задаёт искомый изоморфизм. Таким образом, верно следующее утверждение.
+
+\begin{statement*}
+    Для~любой матрицы $\alpha \in \Z^{n \times k}$ группа $\image(\phi_\alpha)$ изоморфна алгебраическому тору размерности не~более чем $k$.
+\end{statement*}
+
+Кроме того, поскольку отображение $\phi_{\alpha'}$ полиномиально, оно, в~частности, непрерывно в~естественной топологии на~$K = \R$ и~$K = \complex$.
+Множество $(\complex^\times)^r$ связно (причём использование поля $K = \complex$ тут существенно, так как $\R^\times$ содержит две компоненты связности),
+а, как известно, непрерывный образ связного множества связен, в~силу чего верно ещё одно утверждение.
+
+\begin{statement*}
+    $\image(\phi_\alpha) \subseteq (\complex^\times)^n$ связно.
+\end{statement*}
+
+Теперь отметим, что группа $z^n = 1$ связна в~точности тогда и~только тогда, когда $n = 0, \pm 1$.
+Это соображение указывает на~то, что критерием существования параметризации для~алгебраической
+подгруппы тора является связность.
+
+Чтобы доказать это, рассмотрим число $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$, равное произведению инвариантных факторов матрицы $\alpha$.
+
+\begin{lemma*}
+    Если $\Pi(\beta) = 1$, то~существует такое $\alpha$, что $\ker(\phi_\beta) = \image(\phi_\alpha)$.
+\end{lemma*}
 
 \begin{proof}
     Пусть $H = \ker(\phi_\beta)$~— алгебраическая группа. Без~потери общности считаем,
@@ -212,21 +235,125 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 
     Запишем для~$\beta$ нормальную форму Смита: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$.
     Поскольку, по~замечанию выше, $\beta$ имеет полный ранг, матрица $\varepsilon$ не~имеет нулевых строк.
+    Кроме того, $\Pi(\beta) = 1$, поэтому $\varepsilon = \diag^{k \times n}_k(1, \ldots, 1)$.
 
-    Это значит, что ядро $\varepsilon$ задаётся векторами вида $(0, \ldots, 0, t_{k + 1}, \ldots, t_{n})$.
+    Ядро $\varepsilon$ задаётся векторами вида $(0, \ldots, 0, t_{k + 1}, \ldots, t_{n})$.
     Рассмотрим матрицу $\delta \in \Z^{n \times (n - k)}$, соответствующую линейному оператору
     $$
         (t_1, \ldots, t_{n - k}) \mapsto (0, \ldots, 0, t_1, \ldots, t_{n - k}).
     $$
 
-    Пусть также $\alpha = \beta_2 \delta$. Тогда $\phi_\alpha$ инъективно по~построению,
-    а~$\image(\phi_{\alpha})$~— искомая алгебраическая подгруппа.
+    Пусть также $\alpha = \beta_2 \delta$. Докажем, что $\image(\phi_\alpha) = \ker(\phi_\beta)$.
+
     Действительно, по~заданию $\delta$, $\varepsilon \delta = 0$, поэтому 
     $\phi_{\beta} \circ \phi_{\alpha} = \phi_{\beta_1^{-1} \varepsilon \beta_2^{-1} \beta_2 \delta} = \phi_{\beta_1^{-1} \varepsilon \delta} = \phi_{0} = 1$,
     то~есть $\image(\phi_{\alpha}) \subseteq \ker(\phi_{\beta})$.
 
-    Кроме того, $H = \ker(\phi_{\beta})$ задаётся $k$ уравнениями, а~потому (локально) не~более
-    чем $n - k$ независимыми параметрами, как и~$\image(\phi_{\alpha})$.
+    Обратно, пусть $z \in \ker(\phi_\beta)$. Тогда $\phi_{\beta_1^{-1}} (\phi_{\varepsilon \beta_2^{-1}}(z)) = \phi_\beta(z) = 1$,
+    откуда $\phi_{\varepsilon}(\phi_{\beta_2^{-1}}(z)) = \phi_{\varepsilon \beta_2^{-1}}(z) = \phi_{\beta_1}(1) = 1$.
+    Из~вида матрицы $\varepsilon$ получаем, что $\phi_{\beta_2^{-1}}(z) = (1, \ldots, 1, z_{k + 1}, \ldots, z_n) = \phi_\delta(z_{k + 1}, \ldots, z_n)$;
+    то~есть $z = \phi_{\beta_2}(\phi_\delta(z_{k + 1}, \ldots, z_n)) = \phi_\alpha(z_{k + 1}, \ldots, z_n)$.
+    Таким образом, $z \in \image(\phi_\alpha)$, и~$\ker(\phi_\beta) \subseteq \image(\phi_\alpha)$.
+\end{proof}
+
+Группу корней степени $n$ из~единицы, задаваемую уравнением $z^n = 1$, обозначим как $\sqrt[n]{1}$.
+
+\begin{theorem*}
+    Число связных компонент $\ker(\phi_\beta) \subseteq (\torus)^n$ равно $\Pi(\beta)$.
+\end{theorem*}
+
+\begin{proof}
+    Снова рассмотрим нормальную форму Смита для~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
+
+    $\phi_{\beta_1^{-1}}$~— изоморфизм, поэтому $\ker(\phi_{\beta}) = \ker(\phi_{\varepsilon \beta_2^{-1}})$.
+
+    Строки матрицы $\beta_2^{-1}$ обозначим как $b_i$.
+    Для~вектора $u \in \sqrt[\varepsilon_1]{1} \times \ldots \times \sqrt[\varepsilon_r]{1}$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
+    Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \sqrt[\varepsilon_1]{1} \times \ldots \times \sqrt[\varepsilon_r]{1}{:}\ z \in H_u$.
+    Ясно, что множества $H_u$ дизъюнктны, поэтому $\ker(\phi_{\beta})$ распадается в~дизъюнктное объединение:
+    $$
+        \ker(\phi_{\beta}) = \bigsqcup_u H_u.
+    $$
+
+    Векторов $u$ ровно $\Pi(\beta)$ штук, поэтому достаточно показать, что каждый $H_u$ связен.
+
+    Поскольку $H_1 = \ker(\phi_{\delta \beta_2^{-1}})$, где $\delta = \diag^{k \times n}_r(1, \ldots, 1)$,
+    и~$\Pi(\delta \beta_2^{-1}) = 1$, $H_1$, по~замечанию выше, связно.
+
+    Зафиксировав $u$, рассмотрим матрицу $\tau = \diag(1 / u_1, \ldots, 1 / u_r, 1, \ldots, 1)$ и~отображение $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
+    $\psi$~— непрерывная биекция, причём $\psi^{-1} = \phi_{\beta_2^{-1}} \circ \phi_{\tau^{-1}} \circ \phi_{\beta_2}$.
+
+    По~определению, $\phi_{\beta_2^{-1}}(\psi(z)) = \phi_{\tau \beta_2^{-1}}(z)$.
+    Поэтому если $z \in H_u$, то~$\psi(z)^{b_i} = z^{b_i} / u_i = u_i / u_i = 1$. Обратно, если $z \in H_1$,
+    то~$\psi^{-1}(z)^{b_i} = u_i z^{b_i} = u_i$. Таким образом, $\psi(H_u) = H_1$,
+    то~есть $H_u$ гомеоморфно $H_1$, но~$H_1$ связно.
+\end{proof}
+
+Как мы видели ранее, всякая алгебраическая подгруппа $H$ тора $(K^\times)^n$ представляется как $\ker(\phi_\beta)$
+для~некоторого $\beta$. Заметим, что $\Pi(\beta)$ не~зависит от~выбора $\beta$ для~группы $H$.
+
+\begin{theorem*}
+    Если $\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, то~$\Pi(\beta) = \Pi(\beta')$.
+\end{theorem*}
+
+\begin{proof}
+    Запишем нормальные формы Смита: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$
+    и~$\beta' = {\beta'}_1^{-1} \varepsilon' {\beta'}_2^{-1}$.
+    Тогда $\ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\beta}) = \ker(\phi_{\beta'}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$.
+
+    Пусть $\varepsilon = \diag^{k \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$
+    и~$\varepsilon' = \diag^{k' \times n}_{r'}(\varepsilon'_1, \ldots, \varepsilon'_r)$.
+    Обозначим $\delta = \diag^{k \times n}_r(1, \ldots, 1)$ и~$\delta' = \diag^{k' \times n}_{r'}(1, \ldots, 1)$.
+
+    Поскольку $\Pi(\delta \beta_2^{-1}) = \Pi(\delta' {\beta'}_2^{-1}) = 1$, согласно предыдущей теореме,
+    обе подгруппы параметризуются некоторыми $\phi_\alpha$ и~$\phi_{\alpha'}$ соответственно.
+
+    $\image(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
+    поэтому $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$.
+    В~силу функториальности, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
+
+    Умножив обе части равенства на~матрицу
+    $\diag(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$, получим, что $\delta' {\beta'}_2^{-1} \alpha = 0$;
+    но~это значит, что $\ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+    Совершенно аналогично получим обратное включение. Таким образом, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+
+    Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+    Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \sqrt[\varepsilon_1]{1} \times \ldots \times \sqrt[\varepsilon_r]{1}$
+    индуцирует инъективный гомоморфизм из~фактора. Помимо этого, поскольку все компонентны $H_u$ гомеоморфны (!!! ??? !!!), они все непусты.
+    Это означает, что индуцированное отображение сюръективно. Таким образом, получаем изоморфизмы:
+    $$
+        \Z / \varepsilon_1 \Z \times \ldots \times \Z / \varepsilon_r \Z \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}})
+                                                                             = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})
+                                                                         \cong \Z / \varepsilon'_1 \Z \times \ldots \times \Z / \varepsilon'_{r'} \Z.
+    $$
+
+    Изоморфные группы имеют одинаковые порядки, а~значит
+    $$
+        \Pi(\beta) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r = \varepsilon'_1 \cdot \ldots \cdot \varepsilon'_{r'} = \Pi(\beta').
+    $$
+\end{proof}
+
+Таким образом, для~всякой алгебраической подгруппы $H$ тора можно определить число $\Pi(H)$
+равное $\Pi(\beta)$ для~всякого $\beta$ такого, что $H = \ker(\phi_\beta)$.
+
+Теперь для~всякой алгебраической подгруппы $H \subseteq (\complex^\times)^n$ определим \textit{компоненту единицы} $H^\circ$
+как компоненту связности, содержащую единицу группы. Из~доказанной теоремы следует, что $\Pi(H^\circ) = 1$.
+Таким образом, доказаны следующие утверждения.
+
+\begin{theorem*}
+    Алгебраическая подгруппа $H$ тора $(K^\times)^n$ параметризуема тогда и~только тогда, когда $\Pi(H) = 1$.
+\end{theorem*}
+
+\begin{consequence*}
+    Алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ параметризуема тогда и~только тогда, когда является связной.
+\end{consequence*}
+
+\begin{theorem*}
+    Всякая алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ содержит параметризуемую подгруппу $H^\circ$ той~же размерности.
+\end{theorem*}
+
+\begin{proof}
+    Все связные компоненты $H$ гомеоморфны, что немедленно доказывает теорему.
 \end{proof}
 
 \end{document}
