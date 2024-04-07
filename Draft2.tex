@@ -256,7 +256,9 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     Таким образом, $z \in \image(\phi_\alpha)$, и~$\ker(\phi_\beta) \subseteq \image(\phi_\alpha)$.
 \end{proof}
 
-Группу корней степени $n$ из~единицы, задаваемую уравнением $z^n = 1$, обозначим как $\sqrt[n]{1}$.
+Группу корней степени $n$ из~единицы, задаваемую уравнением $z^n = 1$, обозначим как $\omega(n) \subseteq \torus$.
+Для~вектора $x \in \Z^k$ также обозначим $\omega(x) = \omega(x_1) \times \ldots \times \omega(x_k) \subseteq (\torus)^k$.
+Известно, что группа $\omega(x)$ изоморфна группе $\Z / x_1 \Z \times \ldots \times \Z / x_k \Z$.
 
 \begin{theorem*}
     Число связных компонент $\ker(\phi_\beta) \subseteq (\torus)^n$ равно $\Pi(\beta)$.
@@ -264,21 +266,20 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 
 \begin{proof}
     Снова рассмотрим нормальную форму Смита для~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
-
     $\phi_{\beta_1^{-1}}$~— изоморфизм, поэтому $\ker(\phi_{\beta}) = \ker(\phi_{\varepsilon \beta_2^{-1}})$.
 
     Строки матрицы $\beta_2^{-1}$ обозначим как $b_i$.
-    Для~вектора $u \in \sqrt[\varepsilon_1]{1} \times \ldots \times \sqrt[\varepsilon_r]{1}$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
-    Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \sqrt[\varepsilon_1]{1} \times \ldots \times \sqrt[\varepsilon_r]{1}{:}\ z \in H_u$.
+    Для~вектора $u \in \omega(\varepsilon)$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
+    Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \omega(\varepsilon){:}\ z \in H_u$.
     Ясно, что множества $H_u$ дизъюнктны, поэтому $\ker(\phi_{\beta})$ распадается в~дизъюнктное объединение:
     $$
-        \ker(\phi_{\beta}) = \bigsqcup_u H_u.
+        \ker(\phi_{\beta}) = \bigsqcup_{u \in \omega(\varepsilon)} H_u.
     $$
 
-    Векторов $u$ ровно $\Pi(\beta)$ штук, поэтому достаточно показать, что каждый $H_u$ связен.
+    Векторов $u \in \omega(\varepsilon)$ ровно $\Pi(\beta)$ штук, поэтому достаточно показать, что каждая компонента $H_u$ связна.
 
-    Поскольку $H_1 = \ker(\phi_{\delta \beta_2^{-1}})$, где $\delta = \diag^{k \times n}_r(1, \ldots, 1)$,
-    и~$\Pi(\delta \beta_2^{-1}) = 1$, $H_1$, по~замечанию выше, связно.
+    Поскольку, по~определению, $H_1 = \ker(\phi_{\delta \beta_2^{-1}})$, где $\delta = \diag^{k \times n}_r(1, \ldots, 1)$,
+    и~$\Pi(\delta \beta_2^{-1}) = 1$, компонента $H_1$, по~замечанию выше, связна.
 
     Зафиксировав $u$, рассмотрим матрицу $\tau = \diag(1 / u_1, \ldots, 1 / u_r, 1, \ldots, 1)$ и~отображение $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
     $\psi$~— непрерывная биекция, причём $\psi^{-1} = \phi_{\beta_2^{-1}} \circ \phi_{\tau^{-1}} \circ \phi_{\beta_2}$.
@@ -317,15 +318,21 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     но~это значит, что $\ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
     Совершенно аналогично получим обратное включение. Таким образом, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
 
-    Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
-    Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \sqrt[\varepsilon_1]{1} \times \ldots \times \sqrt[\varepsilon_r]{1}$
-    индуцирует инъективный гомоморфизм из~фактора. Помимо этого, поскольку все компонентны $H_u$ гомеоморфны (!!! ??? !!!), они все непусты.
-    Это означает, что индуцированное отображение сюръективно. Таким образом, получаем изоморфизмы:
-    $$
-        \Z / \varepsilon_1 \Z \times \ldots \times \Z / \varepsilon_r \Z \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}})
-                                                                             = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})
-                                                                         \cong \Z / \varepsilon'_1 \Z \times \ldots \times \Z / \varepsilon'_{r'} \Z.
-    $$
+    Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
+    называемую также \textit{группой компонент.}
+    Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega(\varepsilon)$
+    индуцирует инъективный гомоморфизм из~фактора. Помимо этого, в~теореме выше была построена биекция между компонентами $H_u$ (которая обобщается
+    без~изменений на~случай произвольного поля $K$), а~потому все они непусты.
+    Это означает, что $\phi_{\delta \beta_2^{-1}}$ сюръективно, а~потому индуцированное отображение тоже сюръективно.
+    Аналогично проводятся рассуждения для~группы $\omega(\varepsilon')$.
+    Таким образом, получаем цепочку изоморфизмов:
+    \begin{align*}
+        \Z / \varepsilon_1 \Z \times \ldots \times \Z / \varepsilon_r \Z & \cong \omega(\varepsilon) \\
+                                                                         & \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) \\
+                                                                         &     = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \\
+                                                                         & \cong \omega(\varepsilon') \\
+                                                                         & \cong \Z / \varepsilon'_1 \Z \times \ldots \times \Z / \varepsilon'_{r'} \Z.
+    \end{align*}
 
     Изоморфные группы имеют одинаковые порядки, а~значит
     $$
@@ -337,7 +344,7 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 равное $\Pi(\beta)$ для~всякого $\beta$ такого, что $H = \ker(\phi_\beta)$.
 
 Теперь для~всякой алгебраической подгруппы $H \subseteq (\complex^\times)^n$ определим \textit{компоненту единицы} $H^\circ$
-как компоненту связности, содержащую единицу группы. Из~доказанной теоремы следует, что $\Pi(H^\circ) = 1$.
+как компоненту связности, содержащую нейтральный элемент группы. Из~доказанной теоремы следует, что $\Pi(H^\circ) = 1$.
 Таким образом, доказаны следующие утверждения.
 
 \begin{theorem*}
@@ -348,9 +355,9 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     Алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ параметризуема тогда и~только тогда, когда является связной.
 \end{consequence*}
 
-\begin{theorem*}
+\begin{consequence*}
     Всякая алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ содержит параметризуемую подгруппу $H^\circ$ той~же размерности.
-\end{theorem*}
+\end{consequence*}
 
 \begin{proof}
     Все связные компоненты $H$ гомеоморфны, что немедленно доказывает теорему.
