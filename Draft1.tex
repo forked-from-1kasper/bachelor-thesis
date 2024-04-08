@@ -306,7 +306,7 @@ $$
     и~$r = k \leq n$, что и~требовалось.
 \end{proof}
 
-Сформулируем ещё одну вспомогательную теорему.
+Сформулируем ещё одну вспомогательную теорему \cite{TsikhSad14}.
 Обозначим \textit{$\Z$-линейную оболочку} векторов $\alpha_1, \ldots, \alpha_n$ как
 $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1, \ldots, k_n \in \Z \}$.
 
@@ -638,7 +638,7 @@ $$
 \end{proof}
 
 Таким образом, верна следующая теорема.
-условие
+
 \begin{theorem*}
     $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группами $\R$ и~$\R / 2 \pi \Z$.
 \end{theorem*}
@@ -648,28 +648,8 @@ $\R_{>0}^\times \times \R / 2 \pi \Z \cong \R_{>0}^\times \times S^1$. Заме�
 $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$ и~$\quaternion^\times \cong \R_{>0}^\times \times S^3$ (кватернионы), несложно получить
 подобные условия для~инъективности $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quaternion^\times$.
 
-Изучим подробнее следствия из~линейной независимости над~$\R / 2 \pi \Z$.
-
-\begin{statement*}
-    $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / 2 \pi \Z$
-    тогда и~только тогда, когда они~же линейно независимы над~$\R / \Z$.
-\end{statement*}
-
-\begin{proof}
-    Непосредственно следует из~цепочки эквивалентностей:
-    \begin{align*}
-                         & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / 2 \pi \Z \\
-        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R / 2 \pi \Z{:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 0 \Rightarrow \theta_1 = \ldots = \theta_n = 0 \\
-        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 2 \pi k \Rightarrow
-                           \exists k_1, \ldots, k_n{:}\ \theta_1 = 2 \pi k_1 \wedge \ldots \wedge \theta_n = 2 \pi k_n \\
-        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \frac{\theta_1}{2\pi} \mu_1 + \ldots + \frac{\theta_n}{2 \pi} \mu_n = k \Rightarrow
-                           \exists k_1, \ldots, k_n{:}\ \frac{\theta_1}{2 \pi} = k_1 \wedge \ldots \wedge \frac{\theta_n}{2 \pi} = k_n \\
-        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R{:}\ \forall k \in \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = k \Rightarrow
-                           \exists k_1, \ldots, k_n{:}\ \rho_1 = k_1 \wedge \ldots \wedge \rho_n = k_n \\
-        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R / \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = 0 \Rightarrow \rho_1 = \ldots = \rho_n = 0 \\
-        \Leftrightarrow\ & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / \Z.
-    \end{align*}
-\end{proof}
+Естественным кажется, что, поскольку рассматриваемые вектора целочисленные, их линейная независимость
+над~$\R$ должна сводиться к~линейной независимости над~$\Z$. Докажем это.
 
 \begin{lemma*}
     $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Q$.
@@ -717,6 +697,29 @@ $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$ и~$\quaternion^\times \cong \
     $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Z$.
 \end{consequence*}
 
+Изучим подробнее следствия из~линейной независимости над~$\R / 2 \pi \Z$.
+
+\begin{statement*}
+    $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / 2 \pi \Z$
+    тогда и~только тогда, когда они~же линейно независимы над~$\R / \Z$.
+\end{statement*}
+
+\begin{proof}
+    Непосредственно следует из~цепочки эквивалентностей:
+    \begin{align*}
+                         & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / 2 \pi \Z \\
+        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R / 2 \pi \Z{:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 0 \Rightarrow \theta_1 = \ldots = \theta_n = 0 \\
+        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 2 \pi k \Rightarrow
+                           \exists k_1, \ldots, k_n{:}\ \theta_1 = 2 \pi k_1 \wedge \ldots \wedge \theta_n = 2 \pi k_n \\
+        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \frac{\theta_1}{2\pi} \mu_1 + \ldots + \frac{\theta_n}{2 \pi} \mu_n = k \Rightarrow
+                           \exists k_1, \ldots, k_n{:}\ \frac{\theta_1}{2 \pi} = k_1 \wedge \ldots \wedge \frac{\theta_n}{2 \pi} = k_n \\
+        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R{:}\ \forall k \in \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = k \Rightarrow
+                           \exists k_1, \ldots, k_n{:}\ \rho_1 = k_1 \wedge \ldots \wedge \rho_n = k_n \\
+        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R / \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = 0 \Rightarrow \rho_1 = \ldots = \rho_n = 0 \\
+        \Leftrightarrow\ & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / \Z.
+    \end{align*}
+\end{proof}
+
 Далее для~числа $d \in \Z$ и~вектора $x \in \Z^k$ под~$d \divides x$ понимаем, что $d \divides x_i$ для~всех $1 \leq i \leq k$
 или, что эквивалентно, $d \divides \gcd(x_1, \ldots, x_n)$.
 
@@ -733,7 +736,7 @@ $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$ и~$\quaternion^\times \cong \
     Однако в~силу линейной независимости верно, что $q_1 = \ldots = q_n = 0$, а~это означает $d \divides x_i$ для~всех $1 \leq i \leq n$.
 \end{proof}
 
-Отметим простой критерий для~проверки неинъективности $\phi_\alpha$.
+Из~доказанного немедленно следует простой критерий для~проверки неинъективности $\phi_\alpha$.
 
 \begin{lemma*}
     Если $\phi_\alpha$ инъективно, то~$\forall j{:}\ \gcd(\alpha^j) = 1$.
@@ -831,6 +834,9 @@ In~Number Theory 93–94, ed. by~S.~David, London Math. Soc. Lecture Note Ser.~2
 Cambridge University Press, Cambridge 1996, 157–187.
 
 \bibitem{Art48} E.~Artin, “Galois Theory,” 2nd~ed., Notre Dame, 1948.
+
+\bibitem{TsikhSad14} Садыков~Т.~М., Цих~А.~К. Гипергеометрические и~алгебраические функции многих переменных.
+М.: Наука, 2014.~— 408 с.~— ISBN: 978-5-02-039082-9.
 
 \end{thebibliography}
 
