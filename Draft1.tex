@@ -235,9 +235,9 @@ $$
     $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k \Leftrightarrow \forall i{:}\ e_i \in \Span_\Z(\alpha_1, \ldots, \alpha_n)$.
 \end{statement*}
 
-\begin{lemma*}
+\begin{lemma}
     Если $\alpha_i \in \Z^k$ порождают всю решётку, то~$\phi_\alpha$ инъективно.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     $\phi_\alpha$~— гомоморфизм, потому достаточно показать, что $\ker(\phi_\alpha) = \{1\}$.
@@ -282,12 +282,13 @@ $$
 и~$\phi_{\beta^{-1}} \circ \phi_\beta = \phi_{\beta^{-1} \beta} = \phi_E = 1_{(K^\times)^n}$.
 Поэтому имеет место следующая лемма.
 
-\begin{lemma*}
+\begin{lemma}
+\label{lemma:injectivityOutOfSNF}
     $\phi_\alpha : (\complex^\times)^k \rightarrow (\complex^\times)^n$ инъективна тогда и~только тогда, когда
     $$
         \SNF(\alpha) = \diag^{n \times k}_k(1, 1, \ldots, 1).
     $$
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     Пользуясь теоремой, возьмём унимодулярные матрицы $\beta_1 \in \GL^n(\Z)$ и~$\beta_2 \in \GL^k(\Z)$
@@ -312,16 +313,18 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 
 Говорим, что $\alpha_1, \ldots, \alpha_n$ \textit{порождают всю решётку} $\Z^k$, если $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k$.
 
-\begin{theorem*}
+\begin{theorem}
+\label{theorem:TsikhSadykov}
     Пусть $\alpha \in \Z^{n \times k}$. Следующие утверждения равносильны:
     \begin{enumerate}
         \item Строки матрицы $\alpha$ порождают всю решётку $\Z^k$.
         \item Миноры максимальной размерности матрицы $\alpha$ взаимно просты.
         \item $\SNF(\alpha) = \diag^{n \times k}_k(1, \ldots, 1)$.
     \end{enumerate}
-\end{theorem*}
+\end{theorem}
 
-Таким образом, получаем необходимое и~достаточное условие инъективности $\phi_\alpha$.
+Таким образом, из~леммы \ref{lemma:injectivityOutOfSNF} и~теоремы \ref{theorem:TsikhSadykov}
+получаем необходимое и~достаточное условие инъективности $\phi_\alpha$.
 
 \begin{theorem*}
     $\phi_\alpha$ инъективно над~полем $K = \complex$ тогда и~только тогда, когда~$\alpha_i$ порождают всю решётку $\Z^k$.
@@ -341,10 +344,11 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 поэтому первый вопрос эквивалентен тому, можно~ли данный гомоморфизм $\phi_\alpha$ достроить
 до~точной последовательности $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xrightarrow[]{\phi_\beta} (K^\times)^m$.
 
-\begin{lemma*}
+\begin{lemma}
+\label{lemma:leftInvExactSequence}
     Пусть $G$~— группа, $H$~— абелева группа, $f \in \Hom(G, H)$, $g \in \Hom(H, G)$ и~$g \circ f = 1_G$.
     Тогда последовательность $G \xrightarrow[]{f} H \xrightarrow[]{f \circ g - 1_H} H$ точна.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     Действительно, $(f \circ g - 1_H) \circ f = f \circ g \circ f - f = f - f = 0$, то~есть $\image(f) \subseteq \ker(f \circ g - 1_H)$. 
@@ -352,9 +356,9 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     и~$\ker(f \circ g - 1_H) \subseteq \image(f)$.
 \end{proof}
 
-\begin{theorem*}
+\begin{lemma}
     Всякое $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, представимо как некоторый образ $\image(\phi_\beta)$.
-\end{theorem*}
+\end{lemma}
 
 \begin{proof}
     Снова представим $\alpha$ в~виде $\alpha = \beta_1^{-1} \varepsilon \beta_2^{-1}$, где
@@ -373,12 +377,12 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 
     Нетрудно видеть, что $\alpha'$ имеет левой обратной матрицу $\beta' = \delta^{\top} \beta$,
     а~потому гомоморфизм $\phi_{\alpha'}$ имеет левым обратным гомоморфизм $\phi_{\beta'}$.
-    Поскольку $(\phi_{\alpha'} \circ \phi_{\beta'}) \phi_{-E} = \phi_{\alpha' \beta' - E}$, остаётся лишь применить лемму.
+    Поскольку $(\phi_{\alpha'} \circ \phi_{\beta'}) \phi_{-E} = \phi_{\alpha' \beta' - E}$, остаётся лишь применить лемму \ref{lemma:leftInvExactSequence}.
 \end{proof}
 
-\begin{theorem*}
+\begin{theorem}
     Всякая параметризация $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, задаёт алгебраическую подгруппу $(K^\times)^n$.
-\end{theorem*}
+\end{theorem}
 
 Ответ на~второй вопрос несколько сложнее. Например, уравнение $z^n = 1$ задаёт алгебраическую
 группу для~любого $n \in \Z$, состоящую из~$n$ точек на~$\complex^\times$; но~если $n \neq 0, \pm 1$,
@@ -423,9 +427,10 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 Так как $\omega(n)$ изоморфно $\Z / n \Z$, в~случае поля $K = \complex$ выполняется
 равенство $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 
-\begin{lemma*}
+\begin{lemma}
+\label{lemma:exactOutOfPi}
     Если $\Pi(\beta) = 1$, то~существует такое $\alpha$, что $\ker(\phi_\beta) = \image(\phi_\alpha)$.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     Пусть $H = \ker(\phi_\beta)$. Без~потери общности считаем, что строки матрицы $\beta$ линейно независимы над~$\Z$
@@ -455,9 +460,10 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     Таким образом, $z \in \image(\phi_\alpha)$, и~$\ker(\phi_\beta) \subseteq \image(\phi_\alpha)$.
 \end{proof}
 
-\begin{theorem*}
+\begin{theorem}
+\label{theorem:connectedComponentsNumbers}
     Число связных компонент $\ker(\phi_\beta) \subseteq (\torus)^n$ равно $\Pi(\beta)$.
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
     Снова рассмотрим нормальную форму Смита для~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
@@ -474,7 +480,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     Векторов $u \in \omega(\varepsilon)$ ровно $\Pi(\beta)$ штук, поэтому достаточно показать, что каждая компонента $H_u$ связна.
 
     Поскольку, по~определению, $H_1 = \ker(\phi_{\delta \beta_2^{-1}})$, где $\delta = \diag^{k \times n}_r(1, \ldots, 1)$,
-    и~$\Pi(\delta \beta_2^{-1}) = 1$, компонента $H_1$, по~замечанию выше, связна.
+    и~$\Pi(\delta \beta_2^{-1}) = 1$, компонента $H_1$, по~замечанию, связна.
 
     Зафиксировав $u$, рассмотрим матрицу $\tau = \diag(1 / u_1, \ldots, 1 / u_r, 1, \ldots, 1)$ и~отображение $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
     $\psi$~— непрерывная биекция, причём $\psi^{-1} = \phi_{\beta_2^{-1}} \circ \phi_{\tau^{-1}} \circ \phi_{\beta_2}$.
@@ -488,9 +494,9 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 Как мы видели ранее, всякая алгебраическая подгруппа $H$ тора $(K^\times)^n$ представляется как $\ker(\phi_\beta)$
 для~некоторого $\beta$. Заметим, что $\Pi(\beta)$ не~зависит от~выбора $\beta$ для~группы $H$.
 
-\begin{theorem*}
+\begin{theorem}
     Если $\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, то~$\Pi(\beta) = \Pi(\beta')$.
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
     Запишем нормальные формы Смита: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$
@@ -501,8 +507,8 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     и~$\varepsilon' = \diag^{k' \times n}_{r'}(\varepsilon'_1, \ldots, \varepsilon'_r)$.
     Обозначим $\delta = \diag^{k \times n}_r(1, \ldots, 1)$ и~$\delta' = \diag^{k' \times n}_{r'}(1, \ldots, 1)$.
 
-    Поскольку $\Pi(\delta \beta_2^{-1}) = \Pi(\delta' {\beta'}_2^{-1}) = 1$, согласно предыдущей теореме,
-    обе подгруппы параметризуются некоторыми $\phi_\alpha$ и~$\phi_{\alpha'}$ соответственно.
+    Поскольку $\Pi(\delta \beta_2^{-1}) = \Pi(\delta' {\beta'}_2^{-1}) = 1$, обе подгруппы согласно лемме \ref{lemma:exactOutOfPi}
+    параметризуются некоторыми $\phi_\alpha$ и~$\phi_{\alpha'}$ соответственно.
 
     $\image(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
     поэтому $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$.
@@ -515,7 +521,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
     называемую также \textit{группой компонент.}
     Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$
-    индуцирует инъективный гомоморфизм из~фактора. Помимо этого, в~теореме выше была построена биекция между компонентами $H_u$ (которая обобщается
+    индуцирует инъективный гомоморфизм из~фактора. Помимо этого, в~теореме \ref{theorem:connectedComponentsNumbers} была построена биекция между компонентами $H_u$ (которая обобщается
     без~изменений на~случай произвольного поля $K$), а~потому все они непусты.
     Это означает, что $\phi_{\delta \beta_2^{-1}}$ сюръективно, а~потому индуцированное отображение тоже сюръективно.
     Аналогично проводятся рассуждения для~группы $\omega_K(\varepsilon')$.
@@ -531,12 +537,12 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 равное $\Pi(\beta)$ для~всякого $\beta$ такого, что $H = \ker(\phi_\beta)$.
 
 Теперь для~всякой алгебраической подгруппы $H \subseteq (\complex^\times)^n$ определим \textit{компоненту единицы} $H^\circ$
-как компоненту связности, содержащую нейтральный элемент группы. Из~доказанной теоремы следует, что $\Pi(H^\circ) = 1$.
-Таким образом, доказаны следующие утверждения.
+как компоненту связности, содержащую нейтральный элемент группы. Из~теоремы \ref{theorem:connectedComponentsNumbers} следует,
+что $\Pi(H^\circ) = 1$. Таким образом, доказаны следующие утверждения.
 
-\begin{theorem*}
+\begin{theorem}
     Алгебраическая подгруппа $H$ тора $(K^\times)^n$ параметризуема тогда и~только тогда, когда $\Pi(H) = 1$.
-\end{theorem*}
+\end{theorem}
 
 \begin{consequence*}
     Алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ параметризуема тогда и~только тогда, когда является связной.
@@ -567,9 +573,9 @@ $$
 
 Сразу отметим, каким образом данное определение связано с~изучаемыми параметризациями $\phi_\alpha$.
 
-\begin{theorem*}
+\begin{theorem}
     $\phi_\alpha : G^k \rightarrow G^n$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группой $G$.
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
     Имеет место цепочка эквивалентностей:
@@ -586,10 +592,10 @@ $$
 
 Далее нам понадобятся две общие леммы.
 
-\begin{lemma*}
+\begin{lemma}
     Пусть $G$ и~$H$~— абелевы группы. $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$G \times H$
     тогда и~только тогда, когда они~же линейно независимы над~$G$ и~над~$H$.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     Элементы группа $G \times H$ представляются как пары $(g, h)$, где $g \in G$ и~$h \in H$, поэтому
@@ -610,10 +616,10 @@ $$
     Импликация справа налево очевидна в~свете выше указанных эквивалентностей.
 \end{proof}
 
-\begin{lemma*}
+\begin{lemma}
     Пусть $G$ и~$H$~— абелевы группы, $f : G \rightarrow H$~— изоморфизм. Тогда $\mu_1, \ldots, \mu_n \in \Z^k$
     линейно независимы над~$G$ тогда и~только тогда, когда они линейно независимы над~$H$.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     Поскольку $f$~— изоморфизм, получаем цепочку эквивалентностей:
