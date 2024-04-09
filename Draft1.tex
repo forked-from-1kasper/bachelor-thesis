@@ -555,7 +555,7 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 под~$g \alpha$ понимаем вектор $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$.
 Говорим, что набор векторов $\alpha_1, \ldots, \alpha_n \in \Z^k$ \textit{линейно независим над~абелевой группой} $G$, если
 $$
-    \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = g_n = \ldots = 0.
+    \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
 $$
 
 Видно, что линейная независимость векторов $\Z^k$ над~аддитивной группой $\R$ эквивалентна линейной независимости
@@ -563,92 +563,96 @@ $$
 поэтому и~не~имеет смысла говорить о~модуле $(\R / 2 \pi \Z)^k$ над~$\R / 2 \pi \Z$, как и~о~линейной независимости
 в~нём.
 
-Сразу отметим, каким образом данное определение связано с~изучаемыми параметризациями $\phi_\alpha$ для~случая $K = \complex$.
+Сразу отметим, каким образом данное определение связано с~изучаемыми параметризациями $\phi_\alpha$.
+
+\begin{theorem*}
+    $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группой $K^\times$.
+\end{theorem*}
+
+\begin{proof}
+    Имеет место цепочка эквивалентностей:
+    \begin{align*}
+                       \ & \phi_\alpha\ \text{инъективно}
+        \Leftrightarrow \ker(\phi_\alpha) = \{ 1 \}
+        \Leftrightarrow \ker(\phi_\alpha) \subseteq \{ 1 \} \\
+        \Leftrightarrow\ & (\forall t \in (K^\times)^k{:}\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
+        \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in K^\times{:}\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
+    \end{align*}
+
+    Но~последнее условие~— это в~точности определение линейной независимости над~$K^\times$.
+\end{proof}
+
+Далее нам понадобятся две общие леммы.
 
 \begin{lemma*}
-    Если $\alpha^j$ линейно независимы над~группами $\R$ и~$\R / 2 \pi \Z$, то $\phi_\alpha$ инъективно.
+    Пусть $G$ и~$H$~— абелевы группы. $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$G \times H$
+    тогда и~только тогда, когда они~же линейно независимы над~$G$ и~над~$H$.
 \end{lemma*}
 
 \begin{proof}
-    Снова рассмотрим $t \in (\torus)^k$ такой, что $\phi_\alpha(t) = 1$, и~докажем, что $t = 1$.
-    Для~этого представим компоненты $t_i$ в~показательной форме: $t_i = r_i e^{i {\theta_i}}$, где $r_i \in \R_{>0}^\times$ и~$\theta_i \in \R / 2 \pi \Z$.
-    Но~тогда, поскольку $\phi_\alpha(t) = 1$, имеем:
+    Элементы группа $G \times H$ представляются как пары $(g, h)$, где $g \in G$ и~$h \in H$, поэтому
+    линейная независимость над~$G \times H$ запишется как:
     $$
-        r_1^{\alpha_i^1} \ldots r_k^{\alpha_i^k} e^{i(\alpha_i^1 \theta_1 + \ldots + \alpha_i^k \theta_k)} =
-        r_1^{\alpha_i^1} e^{i(\alpha_i^1 \theta_1)} \ldots r_k^{\alpha_i^k} e^{i(\alpha_i^k \theta_k)} =
-        t_1^{\alpha_i^1} \ldots t_k^{\alpha_i^k} =
-        t^{\alpha_i} = 1.
+        \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
+    $$
+    Кроме того, ясно, что
+    $$
+        (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
+    $$
+    а~также
+    $$
+        (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
     $$
 
-    В~силу единственности показательного представления заключаем, что
-    $r_1^{\alpha_i^1} \ldots r_k^{\alpha_i^k} = 1$ и~$\alpha_i^1 \theta_1 + \ldots + \alpha_i^k \theta_k = 0$.
-
-    Взяв логарифм от~первого уравнения, получим:
-    $ \alpha_i^1 \log(r_1) + \ldots + \alpha_i^k \log(r_k) = 0$.
-
-    Наконец, в~силу линейной независимости, $\log(r_1) = \ldots = \log(r_k) = 0 \Leftrightarrow r_1 = \ldots = r_k = 0$
-    и~$\theta_1 = \ldots = \theta_k = 0$; то~есть $t_i = r_i e^{i \theta_i} = 1 \cdot e^0 = 1$.
+    Зафиксировав поочерёдно $g_1 = \ldots = g_n = 0$ и~$h_1 = \ldots = h_n = 0$, получим импликацию слева направо.
+    Импликация справа налево очевидна в~свете выше указанных эквивалентностей.
 \end{proof}
 
 \begin{lemma*}
-    Если $\phi_\alpha$ инъективно, то $\alpha^j$ линейно независимы над~$\R$.
+    Пусть $G$ и~$H$~— абелевы группы, $f : G \rightarrow H$~— изоморфизм. Тогда $\mu_1, \ldots, \mu_n \in \Z^k$
+    линейно независимы над~$G$ тогда и~только тогда, когда они линейно независимы над~$H$.
 \end{lemma*}
 
 \begin{proof}
-    Действительно, рассмотрим произвольную линейную комбинацию $ \beta_1 \alpha^1 + \beta_2 \alpha^2 + \ldots + \beta_k \alpha^k = 0$,
-    где $\beta_j \in \R$.
+    Поскольку $f$~— изоморфизм, получаем цепочку эквивалентностей:
+    \begin{align*}
+                       &\ \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow f(g_1) = \ldots = f(g_n) = 0 \\
+        \Leftrightarrow&\ \forall h_1, \ldots, h_n \in G{:}\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
+    \end{align*}
+\end{proof}
 
-    Тогда для~всякого $i$ верно, что $ \beta_1 \alpha_i^1 + \beta_2 \alpha_i^2 + \ldots + \beta_k \alpha_i^k = 0$.
-    Откуда получаем:
-    $$
-        (e^{\beta_1})^{\alpha_i^1} (e^{\beta_2})^{\alpha_i^2} \ldots (e^{\beta_k})^{\alpha_i^k} =
-        e^{\beta_1 \alpha_i^1} e^{\beta_2 \alpha_i^2} \ldots e^{\beta_k \alpha_i^k} =
-        e^{\beta_1 \alpha_i^1 + \beta_2 \alpha_i^2 + \ldots + \beta_k \alpha_i^k} =
-        e^0 = 1.
-    $$
+Применив леммы, получим критерий инъективности для~случая $K = \complex$.
 
-    Рассмотрим вектора $x = (e^{\beta_1}, e^{\beta_2}, \ldots, e^{\beta_k})$ и~$y = (1, 1, \ldots, 1)$.
-    Выражение выше в~точности означает, что $\phi_\alpha(x) = \phi_\alpha(y)$. В~силу инъективности, $x = y$;
-    то~есть $e^{\beta_j} = 1 \Leftrightarrow \beta_j = 0$.
+\begin{consequence*}
+    $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группами $\R$ и~$\R / 2 \pi \Z$.
+\end{consequence*}
+
+\begin{proof}
+    Пусть $S^1 = \{ z \in \complex\ | \ |z| = 1 \}$~— группа окружности, подгруппа в~$\torus$.
+    Посредством тригонометрического представления $z = re^{i \theta}$ группа $\torus$
+    изоморфна произведению $\R_{> 0}^\times \times S^1$. Отображение $t \mapsto e^t$ определяет
+    изоморфизм групп $\R$ и~$\R_{> 0}^\times$, а~отображение $\theta \mapsto e^{i\theta}$~— групп $\R / 2 \pi \Z$ и~$S^1$;
+    что~доказывает следствие в~силу двух предыдущих лемм.
 \end{proof}
 
 \begin{consequence*}
-    Если $\phi_\alpha$ инъективно, то~$\rank(\alpha) = k$.
+    Если $\phi_\alpha$ инъективно над~$K = \complex$, то~$\rank(\alpha) = k$.
 \end{consequence*}
+
+\begin{proof}
+    Как отмечалось выше, линейная независимость над~$\R$ эквивалентна стандартной линейно независимости
+    в~векторном пространстве $\R^k$ над~$\R$, а~она, в~свою очередь, эквивалентна полноте ранга.
+\end{proof}
 
 В~частности, это означает, что параметризация с~числом переменных $k > n$ заведомо неинъективна, чего и~следовало ожидать.
 
-\begin{lemma*}
-    Если $\phi_\alpha$ инъективно, то $\alpha^j$ линейно независимы над~$\R / 2 \pi \Z$.
-\end{lemma*}
+Заметив, что $\R_{>0}^\times \cong \R_{>0}^\times \times \Z / 1\Z$, $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$
+и~$\quaternion^\times \cong \R_{>0}^\times \times S^3$ (кватернионы), легко получить подобные условия для~инъективности
+$\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quaternion^\times$.
 
-\begin{proof}
-    Аналогично, рассмотрим произвольную линейную комбинацию $\beta_1 \alpha^1 + \beta_2 \alpha^2 + \ldots + \beta_k \alpha^k = 0$,
-    где $\beta_j \in \R / 2 \pi \Z$. Откуда получаем:
-    $$
-        (e^{i\beta_1})^{\alpha_i^1} (e^{i\beta_2})^{\alpha_i^2} \ldots (e^{i\beta_k})^{\alpha_i^k} =
-        e^{i\beta_1 \alpha_i^1} e^{i\beta_2 \alpha_i^2} \ldots e^{i\beta_k \alpha_i^k} =
-        e^{i(\beta_1 \alpha_i^1 + \beta_2 \alpha_i^2 + \ldots + \beta_k \alpha_i^k)} =
-        e^0 = 1.
-    $$
-
-    Рассмотрим вектора $x = (e^{i\beta_1}, e^{i\beta_2}, \ldots, e^{i\beta_k})$ и~$y = (1, 1, \ldots, 1)$.
-    Из~равенства выше получаем, что $\phi_\alpha(x) = \phi_\alpha(y)$, а~потому $x = y$, и~$e^{i\beta_j} = 1 \Leftrightarrow \beta_j = 0$
-    (то~есть существуют такие $k_j \in \Z$, что $\beta_j = 2 \pi k_j$).
-\end{proof}
-
-Таким образом, верна следующая теорема.
-
-\begin{theorem*}
-    $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группами $\R$ и~$\R / 2 \pi \Z$.
-\end{theorem*}
-
-Нетрудно видеть, что подобное условие проистекает из~того факта, что группа $\torus$ изоморфна прямому произведению
-$\R_{>0}^\times \times \R / 2 \pi \Z \cong \R_{>0}^\times \times S^1$. Заметив, что $\R_{>0}^\times \cong \R_{>0}^\times \times \Z / 1\Z$,
-$\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$ и~$\quaternion^\times \cong \R_{>0}^\times \times S^3$ (кватернионы), несложно получить
-подобные условия для~инъективности $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quaternion^\times$.
-
-Естественным кажется, что, поскольку рассматриваемые вектора целочисленные, их линейная независимость
+Естественным кажется, что, поскольку рассматриваемые вектора $\alpha^j$ целочисленные, их линейная независимость
 над~$\R$ должна сводиться к~линейной независимости над~$\Z$. Докажем это.
 
 \begin{lemma*}
@@ -705,19 +709,7 @@ $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$ и~$\quaternion^\times \cong \
 \end{statement*}
 
 \begin{proof}
-    Непосредственно следует из~цепочки эквивалентностей:
-    \begin{align*}
-                         & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / 2 \pi \Z \\
-        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R / 2 \pi \Z{:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 0 \Rightarrow \theta_1 = \ldots = \theta_n = 0 \\
-        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \theta_1 \mu_1 + \ldots + \theta_n \mu_n = 2 \pi k \Rightarrow
-                           \exists k_1, \ldots, k_n{:}\ \theta_1 = 2 \pi k_1 \wedge \ldots \wedge \theta_n = 2 \pi k_n \\
-        \Leftrightarrow\ & \forall \theta_1, \ldots, \theta_n \in \R{:}\ \forall k \in \Z {:}\ \frac{\theta_1}{2\pi} \mu_1 + \ldots + \frac{\theta_n}{2 \pi} \mu_n = k \Rightarrow
-                           \exists k_1, \ldots, k_n{:}\ \frac{\theta_1}{2 \pi} = k_1 \wedge \ldots \wedge \frac{\theta_n}{2 \pi} = k_n \\
-        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R{:}\ \forall k \in \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = k \Rightarrow
-                           \exists k_1, \ldots, k_n{:}\ \rho_1 = k_1 \wedge \ldots \wedge \rho_n = k_n \\
-        \Leftrightarrow\ & \forall \rho_1, \ldots, \rho_n \in \R / \Z {:}\ \rho_1 \mu_1 + \ldots + \rho_n \mu_n = 0 \Rightarrow \rho_1 = \ldots = \rho_n = 0 \\
-        \Leftrightarrow\ & \mu_1, \ldots, \mu_n\ \text{линейно независимы над}\ \R / \Z.
-    \end{align*}
+    Следует из~того, что группы $\R / 2 \pi \Z$ и~$\R / \Z$ изоморфны.
 \end{proof}
 
 Далее для~числа $d \in \Z$ и~вектора $x \in \Z^k$ под~$d \divides x$ понимаем, что $d \divides x_i$ для~всех $1 \leq i \leq k$
