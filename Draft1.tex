@@ -353,7 +353,7 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 \end{proof}
 
 \begin{theorem*}
-    Всякая параметризация $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, задаёт алгебраическую подгруппу $(K^\times)^n$.
+    Всякое $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, представимо как некоторый образ $\image(\phi_\beta)$.
 \end{theorem*}
 
 \begin{proof}
@@ -365,9 +365,9 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     Рассмотрим $\delta = \diag^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
     $\phi_{\alpha'}$ инъективна как композиция инъективных функций. С~другой стороны, очевидно, что:
     $$
-        \image(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} ((\complex^\times)^k)))
-                            = \phi_{\beta_1^{-1}} (\phi_\varepsilon ((\complex^\times)^k))
-                            = \phi_{\beta_1^{-1}} (\phi_{\delta} ((\complex^\times)^r))
+        \image(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} (G^k)))
+                            = \phi_{\beta_1^{-1}} (\phi_\varepsilon (G^k))
+                            = \phi_{\beta_1^{-1}} (\phi_{\delta} (G^r))
                             = \image(\phi_{\alpha'}).
     $$
 
@@ -375,6 +375,10 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     а~потому гомоморфизм $\phi_{\alpha'}$ имеет левым обратным гомоморфизм $\phi_{\beta'}$.
     Поскольку $(\phi_{\alpha'} \circ \phi_{\beta'}) \phi_{-E} = \phi_{\alpha' \beta' - E}$, остаётся лишь применить лемму.
 \end{proof}
+
+\begin{theorem*}
+    Всякая параметризация $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, задаёт алгебраическую подгруппу $(K^\times)^n$.
+\end{theorem*}
 
 Ответ на~второй вопрос несколько сложнее. Например, уравнение $z^n = 1$ задаёт алгебраическую
 группу для~любого $n \in \Z$, состоящую из~$n$ точек на~$\complex^\times$; но~если $n \neq 0, \pm 1$,
@@ -409,20 +413,28 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 Это соображение указывает на~то, что критерием существования мономиальной параметризации
 для~алгебраической подгруппы тора является связность.
 
-Чтобы доказать это, рассмотрим число $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$, равное произведению инвариантных факторов матрицы $\alpha$.
+Группу корней степени $n$ из~единицы, задаваемую уравнением $z^n = 1$ в~поле $K$, обозначим как $\omega_K(n) \subseteq K^\times$.
+Для~вектора $x \in \Z^k$ также обозначим $\omega_K(x) = \omega_K(x_1) \times \ldots \times \omega_K(x_k) \subseteq (K^\times)^k$.
+Для~краткости будем писать $\omega(x) = \omega_\complex(x)$. Известно, что группа $\omega(x)$ изоморфна
+группе $\Z / x_1 \Z \times \ldots \times \Z / x_k \Z$.
+
+Чтобы доказать описанный выше критерий, рассмотрим число $\Pi(\alpha) = |\omega_K(\varepsilon)|$, где $|G|$~— порядок группы $G$.
+$|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)| \cdot \ldots \cdot |\omega_K(\varepsilon_r)|$.
+Так как $\omega(n)$ изоморфно $\Z / n \Z$, в~случае поля $K = \complex$ выполняется
+равенство $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 
 \begin{lemma*}
     Если $\Pi(\beta) = 1$, то~существует такое $\alpha$, что $\ker(\phi_\beta) = \image(\phi_\alpha)$.
 \end{lemma*}
 
 \begin{proof}
-    Пусть $H = \ker(\phi_\beta)$~— алгебраическая группа. Без~потери общности считаем,
-    что строки матрицы $\beta$ линейно независимы над~$\Z$ (ясно, что строки, выражающиеся
-    как линейная комбинация остальных строк, можно убрать из~матрицы $\beta$ без~изменения ядра).
+    Пусть $H = \ker(\phi_\beta)$. Без~потери общности считаем, что строки матрицы $\beta$ линейно независимы над~$\Z$
+    (ясно, что строки, выражающиеся как линейная комбинация остальных строк, можно убрать из~матрицы $\beta$ без~изменения ядра).
 
     Запишем для~$\beta$ нормальную форму Смита: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$.
     Поскольку, по~замечанию выше, $\beta$ имеет полный ранг, матрица $\varepsilon$ не~имеет нулевых строк.
-    Кроме того, $\Pi(\beta) = 1$, поэтому $\varepsilon = \diag^{k \times n}_k(1, \ldots, 1)$.
+    Кроме того, $\Pi(\beta) = 1$, поэтому $|\omega_K(\varepsilon_i)| = 1$, то~есть уравнения $z^{\varepsilon_i} = 1$
+    имеют решением только $z = 1$.
 
     Ядро $\varepsilon$ задаётся векторами вида $(0, \ldots, 0, t_{k + 1}, \ldots, t_{n})$.
     Рассмотрим матрицу $\delta \in \Z^{n \times (n - k)}$, соответствующую линейному оператору
@@ -442,10 +454,6 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
     то~есть $z = \phi_{\beta_2}(\phi_\delta(z_{k + 1}, \ldots, z_n)) = \phi_\alpha(z_{k + 1}, \ldots, z_n)$.
     Таким образом, $z \in \image(\phi_\alpha)$, и~$\ker(\phi_\beta) \subseteq \image(\phi_\alpha)$.
 \end{proof}
-
-Группу корней степени $n$ из~единицы, задаваемую уравнением $z^n = 1$, обозначим как $\omega(n) \subseteq \torus$.
-Для~вектора $x \in \Z^k$ также обозначим $\omega(x) = \omega(x_1) \times \ldots \times \omega(x_k) \subseteq (\torus)^k$.
-Известно, что группа $\omega(x)$ изоморфна группе $\Z / x_1 \Z \times \ldots \times \Z / x_k \Z$.
 
 \begin{theorem*}
     Число связных компонент $\ker(\phi_\beta) \subseteq (\torus)^n$ равно $\Pi(\beta)$.
@@ -506,24 +514,17 @@ $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n 
 
     Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
     называемую также \textit{группой компонент.}
-    Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$
+    Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$
     индуцирует инъективный гомоморфизм из~фактора. Помимо этого, в~теореме выше была построена биекция между компонентами $H_u$ (которая обобщается
     без~изменений на~случай произвольного поля $K$), а~потому все они непусты.
     Это означает, что $\phi_{\delta \beta_2^{-1}}$ сюръективно, а~потому индуцированное отображение тоже сюръективно.
-    Аналогично проводятся рассуждения для~группы $\omega(\varepsilon')$.
+    Аналогично проводятся рассуждения для~группы $\omega_K(\varepsilon')$.
     Таким образом, получаем цепочку изоморфизмов:
-    \begin{align*}
-        \Z / \varepsilon_1 \Z \times \ldots \times \Z / \varepsilon_r \Z & \cong \omega(\varepsilon) \\
-                                                                         & \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) \\
-                                                                         &     = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \\
-                                                                         & \cong \omega(\varepsilon') \\
-                                                                         & \cong \Z / \varepsilon'_1 \Z \times \ldots \times \Z / \varepsilon'_{r'} \Z.
-    \end{align*}
+    $$
+        \omega(\varepsilon) \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \cong \omega(\varepsilon').
+    $$
 
-    Изоморфные группы имеют одинаковые порядки, а~значит
-    $$
-        \Pi(\beta) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r = \varepsilon'_1 \cdot \ldots \cdot \varepsilon'_{r'} = \Pi(\beta').
-    $$
+    Изоморфные группы имеют одинаковые порядки, а~значит $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$.
 \end{proof}
 
 Таким образом, для~всякой алгебраической подгруппы $H$ тора можно определить число $\Pi(H)$
@@ -567,7 +568,7 @@ $$
 Сразу отметим, каким образом данное определение связано с~изучаемыми параметризациями $\phi_\alpha$.
 
 \begin{theorem*}
-    $\phi_\alpha : (K^\times)^k \rightarrow (K^\times)^n$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группой $K^\times$.
+    $\phi_\alpha : G^k \rightarrow G^n$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группой $G$.
 \end{theorem*}
 
 \begin{proof}
@@ -576,11 +577,11 @@ $$
                        \ & \phi_\alpha\ \text{инъективно}
         \Leftrightarrow \ker(\phi_\alpha) = \{ 1 \}
         \Leftrightarrow \ker(\phi_\alpha) \subseteq \{ 1 \} \\
-        \Leftrightarrow\ & (\forall t \in (K^\times)^k{:}\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
-        \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in K^\times{:}\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
+        \Leftrightarrow\ & (\forall t \in G^k{:}\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
+        \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in G{:}\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
     \end{align*}
 
-    Но~последнее условие~— это в~точности определение линейной независимости над~$K^\times$.
+    Но~последнее условие~— это в~точности определение линейной независимости над~$G$.
 \end{proof}
 
 Далее нам понадобятся две общие леммы.
