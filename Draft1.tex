@@ -28,11 +28,28 @@
 
 \titlelabel{\thetitle.\:}
 
+Множество решений системы алгебраических уравнений и его обобщения~— проективные и~квазипроективные многообразия,
+схемы и~абстрактные алгебраические многообразия~— являются центральными объектами алгебраической геометрии.
+Особенный интерес представляют случаи, когда на~алгебраическом многообразии имеется дополнительная алгебраическая структура,
+например, группы. Такие объекты называются алгебраическими группами.
+
 \textbf{Алгебраической подгруппой} группы $G$ называется подгруппа, также являющася
 алгебраическим многообразием, то~есть задаваемая системой полиномиальных уравнений.
 
+Наиболее известным примером являются кубики~— плоские алгебраические кривые, задаваемые уравнением третьего порядка.
+Однако групповой закон на~эллиптических кривых устроен крайне нетривиально. Кроме того, часто важно сохранить структуру из~объемлющего пространства,
+к~примеру, из~алгебраического тора $(K^\times)^n$ для~поля $K$.
+
+Естественным примером такой алгебраической группы служит множество решений системы биномиальных уравнений вида
+$$
+    z_1^{\alpha_1} z_2^{\alpha_2} \ldots z_n^{\alpha_n} = z_1^{\beta_1} z_2^{\beta_2} \ldots z_n^{\beta_n}.
+$$
+
+Как показывает следующая теорема \cite{Schm94}, такие группы, на~самом деле, исчерпывают все алгебраические многообразия,
+глобально наследующие групповую структуру тора $(K^\times)$.
+
 Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
-обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$. Тогда справедлива следующая теорема \cite{Schm94}.
+обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
 
 \begin{theorem*}[Шмидт]
     Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
@@ -206,29 +223,52 @@ $$
     \end{cases}
 $$
 
-Как показывает следующая лемма, этот функтор~— строгий.
+Как показывает лемма \ref{lemma:faithful}, в~полях нулевой характеристики этот функтор~— строгий.
 
-\begin{lemma*}
+\begin{lemma}
+\label{lemma:infiniteMulOrder}
+    Пусть $K$~— поле, причём $\mathrm{char}(K) = 0$.
+    Тогда $K^\times$ содержит элемент бесконечного порядка.
+\end{lemma}
+
+\begin{proof}
+    Действительно, рассмотрим $2 = 1 + 1 \in K^\times$. Тогда для~всякого $n > 0$:
+    $$
+        2^n - 1 = (1 + 1)^n - 1 = \sum_{k = 0}^n C^n_k 1^k 1^{n - k} - 1
+                                = \sum_{k = 0}^n C^n_k \cdot 1 - 1
+                                = \left(\sum_{k = 1}^n C^n_k \right) \cdot 1.
+    $$
+
+    Справа имеем сумму $\sum_{k = 1}^n C^n_k > 0$ единиц. Поскольку $\mathrm{char}(K) = 0$,
+    она не равна нулю, то~есть $2^n - 1 \neq 0$.
+\end{proof}
+
+Как $e_i$ обозначим \textit{естественный базис} над~$\Z^k$, то~есть такой вектор, у~которого на~$i$-м месте единица, а~на~остальных~— нули.
+
+\begin{lemma}
+\label{lemma:faithful}
     $
-        \forall \alpha, \beta \in \Z^{n \times k}{:} \ \phi_\alpha = \phi_\beta \Leftrightarrow \alpha = \beta
+        \mathrm{char}(K) = 0 \Rightarrow \forall \alpha, \beta \in \Z^{n \times k}{:} \ \phi_\alpha = \phi_\beta \Leftrightarrow \alpha = \beta
     $.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
     Импликация справа налево очевидна.
 
-    Наоборот, пусть $\phi_\alpha = \phi_\beta$. Тогда для~всякого $1 \leq i \leq n$ верно, что
+    Наоборот, пусть $\phi_\alpha = \phi_\beta$. По~лемме \ref{lemma:infiniteMulOrder} зафиксируем
+    элемент $z \in K^\times$ бесконечного мультипликативного порядка.
+    Тогда для~всякого $1 \leq i \leq n$ верно, что
     $$
-        (e^{\alpha_1^i}, \ldots, e^{\alpha_k^i}) = \phi_\alpha(e \cdot e_i) = \phi_\beta(e \cdot e_i) = (e^{\beta_1^i}, \ldots, e^{\beta_k^i}).
+        (z^{\alpha_1^i}, \ldots, z^{\alpha_k^i}) = \phi_\alpha(z \cdot e_i) = \phi_\beta(z \cdot e_i) = (z^{\beta_1^i}, \ldots, z^{\beta_k^i}).
     $$
 
-    Таким образом, $e^{\alpha_j^i} = e^{\beta_j^i}$. $\alpha_j^i$ и~$\beta_j^i$ целочисленные, поэтому $\alpha_j^i = \beta_j^i$.
+    Таким образом, $z^{\alpha_j^i} = z^{\beta_j^i}$, то~есть $z^{\alpha_j^i - \beta_j^i} = 1$.
+    $z$ имеет бесконечный мультипликативный порядок, поэтому $\alpha_j^i - \beta_j^i = 0$.
 \end{proof}
 
-Нетрудно получить необходимое условия инъективности отображения $\phi_\alpha$.
+Нетрудно получить необходимое условие инъективности отображения $\phi_\alpha$.
 Для~этого $j$-ю компоненту вектора $\alpha_i$ обозначим как $\alpha_i^j$, а~вектор, состоящий
 из~$j$-х компонент, как $\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
-Как $e_i$ обозначим \textit{естественный базис} над~$\Z^k$, то~есть такой вектор, у~которого на~$i$-м месте единица, а~на~остальных~— нули.
 В~таком случае очевидно следующее утверждение.
 
 \begin{statement*}
@@ -270,7 +310,7 @@ $$
         \exists \varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}{:} \
         \beta_1 \alpha \beta_2 = \diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
     $$
-    причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ (так называемые инвариантные факторы).
+    причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ (так называемые инвариантные факторы) и~$r = \rank(\alpha)$.
 \end{theorem*}
 
 Поскольку числа $\varepsilon_1$, $\ldots$, $\varepsilon_r$ выбираются единственным образом с~точностью
@@ -495,7 +535,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 для~некоторого $\beta$. Заметим, что $\Pi(\beta)$ не~зависит от~выбора $\beta$ для~группы $H$.
 
 \begin{theorem}
-    Если $\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, то~$\Pi(\beta) = \Pi(\beta')$.
+    Если $\mathrm{char}(K) = 0$ и~$\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, то~$\Pi(\beta) = \Pi(\beta')$.
 \end{theorem}
 
 \begin{proof}
@@ -512,7 +552,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 
     $\image(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
     поэтому $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$.
-    В~силу функториальности, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
+    В~силу леммы \ref{lemma:faithful}, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
     Умножив обе части равенства на~матрицу
     $\diag(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$, получим, что $\delta' {\beta'}_2^{-1} \alpha = 0$;
     но~это значит, что $\ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
