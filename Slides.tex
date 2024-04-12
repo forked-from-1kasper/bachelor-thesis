@@ -1,0 +1,202 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{svg}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\divides}{\mid}
+
+\usetheme{Berlin}
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+\title{Алгебраические подгруппы комплексного тора}
+\author{Мишко Николай}
+\institute{Сибирский федеральный университет\\Институт математики и фундаментальной информатики}
+\date{\today}
+
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Понятие алгебраической группы}
+
+  Под~\textbf{алгебраическим многообразием} $H$ понимаем множество решений системы полиномиальных уравнений.
+
+  Говорим, что $H$ является \textbf{алгебраической группой}, если на~$H$ определена структура группы.
+
+  Известным примером являются эллиптические кривые.
+  \begin{columns}[c]
+    \begin{column}{0.3\textwidth}
+      \begin{figure}
+        \includesvg[width=1\textwidth]{Cubic.svg}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+  Рассмотрим подробнее алгебраические подгруппы $(\mathbb{C}^\times)^n$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Теорема Артина}
+
+  $G$~— группа, $K$~— поле, а~$K^{\times}$~— его мультипликативная группа.
+  Гомоморфизм $f : G \rightarrow K^{\times}$ называют \textbf{характером.}
+
+  Характеры $f_1, f_2, \ldots, f_n$ \textbf{линейно независимы,} если для~всех $\alpha_1, \alpha_2, \ldots, \alpha_n \in K$ выполнено:
+  $$
+      \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
+  $$
+
+  \begin{block}{Теорема (Артин)}
+    Любые $n$ попарно различных характеров линейно независимы.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Теорема Шмидта}
+
+  Для~$\alpha = (\alpha_1, \ldots, \alpha_n) \in \Z^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ пишем
+  $$
+    z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}
+  $$
+
+  Отображение $z \mapsto z^\alpha$ определяет характер $\chi_\alpha : (K^\times)^n \rightarrow K^\times$.
+
+  Всякий многочлен распадается в~сумму ($I \subseteq \Z^n$ конечно):
+  $$
+    P = \sum_{i \in I} a_i \chi_i
+  $$
+
+  \begin{block}{Теорема (Шмидт)}
+    Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
+    системой биномиальных уравнений.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Мономиальные параметризации}
+
+  Обозначим $\phi_\alpha(t) = (t^{\alpha_1}, t^{\alpha_2}, \ldots, t^{\alpha_n})$,
+  где $\alpha_1, \ldots, \alpha_n \in \Z^k$.
+
+  $$
+    \phi_\alpha =
+    \begin{pmatrix}
+        t_1 \\
+        t_2 \\
+        \vdots \\
+        t_k
+    \end{pmatrix} \mapsto
+    \begin{pmatrix}
+        t_1^{\alpha_1^1} \cdot t_2^{\alpha_1^2} \cdot \ldots \cdot t_k^{\alpha_1^k} \\
+        t_1^{\alpha_2^1} \cdot t_2^{\alpha_2^2} \cdot \ldots \cdot t_k^{\alpha_2^k} \\
+        \vdots \\
+        t_1^{\alpha_n^1} \cdot t_2^{\alpha_n^2} \cdot \ldots \cdot t_k^{\alpha_n^k}
+    \end{pmatrix}
+  $$
+
+  $\alpha \mapsto \phi_\alpha$ определяет строгий функтор $\mathrm{Matr}(\Z) \rightarrow \mathrm{Grp}$
+  в~полях нулевой характеристики.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Нормальная форма Смита}
+
+  \begin{block}{Теорема (о существовании нормальной формы Смита)}
+      Пусть $\alpha \in \Z^{m \times n}$~— матрица.
+      Тогда существуют такие матрицы $\beta_1 \in \GL^m(\Z)$
+      и~$\beta_2 \in \GL^n(\Z)$, что
+
+      $$
+      \exists \varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}{:} \
+      \beta_1 \alpha \beta_2 =
+      \begin{pmatrix}
+        \varepsilon_1 & \ldots & 0             & 0      & \ldots & 0      \\
+               \vdots & \ddots & \vdots        & \vdots & \ddots & \vdots \\
+                    0 & \ldots & \varepsilon_r & 0      & \ldots & 0      \\
+                    0 & \ldots & 0             & 0      & \ldots & 0      \\
+               \vdots & \ddots & \vdots        & \vdots & \ddots & \vdots \\
+                    0 & \ldots & 0             & 0      & \ldots & 0
+      \end{pmatrix} = \varepsilon,
+      $$
+      причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ и~$r = \mathrm{rank}(\alpha)$.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Инъективность мономиальной параметризации}
+
+  $\phi_\alpha$ распадается в~композицию: $\phi_{\beta_1^{-1}} \circ \phi_\varepsilon \circ \phi_{\beta_2^{-1}}$.
+
+  $\phi_{\beta_1^{-1}}$ и~$\phi_{\beta_2^{-1}}$~— биекции, поэтому инъективность $\phi_\alpha$ определяется инъективностью $\phi_\varepsilon$.
+
+  \begin{block}{Теорема}
+    Пусть $\alpha \in \Z^{n \times k}$~— матрица.
+    \begin{align*}
+                     \ & \phi_\alpha : (\mathbb{C}^\times)^k \rightarrow (\mathbb{C}^\times)^n\ \text{инъективно} \\
+      \Leftrightarrow\ & \varepsilon_1 = \varepsilon_r = \ldots = 1 \\
+      \Leftrightarrow\ & \alpha_i\ \text{порождают всю решётку}\ \Z^k
+    \end{align*}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Существование мономиальной параметризации}
+
+  Биномиальные уравнения можно переписать в~виде $\ker(\phi_\beta)$.
+
+  \begin{block}{Теорема}
+    $\mathrm{Im}(\phi_\alpha)$~— алгебраическая подгруппа тора.
+  \end{block}
+
+  $\omega_K(n)$~— группа корней из~единицы степени $n$ над~полем $K$.
+
+  Определим $\Pi(\beta) = |\omega_K(\varepsilon_1)| \cdot \ldots \cdot |\omega_K(\varepsilon_r)|$.
+
+  \begin{block}{Теорема}
+    Если $\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, то~$\Pi(\beta) = \Pi(\beta')$.
+  \end{block}
+
+  \begin{block}{Теорема}
+    Если $\Pi(H) = 1$, то для~$H$ существует мономиальная параметризация.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Существование мономиальной параметризации}
+
+  Для~алгебраической подгруппы тора $H \subseteq (\mathbb{C}^\times)^n$ рассмотрим компоненту
+  связности $H^\circ$, содержащую единицу.
+
+  \begin{block}{Теорема}
+    $H \subseteq (\mathbb{C}^\times)^n$ имеет $\Pi(H)$ компонент связности.
+  \end{block}
+
+  \begin{block}{Следствие}
+    Для~$H \subseteq (\mathbb{C}^\times)^n$ существует мономиальная параметризация
+    тогда и~только тогда, когда $H$ связно.
+  \end{block}
+
+  \begin{block}{Следствие}
+    Для~$H^\circ \subseteq (\mathbb{C}^\times)^n$ существует мономиальная параметризация.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \centering \Huge{Спасибо за внимание}
+\end{frame}
+
+\end{document}
