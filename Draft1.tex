@@ -244,6 +244,8 @@ $$
 \end{proof}
 
 Как $e_i$ обозначим \textit{естественный базис} над~$\Z^k$, то~есть такой вектор, у~которого на~$i$-м месте единица, а~на~остальных~— нули.
+$j$-ю компоненту вектора $\alpha_i$ обозначим как $\alpha_i^j$, а~вектор, состоящий из~$j$-х компонент,
+как $\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
 
 \begin{lemma}
 \label{lemma:faithful}
@@ -267,9 +269,7 @@ $$
 \end{proof}
 
 Нетрудно получить необходимое условие инъективности отображения $\phi_\alpha$.
-Для~этого $j$-ю компоненту вектора $\alpha_i$ обозначим как $\alpha_i^j$, а~вектор, состоящий
-из~$j$-х компонент, как $\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
-В~таком случае очевидно следующее утверждение.
+Для~этого заметим, что очевидно следующее утверждение.
 
 \begin{statement*}
     $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k \Leftrightarrow \forall i{:}\ e_i \in \Span_\Z(\alpha_1, \ldots, \alpha_n)$.
@@ -495,8 +495,8 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 
     Обратно, пусть $z \in \ker(\phi_\beta)$. Тогда $\phi_{\beta_1^{-1}} (\phi_{\varepsilon \beta_2^{-1}}(z)) = \phi_\beta(z) = 1$,
     откуда $\phi_{\varepsilon}(\phi_{\beta_2^{-1}}(z)) = \phi_{\varepsilon \beta_2^{-1}}(z) = \phi_{\beta_1}(1) = 1$.
-    Из~вида матрицы $\varepsilon$ получаем, что $\phi_{\beta_2^{-1}}(z) = (1, \ldots, 1, z_{k + 1}, \ldots, z_n) = \phi_\delta(z_{k + 1}, \ldots, z_n)$;
-    то~есть $z = \phi_{\beta_2}(\phi_\delta(z_{k + 1}, \ldots, z_n)) = \phi_\alpha(z_{k + 1}, \ldots, z_n)$.
+    Из~вида матрицы $\varepsilon$ получаем, что $\phi_{\beta_2^{-1}}(z) = (1, \ldots, 1, t_{k + 1}, \ldots, t_n) = \phi_\delta(t_{k + 1}, \ldots, t_n)$;
+    то~есть $z = \phi_{\beta_2}(\phi_\delta(t_{k + 1}, \ldots, t_n)) = \phi_\alpha(t_{k + 1}, \ldots, t_n)$ для~некоторых $t_j$.
     Таким образом, $z \in \image(\phi_\alpha)$, и~$\ker(\phi_\beta) \subseteq \image(\phi_\alpha)$.
 \end{proof}
 
