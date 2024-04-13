@@ -438,7 +438,8 @@ $\mathrm{Span}_\mathbb{Z}(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots
 \hfill$\Box$\medskip
 
 \medskip\noindent\textbf{Лемма 6.}\emph{
-    Всякое $\phi_\alpha$, где $\alpha \in \mathbb{Z}^{n \times k}$, представимо как некоторый образ $\mathrm{Im}(\phi_\beta)$.
+    $\phi_\alpha$, где $\alpha \in \mathbb{Z}^{n \times k}$, представимо как некоторый образ $\mathrm{Im}(\phi_\beta)$,
+    если отображения $g \mapsto g^{\varepsilon_i}$ сюръективны в~$G$ для~всех $\varepsilon_i$ из~$\mathrm{SNF}(\alpha)$.
 }\medskip
 
 \noindent{\it Доказательство.}
@@ -462,22 +463,23 @@ $\mathrm{Span}_\mathbb{Z}(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots
 \hfill$\Box$\medskip
 
 \medskip\noindent\textbf{Теорема 2.}\emph{
-    Всякая параметризация $\phi_\alpha$, где $\alpha \in \mathbb{Z}^{n \times k}$, задаёт алгебраическую подгруппу $(K^\times)^n$.
+    Всякая параметризация $\phi_\alpha$, где $\alpha \in \mathbb{Z}^{n \times k}$, задаёт алгебраическую подгруппу $(K^\times)^n$,
+    если поле $K$ алгебраически замкнуто.
 }\medskip
 
 Ответ на~второй вопрос несколько сложнее. Например, уравнение $z^n = 1$ задаёт алгебраическую
 группу для~любого $n \in \mathbb{Z}$, состоящую из~$n$ точек на~$\mathbb{C}^\times$; но~если $n \neq 0, \pm 1$,
 то~легко видеть, что она не~может быть параметризована никакой $\phi_\alpha$.
 
-Действительно, заметим, что группа $\mathrm{Im}(\phi_\alpha)$ изоморфна группе $(K^\times)^r$. В~доказательстве леммы~6 мы видели, что для~всякого $\phi_\alpha$
-можно построить инъективный $\phi_{\alpha'} : (K^\times)^r \rightarrow (K^\times)^n$ такой, что $\mathrm{Im}(\phi_\alpha) = \mathrm{Im}(\phi_{\alpha'})$;
+Действительно, заметим, что группа $\mathrm{Im}(\phi_\alpha)$ изоморфна группе $(\mathbb{C}^\times)^r$. В~доказательстве леммы~6 мы видели, что для~всякого $\phi_\alpha$
+можно построить инъективный $\phi_{\alpha'} : (\mathbb{C}^\times)^r \rightarrow (\mathbb{C}^\times)^n$ такой, что $\mathrm{Im}(\phi_\alpha) = \mathrm{Im}(\phi_{\alpha'})$;
 но~тогда $\phi_{\alpha'}$ и~задаёт искомый изоморфизм. Таким образом, верно следующее утверждение.
 
 \medskip\noindent\textbf{Утверждение.}\emph{
     Для~любой матрицы $\alpha \in \mathbb{Z}^{n \times k}$ группа $\mathrm{Im}(\phi_\alpha)$ изоморфна алгебраическому тору размерности не~более чем $k$.
 }\medskip
 
-Кроме того, поскольку отображение $\phi_{\alpha'}$ полиномиально, оно, в~частности, непрерывно в~естественной топологии на~$K = \mathbb{R}$ и~$K = \mathbb{C}$.
+Кроме того, поскольку отображение $\phi_{\alpha'}$ полиномиально, оно, в~частности, непрерывно в~естественной топологии на~$K = \mathbb{C}$.
 Множество $(\mathbb{C}^\times)^r$ связно, а, как известно, непрерывный образ связного множества связен, в~силу чего верно ещё одно утверждение.
 
 \medskip\noindent\textbf{Утверждение.}\emph{
