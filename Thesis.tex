@@ -34,6 +34,855 @@
 
 \section{Введение}
 
+<история вопроса?>
+
+Множество решений системы алгебраических уравнений и его обобщения~— проективные и~квазипроективные многообразия,
+схемы и~абстрактные алгебраические многообразия~— являются центральными объектами алгебраической геометрии.
+Особенный интерес представляют случаи, когда на~алгебраическом многообразии имеется дополнительная алгебраическая структура,
+например, группы. Такие объекты называются алгебраическими группами.
+
+\textbf{Алгебраической подгруппой} группы $G$ называется подгруппа, также являющася
+алгебраическим многообразием, то~есть задаваемая системой полиномиальных уравнений.
+
+Наиболее известным примером являются кубики~— плоские алгебраические кривые, задаваемые уравнением третьего порядка.
+Однако групповой закон на~эллиптических кривых устроен крайне нетривиально. Кроме того, часто важно сохранить структуру из~объемлющего пространства,
+к~примеру, из~алгебраического тора $(K^\times)^n$ для~поля $K$.
+
+Естественным примером такой алгебраической группы служит множество решений системы биномиальных уравнений вида
+$$
+    z_1^{\alpha_1} z_2^{\alpha_2} \ldots z_n^{\alpha_n} = z_1^{\beta_1} z_2^{\beta_2} \ldots z_n^{\beta_n}.
+$$
+
+Как показывает следующая теорема \cite{Schm94}, такие группы, на~самом деле, исчерпывают все алгебраические многообразия,
+глобально наследующие групповую структуру тора $(K^\times)$.
+
+Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
+обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
+
+\begin{theorem*}[Шмидт]
+    Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
+    системой некоторого числа $N$ биномиальных уравнений, то~есть существуют $N$ таких показателей $\alpha_i, \beta_i \in \mathbb{Z}^n$, что
+    $$
+        H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N{:}\ z^{\alpha_i} = z^{\beta_i} \}.
+    $$
+\end{theorem*}
+
+Для~её доказательства нам понадобится вспомогательное утверждение \cite{Art48}.
+
+\section{Теорема Артина}
+
+Множество гомоморфизмов между группами $G$ и~$H$ обозначим как~$\Hom(G, H)$.
+
+Пусть $G$~— группа, $K$~— поле, а~$K^{\times}$~— его мультипликативная группа.
+В~таком случае произвольный гомоморфизм $f \in \Hom(G, K^{\times})$ называют \textbf{характером.}
+Говорят, что характеры $f_1, f_2, \ldots, f_n$ \textbf{линейно независимы,}
+если
+$$
+    \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K{:}\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
+$$
+
+\begin{theorem*}[Артин]
+    Любые $n$ попарно различных характеров линейно независимы.
+\end{theorem*}
+
+\begin{proof}
+
+Докажем индукцией по~числу характеров $n$.
+
+Возьмём произвольный характер $f$. Поскольку он является гомоморфизмом,
+то~$f(1_G) = 1$, где $1_G$~— единица в~группе $G$. Но~тогда если $\alpha f = 0$,
+то~и~$\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$, что доказывает базу индукции.
+
+Пусть теперь утверждение теоремы верно для~любых $n$ различных характеров. Докажем его для~$(n + 1)$ характера.
+Пусть $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
+
+Зафиксируем произвольный $y \in G$. Тогда для~любого $x \in G$ имеем:
+\begin{equation}\label{Artin:first}
+    \alpha_1 f_1(yx) + \alpha_2 f_2(yx) + \ldots + \alpha_n f_n(yx) + \alpha_{n + 1} f_{n + 1}(yx) = 0
+\end{equation}
+
+Поскольку все $f_i$~— гомоморфизмы, $f_i(yx) = f_i(y) f_i(x)$, а~потому:
+$$
+    \alpha_1 f_1(y) f_1(x) + \alpha_2 f_2(y) f_2(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+$$
+
+С~другой стороны, для~$x \in G$ также верно, что:
+$$
+    \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0
+$$
+
+Умножим это равенство на~$f_{n + 1}(y)$:
+\begin{equation}\label{Artin:second}
+    \alpha_1 f_{n + 1}(y) f_1(x) + \alpha_2 f_{n + 1}(y) f_2(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+\end{equation}
+
+Вычитая \eqref{Artin:first} из~\eqref{Artin:second}, получаем:
+$$
+    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0
+$$
+
+Тогда, в~силу произвольности $x$, получаем линейную комбинацию $n$ характеров:
+$$
+    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0
+$$
+
+Но~в~таком случае, по~индуктивной гипотезе, $\alpha_i (f_{n + 1}(y) - f_i(y)) = 0$.
+Теперь, выбрав для~каждого $i = 1, \ldots, n$ такое $y$, что $f_{n + 1}(y) \neq f_i(y)$
+(это возможно, потому~что, по~условию теоремы, все $f_i$ попарно различны), получим,
+что $\alpha_1 = \alpha_2 = \ldots = \alpha_n = 0$.
+
+Таким образом, с~учётом вышесказанного, $\alpha_{n + 1} f_{n + 1} = \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
+Согласно базе индукции, $\alpha_{n + 1} = 0$.
+
+\end{proof}
+
+\section{Доказательство теоремы Шмидта}
+
+\begin{proof}
+  Пусть $I \subseteq \mathbb{Z}^n$~— конечное множество индексов,
+  а~$P_j(z) = \sum_{i \in I} a_{ji} z^i$~— многочлены ($k$ штук), задающие подгруппу:
+  $$
+      H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
+  $$
+
+  Поскольку $z_1^{i} z_2^{i} = (z_1 z_2)^i$, отображение $z \mapsto z^i$ определяет
+  характер $\chi_i \in \Hom(H, K^{\times})$.
+
+  Рассмотрим на~множестве $I$ отношение эквивалентности $i \sim j \Leftrightarrow \chi_i = \chi_j$.
+  Оно разбивает $I$ на~$m$ классов $I_1$, $I_2$, …, $I_m$. В~таком случае, для~всех $i_1, i_2 \in I_j$ верно, что $\chi_{i_1} = \chi_{i_2}$.
+  Обозначим этот характер, соответствующий каждому $I_k$, как $\chi_k = \chi_{i_1} = \chi_{i_2}$.
+
+  Собрав подобные слагаемые при~каждом $\chi_k$ в~многочленах $P_j$, получим:
+  $$
+      P_j = \sum_{i \in I} a_{ji} \chi_i = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k.
+  $$
+
+  Но~$P_j$ равны нулю на~всём $H$, поэтому:
+  $$
+  \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k = 0.
+  $$
+
+  Все $\chi_k$ попарно различны по~их заданию, поэтому к~ним применима теорема Артина. Из~неё заключаем, что:
+  $$
+  \sum_{i \in I_k} a_{ji} = 0.
+  $$
+
+  Наконец, пусть $N_k$~— мощность $I_k$, $I_k = \{i_{k, 1}, i_{k, 2}, \ldots, i_{k, N_k}\}$ и~$N = \sum_{k = 1}^m (N_k - 1)$.
+  $I_k$ были взяты так, что характеры $\chi_{i_{k, i}}$ и~$\chi_{i_{k, j}}$ совпадают на~$H$ для~фиксированного $k$ и~любых $i$ и~$j$.
+  Другими словами, это означает, что всякий элемент $z \in H$ удовлетворяет для~всех $1 \leq i \leq N_k$ и~$1 \leq j \leq N_k$
+  уравнениям $z^{i_{k, i}} = z^{i_{k, j}}$.
+
+  Поскольку равенство рефлексивно, симметрично и~транзитивно, система всех уравнений $z^{i_{k, i}} = z^{i_{k, j}}$ равносильна
+  системе $N$ уравнений, составленной из~подряд идущих индексов:
+  $$
+      z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}, \ldots, z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}, z^{i_{2, 1}} = z^{i_{2, 2}}, \ldots, z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}.
+  $$
+  Множество решений этой системы обозначим как $A$.
+
+  Покажем, что $A$ совпадает с~$H$. Действительно, пусть $z \in H$. Тогда, как уже отмечалось выше,
+  по построению $I_k$ выполнено $z^{i_{k, j}} = \chi_k(z) = z^{i_{k, j + 1}}$; то~есть $z \in A$, и~$H \subseteq A$.
+
+  Наоборот, пусть $z \in A$. Тогда, по~заданию $A$, $z^{i_{k, j_1}} = z^{i_{k, j_1 + 1}} = \ldots = z^{i_{k, j_2 - 1}} = z^{i_{k, j_2}}$
+  для~любых $1 \leq j_1 \leq j_2 \leq N_k$. Выберем в~каждом $I_k$ по~представителю $i_k \in I_k$ и~соберём подобные слагаемые:
+  $$
+      P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0,
+  $$
+  что означает $z \in H$, то~есть $A \subseteq H$.
+
+  Таким образом, $H = A$, поэтому в~качестве $\alpha_i$ и~$\beta_i$ достаточно взять подряд идущие индексы во~всех $I_k$.
+\end{proof}
+
+\section{Инъективность мономиальных параметризаций}
+
+Для~абелевой группы $G$ и~векторов $\alpha_1, \ldots, \alpha_n \in \Z^k$ рассмотрим отображение $\phi_\alpha(t) = (t^{\alpha_1}, t^{\alpha_2}, \ldots, t^{\alpha_n})$
+из~$G^k$ в~$G^n$, где $\alpha$~— матрица со~строками $\alpha_i$. Поскольку $(t_1 \cdot t_2)^{\alpha_i} = t_1^{\alpha_i} \cdot t_2^{\alpha_i}$,
+$\phi_\alpha$~— гомоморфизм.
+
+Далее увидим, что если $K$~— поле, то~отображение $\phi_\alpha$ для~группы $G = K^\times$ задаёт \textit{параметризацию} некоторой алгебраической группы.
+
+\begin{statement*}
+    $\phi_{E} = 1_{G^n}$, где $E$~— единичная матрица $n \times n$, $1_X$~— тождественная функция на~множестве $X$.
+\end{statement*}
+
+\begin{statement*}
+    $
+        \forall \alpha \in \Z^{k \times m}, \beta \in \Z^{m \times n}{:}\ \phi_\alpha \circ \phi_\beta = \phi_{\alpha \beta}
+    $.
+\end{statement*}
+
+\begin{proof}
+    Действительно, рассмотрим $t \in G^n$. Тогда $i$-я компонента $\phi_\alpha(\phi_\beta(t))$
+    равна $\phi_\beta^{\alpha_i}(t) = (t^{\beta_1})^{\alpha_i^1} \ldots (t^{\beta_m})^{\alpha_i^m}
+                                    = t_1^{\beta_1^1 \alpha_i^1 + \ldots + \beta_m^1 \alpha_i^m}
+                                      \ldots
+                                      t_n^{\beta_1^n \alpha_i^1 + \ldots + \beta_m^n \alpha_i^m}
+                                    = t^{(\alpha \beta)_i}$.
+\end{proof}
+
+Вместе эти два утверждения составляют условие на~функториальность. Более точно, рассмотрим категорию
+$\mathrm{Matr}(R)$ матриц над~кольцом $R$, объектами которой являются натуральные числа, а~стрелками
+между числами $m$ и~$n$~— матрицы $R^{n \times m}$, и~категорию $\mathrm{Grp}$ малых групп,
+объектами которой являются малые группы, а~стрелками~— гомоморфизмы между ними.
+Тогда определён функтор $\phi : \mathrm{Matr}(\Z) \rightarrow \mathrm{Grp}$:
+$$
+    \phi = \begin{cases}
+        k \mapsto G^k; \\
+        \alpha \mapsto \phi_\alpha.
+    \end{cases}
+$$
+
+Как показывает лемма \ref{lemma:faithful}, в~полях нулевой характеристики этот функтор~— строгий.
+
+\begin{lemma}
+\label{lemma:infiniteMulOrder}
+    Пусть $K$~— поле, причём $\mathrm{char}(K) = 0$.
+    Тогда $K^\times$ содержит элемент бесконечного порядка.
+\end{lemma}
+
+\begin{proof}
+    Действительно, рассмотрим $2 = 1 + 1 \in K^\times$. Тогда для~всякого $n > 0$:
+    $$
+        2^n - 1 = (1 + 1)^n - 1 = \sum_{k = 0}^n C^n_k 1^k 1^{n - k} - 1
+                                = \sum_{k = 0}^n C^n_k \cdot 1 - 1
+                                = \left(\sum_{k = 1}^n C^n_k \right) \cdot 1.
+    $$
+
+    Справа имеем сумму $\sum_{k = 1}^n C^n_k > 0$ единиц. Поскольку $\mathrm{char}(K) = 0$,
+    она не равна нулю, то~есть $2^n - 1 \neq 0$.
+\end{proof}
+
+Как $e_i$ обозначим \textit{естественный базис} над~$\Z^k$, то~есть такой вектор, у~которого на~$i$-м месте единица, а~на~остальных~— нули.
+$j$-ю компоненту вектора $\alpha_i$ обозначим как $\alpha_i^j$, а~вектор, состоящий из~$j$-х компонент,
+как $\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
+
+\begin{lemma}
+\label{lemma:faithful}
+    $
+        \mathrm{char}(K) = 0 \Rightarrow \forall \alpha, \beta \in \Z^{n \times k}{:} \ \phi_\alpha = \phi_\beta \Leftrightarrow \alpha = \beta
+    $.
+\end{lemma}
+
+\begin{proof}
+    Импликация справа налево очевидна.
+
+    Наоборот, пусть $\phi_\alpha = \phi_\beta$. По~лемме \ref{lemma:infiniteMulOrder} зафиксируем
+    элемент $z \in K^\times$ бесконечного мультипликативного порядка.
+    Тогда для~всякого $1 \leq i \leq n$ верно, что
+    $$
+        (z^{\alpha_1^i}, \ldots, z^{\alpha_k^i}) = \phi_\alpha(z \cdot e_i) = \phi_\beta(z \cdot e_i) = (z^{\beta_1^i}, \ldots, z^{\beta_k^i}).
+    $$
+
+    Таким образом, $z^{\alpha_j^i} = z^{\beta_j^i}$, то~есть $z^{\alpha_j^i - \beta_j^i} = 1$.
+    $z$ имеет бесконечный мультипликативный порядок, поэтому $\alpha_j^i - \beta_j^i = 0$.
+\end{proof}
+
+Нетрудно получить необходимое условие инъективности отображения $\phi_\alpha$.
+Для~этого заметим, что очевидно следующее утверждение.
+
+\begin{statement*}
+    $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k \Leftrightarrow \forall i{:}\ e_i \in \Span_\Z(\alpha_1, \ldots, \alpha_n)$.
+\end{statement*}
+
+\begin{lemma}
+    Если $\alpha_i \in \Z^k$ порождают всю решётку, то~$\phi_\alpha$ инъективно.
+\end{lemma}
+
+\begin{proof}
+    $\phi_\alpha$~— гомоморфизм, потому достаточно показать, что $\ker(\phi_\alpha) = \{1\}$.
+    Возьмём $t \in G^k$ такой, что $\phi_\alpha(t) = 1$, и~докажем, что $t = 1$.
+
+    Действительно, поскольку $\alpha_i$ порождают всю решётку, каждый $e_j$ выражается как линейная комбинация векторов $\alpha_i$:
+    $$
+        e_j = b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n.
+    $$
+
+    $\phi_\alpha(t) = 1$ означает, что $t^{\alpha_i} = 1$ для~всех $1 \leq i \leq n$.
+    Зафиксируем $1 \leq j \leq k$ и~возведём это равенство в~степень $b^j_i$: $t^{b^j_i \alpha_i} = (t^{\alpha_i})^{b^j_i} = 1^{b^j_i} = 1$.
+    Наконец, перемножим полученные равенства:
+    $$
+        t_j = t^{e_j} = t^{b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n} = t^{b^j_1 \alpha_1} \ldots t^{b^j_n \alpha_n} = 1 \cdot \ldots \cdot 1 = 1,
+    $$
+    что и~требовалось.
+\end{proof}
+
+\noindent\textbf{Пример.} $(t_1, t_2) \mapsto (t_1^2 t_2^3, t_1 t_2^2)$ инъективно над~$\complex$,
+поскольку $(1, 0) = 2 \cdot (2, 3) + (-3) \cdot (1, 2)$ и~$(0, 1) = -1 \cdot (2, 3) + 2 \cdot (1, 2)$.
+\medskip
+
+Теперь покажем, что полученное в~лемме небходимое условие является также и~достаточным для~группы $G = \torus$.
+
+Будем пользоваться существованием для~целочисленных матриц \textit{нормальной формы Смита} \cite{Smth60}.
+Пусть $\diag^{m \times n}_r(x_1, \ldots, x_r)$~— диагональная матрица $\diag(x_1, \ldots, x_r)$,
+дополненная (или обрезанная) справа снизу нулями до~матрицы размера $m \times n$.
+
+\begin{theorem*}[о существовании нормальной формы Смита]
+    $$
+        \forall \alpha \in \Z^{m \times n}{:}\
+        \exists \beta_1 \in \GL^m(\Z), \beta_2 \in \GL^n(\Z){:} \
+        \exists \varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}{:} \
+        \beta_1 \alpha \beta_2 = \diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
+    $$
+    причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ (так называемые инвариантные факторы) и~$r = \rank(\alpha)$.
+\end{theorem*}
+
+Поскольку числа $\varepsilon_1$, $\ldots$, $\varepsilon_r$ выбираются единственным образом с~точностью
+до~обратимого элемента, то~есть в~случае $\Z$ с~точностью до~$\pm 1$, можем всегда выбрать их положительными.
+Для~них матрицу $\diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$ обозначим как $\SNF(\alpha)$.
+
+Помимо этого, с~учётом функториальности $\phi$, ясно, что $\phi_\beta$ биективно, если $\beta \in \GL^n(\Z)$.
+Действительно, $\phi_\beta \circ \phi_{\beta^{-1}} = \phi_{\beta \beta^{-1}} = \phi_E = 1_{(K^\times)^n}$
+и~$\phi_{\beta^{-1}} \circ \phi_\beta = \phi_{\beta^{-1} \beta} = \phi_E = 1_{(K^\times)^n}$.
+Поэтому имеет место следующая лемма.
+
+\begin{lemma}
+\label{lemma:injectivityOutOfSNF}
+    $\phi_\alpha : (\complex^\times)^k \rightarrow (\complex^\times)^n$ инъективна тогда и~только тогда, когда
+    $$
+        \SNF(\alpha) = \diag^{n \times k}_k(1, 1, \ldots, 1).
+    $$
+\end{lemma}
+
+\begin{proof}
+    Пользуясь теоремой, возьмём унимодулярные матрицы $\beta_1 \in \GL^n(\Z)$ и~$\beta_2 \in \GL^k(\Z)$
+    такие, что $\beta_1 \alpha \beta_2 = \SNF(\alpha)$.
+    В~таком случае, $\alpha = \beta_1^{-1} \SNF(\alpha) \beta_2^{-1}$, и~$\phi_\alpha = \phi_{\beta_1^{-1} \SNF(\alpha) \beta_2^{-1}}
+                                                                                      = \phi_{\beta_1^{-1}} \circ \phi_{\SNF(\alpha)} \circ \phi_{\beta_2^{-1}}$.
+
+    Поскольку, по~замечанию выше, $\phi_{\beta_1^{-1}}$ и~$\phi_{\beta_2^{-1}}$ биективны, то~$\phi_\alpha$
+    инъективно тогда и~только тогда, когда инъективно $\phi_{\mathrm{SNF(\alpha)}}$.
+
+    $\phi_{\mathrm{SNF(\alpha)}}(t_1, \ldots, t_k) = (t_1^{\varepsilon_1}, \ldots, t_r^{\varepsilon_r}, 1, \ldots, 1)$,
+    но~$t \mapsto t^\varepsilon$ инъективно над~$\complex^\times$ только в~случае $\varepsilon = \pm 1$
+    (иначе $t^\varepsilon = t^\varepsilon \cdot 1 = t^\varepsilon \cdot u^\varepsilon = (tu)^\varepsilon$,
+     где~$u \neq 1$~— нетривиальный корень из~единицы степени $\varepsilon$).
+    В~силу выбора знаков, $\phi_{\mathrm{SNF(\alpha)}}$ инъективна лишь когда $\varepsilon_1 = \ldots = \varepsilon_r = 1$
+    и~$r = k \leq n$, что и~требовалось.
+\end{proof}
+
+Сформулируем ещё одну вспомогательную теорему \cite{TsikhSad14}.
+Обозначим \textit{$\Z$-линейную оболочку} векторов $\alpha_1, \ldots, \alpha_n$ как
+$\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1, \ldots, k_n \in \Z \}$.
+
+Говорим, что $\alpha_1, \ldots, \alpha_n$ \textit{порождают всю решётку} $\Z^k$, если $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k$.
+
+\begin{theorem}
+\label{theorem:TsikhSadykov}
+    Пусть $\alpha \in \Z^{n \times k}$. Следующие утверждения равносильны:
+    \begin{enumerate}
+        \item Строки матрицы $\alpha$ порождают всю решётку $\Z^k$.
+        \item Миноры максимальной размерности матрицы $\alpha$ взаимно просты.
+        \item $\SNF(\alpha) = \diag^{n \times k}_k(1, \ldots, 1)$.
+    \end{enumerate}
+\end{theorem}
+
+Таким образом, из~леммы \ref{lemma:injectivityOutOfSNF} и~теоремы \ref{theorem:TsikhSadykov}
+получаем необходимое и~достаточное условие инъективности $\phi_\alpha$.
+
+\begin{theorem*}
+    $\phi_\alpha$ инъективно над~полем $K = \complex$ тогда и~только тогда, когда~$\alpha_i$ порождают всю решётку $\Z^k$.
+\end{theorem*}
+
+\section{Мономиальная параметризуемость алгебраических групп}
+
+Как и~в~случае теории кривых и~поверхностей, говорим, что подгруппа алгебраического тора \textit{параметризуется,}
+если она представима как образ некоторого отображения. Аналогично, подгруппа \textit{параметризуется мономиально,}
+если она представима как образ отображения $\phi_\alpha$ для~некоторой матрицы $\alpha$.
+
+Поскольку $\phi_\alpha$~— гомоморфизм, образ $\image(\phi_\alpha)$ является подгруппой в~$(K^\times)^n$.
+Изучим два вопроса: является~ли $\image(\phi_\alpha)$ алгебраической подгруппой и~всякая~ли алгебраическая подгруппа задаётся некоторым $\phi_\alpha$.
+
+Для~этого, прежде всего, заметим, что система биномиальных уравнений $z^{\beta'_i} = z^{\beta''^i}$ эквивалентна
+системе $z^{\beta'_i - \beta''_i} = 1$, то~есть в~точности ядру оператора $\phi_{\beta'_i - \beta''_i}$;
+поэтому первый вопрос эквивалентен тому, можно~ли данный гомоморфизм $\phi_\alpha$ достроить
+до~точной последовательности $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xrightarrow[]{\phi_\beta} (K^\times)^m$.
+
+\begin{lemma}
+\label{lemma:leftInvExactSequence}
+    Пусть $G$~— группа, $H$~— абелева группа, $f \in \Hom(G, H)$, $g \in \Hom(H, G)$ и~$g \circ f = 1_G$.
+    Тогда последовательность $G \xrightarrow[]{f} H \xrightarrow[]{f \circ g - 1_H} H$ точна.
+\end{lemma}
+
+\begin{proof}
+    Действительно, $(f \circ g - 1_H) \circ f = f \circ g \circ f - f = f - f = 0$, то~есть $\image(f) \subseteq \ker(f \circ g - 1_H)$. 
+    Обратно, пусть $h \in \ker(f \circ g - 1_H)$. Тогда $f(g(h)) - h = 0 \Leftrightarrow h = f(g(h))$, то~есть $h \in \image(f)$,
+    и~$\ker(f \circ g - 1_H) \subseteq \image(f)$.
+\end{proof}
+
+\begin{lemma}
+    $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, представимо как некоторый образ $\image(\phi_\beta)$,
+    если отображения $g \mapsto g^{\varepsilon_i}$ сюръективны в~$G$ для~всех $\varepsilon_i$ из~$\SNF(\alpha)$.
+\end{lemma}
+
+\begin{proof}
+    Снова представим $\alpha$ в~виде $\alpha = \beta_1^{-1} \varepsilon \beta_2^{-1}$, где
+    $$
+        \varepsilon = \SNF(\alpha) = \diag^{n \times k}_r(\varepsilon_1, \ldots, \varepsilon_r).
+    $$
+
+    Рассмотрим $\delta = \diag^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
+    $\phi_{\alpha'}$ инъективна как композиция инъективных функций. С~другой стороны, очевидно, что:
+    $$
+        \image(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} (G^k)))
+                            = \phi_{\beta_1^{-1}} (\phi_\varepsilon (G^k))
+                            = \phi_{\beta_1^{-1}} (\phi_{\delta} (G^r))
+                            = \image(\phi_{\alpha'}).
+    $$
+
+    Нетрудно видеть, что $\alpha'$ имеет левой обратной матрицу $\beta' = \delta^{\top} \beta$,
+    а~потому гомоморфизм $\phi_{\alpha'}$ имеет левым обратным гомоморфизм $\phi_{\beta'}$.
+    Поскольку $(\phi_{\alpha'} \circ \phi_{\beta'}) \phi_{-E} = \phi_{\alpha' \beta' - E}$, остаётся лишь применить лемму \ref{lemma:leftInvExactSequence}.
+\end{proof}
+
+\begin{theorem}
+    Всякая параметризация $\phi_\alpha$, где $\alpha \in \Z^{n \times k}$, задаёт алгебраическую подгруппу $(K^\times)^n$,
+    если поле $K$ алгебраически замкнуто.
+\end{theorem}
+
+\noindent\textbf{Пример.} Над~алгебраически незамкнутым полем теорема не~выполняется: образ $t \mapsto t^2$ над~$\R$
+представляет собой положительный луч $\R_{>0}$. Как известно, множество корней вещественного мночлена либо конечно,
+либо совпадает со~всем $\R$, поэтому указанная параметризация не~определяет алгебраическое множество.
+\medskip
+
+Ответ на~второй вопрос несколько сложнее. Например, уравнение $z^n = 1$ задаёт алгебраическую
+группу для~любого $n \in \Z$, состоящую из~$n$ точек на~$\complex^\times$; но~если $n \neq 0, \pm 1$,
+то~легко видеть, что она не~может быть параметризована никакой $\phi_\alpha$.
+
+Действительно, $\phi_\alpha$~— голоморфное отображение, $(\complex^\times)^k$~— открытое множество,
+поэтому всякая проекция полного образа $\image(\phi_\alpha) = \phi_\alpha((\complex^\times)^k)$ либо, в~силу
+открытости непостоянных голоморфных отображений, открыта, либо состоит из~одной точки; но~$z^n = 1$
+открыто, только если $n = 0$, и~состоит из~одной точки, только если $n = \pm 1$.
+
+Более того, из~этих рассуждений видно, что~по~всякой системе биномиальных уравнений можно построить новую систему,
+которая гарантированно не~параметризуется мономиально, возведя, например, произвольное уравнение в~степень $n > 1$.
+
+Чтобы понять, при~каких условиях существует мономиальная параметризация, сначала заметим, что группа $\image(\phi_\alpha)$
+изоморфна группе $(\torus)^r$. Действительно, в~доказательстве теоремы мы видели, что для~всякого $\phi_\alpha$
+можно построить инъективный $\phi_{\alpha'} : (\torus)^r \rightarrow (\torus)^n$ такой, что $\image(\phi_\alpha) = \image(\phi_{\alpha'})$;
+но~тогда $\phi_{\alpha'}$ и~задаёт искомый изоморфизм. Таким образом, верно следующее утверждение.
+
+\begin{statement*}
+    Для~любой матрицы $\alpha \in \Z^{n \times k}$ группа $\image(\phi_\alpha)$ изоморфна алгебраическому тору размерности не~более чем $k$.
+\end{statement*}
+
+Кроме того, поскольку отображение $\phi_{\alpha'}$ полиномиально, оно, в~частности, непрерывно в~естественной топологии на~$K = \complex$.
+Множество $(\complex^\times)^r$ связно, а, как известно, непрерывный образ связного множества связен, в~силу чего верно ещё одно утверждение.
+
+\begin{statement*}
+    $\image(\phi_\alpha) \subseteq (\complex^\times)^n$ связно.
+\end{statement*}
+
+Теперь отметим, что группа $z^n = 1$ связна в~точности тогда, когда $n = 0, \pm 1$.
+Это соображение указывает на~то, что критерием существования мономиальной параметризации
+для~алгебраической подгруппы тора является связность.
+
+Группу корней степени $n$ из~единицы, задаваемую уравнением $z^n = 1$ в~поле $K$, обозначим как $\omega_K(n) \subseteq K^\times$.
+Для~вектора $x \in \Z^k$ также обозначим $\omega_K(x) = \omega_K(x_1) \times \ldots \times \omega_K(x_k) \subseteq (K^\times)^k$.
+Для~краткости будем писать $\omega(x) = \omega_\complex(x)$. Известно, что группа $\omega(x)$ изоморфна
+группе $\Z / x_1 \Z \times \ldots \times \Z / x_k \Z$.
+
+Чтобы доказать описанный выше критерий, рассмотрим число $\Pi(\alpha) = |\omega_K(\varepsilon)|$, где $|G|$~— порядок группы $G$.
+$|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)| \cdot \ldots \cdot |\omega_K(\varepsilon_r)|$.
+Так как $\omega(n)$ изоморфно $\Z / n \Z$, в~случае поля $K = \complex$ выполняется
+равенство $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
+
+\begin{lemma}
+\label{lemma:exactOutOfPi}
+    Если $\Pi(\beta) = 1$, то~существует такое $\alpha$, что $\ker(\phi_\beta) = \image(\phi_\alpha)$.
+\end{lemma}
+
+\begin{proof}
+    Пусть $H = \ker(\phi_\beta)$. Без~потери общности считаем, что строки матрицы $\beta$ линейно независимы над~$\Z$
+    (ясно, что строки, выражающиеся как линейная комбинация остальных строк, можно убрать из~матрицы $\beta$ без~изменения ядра).
+
+    Запишем для~$\beta$ нормальную форму Смита: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$.
+    Поскольку, по~замечанию выше, $\beta$ имеет полный ранг, матрица $\varepsilon$ не~имеет нулевых строк.
+    Кроме того, $\Pi(\beta) = 1$, поэтому $|\omega_K(\varepsilon_i)| = 1$, то~есть уравнения $z^{\varepsilon_i} = 1$
+    имеют решением только $z = 1$.
+
+    Ядро $\varepsilon$ задаётся векторами вида $(0, \ldots, 0, t_{k + 1}, \ldots, t_{n})$.
+    Рассмотрим матрицу $\delta \in \Z^{n \times (n - k)}$, соответствующую линейному оператору
+    $$
+        (t_1, \ldots, t_{n - k}) \mapsto (0, \ldots, 0, t_1, \ldots, t_{n - k}).
+    $$
+
+    Пусть также $\alpha = \beta_2 \delta$. Докажем, что $\image(\phi_\alpha) = \ker(\phi_\beta)$.
+
+    Действительно, по~заданию $\delta$, $\varepsilon \delta = 0$, поэтому 
+    $\phi_{\beta} \circ \phi_{\alpha} = \phi_{\beta_1^{-1} \varepsilon \beta_2^{-1} \beta_2 \delta} = \phi_{\beta_1^{-1} \varepsilon \delta} = \phi_{0} = 1$,
+    то~есть $\image(\phi_{\alpha}) \subseteq \ker(\phi_{\beta})$.
+
+    Обратно, пусть $z \in \ker(\phi_\beta)$. Тогда $\phi_{\beta_1^{-1}} (\phi_{\varepsilon \beta_2^{-1}}(z)) = \phi_\beta(z) = 1$,
+    откуда $\phi_{\varepsilon}(\phi_{\beta_2^{-1}}(z)) = \phi_{\varepsilon \beta_2^{-1}}(z) = \phi_{\beta_1}(1) = 1$.
+    Из~вида матрицы $\varepsilon$ получаем, что $\phi_{\beta_2^{-1}}(z) = (1, \ldots, 1, t_{k + 1}, \ldots, t_n) = \phi_\delta(t_{k + 1}, \ldots, t_n)$;
+    то~есть $z = \phi_{\beta_2}(\phi_\delta(t_{k + 1}, \ldots, t_n)) = \phi_\alpha(t_{k + 1}, \ldots, t_n)$ для~некоторых $t_j$.
+    Таким образом, $z \in \image(\phi_\alpha)$, и~$\ker(\phi_\beta) \subseteq \image(\phi_\alpha)$.
+\end{proof}
+
+\begin{theorem}
+\label{theorem:connectedComponentsNumbers}
+    Число связных компонент $\ker(\phi_\beta) \subseteq (\torus)^n$ равно $\Pi(\beta)$.
+\end{theorem}
+
+\begin{proof}
+    Снова рассмотрим нормальную форму Смита для~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
+    $\phi_{\beta_1^{-1}}$~— изоморфизм, поэтому $\ker(\phi_{\beta}) = \ker(\phi_{\varepsilon \beta_2^{-1}})$.
+
+    Строки матрицы $\beta_2^{-1}$ обозначим как $b_i$.
+    Для~вектора $u \in \omega(\varepsilon)$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
+    Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \omega(\varepsilon){:}\ z \in H_u$.
+    Ясно, что множества $H_u$ дизъюнктны, поэтому $\ker(\phi_{\beta})$ распадается в~дизъюнктное объединение:
+    $$
+        \ker(\phi_{\beta}) = \bigsqcup_{u \in \omega(\varepsilon)} H_u.
+    $$
+
+    Векторов $u \in \omega(\varepsilon)$ ровно $\Pi(\beta)$ штук, поэтому достаточно показать, что каждая компонента $H_u$ связна.
+
+    Поскольку, по~определению, $H_1 = \ker(\phi_{\delta \beta_2^{-1}})$, где $\delta = \diag^{k \times n}_r(1, \ldots, 1)$,
+    и~$\Pi(\delta \beta_2^{-1}) = 1$, компонента $H_1$, по~замечанию, связна.
+
+    Зафиксировав $u$, рассмотрим матрицу $\tau = \diag(1 / u_1, \ldots, 1 / u_r, 1, \ldots, 1)$ и~отображение $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
+    $\psi$~— непрерывная биекция, причём $\psi^{-1} = \phi_{\beta_2} \circ \phi_{\tau^{-1}} \circ \phi_{\beta_2^{-1}}$.
+
+    По~определению, $\phi_{\beta_2^{-1}}(\psi(z)) = \phi_{\tau \beta_2^{-1}}(z)$.
+    Поэтому если $z \in H_u$, то~$\psi(z)^{b_i} = z^{b_i} / u_i = u_i / u_i = 1$. Обратно, если $z \in H_1$,
+    то~$\psi^{-1}(z)^{b_i} = u_i z^{b_i} = u_i$. Таким образом, $\psi(H_u) = H_1$,
+    то~есть $H_u$ гомеоморфно $H_1$, но~$H_1$ связно.
+\end{proof}
+
+Как мы видели ранее, всякая алгебраическая подгруппа $H$ тора $(K^\times)^n$ представляется как $\ker(\phi_\beta)$
+для~некоторого $\beta$. Заметим, что $\Pi(\beta)$ не~зависит от~выбора $\beta$ для~группы $H$.
+
+\begin{theorem}
+    Если $\mathrm{char}(K) = 0$ и~$\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, то~$\Pi(\beta) = \Pi(\beta')$.
+\end{theorem}
+
+\begin{proof}
+    Запишем нормальные формы Смита: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$
+    и~$\beta' = {\beta'}_1^{-1} \varepsilon' {\beta'}_2^{-1}$.
+    Тогда $\ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\beta}) = \ker(\phi_{\beta'}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$.
+
+    Пусть $\varepsilon = \diag^{k \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$
+    и~$\varepsilon' = \diag^{k' \times n}_{r'}(\varepsilon'_1, \ldots, \varepsilon'_r)$.
+    Обозначим $\delta = \diag^{k \times n}_r(1, \ldots, 1)$ и~$\delta' = \diag^{k' \times n}_{r'}(1, \ldots, 1)$.
+
+    Поскольку $\Pi(\delta \beta_2^{-1}) = \Pi(\delta' {\beta'}_2^{-1}) = 1$, обе подгруппы согласно лемме \ref{lemma:exactOutOfPi}
+    параметризуются некоторыми $\phi_\alpha$ и~$\phi_{\alpha'}$ соответственно.
+
+    $\image(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
+    поэтому $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$.
+    В~силу леммы \ref{lemma:faithful}, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
+    Умножив обе части равенства на~матрицу
+    $\diag(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$, получим, что $\delta' {\beta'}_2^{-1} \alpha = 0$;
+    но~это значит, что $\ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+    Совершенно аналогично получим обратное включение. Таким образом, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+
+    Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
+    называемую также \textit{группой компонент.}
+    Отображение $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$
+    индуцирует инъективный гомоморфизм из~фактора. Помимо этого, в~теореме \ref{theorem:connectedComponentsNumbers} была построена биекция между компонентами $H_u$ (которая обобщается
+    без~изменений на~случай произвольного поля $K$), а~потому все они непусты.
+    Это означает, что $\phi_{\delta \beta_2^{-1}}$ сюръективно, а~потому индуцированное отображение тоже сюръективно.
+    Аналогично проводятся рассуждения для~группы $\omega_K(\varepsilon')$.
+    Таким образом, получаем цепочку изоморфизмов:
+    $$
+        \omega(\varepsilon) \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \cong \omega(\varepsilon').
+    $$
+
+    Изоморфные группы имеют одинаковые порядки, а~значит $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$.
+\end{proof}
+
+Таким образом, для~всякой алгебраической подгруппы $H$ тора можно определить число $\Pi(H)$
+равное $\Pi(\beta)$ для~всякого $\beta$ такого, что $H = \ker(\phi_\beta)$.
+
+Теперь для~всякой алгебраической подгруппы $H \subseteq (\complex^\times)^n$ определим \textit{компоненту единицы} $H^\circ$
+как компоненту связности, содержащую нейтральный элемент группы. Из~теоремы \ref{theorem:connectedComponentsNumbers} следует,
+что $\Pi(H^\circ) = 1$. Таким образом, доказаны следующие утверждения.
+
+\begin{theorem}
+    Алгебраическая подгруппа $H$ тора $(K^\times)^n$ параметризуема тогда и~только тогда, когда $\Pi(H) = 1$.
+\end{theorem}
+
+\begin{consequence*}
+    Алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ параметризуема тогда и~только тогда, когда является связной.
+\end{consequence*}
+
+\begin{consequence*}
+    Всякая алгебраическая подгруппа $H$ тора $(\complex^\times)^n$ содержит параметризуемую подгруппу $H^\circ$ той~же размерности.
+\end{consequence*}
+
+\begin{proof}
+    Все связные компоненты $H$ гомеоморфны, что немедленно доказывает теорему.
+\end{proof}
+
+\section{Линейная независимость над абелевой группой}
+
+Во~всякой абелевой группе $G$ естественным образом определено умножение на~целые числа.
+Для~вектора $\alpha = (\alpha_1, \ldots, \alpha_k) \in \Z^k$ и~элемента $g \in G$
+под~$g \alpha$ понимаем вектор $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$.
+Говорим, что набор векторов $\alpha_1, \ldots, \alpha_n \in \Z^k$ \textit{линейно независим над~абелевой группой} $G$, если
+$$
+    \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
+$$
+
+Видно, что линейная независимость векторов $\Z^k$ над~аддитивной группой $\R$ эквивалентна линейной независимости
+в~векторном пространстве $\R^k$. Однако, например, $\R / 2 \pi \Z$, как известно, не~обладает структурой кольца,
+поэтому и~не~имеет смысла говорить о~модуле $(\R / 2 \pi \Z)^k$ над~$\R / 2 \pi \Z$, как и~о~линейной независимости
+в~нём.
+
+Сразу отметим, каким образом данное определение связано с~изучаемыми параметризациями $\phi_\alpha$.
+
+\begin{theorem}
+    $\phi_\alpha : G^k \rightarrow G^n$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группой $G$.
+\end{theorem}
+
+\begin{proof}
+    Имеет место цепочка эквивалентностей:
+    \begin{align*}
+                       \ & \phi_\alpha\ \text{инъективно}
+        \Leftrightarrow \ker(\phi_\alpha) = \{ 1 \}
+        \Leftrightarrow \ker(\phi_\alpha) \subseteq \{ 1 \} \\
+        \Leftrightarrow\ & (\forall t \in G^k{:}\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
+        \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in G{:}\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
+    \end{align*}
+
+    Но~последнее условие~— это в~точности определение линейной независимости над~$G$.
+\end{proof}
+
+Далее нам понадобятся две общие леммы.
+
+\begin{lemma}
+    Пусть $G$ и~$H$~— абелевы группы. $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$G \times H$
+    тогда и~только тогда, когда они~же линейно независимы над~$G$ и~над~$H$.
+\end{lemma}
+
+\begin{proof}
+    Элементы группа $G \times H$ представляются как пары $(g, h)$, где $g \in G$ и~$h \in H$, поэтому
+    линейная независимость над~$G \times H$ запишется как:
+    $$
+        \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
+    $$
+    Кроме того, ясно, что
+    $$
+        (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
+    $$
+    а~также
+    $$
+        (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
+    $$
+
+    Зафиксировав поочерёдно $g_1 = \ldots = g_n = 0$ и~$h_1 = \ldots = h_n = 0$, получим импликацию слева направо.
+    Импликация справа налево очевидна в~свете выше указанных эквивалентностей.
+\end{proof}
+
+\begin{lemma}
+    Пусть $G$ и~$H$~— абелевы группы, $f : G \rightarrow H$~— изоморфизм. Тогда $\mu_1, \ldots, \mu_n \in \Z^k$
+    линейно независимы над~$G$ тогда и~только тогда, когда они линейно независимы над~$H$.
+\end{lemma}
+
+\begin{proof}
+    Поскольку $f$~— изоморфизм, получаем цепочку эквивалентностей:
+    \begin{align*}
+                       &\ \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow f(g_1) = \ldots = f(g_n) = 0 \\
+        \Leftrightarrow&\ \forall h_1, \ldots, h_n \in G{:}\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
+    \end{align*}
+\end{proof}
+
+Применив леммы, получим критерий инъективности для~случая $K = \complex$.
+
+\begin{consequence*}
+    $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группами $\R$ и~$\R / 2 \pi \Z$.
+\end{consequence*}
+
+\begin{proof}
+    Пусть $S^1 = \{ z \in \complex\ | \ |z| = 1 \}$~— группа окружности, подгруппа в~$\torus$.
+    Посредством тригонометрического представления $z = re^{i \theta}$ группа $\torus$
+    изоморфна произведению $\R_{> 0}^\times \times S^1$. Отображение $t \mapsto e^t$ определяет
+    изоморфизм групп $\R$ и~$\R_{> 0}^\times$, а~отображение $\theta \mapsto e^{i\theta}$~— групп $\R / 2 \pi \Z$ и~$S^1$;
+    что~доказывает следствие в~силу двух предыдущих лемм.
+\end{proof}
+
+\begin{consequence*}
+    Если $\phi_\alpha$ инъективно над~$K = \complex$, то~$\rank(\alpha) = k$.
+\end{consequence*}
+
+\begin{proof}
+    Как отмечалось выше, линейная независимость над~$\R$ эквивалентна стандартной линейно независимости
+    в~векторном пространстве $\R^k$ над~$\R$, а~она, в~свою очередь, эквивалентна полноте ранга.
+\end{proof}
+
+В~частности, это означает, что параметризация с~числом переменных $k > n$ заведомо неинъективна, чего и~следовало ожидать.
+
+Заметив, что $\R_{>0}^\times \cong \R_{>0}^\times \times \Z / 1\Z$, $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$
+и~$\quaternion^\times \cong \R_{>0}^\times \times S^3$ (кватернионы), легко получить подобные условия для~инъективности
+$\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quaternion^\times$.
+
+Естественным кажется, что, поскольку рассматриваемые вектора $\alpha^j$ целочисленные, их линейная независимость
+над~$\R$ должна сводиться к~линейной независимости над~$\Z$. Докажем это.
+
+\begin{lemma*}
+    $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Q$.
+\end{lemma*}
+
+\begin{proof}
+    Импликация слева направа очевидна. Обратно, пусть $\mu_1, \ldots, \mu_n$ линейно независимы над~$\Q$.
+    Рассмотрим их линейную комбинацию: $r_1 \mu_1 + \ldots + r_n \mu_n = 0$.
+
+    Как известно, $\R$ является (бесконечномерным) векторным пространством над~$\Q$, а~всякое векторное пространство
+    при~условии аксиомы выбора имеет базис (Гамеля) \cite{Brbk70}. Пользуясь этим, зафиксируем базис Гамеля $B$ для~$\R$ над~$\Q$.
+    Разложим $r_i$ по~этому базису:
+    $$
+        r_i = q_i^1 b_1 + \ldots + q_i^s b_s,
+    $$
+    где $q_i^j \in \Q$ и~$b_j \in B$. Векторов $r_i$ конечное число, поэтому наборы базисных векторов $b_j$ для~них можно выбрать одинаковыми.
+
+    Подставим разложение в~линейную комбинацию:
+    \begin{align*}
+        r_1 \mu_1 + \ldots + r_n \mu_n & = (q_1^1 b_1 + \ldots + q_1^s b_s) \mu_1 + \ldots + (q_n^1 b_1 + \ldots + q_n^s b_s) \mu_n \\
+                                       & = (q_1^1 \mu_1 + \ldots + q_n^1 \mu_n) b_1 + \ldots + (q_1^s \mu_1 + \ldots + q_n^s \mu_n) b_s \\
+                                       & = 0
+    \end{align*}
+
+    В~каждой проекции получаем нулевую рациональную линейную комбинацию чисел $b_j$. В~силу линейной независимости,
+    все эти проекции равны нулю, поэтому равны нулю и~составленные из~них векторы: $q_1^j \mu_1 + \ldots + q_n^j \mu_n = 0$.
+
+    Однако все $q_i^j$ рациональны, а~$\mu_i$ линейно независимы над~$\Q$, поэтому $q_i^j = 0$.
+    Таким образом, $r_i = q_i^1 b_1 + \ldots + q_i^s b_s = 0 \cdot b_1 + \ldots + 0 \cdot b_s = 0$.
+\end{proof}
+
+\begin{lemma*}
+    $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\Q$ тогда и~только тогда, когда линейно независимы над~$\Z$.
+\end{lemma*}
+
+\begin{proof}
+    Импликация слева направа снова очевидна. Обратно, пусть $q_1 \mu_1 + \ldots + q_n \mu_n = 0$, где $q_i \in \Q$.
+    Выберем для~дробей $q_i$ общий знаменатель $q \in \N \setminus \{ 0 \}$. Числители обозначим как $p_i \in \Z$, то~есть $q_i = p_i / q$.
+
+    В~таком случае $(p_1 \mu_1 + \ldots + p_n \mu_n) / q = 0$, откуда и~$p_1 \mu_1 + \ldots + p_n \mu_n = 0$.
+    Все $p_i$~— целые числа, поэтому по~линейной независимости над~$\Z$ получаем, что $p_1 = \ldots = p_n = 0$.
+    Таким образом, $q_i = p_i / q = 0 / q = 0$.
+\end{proof}
+
+\begin{consequence*}
+    $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Z$.
+\end{consequence*}
+
+Изучим подробнее следствия из~линейной независимости над~$\R / 2 \pi \Z$.
+
+\begin{statement*}
+    $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / 2 \pi \Z$
+    тогда и~только тогда, когда они~же линейно независимы над~$\R / \Z$.
+\end{statement*}
+
+\begin{proof}
+    Следует из~того, что группы $\R / 2 \pi \Z$ и~$\R / \Z$ изоморфны.
+\end{proof}
+
+Далее для~числа $d \in \Z$ и~вектора $x \in \Z^k$ под~$d \divides x$ понимаем, что $d \divides x_i$ для~всех $1 \leq i \leq k$
+или, что эквивалентно, $d \divides \gcd(x_1, \ldots, x_n)$.
+
+\begin{lemma*}
+    Если $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / \Z$, то:
+    $$
+        \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x.
+    $$
+\end{lemma*}
+
+\begin{proof}
+    Действительно, рассмотрим дроби $q_i = x_i / d \in \R / \Z$. Делимость $x_1 \mu_1 + \ldots + x_n \mu_n$ на~$d$ означает,
+    что в~$\R / \Z$ выполнено $(x_1 \mu_1 + \ldots + x_n \mu_n) / d = 0$, то~есть $q_1 \mu_1 + \ldots + q_n \mu_n = 0$.
+    Однако в~силу линейной независимости верно, что $q_1 = \ldots = q_n = 0$, а~это означает $d \divides x_i$ для~всех $1 \leq i \leq n$.
+\end{proof}
+
+Из~доказанного немедленно следует простой критерий для~проверки неинъективности $\phi_\alpha$.
+
+\begin{lemma*}
+    Если $\phi_\alpha$ инъективно, то~$\forall j{:}\ \gcd(\alpha^j) = 1$.
+\end{lemma*}
+
+\begin{consequence*}
+    Если $\exists j{:}\ \gcd(\alpha^j) \neq 1$, то~$\phi_\alpha$ не~является инъективным отображением.
+\end{consequence*}
+
+\begin{proof}
+    Выбрав $x_j = 1$ и~$x_1 = \ldots = x_{j - 1} = x_{j + 1} = \ldots = x_k = 0$, получим, что:
+    \begin{align*}
+                         & \forall d \in \Z{:}\ \forall x \in \Z^k{:}\ d \divides x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \divides x \\
+            \Rightarrow\ & \forall j{:}\ \forall d \in \Z{:}\ d \divides \alpha^j \Rightarrow d \divides 1 \\
+        \Leftrightarrow\ & \forall j{:}\ \gcd(\alpha^j) = 1.
+    \end{align*}
+
+    Нетрудно видеть, что использование поля $\complex$ в~этой лемме \textit{существенно;} поскольку, например,
+    отображение $t \mapsto (t^3, t^2)$ инъективно над~$\R$, но~не~над~$\complex$.
+\end{proof}
+
+Множество простых чисел обозначим как $\primes \subseteq \Z$.
+
+\begin{lemma*}
+    Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
+    \begin{align*}
+                         & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall \beta \in \N{:}\ \forall x \in \Z^n{:}\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in \Z^n{:}\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x
+    \end{align*}
+\end{lemma*}
+
+\begin{proof}
+    Импликации слева направо очевидны. Докажем импликации справа налево.
+
+    Зафиксируем произвольное $d \in \Z$ и~некоторый вектор $x \in \Z^k$.
+    Разложим $d$ на~простые множители: $d = p_1^{\beta_1} \ldots p_m^{\beta_m}$.
+
+    Поскольку $x_1 \mu_1 + \ldots + x_n \mu_n$ делится на~$d$, то~оно делится и~на~каждое $p_i^{\beta_i}$.
+    Пользуясь предпосылкой, получаем, что $p_i^{\beta_i} \divides x$ для~всех $1 \leq i \leq m$;
+    но~тогда и~$d = p_1^{\beta_1} \ldots p_m^{\beta_m} \divides x$, что и~требовалось.
+
+    Далее, зафиксируем степень $\beta \in \N$ и~простое число $p$.
+    Поскольку $x_1 \mu_1 + \ldots + x_n \mu_n$ делится на~$p^\beta$,
+    то~оно делится и~на~$p$, поэтому из~предпосылки следует, что $p \divides x$.
+
+    Но~это означает, что $x_i / p$~— целые числа, а~$(x_1 / p) \mu_1 + \ldots + (x_n / p) \mu_n$ делится на~$p^{\beta - 1}$.
+    Снова применив предпосылку, получим, что $p \divides x / p$.
+    Повторив эту процедуру $\beta$ раз, окончательно заключим, что $p \divides x / p^{\beta - 1}$;
+    но~это эквивалентно $p^\beta \divides x$.
+\end{proof}
+
+Последнее условие можно переписать как линейную независимость векторов $\mu_i$ над~полями $\Z / p\Z$ для~всех простых $p$,
+что эквивалентно условию на~максимальность ранга матрицы $\mu$.
+
+\begin{consequence*}
+    Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
+    \begin{align*}
+                         & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in (\Z / p\Z)^n{:}\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \mu_1, \ldots, \mu_n\ \text{линейно независимы над~полем}\ \Z / p\Z \\
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \rank_{\Z / p \Z}(\mu) = \max(n, k).
+    \end{align*}
+\end{consequence*}
+
+Наконец, мы можем передоказать уже упомянутое достаточное условие.
+
+\begin{lemma*}
+    Если $\phi_\alpha$ инъективно, то~$\alpha_i$ порождают всю решётку.
+\end{lemma*}
+
+\begin{proof}
+    От~противного. Пусть $\alpha_i$ не~порождают решётку. Тогда миноры максимальной размерности
+    матрицы $\alpha$ имеют общий делитель $d > 1$.
+
+    Возьмём некоторый простой делитель $p$ числа $d$. Поскольку максимальные миноры
+    делятся на~$d$, то~они делятся и~на~$p$; поэтому в~поле $\Z / p \Z$
+    все максимальные миноры $\alpha$ равны нулю, что означает $\rank_{\Z / p \Z}(\alpha) < \max(n, k)$ \cite{Brbk70},
+    но~это противоречит заключению из~следствия.
+\end{proof}
+
+\begin{consequence*}
+    $\phi_\alpha$ инъективно тогда и~только тогда, когда~$\alpha_i$ порождают всю решётку.
+\end{consequence*}
+
+\section{Заключение}
+
 Важнейшим инструментом в~комплексном анализе является понятие \textit{вычета} голоморфной функции.
 Напомним основные сведения из~одномерной теории вычетов.
 
@@ -90,7 +939,7 @@ $$
 В~отличие от~многомерных голоморфных функций, голоморфные отображение, то~есть функции $\complex^n \rightarrow \complex^n$,
 \textit{могут} иметь изолированные нули или особые точки. Этот факт приводит к~построению так называемого \textit{вычета Гротендика.}
 
-\section{Вычет Гротендика}
+\subsection{Вычет Гротендика}
 
 Пусть $G$~— некоторая группа. Целочисленная степень элемента группы $g \in G$ определяется стандартным образом:
 $$
@@ -131,23 +980,9 @@ $$
 сводится к~вычислению коэффициента в~ряде~Лорана, как и~одномерном случае; однако в~общем случае
 нетривиальна даже топологическая структура $\gamma_z$.
 
-\section{Кобордизмы и теория Морса}
+\subsection{Кобордизмы и теория Морса}
 
-\section{Алгебраические подгруппы тора}
-
-\subsection{Теорема Артина}
-
-\subsection{Доказательство теоремы Шмидта}
-
-\subsection{Инъективность мономиальных параметризаций}
-
-\subsection{Мономиальная параметризуемость алгебраических групп}
-
-\subsection{Линейная независимость над абелевой группой}
-
-\section{Торическое разложение цикла Гротендика}
-
-\section{Заключение}
+stub
 
 \pagebreak
 
@@ -161,6 +996,21 @@ $$
 \section{Список использованных источников}
 
 \begin{thebibliography}{9}
+
+\bibitem{Schm94} W.~M.~Schmidt, Heights of points on subvarieties of $\mathbb{G}^n_m$.
+In~Number Theory 93–94, ed. by~S.~David, London Math. Soc. Lecture Note Ser.~235,
+Cambridge University Press, Cambridge 1996, 157–187.
+
+\bibitem{Art48} E.~Artin, “Galois Theory,” 2nd~ed., Notre Dame, 1948.
+
+\bibitem{Smth60} H.J.S.~Smith, On~systems of~linear indeterminate equations and~congruences. Philos. Trans. Royal
+Soc. London cli, 293—326. Reprinted in~The~Collected Mathematical Papers of~Henry John Stephen Smith,
+Volume~1. New~York: Chelsea~(1965).
+
+\bibitem{TsikhSad14} Садыков~Т.~М., Цих~А.~К. Гипергеометрические и~алгебраические функции многих переменных.
+М.: Наука, 2014.~— 408 с.~— ISBN: 978-5-02-039082-9.
+
+\bibitem{Brbk70} Bourbaki, Nicolas (1970). Algèbre: Chapitres 1 à~3. Éléments de~mathématique. Springer. ISBN~9783540338499. French paperback edition.
 
 \bibitem{ShaII} B.~V.~Shabat, “Introduction to~complex analysis Part~II. Functions of~several variables.” (1992).
 
