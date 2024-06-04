@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+
+\usepackage{tempora}
+\usepackage[fontsize=14pt]{fontsize}
+
+\usepackage[normalem]{ulem}
+
+\usepackage[threshold=0]{csquotes}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{mathtools}
+
+\usepackage{stackengine}
+
+\setlength{\parindent}{0in}
+
+\def\paddedtext#1#2{\leavevmode\hbox to#1{\hss#2\hss}\ignorespaces}
+\def\rightpaddedtext#1#2{\leavevmode\hbox to#1{#2\hss}\ignorespaces}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\pagenumbering{gobble}
+
+\newcommand{\subscript}[1]{\fontsize{10pt}{0}\selectfont#1}
+\newcommand{\markedfield}[3]{\uline{\hfill\stackunder[#3]{#1}{\subscript{#2}}\hfill}}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+
+  Министерство науки и высшего образования РФ\par
+  \vspace{1pt}
+
+  {\fontsize{12pt}{0}\selectfont
+  Федеральное государственное автономное\par
+  образовательное учреждение высшего образования\par
+  \textbf{«СИБИРСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ»}}
+
+  \vspace{0.3cm}
+  Институт математики и фундаментальной информатики\par
+  Кафедра теории функций
+
+  \vspace{0.5cm}
+
+  \begin{flushright}
+    \begin{tabular}{l@{}}
+      УТВЕРЖДАЮ\\
+      Заведующий кафедрой\\
+      \uline{\stackunder[6pt]{\hspace{2.5cm}}{\subscript{подпись}}}
+      \markedfield{А. К. Цих}{фамилия, инициалы}{2pt} \\
+      «\underline{\hspace{0.7cm}}» \underline{\hspace{2.5cm}} 2024~г.
+    \end{tabular}
+  \end{flushright}
+
+  \vspace{3cm}
+
+  \textbf{ЗАДАНИЕ}\par
+  \textbf{НА ВЫПУСКНУЮ КВАЛИФИКАЦИОННУЮ РАБОТУ}\par
+  \textbf{в форме бакалаврской работы}
+
+  \vfill
+  Красноярск, 2024
+\end{titlepage}
+
+Студенту \markedfield{Мишко Николаю Алексеевичу}{фамилия, имя, отчество}{1pt}
+
+Группа \markedfield{ИМ20-04Б}{номер}{6pt} Направление (специальность) \markedfield{01.03.01}{код}{6pt}
+
+\markedfield{Математика}{полное наименование}{6pt}
+
+\vspace{2pt}
+
+Тема выпускной квалификационной работы \uline{Алгебраические подгруппы \hfill}
+
+\uline{комплексного тора \hfill}
+
+\uline{\hfill}
+
+Утверждена приказом по~университету № \uline{\paddedtext{1cm}{}} от \uline{\hfill}
+
+Руководитель ВКР: \uline{А. К. Цих, доктор физико-математических наук, \hfill}
+
+\uline{\hfill профессор, кафедра теории функций \hfill}
+
+\markedfield{Сибирского федерального университета}{инициалы, фамилия, должность, ученое звание и место работы}{1pt}
+
+\vspace{2pt}
+
+Исходные данные для~ВКР: \uline{1.~W.~M.~Schmidt, Heights of points on \hfill}
+
+\uline{subvarieties of $\mathbb{G}^n_m$. In~Number Theory 93–94, ed. by~S.~David, London Math. \hfill}
+
+\uline{Soc. Lecture Note Ser.~235, Cambridge University Press, Cambridge 1996, 157–187. \hfill}
+
+\uline{2.~Садыков Т. М., Цих А. К. Гипергеометрические и алгебраические \hfill}
+
+\uline{функции многих переменных. М.: Наука, 2014. — 408 с. — ISBN: \hfill}
+
+\uline{978-5-02-039082-9. \hfill}
+
+Перечень разделов ВКР: \uline{1.~Введение (о~алгебраических группах). \hfill}
+
+\uline{2.~О~задании подгрупп тора биномиальными уравненями. \hfill}
+
+\uline{3.~Мономиальные параметризации и~их инъективность. \hfill}
+
+\uline{4.~Теорема о~существовании параметризации. \hfill}
+
+\uline{5.~Список использованных источников. 6.~Приложение. \hfill}
+
+Перечень графического материала: \uline{Отсутствует. \hfill}
+
+\uline{\hfill}
+
+\uline{\hfill}
+
+\uline{\hfill}
+
+\uline{\hfill}
+
+\vfill
+
+\makebox[0.42\textwidth][l]{Руководитель ВКР} \markedfield{}{подпись}{8pt} \markedfield{А. К. Цих}{инициалы и фамилия}{4pt}
+
+\vspace{2pt}
+
+\makebox[0.42\textwidth][l]{Задание принял к исполнению} \markedfield{\hspace{1.3cm} Н. А. Мишко}{подпись, инициалы и фамилия студента}{4pt}
+
+\vspace{1cm}
+
+\hfill «\underline{\paddedtext{0.7cm}{}}» \underline{\paddedtext{2.5cm}{}} 2024~г.
+
+\end{document}
