@@ -17,6 +17,8 @@
 \usepackage{hhline}
 \usepackage{array}
 
+\usepackage{tocloft}
+
 \input{Common}
 
 \begin{document}
@@ -25,14 +27,57 @@
 
 \begin{titlepage}
   \centering
+  Министерство науки и высшего образования РФ\par
+  Федеральное государственное автономное\par
+  образовательное учреждение высшего образования\par
+  «СИБИРСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ»\par
 
-  {\LargeТема:\vspace{0.2cm}}\par
-  {\largeАлгебраические подгруппы комплексного тора}
+  \vspace{0.3cm}
+  Институт математики и фундаментальной информатики\par
+  Кафедра теории функций\par
+
+  \vspace{0.5cm}
+  \begin{flushright}
+    \begin{tabular}{l@{}}
+      \textbf{УТВЕРЖДАЮ}\\
+      Заведующий кафедрой\\
+      \hspace{1.5cm} / А.~К.~Цих\\
+      «\underline{\hspace{0.9cm}}» \underline{\hspace{1.5cm}} 2024 г.
+    \end{tabular}
+  \end{flushright}
+
+  \vspace{2cm}
+  \textbf{БАКАЛАВРСКАЯ РАБОТА}
+
+  \vspace{0.7cm}
+  \textbf{Направление} 01.03.01 Математика
+
+  \vspace{0.7cm}
+  \textbf{АЛГЕБРАИЧЕСКИЕ ПОДГРУППЫ КОМПЛЕКСНОГО ТОРА}
+
+  \vspace{1.5cm}
+  \begin{tabular}{lL{0.15\textwidth}L{0.35\textwidth}l}
+    Руководитель   &  & профессор, доктор физико-математических наук & А.~К.~Цих   \rule{0pt}{23pt}\\
+    Выпускник      &  &                                              & Н.~А.~Мишко \rule{0pt}{23pt}\\
+    Нормоконтролер &  &                                              & А.~А.~Ааааа \rule{0pt}{28pt}
+  \end{tabular}
+
+  \vfill
+  Красноярск, 2024
 \end{titlepage}
 
-\tableofcontents
+\section*{\centeringРеферат}
 
-\section{Введение}
+???
+\pagebreak
+
+\renewcommand{\contentsname}{\hfill\bfseries\Large Содержание\hfill}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\tableofcontents
+\pagebreak
+
+\usection{Введение}
 
 <история вопроса?>
 
@@ -1052,8 +1097,7 @@ stub
 
 \pagebreak
 
-\titleformat{\section}{\centering\normalfont\Large\bfseries}{}{0em}{}
-\section{Список использованных источников}
+\usection{Список использованных источников}
 
 \begin{thebibliography}{9}
 
@@ -1079,7 +1123,7 @@ Volume~1. New~York: Chelsea~(1965).
 \end{thebibliography}
 \pagebreak
 
-\section{Приложение. Категории с кобордизмами}
+\usection{Приложение. Категории с кобордизмами}
 
 ?
 

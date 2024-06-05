@@ -38,3 +38,16 @@
 
 \def\paddedtext#1#2{\leavevmode\hbox to#1{\hss#2\hss}\ignorespaces}
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\usection}[1]{\phantomsection\section*{\centering#1}
+\addcontentsline{toc}{section}{\protect\numberline{}#1}}
+
+\newcommand{\usubsection}[1]{\phantomsection\subsection*{\centering#1}
+\addcontentsline{toc}{subsection}{\protect\numberline{}#1}}
+
+\newcommand{\usubsubsection}[1]{\phantomsection\subsubsection*{\centering#1}
+\addcontentsline{toc}{subsubsection}{\protect\numberline{}#1}}
