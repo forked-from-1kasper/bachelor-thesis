@@ -992,7 +992,8 @@ $$
     $$
 \end{theorem*}
 
-\section{Заключение}
+\usection{Заключение}
+\stepcounter{section}
 
 Важнейшим инструментом в~комплексном анализе является понятие \textit{вычета} голоморфной функции.
 Напомним основные сведения из~одномерной теории вычетов.
@@ -1120,10 +1121,58 @@ Volume~1. New~York: Chelsea~(1965).
 
 \bibitem{GelKho02} O.~A.~Gelfond, A.~G.~Khovanskii, “Toric geometry and Grothendieck residues”, Mosc.~Math.~J., 2:1~(2002), 99–112.
 
+\bibitem{MacLane71} S.~MacLane. Categories for~the~Working Mathematician. Springer-Verlag, New~York, (1971) Graduate Texts in Mathematics, Vol.~5.
+
 \end{thebibliography}
 \pagebreak
 
-\usection{Приложение. Категории с кобордизмами}
+\renewcommand{\thesection}{\Alph{section}}
+\setcounter{section}{1}
+\setcounter{subsection}{0}
+
+\usection{Приложение}
+
+В~приложении формализуем общую концепцию «теории кобордизмов» в~терминах «категорий с~кобордизмами».
+Перед этим изложим основные сведения из~теории категорий.
+
+\subsection{Основные понятия теории категорий}
+
+Под~\textit{упорядоченным графом} \cite{MacLane71} понимаем упорядоченную четвёртку $(O, A, \mathrm{dom}, \mathrm{cod})$,
+где $A$ и~$O$~— множества, $\mathrm{dom}$ и~$\mathrm{cod}$~— функции $A \rightarrow O$.
+Для~графа определим множество \textit{перемножаемых стрелок} как $A \times_O A = \{ (g, f) \in A \times A \ |\ \mathrm{dom}(g) = \mathrm{cod}(f) \}$.
+
+\textit{Категорией} называется граф вместе с~парой функций $\mathrm{id} : O \rightarrow A$
+и~$\circ : A \times_O A \rightarrow A$ таких, что для~всех $a, b \in O$ и~$f, g, h \in A$ верно:
+\begin{enumerate}
+    \item $\mathrm{dom}(\mathrm{id}(a)) = \mathrm{cod}(\mathrm{id}(a)) = a$.
+    \item $\mathrm{dom}(f \circ g) = \mathrm{dom}(f)$, если $(f, g) \in A \times_O A$.
+    \item $\mathrm{cod}(f \circ g) = \mathrm{cod}(g)$, если $(f, g) \in A \times_O A$.
+    \item $f \circ (g \circ h) = (f \circ g) \circ h$, если $(f, g), (g, h) \in A \times_O A$.
+    \item $f \circ \mathrm{id}(a) = f$, если $\mathrm{dom}(f) = a$.
+    \item $\mathrm{id}(b) \circ f = f$, если $\mathrm{cod}(f) = b$.
+\end{enumerate}
+
+Элементы множества $O$ называются \textit{объектами} категории $C = (O, A, \mathrm{dom}, \mathrm{cod}, \mathrm{id}, \circ)$,
+а~элементы множества $A$~— \textit{стрелками} этой категории. Обозначим $\mathrm{Ob}(C) = O$ и~$\mathrm{Arr}(C) = A$.
+Для~объектов $a, b \in \mathrm{Ob}(C)$ определим \textit{множество стрелок}:
+$$
+    \mathrm{hom}_C(a, b) = \{ f \in \mathrm{Arr}(C)\ | \ \mathrm{dom}(f) = a \wedge \mathrm{cod}(f) = b \}.
+$$
+
+\textit{Функтором} между категориями $A$ и~$B$ называется упорядоченная пара $T = (T_1, T_2)$,
+где $T_1$~— функция $\mathrm{Ob}(A) \rightarrow \mathrm{Ob}(B)$, а~$T_2$~— $\mathrm{Arr}(A) \rightarrow \mathrm{Arr}(B)$,
+такая, что для~всяких объектов $a, b \in \mathrm{Ob}(A)$ и~стрелки $f \in \mathrm{hom}_C(a, b)$ выполняются
+следующие условия:
+\begin{enumerate}
+    \item $T_2(f) \in \mathrm{hom}_C(T_1(a), T_1(b))$.
+    \item $T_2(\mathrm{id}(a)) = \mathrm{id}(T_1(a))$.
+    \item $T_2(g \circ f) = T_2(g) \circ T_2(f)$.
+\end{enumerate}
+
+$T_1$ называется \textit{объектной функцией,} а~$T_2$~— \textit{стрелочной.} Всюду далее, по~общепринятому соглашению,
+объектную и~стрелочную функцию одного функтора будем обозначать одной и~той~же буквой.
+
+\subsection{Категории с кобордизмами}
 
 ?
 
