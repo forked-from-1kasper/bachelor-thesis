@@ -14,6 +14,7 @@
 \usepackage{etoolbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{tikz-cd}
 \usepackage{hhline}
 \usepackage{array}
 
@@ -1153,7 +1154,7 @@ Volume~1. New~York: Chelsea~(1965).
 \end{enumerate}
 
 Элементы множества $O$ называются \textit{объектами} категории $C = (O, A, \mathrm{dom}, \mathrm{cod}, \mathrm{id}, \circ)$,
-а~элементы множества $A$~— \textit{стрелками} этой категории. Обозначим $\mathrm{Ob}(C) = O$ и~$\mathrm{Arr}(C) = A$.
+а~элементы множества $A$~— \textit{стрелками} (или морфизмами) этой категории. Обозначим $\mathrm{Ob}(C) = O$ и~$\mathrm{Arr}(C) = A$.
 Для~объектов $a, b \in \mathrm{Ob}(C)$ определим \textit{множество стрелок}:
 $$
     \mathrm{hom}_C(a, b) = \{ f \in \mathrm{Arr}(C)\ | \ \mathrm{dom}(f) = a \wedge \mathrm{cod}(f) = b \}.
@@ -1169,8 +1170,55 @@ $$
     \item $T_2(g \circ f) = T_2(g) \circ T_2(f)$.
 \end{enumerate}
 
-$T_1$ называется \textit{объектной функцией,} а~$T_2$~— \textit{стрелочной.} Всюду далее, по~общепринятому соглашению,
-объектную и~стрелочную функции одного функтора будем обозначать одной и~той~же буквой.
+В~этом случае пишем $T : A \rightarrow B$. $T_1$ называется \textit{объектной функцией,} а~$T_2$~— \textit{стрелочной.}
+Всюду далее будем следовать общепринятому соглашению: объектную и~стрелочную функции одного функтора обозначаем одной и~той~же буквой.
+
+\textit{Подграфом} ориентированного графа $D$ называется граф $D'$ такой, что $\mathrm{Ob}(D') \subseteq \mathrm{Ob}(D)$, $\mathrm{Arr}(D') \subseteq \mathrm{Arr}(D)$,
+$\mathrm{dom}_{D'} = \mathrm{dom}_{D} |_{\mathrm{Arr}(D')}$ и~$\mathrm{cod}_{D'} = \mathrm{cod}_{D} |_{\mathrm{Arr}(D')}$.
+Также в~таком случае говорим, что граф $D$ \textit{содержит} (под)граф $D'$.
+Аналогично говорим, что $C'$~— \textit{подкатегория} в~$C$, если $C'$ в~ней подграф, $\mathrm{id}_{C'} = \mathrm{id}_{C} |_{\mathrm{Ob}(C')}$
+и~$\circ_{C'} = \circ_{C} |_{\mathrm{Arr}(C') \times \mathrm{Arr}(C')}$.
+Если задан произвольный набор подкатегорий $C_i$ для~$i \in I$, то~ясно, что определено их пересечение, которое тоже является подкатегорией:
+$$
+    \bigcap\limits_{i \in I} C_i = \left( \bigcap\limits_{i \in I} \mathrm{Ob}(C_i), \bigcap\limits_{i \in I} \mathrm{Arr}(C_i), \mathrm{dom}, \mathrm{cod}, \mathrm{id}, \circ \right).
+$$
+
+\textit{Диаграммой} в~категории называем любой (обычно конечный либо счётный) её подграф.
+Для~всякого подграфа $D$ категории $C$ пересечение всех содержащих его подкатегорий
+(то~есть наименьшая подкатегория, содержащая данный подграф) назовём пополнением $\overline{D}$.
+
+Категория $C$ называется \textit{тонкой,} если между любой парой объектов имеется не~более одного морфизма,
+то~есть $\forall a, b \in \mathrm{Ob}(C){:}\ \forall f, g \in \mathrm{hom}_C(a, b){:}\ f = g$.
+Говорим, что \textit{диаграмма коммутативна,} если её пополнение~— тонкая категория.
+
+Если даны функторы $F, G : A \rightarrow B$, то~\textit{естественным преобразованием} $\eta : F \Rightarrow G$ называется набор морфизмов
+$\eta_x : \mathrm{hom}_B(F(x), G(x))$ для~каждого объекта $x \in \mathrm{Ob}(A)$ такой, что $G(f) \circ \eta_x = \eta_y \circ F(f)$
+для~всякой стрелки $f \in \mathrm{hom}_A(x, y)$; то~есть следующая диаграмма коммутативна:
+\[
+  \begin{tikzcd}
+    \arrow{d}{\eta_x} F(x) \arrow{r}{F(f)} & F(y) \arrow{d}{\eta_y} \\
+                      G(x) \arrow{r}{G(f)} & G(y)
+  \end{tikzcd}
+\]
+
+\textit{Инициальным объектом} в~категории $C$ называется такой объект $0 \in \mathrm{Ob}(C)$,
+что из~него во~всякой другой объект категории существует ровно одна стрелка:
+$$
+  \forall x \in \mathrm{Ob}(C){:}\ \exists! f \in \mathrm{Arr}(C){:}\ f \in \mathrm{hom}_C(0, x).
+$$
+
+\textit{Копроизведением} (или суммой) объектов $a$ и~$b \in \mathrm{Ob}(C)$ называется упорядоченная тройка $(c, \mathrm{inl}, \mathrm{inr})$,
+где $c \in \mathrm{Ob}(C)$, $\mathrm{inl} \in \mathrm{hom}_C(a, c)$ и~$\mathrm{inr} \in \mathrm{hom}_C(b, c)$, такая, что
+выполнено следующее универсальное свойство: для~любого объекта $x \in \mathrm{Ob}(C)$ и~пары морфизмов $f \in \mathrm{hom}_C(a, x)$
+и~$g \in \mathrm{hom}_C(b, x)$ существует единственный морфизм $h \in \mathrm{hom}_C(c, x)$ такой, что $h \circ \mathrm{inl} = f$
+и~$h \circ \mathrm{inr} = g$; то~есть коммутативна следующая диаграмма:
+\[
+    \begin{tikzcd}
+        & x & \\ a \arrow{r}{}[swap]{\mathrm{inl}} \arrow{ur}{f} & \arrow[dashed]{u}{h} c & \arrow{l}{\mathrm{inr}}[swap]{} \arrow{ul}{}[swap]{g} y
+    \end{tikzcd}
+\]
+
+Также пишем $c = a + b$.
 
 \subsection{Категории с кобордизмами}
 
