@@ -1151,9 +1151,9 @@ Volume~1. New~York: Chelsea~(1965).
     \item $\mathrm{dom}(\mathrm{id}(a)) = \mathrm{cod}(\mathrm{id}(a)) = a$.
     \item $\mathrm{dom}(f \circ g) = \mathrm{dom}(f)$, если $(f, g) \in A \times_O A$.
     \item $\mathrm{cod}(f \circ g) = \mathrm{cod}(g)$, если $(f, g) \in A \times_O A$.
-    \item $f \circ (g \circ h) = (f \circ g) \circ h$, если $(f, g), (g, h) \in A \times_O A$.
-    \item $f \circ \mathrm{id}(a) = f$, если $\mathrm{dom}(f) = a$.
-    \item $\mathrm{id}(b) \circ f = f$, если $\mathrm{cod}(f) = b$.
+    \item $f \circ (g \circ h) = (f \circ g) \circ h$, если $(f, g), (g, h) \in A \times_O A$ (ассоциативность).
+    \item $f \circ \mathrm{id}(a) = f$, если $\mathrm{dom}(f) = a$ (правая унитальность).
+    \item $\mathrm{id}(b) \circ f = f$, если $\mathrm{cod}(f) = b$ (левая унитальность).
 \end{enumerate}
 
 Элементы множества $O$ называются \textit{объектами} категории $C = (O, A, \mathrm{dom}, \mathrm{cod}, \mathrm{id}, \circ)$,
@@ -1333,8 +1333,8 @@ $$
 Определим граничный эндофунктор следующим образом:
 $$
 \partial = \begin{cases}
-             (F, x, \phi)     & \mapsto (\Delta_0, \mathrm{colim}(F), j \mapsto\ !_{\mathrm{colim}(F)}) \\
-             (u, \varepsilon) & \mapsto (\mathrm{rec}(F, \mathrm{colim}(G), j \mapsto \mathrm{incl}_j(G) \circ \varepsilon_j), 1_{\Delta_0})
+             (F, x, \phi) \mapsto (\Delta_0, \mathrm{colim}(F), j \mapsto\ !_{\mathrm{colim}(F)}); \\
+             (u, \varepsilon) \mapsto (\mathrm{rec}(F, \mathrm{colim}(G), j \mapsto \mathrm{incl}_j(G) \circ \varepsilon_j), 1_{\Delta_0}).
            \end{cases}
 $$
 
