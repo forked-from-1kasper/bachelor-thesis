@@ -68,6 +68,8 @@
 \end{titlepage}
 
 \section*{\centeringРеферат}
+\addtocounter{page}{-1}
+\thispagestyle{empty}
 
 ???
 \pagebreak
@@ -1174,8 +1176,14 @@ $$
 
 В~этом случае пишем $T : A \rightarrow B$. $T_1$ называется \textit{объектной функцией,} а~$T_2$~— \textit{стрелочной.}
 Всюду далее будем следовать общепринятому соглашению: объектную и~стрелочную функции одного функтора обозначаем одной и~той~же буквой.
+Функтор категории в~себя также называется \textit{эндофунктором.}
 
 Для~всякой категории определён единичный функтор $1_C : C \rightarrow C$, объектная и~стрелочная функции которого~— тождественные.
+Для~зафиксированных категорий $A$, $B$ и~объекта $b \in \mathrm{Ob}(B)$ определён \textit{диагональный функтор} $\Delta_b : A \rightarrow B$
+такой, что $\Delta_b(a) = b$ и~$\Delta_b(f) = \mathrm{id}_B(b)$ для~любых $a \in \mathrm{Ob}(A)$ и~$f \in \mathrm{Arr}(A)$.
+
+Стрелка $f \in \mathrm{hom}_C(a, b)$ называется \textit{изоморфизмом,} если существует стрелка $g \in \mathrm{hom}_C(b, a)$
+такая, что $f \circ g = \mathrm{id}(b)$ и~$g \circ f = \mathrm{id}(a)$.
 
 \textit{Подграфом} ориентированного графа $D$ называется граф $D'$ такой, что $\mathrm{Ob}(D') \subseteq \mathrm{Ob}(D)$, $\mathrm{Arr}(D') \subseteq \mathrm{Arr}(D)$,
 $\mathrm{dom}_{D'} = \mathrm{dom}_{D} |_{\mathrm{Arr}(D')}$ и~$\mathrm{cod}_{D'} = \mathrm{cod}_{D} |_{\mathrm{Arr}(D')}$.
@@ -1205,11 +1213,19 @@ $\eta_x : \mathrm{hom}_B(F(x), G(x))$ для~каждого объекта $x \i
   \end{tikzcd}
 \]
 
+Стрелки $\eta_x$ называют \textit{компонентами} преобразования. Для~всякого функтора $F$ также
+обозначим как~$1_F$ тождественное естественное преобразование, все компонентны которого~— единичные стрелки.
+Далее, если заданы естественные преобразования $\varepsilon : G \Rightarrow H$ и~$\eta : F \Rightarrow G$,
+то~определена их \textit{вертикальная композиция} $\varepsilon \circ \eta : F \Rightarrow H$,
+где $(\varepsilon \circ \eta)_x = \varepsilon_x \circ \eta_x$.
+
 \textit{Инициальным объектом} в~категории $C$ называется такой объект $0 \in \mathrm{Ob}(C)$,
 что из~него во~всякой другой объект категории существует ровно одна стрелка:
 $$
   \forall x \in \mathrm{Ob}(C){:}\ \exists! f \in \mathrm{Arr}(C){:}\ f \in \mathrm{hom}_C(0, x).
 $$
+
+Эту единственную стрелку из~инициального объекта обозначаем $!_x \in \mathrm{hom}_C(0, x)$.
 
 \textit{Копроизведением} (или суммой) объектов $a$ и~$b \in \mathrm{Ob}(C)$ называется упорядоченная тройка $(c, \mathrm{inl}, \mathrm{inr})$,
 где $c \in \mathrm{Ob}(C)$, $\mathrm{inl} \in \mathrm{hom}_C(a, c)$ и~$\mathrm{inr} \in \mathrm{hom}_C(b, c)$, такая, что
@@ -1224,7 +1240,7 @@ $$
 
 Также пишем $c = a + b$.
 
-Наконец, говорим, что функтор $T : A \rightarrow B$ \textit{аддитивный,} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \mathrm{Ob}(A)$
+Наконец, говорим, что функтор $T : A \rightarrow B$ \textit{аддитивен,} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \mathrm{Ob}(A)$
 тройка $(T(c), T(i), T(j))$~— копроизведение $T(a)$ и~$T(b)$.
 
 \subsection{Категории с кобордизмами}
@@ -1235,6 +1251,97 @@ $i$~— естественное преобразование $\partial \Rightar
     \item $\partial$~— аддитивный функтор.
     \item $\partial(\partial(x))$~— инициальный объект в~$C$ для~всех $x \in \mathrm{Obj}(C)$.
 \end{enumerate}
+
+\textit{Кобордизмом} между объектами $a$ и~$b \in \mathrm{Ob}(C)$ называется тройка $(c, i, j)$,
+где $c \in \mathrm{Ob}(C)$, $i \in \mathrm{hom}_C(a, \partial(c))$ и~$j \in \mathrm{hom}_C(b, \partial(c))$,
+такая, что $(\partial(c), i, j)$~— копроизведение. \textit{Морфизмом кобордизмов} $\epsilon_1 = (c_1, i_1, j_1)$
+и~$\epsilon_2 = (c_2, i_2, j_2)$ между объектами $a$ и~$b$ называется стрелка $\phi \in \mathrm{hom}_C(c_1, c_2)$
+такая, что $\partial(\phi) \circ i_1 = i_2$ и~$\partial(\phi) \circ j_1 = j_2$. Также говорим, что объекты \textit{кобордантны,}
+если между ними существует кобордизм.
+
+\medskip
+\noindent\textbf{Пример.} Рассмотрим категорию $n$-мерных $C^p$-гладких многообразий (с~границей), где $1 \leq p \leq \infty$,
+стрелки в~которой~— $C^p$-отображения, переводящие границы в~границы (то~есть такие $f \in C^p(M, N)$,
+что $f(\partial M) \subseteq \partial N$). Тогда функция $M \mapsto \partial M$ задаёт эндофунктор,
+стрелочная функция которого~— просто ограничение на~границу: $f \mapsto f|_{\partial M}$.
+
+Кроме того, поскольку $\partial M \subseteq M$, определены функции-включения $C^p(\partial M, M)$,
+которые (очевидно) также определяют естественное преобразование. Таким образом, задана категория с~кобордизмами.
+\medskip
+
+\noindent\textbf{Пример.} Рассмотрим категорию $C^p$-гладких многообразий произвольной размерности,
+стрелки в~которой определены как в~предыдущем случае. Ясно, что эту категорию можно наделить структурой
+категории с~кобордизмами точно таким~же образом.
+
+Предыдущий пример входит в~эту категорию как подкатегория, но, в~отличие от~него, в~этой категории
+существуют \textit{не~все} копроизведения, поскольку дизъюнктная сумма многообразий различной размерности
+не~является снова многообразием.
+\medskip
+
+\noindent\textbf{Пример.} Зафиксируем пару категорий $J$ (называемую индексной) и~$C$. \textit{Коконусом} называется упорядоченная
+тройка $(F, c, \psi)$, где $F : J \rightarrow C$~— функтор, $c \in \mathrm{Ob}(C)$~— объект
+и~$\psi$~— семейство морфзимов $\psi_x \in \mathrm{hom}_C(F(x), c)$ такое, что для~любой
+пары объектов $i, j \in \mathrm{Ob}(J)$ и~стрелки $f \in \mathrm{hom}_J(i, j)$ верно,
+что $\psi_j \circ F(f) = \psi_i$:
+\[
+    \begin{tikzcd}
+        &                               & \arrow{ld}{}[swap]{\psi_i} c \arrow{rd}{\psi_j} &      & \\
+        & F(i) \arrow{rr}{}[swap]{F(f)} &                                                 & F(j) &
+    \end{tikzcd}
+\]
+
+\textit{Копределом} называется такой коконус $(F, c, \psi)$, что для~всякого другого коконуса $(F, x, \phi)$
+существует единственная стрелка $u \in \mathrm{hom}_C(c, x)$ такая, что для~любого $j \in \mathrm{Ob}(J)$
+верно, что $u \circ \psi_j = \phi_j$:
+\[
+    \begin{tikzcd}
+        F(j) \arrow{r}{\psi_j} \arrow{dr}{}[swap]{\phi_j} & \arrow{d}{u} c \\
+                                                          & x
+    \end{tikzcd}
+\]
+
+Также пишем $c = \mathrm{colim}(F)$, $\psi = \mathrm{incl}(F)$ и~$u = \mathrm{rec}(F, x, \phi)$.
+
+Определим структуру категории $\mathrm{Cocone}(J, C)$ на~всех коконусах между $J$ и~$C$.
+\textit{Морфизмом коконусов} $(F, x, \phi)$ и~$(G, y, \psi)$ называется пара $(u, \varepsilon)$,
+где $u \in \mathrm{hom}_C(x, y)$ и~$\varepsilon : F \Rightarrow G$, такая, что для~всякого $j \in \mathrm{Ob}(J)$
+выполняется $u \circ \phi_j = \psi_j \circ \varepsilon_j$:
+\[
+    \begin{tikzcd}
+        \arrow{d}{\varepsilon_j} F(j) \arrow{r}{\phi_j} & \arrow{d}{u} x \\
+                                 G(j) \arrow{r}{\psi_j} &              y
+    \end{tikzcd}
+\]
+
+$(\mathrm{id}_C(x), 1_\phi)$ определяет тождественный морфизм для~коконуса $(F, x, \phi)$.
+
+Далее, пусть заданы морфизм $(u, \varepsilon)$ между $(G, y, \psi)$ и~$(H, z, \xi)$ и~$(v, \eta)$ между $(F, x, \phi)$ и~$(G, y, \psi)$.
+Композицию определим покомпонентно: $(u, \varepsilon) \circ (v, \eta) = (u \circ v, \varepsilon \circ \eta)$.
+При~этом:
+$$
+    (u \circ v) \circ \phi_j = u \circ (v \circ \phi_j)
+                             = u \circ (\psi_j \circ \eta_j)
+                             = (u \circ \psi_j) \circ \eta_j
+                             = (\xi_j \circ \varepsilon_j) \circ \eta_j
+                             = \xi_j \circ (\varepsilon_j \circ \eta_j).
+$$
+
+Наконец, поскольку композиция в~категории $C$ и~вертикальная композиция функторов ассоциативны
+и~унитальны, то~такова и~композиция морфизмов коконусов.
+
+Пусть теперь категория $C$ содержит все копределы из~$J$ и~инициальный объект $0 \in \mathrm{Ob}(C)$.
+Определим граничный эндофунктор следующим образом:
+$$
+\partial = \begin{cases}
+             (F, x, \phi)     & \mapsto (\Delta_0, \mathrm{colim}(F), j \mapsto\ !_{\mathrm{colim}(F)}) \\
+             (u, \varepsilon) & \mapsto (\mathrm{rec}(F, \mathrm{colim}(G), j \mapsto \mathrm{incl}_j(G) \circ \varepsilon_j), 1_{\Delta_0})
+           \end{cases}
+$$
+
+Также определим естественное преобразование $i : \partial \Rightarrow 1_C$:
+$$
+    i_{(F, x, \phi)} = (\mathrm{rec}(F, x, \phi), j \mapsto\ !_{F(j)})
+$$
 
 ?
 
