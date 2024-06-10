@@ -1313,7 +1313,7 @@ $i$~— естественное преобразование $\partial \Rightar
     \end{tikzcd}
 \]
 
-$(\mathrm{id}_C(x), 1_\phi)$ определяет тождественный морфизм для~коконуса $(F, x, \phi)$.
+$(\mathrm{id}_C(x), 1_F)$ определяет тождественный морфизм для~коконуса $(F, x, \phi)$.
 
 Далее, пусть заданы морфизм $(u, \varepsilon)$ между $(G, y, \psi)$ и~$(H, z, \xi)$ и~$(v, \eta)$ между $(F, x, \phi)$ и~$(G, y, \psi)$.
 Композицию определим покомпонентно: $(u, \varepsilon) \circ (v, \eta) = (u \circ v, \varepsilon \circ \eta)$.
@@ -1342,6 +1342,29 @@ $$
 $$
     i_{(F, x, \phi)} = (\mathrm{rec}(F, x, \phi), j \mapsto\ !_{F(j)})
 $$
+
+\begin{lemma*}
+    $\partial$~— аддитивный функтор, $i$~— естественное преобразование.
+\end{lemma*}
+
+\begin{proof}
+    Во-первых, $\partial$ и~$i$ действительно определены.
+    \begin{enumerate}
+        \item $(k \mapsto\ !_{\mathrm{colim}(F)})(j) \circ \Delta_0(f) =\ !_{\mathrm{colim}(F)} \circ \mathrm{id}_C(0) =\ !_{\mathrm{colim}(F)} = (k \mapsto\ !_{\mathrm{colim}(F)})(i)$.
+        \item ???
+        \item ???
+    \end{enumerate}
+
+    Во-вторых, $\partial$~— функтор.
+    \begin{enumerate}
+        \item $\partial(\mathrm{id}_{\mathrm{Cocone}(J, C)}((F, x, \phi))) = \partial((\mathrm{id}_C(x), 1_F)) = (\mathrm{rec}(F, \mathrm{colim}(F), \mathrm{incl}(F)), 1_{\Delta_0})$,
+        но~поскольку $\mathrm{id}(\mathrm{colim}(F)) \circ \mathrm{incl}_j(F) = \mathrm{incl}_j(F)$, в~силу единственности,
+        $\mathrm{rec}(F, \mathrm{colim}(F), \mathrm{incl}(F)) = \mathrm{id}(\mathrm{colim}(F))$. Получаем,
+        $\partial(\mathrm{id}((F, x, \phi))) = (\mathrm{id}(\mathrm{colim}(F)), 1_{\Delta_0}) = \mathrm{id}(\partial((F, x, \phi)))$.
+
+        \item $\partial((u, \varepsilon) \circ (v, \eta)) = ??? $.
+    \end{enumerate}
+\end{proof}
 
 ?
 
