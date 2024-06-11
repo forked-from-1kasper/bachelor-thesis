@@ -1183,7 +1183,7 @@ $$
 такой, что $\Delta_b(a) = b$ и~$\Delta_b(f) = \mathrm{id}_B(b)$ для~любых $a \in \mathrm{Ob}(A)$ и~$f \in \mathrm{Arr}(A)$.
 
 Стрелка $f \in \mathrm{hom}_C(a, b)$ называется \textit{изоморфизмом,} если существует стрелка $g \in \mathrm{hom}_C(b, a)$
-такая, что $f \circ g = \mathrm{id}(b)$ и~$g \circ f = \mathrm{id}(a)$.
+такая, что $f \circ g = \mathrm{id}(b)$ и~$g \circ f = \mathrm{id}(a)$. Тогда также пишем $f : a \cong b$.
 
 \textit{Подграфом} ориентированного графа $D$ называется граф $D'$ такой, что $\mathrm{Ob}(D') \subseteq \mathrm{Ob}(D)$, $\mathrm{Arr}(D') \subseteq \mathrm{Arr}(D)$,
 $\mathrm{dom}_{D'} = \mathrm{dom}_{D} |_{\mathrm{Arr}(D')}$ и~$\mathrm{cod}_{D'} = \mathrm{cod}_{D} |_{\mathrm{Arr}(D')}$.
@@ -1238,10 +1238,35 @@ $$
     \end{tikzcd}
 \]
 
-Также пишем $c = a + b$.
+Также пишем $c = a + b$, $\mathrm{inl} = \mathrm{inl}_{a, b}$, $\mathrm{inr} = \mathrm{inr}_{a, b}$
+и~$h = \mathrm{rec}_{a, b}(f, g)$.
 
 Наконец, говорим, что функтор $T : A \rightarrow B$ \textit{аддитивен,} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \mathrm{Ob}(A)$
 тройка $(T(c), T(i), T(j))$~— копроизведение $T(a)$ и~$T(b)$.
+
+\begin{theorem*}[критерий аддитивности]
+    Пусть категории $A$ и~$B$ содержат все копроизведения.
+    Тогда функтор $T : A \rightarrow B$ аддитивен тогда и~только тогда, когда:
+    \begin{enumerate}
+        \item Для~всякой пары объектов $a, b \in \mathrm{Ob}(A)$ определён изоморфизм $\phi_{a, b} : T(a) + T(b) \cong T(a + b)$.
+        \item $\phi_{a, b} \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$.
+        \item $\phi_{a, b} \circ \mathrm{inr}_{T(a), T(b)} = T(\mathrm{inr}_{a, b})$.
+    \end{enumerate}
+\end{theorem*}
+
+\begin{proof}
+    Слева направо: пусть $T$ аддитивен. $(a + b, \mathrm{inl}_{a, b}, \mathrm{inr}_{a, b})$~— копроизведение,
+    поэтому, по~аддитивности, $(T(a + b), T(\mathrm{inl}_{a, b}), T(\mathrm{inr}_{a, b}))$~— тоже.
+    Копроизведение единственно, поэтому $T(a) + T(b) \cong T(a + b)$, например, посредством стрелки
+    $\phi = \mathrm{rec}_{T(a), T(b)}(T(\mathrm{inl}_{a, b}), T(\mathrm{inr}_{a, b})) \in \mathrm{hom}_B(T(a) + T(b), T(a + b))$.
+    Кроме того, $\phi \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$
+    и~$\phi \circ \mathrm{inr}_{T(a), T(b)} = T(\mathrm{inr}_{a, b})$ по~заданию $\phi$.
+
+    Обратно, пусть $(c, i, j)$~— некоторое копроизведение $a$ и~$b$. Докажем, что $(T(c), T(i), T(j))$~— копроизведение.
+    Зафиксируем объект $x \in \mathrm{Ob}(B)$ и~пару стрелок $f \in \mathrm{hom}_B(T(a), x)$ и~$g \in \mathrm{hom}_B(T(b), x)$.
+
+    ???
+\end{proof}
 
 \subsection{Категории с кобордизмами}
 
