@@ -1230,7 +1230,7 @@ $$
 \textit{Копроизведением} (или суммой) объектов $a$ и~$b \in \mathrm{Ob}(C)$ называется упорядоченная тройка $(c, \mathrm{inl}, \mathrm{inr})$,
 где $c \in \mathrm{Ob}(C)$, $\mathrm{inl} \in \mathrm{hom}_C(a, c)$ и~$\mathrm{inr} \in \mathrm{hom}_C(b, c)$, такая, что
 выполнено следующее универсальное свойство: для~любого объекта $x \in \mathrm{Ob}(C)$ и~пары морфизмов $f \in \mathrm{hom}_C(a, x)$
-и~$g \in \mathrm{hom}_C(b, x)$ существует единственный морфизм $h \in \mathrm{hom}_C(c, x)$ такой, что $h \circ \mathrm{inl} = f$
+и~$g \in \mathrm{hom}_C(b, x)$ существует единственный (универсальный) морфизм $h \in \mathrm{hom}_C(c, x)$ такой, что $h \circ \mathrm{inl} = f$
 и~$h \circ \mathrm{inr} = g$; то~есть коммутативна следующая диаграмма:
 \[
     \begin{tikzcd}
@@ -1243,6 +1243,55 @@ $$
 
 Наконец, говорим, что функтор $T : A \rightarrow B$ \textit{аддитивен,} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \mathrm{Ob}(A)$
 тройка $(T(c), T(i), T(j))$~— копроизведение $T(a)$ и~$T(b)$.
+
+\begin{lemma*}[$\eta$-правило]
+    Если $(c, i, j)$~— копроизведение, $x \in \mathrm{Ob}(C)$ и~$f \in \mathrm{hom}_C(c, x)$,
+    то~$\mathrm{rec}(f \circ i, f \circ j) = f$.
+\end{lemma*}
+
+\begin{proof}
+    Действительно, $\mathrm{rec}(f \circ i, f \circ j) \circ i = f \circ i$
+    и~$\mathrm{rec}(f \circ i, f \circ j) \circ j = f \circ j$.
+    В~силу единственности такой стрелки получаем лемму.
+\end{proof}
+
+\begin{lemma*}
+    Пусть $(c, i, j)$~— копроизведение, $x \in \mathrm{Ob}(C)$, $f, g \in \mathrm{hom}_C(c, x)$.
+    Если $f \circ i = g \circ i$ и~$f \circ j = g \circ j$, то~$f = g$.
+\end{lemma*}
+
+\begin{proof}
+    По~доказанному ранее, $\mathrm{rec}(f \circ i, f \circ j) = f$ и~$\mathrm{rec}(g \circ i, g \circ j)$.
+    Но~тогда имеем:
+    $$
+        f = \mathrm{rec}(f \circ i, f \circ j) = \mathrm{rec}(g \circ i, g \circ j) = g.
+    $$
+\end{proof}
+
+\begin{lemma*}
+    Пусть $(c_1, i_1, j_1)$ и~$(c_2, i_2, j_2)$~— копроизведения $a$ и~$b$.
+    Тогда существует $\phi : c_1 \cong c_2$, причём $\phi \circ i_1 = i_2$
+    и~$\phi \circ j_1 = j_2$.
+\end{lemma*}
+
+\begin{proof}
+    Обозначим как $\mathrm{rec}_1$ универсальную стрелку для~первой тройки,
+    а~как $\mathrm{rec}_2$~— для~второй. Пусть $\phi = \mathrm{rec}_1(i_2, j_2)$
+    и~$\psi = \mathrm{rec}_2(i_1, j_1)$. Тогда:
+    $$
+        \phi \circ \psi \circ i_2 = \phi \circ \mathrm{rec}_2(i_1, j_1) \circ i_2
+                                  = \phi \circ i_1
+                                  = \mathrm{rec}_1(i_2, j_2) \circ i_1
+                                  = i_2
+                                  = \mathrm{id}_C(c_2) \circ i_2.
+    $$
+
+    Аналогично, $\phi \circ \psi \circ j_2 = \mathrm{id}_C(c_2) \circ j_2$.
+    В~силу предыдущей леммы, $\phi \circ \psi = \mathrm{id}_C(c_2)$.
+    Точно так~же получаем, что $\psi \circ \phi = \mathrm{id}_C(c_1)$.
+    Наконец, $\phi \circ i_1 = \mathrm{rec}_1(i_2, j_2) \circ i_1 = i_2$
+    и~$\phi \circ j_1 = \mathrm{rec}_1(i_2, j_2) \circ j_1 = j_2$.
+\end{proof}
 
 \begin{theorem*}[критерий аддитивности]
     Пусть категории $A$ и~$B$ содержат все копроизведения.
@@ -1257,15 +1306,39 @@ $$
 \begin{proof}
     Слева направо: пусть $T$ аддитивен. $(a + b, \mathrm{inl}_{a, b}, \mathrm{inr}_{a, b})$~— копроизведение,
     поэтому, по~аддитивности, $(T(a + b), T(\mathrm{inl}_{a, b}), T(\mathrm{inr}_{a, b}))$~— тоже.
-    Копроизведение единственно, поэтому $T(a) + T(b) \cong T(a + b)$, например, посредством стрелки
-    $\phi = \mathrm{rec}_{T(a), T(b)}(T(\mathrm{inl}_{a, b}), T(\mathrm{inr}_{a, b})) \in \mathrm{hom}_B(T(a) + T(b), T(a + b))$.
-    Кроме того, $\phi \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$
-    и~$\phi \circ \mathrm{inr}_{T(a), T(b)} = T(\mathrm{inr}_{a, b})$ по~заданию $\phi$.
+    Копроизведение единственно, поэтому $\phi : T(a) + T(b) \cong T(a + b)$, причём $\phi \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$
+    и~$\phi \circ \mathrm{inr}_{T(a), T(b)} = T(\mathrm{inr}_{a, b})$.
 
     Обратно, пусть $(c, i, j)$~— некоторое копроизведение $a$ и~$b$. Докажем, что $(T(c), T(i), T(j))$~— копроизведение.
     Зафиксируем объект $x \in \mathrm{Ob}(B)$ и~пару стрелок $f \in \mathrm{hom}_B(T(a), x)$ и~$g \in \mathrm{hom}_B(T(b), x)$.
 
-    ???
+    Снова в~силу единственности имеем стрелку $\psi : c \cong a + b$.
+    Тогда $h = \mathrm{rec}_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi) \in \mathrm{hom}_B(T(c), x)$, причём:
+    \begin{align*}
+        h \circ T(i) &= \mathrm{rec}_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi \circ i) \\
+                     &= \mathrm{rec}_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\mathrm{inl}_{a, b}) \\
+                     &= \mathrm{rec}_{T(a), T(b)}(f, g) \circ \mathrm{inl}_{T(a), T(b)} \\
+                     &= f.
+    \end{align*}
+
+    Аналогично $h \circ T(j) = g$. Наконец, пусть $h' \in \mathrm{hom}_B(T(c), x)$,
+    $h' \circ T(i) = f$ и~$h' \circ T(j) = g$.
+
+    $u = T(\psi^{-1}) \circ \phi_{a, b}$~— изоморфизм как композиция изоморфизмов,
+    поэтому $h = h' \Leftrightarrow h \circ u = h' \circ u$. Далее,
+    \begin{align*}
+        h \circ u \circ \mathrm{inl}_{T(a), T(b)} &= \mathrm{rec}_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi \circ \psi^{-1}) \circ \phi_{a, b} \circ \mathrm{inl}_{T(a), T(b)} \\
+                                                  &= \mathrm{rec}_{T(a), T(b)}(f, g) \circ \mathrm{inl}_{T(a), T(b)} \\
+                                                  &= f \\
+                                                  &= h' \circ T(i) \\
+                                                  &= h' \circ u \circ u^{-1} \circ T(i) \\
+                                                  &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\psi) \circ T(i) \\
+                                                  &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\psi \circ i) \\
+                                                  &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\mathrm{inl}_{a, b}) \\
+                                                  &= h' \circ u \circ \mathrm{inl}_{T(a), T(b)}.
+    \end{align*}
+
+    Аналогично, $h \circ u \circ \mathrm{inr}_{T(a), T(b)} = h' \circ u \circ \mathrm{inr}_{T(a), T(b)}$, поэтому $h \circ u = h' \circ u$.
 \end{proof}
 
 \subsection{Категории с кобордизмами}
