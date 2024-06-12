@@ -1127,6 +1127,8 @@ Volume~1. New~York: Chelsea~(1965).
 
 \bibitem{MacLane71} S.~MacLane. Categories for~the~Working Mathematician. Springer-Verlag, New~York, (1971) Graduate Texts in Mathematics, Vol.~5.
 
+\bibitem{Stong68} R.~E.~Stong, Notes on~Cobordism Theory. Princeton University Press, 1969.
+
 \end{thebibliography}
 \pagebreak
 
@@ -1182,8 +1184,12 @@ $$
 Для~зафиксированных категорий $A$, $B$ и~объекта $b \in \mathrm{Ob}(B)$ определён \textit{диагональный функтор} $\Delta_b : A \rightarrow B$
 такой, что $\Delta_b(a) = b$ и~$\Delta_b(f) = \mathrm{id}_B(b)$ для~любых $a \in \mathrm{Ob}(A)$ и~$f \in \mathrm{Arr}(A)$.
 
+Если дана пара функтор $F = (F_1, F_2) : B \rightarrow C$ и~$G = (G_1, G_2) : A \rightarrow B$,
+то~определена их \textit{композиция} $F \circ G = (F_1 \circ G_1, F_2 \circ G_2) : A \rightarrow C$.
+
 Стрелка $f \in \mathrm{hom}_C(a, b)$ называется \textit{изоморфизмом,} если существует стрелка $g \in \mathrm{hom}_C(b, a)$
 такая, что $f \circ g = \mathrm{id}(b)$ и~$g \circ f = \mathrm{id}(a)$. Тогда также пишем $f : a \cong b$.
+Нетрудно видеть, что функтор переводит изоморфизмы в~изоморфизмы.
 
 \textit{Подграфом} ориентированного графа $D$ называется граф $D'$ такой, что $\mathrm{Ob}(D') \subseteq \mathrm{Ob}(D)$, $\mathrm{Arr}(D') \subseteq \mathrm{Arr}(D)$,
 $\mathrm{dom}_{D'} = \mathrm{dom}_{D} |_{\mathrm{Arr}(D')}$ и~$\mathrm{cod}_{D'} = \mathrm{cod}_{D} |_{\mathrm{Arr}(D')}$.
@@ -1241,8 +1247,9 @@ $$
 Также пишем $c = a + b$, $\mathrm{inl} = \mathrm{inl}_{a, b}$, $\mathrm{inr} = \mathrm{inr}_{a, b}$
 и~$h = \mathrm{rec}_{a, b}(f, g)$.
 
-Наконец, говорим, что функтор $T : A \rightarrow B$ \textit{аддитивен,} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \mathrm{Ob}(A)$
-тройка $(T(c), T(i), T(j))$~— копроизведение $T(a)$ и~$T(b)$.
+Наконец, говорим, что функтор $T : A \rightarrow B$ \textit{полуаддитивен,} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \mathrm{Ob}(A)$
+тройка $(T(c), T(i), T(j))$~— копроизведение $T(a)$ и~$T(b)$. Функтор $T$ \textit{аддитивен,} если он полуаддитивен и~для~всякого инициального объекта
+$o \in \mathrm{Ob}(A)$ объект $T(o)$~— инициальный в~$B$.
 
 \begin{lemma*}[$\eta$-правило]
     Если $(c, i, j)$~— копроизведение, $x \in \mathrm{Ob}(C)$ и~$f \in \mathrm{hom}_C(c, x)$,
@@ -1293,9 +1300,9 @@ $$
     и~$\phi \circ j_1 = \mathrm{rec}_1(i_2, j_2) \circ j_1 = j_2$.
 \end{proof}
 
-\begin{theorem*}[критерий аддитивности]
+\begin{theorem*}[критерий полуаддитивности]
     Пусть категории $A$ и~$B$ содержат все копроизведения.
-    Тогда функтор $T : A \rightarrow B$ аддитивен тогда и~только тогда, когда:
+    Тогда функтор $T : A \rightarrow B$ полуаддитивен тогда и~только тогда, когда:
     \begin{enumerate}
         \item Для~всякой пары объектов $a, b \in \mathrm{Ob}(A)$ определён изоморфизм $\phi_{a, b} : T(a) + T(b) \cong T(a + b)$.
         \item $\phi_{a, b} \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$.
@@ -1304,8 +1311,8 @@ $$
 \end{theorem*}
 
 \begin{proof}
-    Слева направо: пусть $T$ аддитивен. $(a + b, \mathrm{inl}_{a, b}, \mathrm{inr}_{a, b})$~— копроизведение,
-    поэтому, по~аддитивности, $(T(a + b), T(\mathrm{inl}_{a, b}), T(\mathrm{inr}_{a, b}))$~— тоже.
+    Слева направо: пусть $T$ полуаддитивен. $(a + b, \mathrm{inl}_{a, b}, \mathrm{inr}_{a, b})$~— копроизведение,
+    поэтому, по~полуаддитивности, $(T(a + b), T(\mathrm{inl}_{a, b}), T(\mathrm{inr}_{a, b}))$~— тоже.
     Копроизведение единственно, поэтому $\phi : T(a) + T(b) \cong T(a + b)$, причём $\phi \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$
     и~$\phi \circ \mathrm{inr}_{T(a), T(b)} = T(\mathrm{inr}_{a, b})$.
 
@@ -1341,21 +1348,39 @@ $$
     Аналогично, $h \circ u \circ \mathrm{inr}_{T(a), T(b)} = h' \circ u \circ \mathrm{inr}_{T(a), T(b)}$, поэтому $h \circ u = h' \circ u$.
 \end{proof}
 
+\begin{theorem*}[критерий аддитивности]
+    Пусть категории $A$ и~$B$ содержат все копроизведения и~инициальный объект.
+    Тогда функтор $T : A \rightarrow B$ аддитивен тогда и~только тогда, когда:
+    \begin{enumerate}
+        \item Для~всякой пары объектов $a, b \in \mathrm{Ob}(A)$ определён изоморфизм $\phi_{a, b} : T(a) + T(b) \cong T(a + b)$.
+        \item $\phi_{a, b} \circ \mathrm{inl}_{T(a), T(b)} = T(\mathrm{inl}_{a, b})$.
+        \item $\phi_{a, b} \circ \mathrm{inr}_{T(a), T(b)} = T(\mathrm{inr}_{a, b})$.
+        \item $T(0_A) \cong 0_B$.
+    \end{enumerate}
+\end{theorem*}
+
+\begin{proof}
+    Непосредственно следует из~единственности инициального объекта и~предыдущей теоремы.
+\end{proof}
+
 \subsection{Категории с кобордизмами}
 
-\textit{Категорией с~кобордизмами} называем упорядоченную тройку $(C, \partial, i)$, где $C$~— категория, $\partial$~— функтор $C \rightarrow C$,
+\textit{Категорией с~кобордизмами} называем\footnote{
+    В~английском языке «cobordism category» используется для~обозначения как вводимого понятия,
+    так и~для~категории, объекты которой~— многообразия, а~стрелки~— кобордизмы между ними (последнюю
+    ещё называют «category of~cobordisms»). В~русском языке нет устоявшихся переводов, поэтому
+    во~избежание путаницы первое предлагаем переводить как «категорию с~кобордизмами», а~второе~—
+    как «категорию кобордизмов».
+} упорядоченную тройку $(C, \partial, i)$, где $C$~— категория, $\partial$~— функтор $C \rightarrow C$,
 $i$~— естественное преобразование $\partial \Rightarrow 1_C$, такую, что:
 \begin{enumerate}
     \item $\partial$~— аддитивный функтор.
-    \item $\partial(\partial(x))$~— инициальный объект в~$C$ для~всех $x \in \mathrm{Obj}(C)$.
+    \item $\partial(\partial(x))$~— инициальный объект в~$C$ для~всех $x \in \mathrm{Ob}(C)$.
 \end{enumerate}
 
-\textit{Кобордизмом} между объектами $a$ и~$b \in \mathrm{Ob}(C)$ называется тройка $(c, i, j)$,
-где $c \in \mathrm{Ob}(C)$, $i \in \mathrm{hom}_C(a, \partial(c))$ и~$j \in \mathrm{hom}_C(b, \partial(c))$,
-такая, что $(\partial(c), i, j)$~— копроизведение. \textit{Морфизмом кобордизмов} $\epsilon_1 = (c_1, i_1, j_1)$
-и~$\epsilon_2 = (c_2, i_2, j_2)$ между объектами $a$ и~$b$ называется стрелка $\phi \in \mathrm{hom}_C(c_1, c_2)$
-такая, что $\partial(\phi) \circ i_1 = i_2$ и~$\partial(\phi) \circ j_1 = j_2$. Также говорим, что объекты \textit{кобордантны,}
-если между ними существует кобордизм.
+От~определения, данного в~\cite{Stong68}, данное отличается тем, что не~требует а) существования малой подкатегории $C_0$
+такой, что всякий объект из~$C$ изоморфен некоторому из~$C_0$ (это также эквивалентно тому, что скелет $C$~— малая категория),
+и~б) не~требует существования всех копроизведений в~$C$.
 
 \medskip
 \noindent\textbf{Пример.} Рассмотрим категорию $n$-мерных $C^p$-гладких многообразий (с~границей), где $1 \leq p \leq \infty$,
@@ -1462,6 +1487,40 @@ $$
 
         \item $\partial((u, \varepsilon) \circ (v, \eta)) = ??? $.
     \end{enumerate}
+\end{proof}
+
+?
+
+Говорим, что объект $a \in \mathrm{Ob}(C)$ \textit{замкнут,} если $\partial(a)$~— инициальный объект.
+Объект $a$ \textit{точен,} если $\exists b \in \mathrm{Ob}(C){:}\ a = \partial(b)$.
+
+\textit{Кобордизмом} между объектами $a$ и~$b \in \mathrm{Ob}(C)$ называется тройка $(c, i, j)$,
+где $c \in \mathrm{Ob}(C)$, $i \in \mathrm{hom}_C(a, \partial(c))$ и~$j \in \mathrm{hom}_C(b, \partial(c))$,
+такая, что $(\partial(c), i, j)$~— копроизведение. \textit{Морфизмом кобордизмов} $\epsilon_1 = (c_1, i_1, j_1)$
+и~$\epsilon_2 = (c_2, i_2, j_2)$ между объектами $a$ и~$b$ называется стрелка $\phi \in \mathrm{hom}_C(c_1, c_2)$
+такая, что $\partial(\phi) \circ i_1 = i_2$ и~$\partial(\phi) \circ j_1 = j_2$. Также говорим, что объекты \textit{кобордантны,}
+если между ними существует кобордизм. Множество всех кобордизмов между объектами $a$ и~$b$ в~категории с~кобордизмами
+$\Gamma = (C, \partial, i)$ будем обозначать как $\mathrm{Cob}_\Gamma(a, b)$.
+
+?
+
+Рассмотрим теперь две категории с~кобордизмами $\Gamma_1 = (C_1, \partial_1, i_1)$ и~$\Gamma_2 = (C_2, \partial_2, i_2)$.
+Функтор $T : C_1 \rightarrow C_2$ называется \textit{граничным,} если $T \circ \partial_1 = \partial_2 \circ T$.
+
+\begin{lemma*}
+    Аддитивный граничный функтор $T$ переводит замкнутные объекты в~замкнутые, точные~— в~точные, а~кобордизмы~— в~кобордизмы.
+\end{lemma*}
+
+\begin{proof}
+    Пусть $a \in \mathrm{Ob}(C_1)$ замкнут. $\partial(a)$ инициален, а~потому и~$T(\partial(a)) = \partial(T(a))$.
+
+    Пусть $a = \partial(b)$. Тогда $T(a) = T(\partial(b)) = \partial(T(b))$.
+
+    Пусть $(c, i, j)$~— кобордизм между $a$ и~$b \in \mathrm{Ob}(C_1)$.
+    Тогда $T(i) \in \mathrm{hom}_{C_2}(T(a), T(\partial(c))) = \mathrm{hom}_{C_2}(T(a), \partial(T(c)))$
+    и~$T(j) \in \mathrm{hom}_{C_2}(T(b), T(\partial(c))) = \mathrm{hom}_{C_2}(T(b), \partial(T(c)))$.
+    В~силу аддитивности, $(\partial(T(c)), T(i), T(j)) = (T(\partial(c)), T(i), T(j))$~— копроизведение,
+    а~потому $(T(c), T(i), T(j))$~— кобордизм.
 \end{proof}
 
 ?
