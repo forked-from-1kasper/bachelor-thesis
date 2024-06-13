@@ -1403,7 +1403,7 @@ $i$~— естественное преобразование $\partial \Rightar
 
 \noindent\textbf{Пример.} Зафиксируем пару категорий $J$ (называемую индексной) и~$C$. \textit{Коконусом} называется упорядоченная
 тройка $(F, c, \psi)$, где $F : J \rightarrow C$~— функтор, $c \in \Ob(C)$~— объект
-и~$\psi$~— семейство морфзимов $\psi_x \in \hom_C(F(x), c)$ такое, что для~любой
+и~$\psi$~— семейство морфизмов $\psi_x \in \hom_C(F(x), c)$ такое, что для~любой
 пары объектов $i, j \in \Ob(J)$ и~стрелки $f \in \hom_J(i, j)$ верно,
 что $\psi_j \circ F(f) = \psi_i$:
 \[
@@ -1461,33 +1461,35 @@ $$
            \end{cases}
 $$
 
+$\partial(\id((F, x, \phi))) = \id(\partial((F, x, \phi)))$ в~силу того, что $\rec(F, \colim(F), \incl(F)) = \id(\colim(F))$.
+$\partial((u, \varepsilon) \circ (v, \eta)) = \partial((u, \varepsilon)) \circ \partial((v, \eta))$
+в~силу того, что $\rec(F, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j \circ \eta_j) =
+                  \rec(G, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \eta_j)$.
+
 Также определим естественное преобразование $i : \partial \Rightarrow 1_C$:
 $$
     i_{(F, x, \phi)} = (\rec(F, x, \phi), j \mapsto\ !_{F(j)})
 $$
 
-\begin{lemma*}
-    $\partial$~— аддитивный функтор, $i$~— естественное преобразование.
-\end{lemma*}
+Видно, что:
+\begin{align*}
+    \phantom{=}&\ i_{(G, y, \psi)} \circ \partial((u, \varepsilon)) \\
+              =&\ (\rec(G, y, \psi), j \mapsto\ !_{G(j)}) \circ (\rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), 1_{\Delta_0}) \\
+              =&\ (\rec(G, y, \psi) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), j \mapsto\ !_{G(j)} \circ \id(\Delta_0(j))) \\
+              =&\ (\rec(F, y, j \mapsto \psi_j \circ \varepsilon_j), j \mapsto\ !_{G(j)}) \\
+              =&\ (\rec(F, y, j \mapsto u \circ \phi_j), j \mapsto\ !_{G(j)}) \\
+              =&\ (u \circ \rec(F, x, \phi), j \mapsto \varepsilon_i\ \circ\ !_{F(j)}) \\
+              =&\ (u, \varepsilon) \circ i_{(F, x, \phi)}.
+\end{align*}
 
-\begin{proof}
-    Во-первых, $\partial$ и~$i$ действительно определены.
-    \begin{enumerate}
-        \item $(k \mapsto\ !_{\colim(F)})(j) \circ \Delta_0(f) =\ !_{\colim(F)} \circ \id_C(0) =\ !_{\colim(F)} = (k \mapsto\ !_{\colim(F)})(i)$.
-        \item $\rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j) \circ (k \mapsto\ !_{\colim(F)})(j) = (k \mapsto\ !_{\colim(G)})(j) \circ (1_{\Delta_0})_j$.
-        \item ???
-    \end{enumerate}
+Аддитивность $\partial$ следует из~того, что копределы коммутируют с~копроизведением,
+то~есть существует естественный изоморфизм $\colim(F + G) \cong \colim(F) + \colim(G)$,
+и~что $\colim(\Delta_0) \cong 0$.
 
-    Во-вторых, $\partial$~— функтор.
-    \begin{enumerate}
-        \item $\partial(\id_{\mathrm{Cocone}(J, C)}((F, x, \phi))) = \partial((\id_C(x), 1_F)) = (\rec(F, \colim(F), \incl(F)), 1_{\Delta_0})$,
-        но~поскольку $\id(\colim(F)) \circ \incl_j(F) = \incl_j(F)$, в~силу единственности,
-        $\rec(F, \colim(F), \incl(F)) = \id(\colim(F))$. Получаем,
-        $\partial(\id((F, x, \phi))) = (\id(\colim(F)), 1_{\Delta_0}) = \id(\partial((F, x, \phi)))$.
+Наконец, $\partial(\partial((F, x, \phi)))) = (\Delta_0, \colim(\Delta_0), j \mapsto\ !_{\colim(\Delta_0)}) \cong 0$,
+то~есть $(\mathrm{Cocone}(J, C), \partial, i)$~— категория с~кобордизмами.
 
-        \item $\partial((u, \varepsilon) \circ (v, \eta)) = ??? $.
-    \end{enumerate}
-\end{proof}
+Этот пример примечателен тем, что не~требует для~своего построения привлечения многообразий либо их обобщений.
 
 ?
 
