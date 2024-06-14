@@ -104,6 +104,16 @@ $$
 Как показывает следующая теорема \cite{Schm94}, такие группы, на~самом деле, исчерпывают все алгебраические многообразия,
 глобально наследующие групповую структуру тора $(K^\times)$.
 
+Пусть $G$~— некоторая группа. Целочисленная степень элемента группы $g \in G$ определяется стандартным образом:
+$$
+  g^k =
+  \begin{cases}
+    g \cdot g^{k - 1}, & k > 0; \\
+    1, & k = 0; \\
+    g^{-1} \cdot g^{k + 1}, & k < 0.
+  \end{cases}
+$$
+
 Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
 обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
 
@@ -187,8 +197,11 @@ $$
 
 \section{Доказательство теоремы Шмидта}
 
+\textit{Многочленом Лорана} над~кольцом $K$ называется функция вида $z \mapsto \sum_{i \in I} a_i z^{\alpha_i}$ из~$(K^\times)^k$ в~$K$,
+где $a_i \in K$ и~$I \subseteq \mathbb{Z}^k$~— конечный набор индексов.
+
 \begin{proof}
-  Пусть $I \subseteq \mathbb{Z}^n$~— конечное множество индексов,
+  Пусть $I \subseteq \mathbb{Z}^n$~— множество индексов,
   а~$P_j(z) = \sum_{i \in I} a_{ji} z^i$~— многочлены ($k$ штук), задающие подгруппу:
   $$
       H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
@@ -1057,25 +1070,8 @@ $$
 
 \subsection{Вычет Гротендика}
 
-Пусть $G$~— некоторая группа. Целочисленная степень элемента группы $g \in G$ определяется стандартным образом:
-$$
-  g^k =
-  \begin{cases}
-    g \cdot g^{k - 1}, & k > 0; \\
-    1, & k = 0; \\
-    g^{-1} \cdot g^{k + 1}, & k < 0.
-  \end{cases}
-$$
-
-Для~векторов $z = (z_1, \ldots, z_k) \in G^k$ и~индекса $\alpha = (\alpha_1, \ldots, \alpha_k) \in \mathbb{Z}^k$
-также обозначим $z^\alpha = z_1^{\alpha_1} \ldots z_k^{\alpha_k}$.
-
-\textit{Многочленом Лорана} над~кольцом $K$ называется функция вида $z \mapsto \sum_{i \in I} a_i z^{\alpha_i}$ из~$(K^\times)^k$ в~$K$,
-где $a_i \in K$ и~$I \subseteq \mathbb{Z}^k$~— конечный набор индексов.
-
 Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$ над~$\complex$.
 Обозначим $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
-
 Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
 Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим $\gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$.
 
@@ -1508,6 +1504,14 @@ $\Gamma = (C, \partial, i)$ будем обозначать как $\mathrm{Cob}
 
 $\mathrm{Cob}_\Gamma(a, b)$ вместе со~стрелками в~определённом выше смысле образует категорию,
 изоморфизмы в~которой соответствует эквивалентности кобордизмов, определённой в~\cite{Mil65}.
+
+\begin{statement*}
+    Во~всякой категории с~кобордизмами $(C, \partial, i)$:
+    \begin{enumerate}
+        \item Если $a$ и~$b$ кобордантны, то~$\partial(a) \cong \partial(b) \cong 0$.
+        \item Для~любого $a$ объекты $\partial(a)$ и~$0$ кобордантны.
+    \end{enumerate}
+\end{statement*}
 
 ?
 
