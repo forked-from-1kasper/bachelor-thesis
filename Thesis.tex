@@ -1,9 +1,12 @@
-\documentclass{article}
+\documentclass[a4paper,oneside]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian]{babel}
-\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry}
+\usepackage[tmargin=20mm,bmargin=20mm,lmargin=30mm,rmargin=10mm]{geometry}
+
+\usepackage{tempora}
+\usepackage[fontsize=14pt]{fontsize}
 
 \usepackage[hidelinks,unicode]{hyperref}
 \usepackage[threshold=0]{csquotes}
@@ -21,6 +24,9 @@
 \usepackage{tocloft}
 
 \input{Common}
+
+\setlength{\parindent}{12.5mm}
+\linespread{1.3}
 
 \begin{document}
 
@@ -66,9 +72,9 @@
   \vfill
   Красноярск, 2024
 \end{titlepage}
+\stepcounter{page}
 
 \section*{\centeringРеферат}
-\addtocounter{page}{-1}
 \thispagestyle{empty}
 
 ???
@@ -129,7 +135,7 @@ $$
 
 \section{Теорема Артина}
 
-Множество гомоморфизмов между группами $G$ и~$H$ обозначим как~$\Hom(G, H)$.
+Как~$\Hom(G, H)$ обозначим множество гомоморфизмов между группами $G$ и~$H$.
 
 Пусть $G$~— группа, $K$~— поле, а~$K^{\times}$~— его мультипликативная группа.
 В~таком случае произвольный гомоморфизм $f \in \Hom(G, K^{\times})$ называют \textbf{характером.}
@@ -197,7 +203,10 @@ $$
 
 \section{Доказательство теоремы Шмидта}
 
-\textit{Многочленом Лорана} над~кольцом $K$ называется функция вида $z \mapsto \sum_{i \in I} a_i z^{\alpha_i}$ из~$(K^\times)^k$ в~$K$,
+\textit{Многочленом Лорана} над~кольцом $K$ называется функция $(K^\times)^k \rightarrow K$ вида
+$$
+    z \mapsto \sum_{i \in I} a_i z^{\alpha_i},
+$$
 где $a_i \in K$ и~$I \subseteq \mathbb{Z}^k$~— конечный набор индексов.
 
 \begin{proof}
@@ -229,7 +238,7 @@ $$
   \sum_{i \in I_k} a_{ji} = 0.
   $$
 
-  Наконец, пусть $N_k$~— мощность $I_k$, $I_k = \{i_{k, 1}, i_{k, 2}, \ldots, i_{k, N_k}\}$ и~$N = \sum_{k = 1}^m (N_k - 1)$.
+  Наконец, пусть $N_k$~— мощность $I_k$, $N = \sum_{k = 1}^m (N_k - 1)$ и~$I_k = \{i_{k, 1},\allowbreak i_{k, 2},\allowbreak \ldots,\allowbreak i_{k, N_k}\}$.
   $I_k$ были взяты так, что характеры $\chi_{i_{k, i}}$ и~$\chi_{i_{k, j}}$ совпадают на~$H$ для~фиксированного $k$ и~любых $i$ и~$j$.
   Другими словами, это означает, что всякий элемент $z \in H$ удовлетворяет для~всех $1 \leq i \leq N_k$ и~$1 \leq j \leq N_k$
   уравнениям $z^{i_{k, i}} = z^{i_{k, j}}$.
@@ -273,12 +282,14 @@ $\phi_\alpha$~— гомоморфизм.
 \end{statement*}
 
 \begin{proof}
-    Действительно, рассмотрим $t \in G^n$. Тогда $i$-я компонента $\phi_\alpha(\phi_\beta(t))$
-    равна $\phi_\beta^{\alpha_i}(t) = (t^{\beta_1})^{\alpha_i^1} \ldots (t^{\beta_m})^{\alpha_i^m}
-                                    = t_1^{\beta_1^1 \alpha_i^1 + \ldots + \beta_m^1 \alpha_i^m}
-                                      \ldots
-                                      t_n^{\beta_1^n \alpha_i^1 + \ldots + \beta_m^n \alpha_i^m}
-                                    = t^{(\alpha \beta)_i}$.
+    Действительно, рассмотрим $t \in G^n$. Тогда $i$-я компонента вектора $\phi_\alpha(\phi_\beta(t))$
+    равна
+    $$ \phi_\beta^{\alpha_i}(t) = (t^{\beta_1})^{\alpha_i^1} \cdot \ldots \cdot (t^{\beta_m})^{\alpha_i^m}
+                                = t_1^{\beta_1^1 \alpha_i^1 + \ldots + \beta_m^1 \alpha_i^m} \cdot
+                                  \ldots \cdot
+                                  t_n^{\beta_1^n \alpha_i^1 + \ldots + \beta_m^n \alpha_i^m}
+                                = t^{(\alpha \beta)_i}.
+    $$
 \end{proof}
 
 Вместе эти два утверждения составляют условие на~функториальность. Более точно, рассмотрим категорию
@@ -350,7 +361,7 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 \end{lemma}
 
 \begin{proof}
-    $\phi_\alpha$~— гомоморфизм, потому достаточно показать, что $\ker(\phi_\alpha) = \{1\}$.
+    Достаточно показать, что $\ker(\phi_\alpha) = \{1\}$, поскольку $\phi_\alpha$~— гомоморфизм.
     Возьмём $t \in G^k$ такой, что $\phi_\alpha(t) = 1$, и~докажем, что $t = 1$.
 
     Действительно, поскольку $\alpha_i$ порождают всю решётку, каждый $e_j$ выражается как линейная комбинация векторов $\alpha_i$:
@@ -374,14 +385,15 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 Теперь покажем, что полученное в~лемме небходимое условие является также и~достаточным для~группы $G = \torus$.
 
 Будем пользоваться существованием для~целочисленных матриц \textit{нормальной формы Смита} \cite{Smth60}.
-Пусть $\diag^{m \times n}_r(x_1, \ldots, x_r)$~— диагональная матрица $\diag(x_1, \ldots, x_r)$,
+Пусть $\diag^{m \times n}_r(x_1, \ldots, x_r)$~— матрица $\diag(x_1, \ldots, x_r)$,
 дополненная (или обрезанная) справа снизу нулями до~матрицы размера $m \times n$.
 
 \begin{theorem*}[о существовании нормальной формы Смита]
+    Для~всякой матрицы $\alpha \in \Z^{m \times n}$ существуют
+    пара матриц $\beta_1 \in \GL^m(\Z)$ и~$\beta_2 \in \GL^n(\Z)$,
+    а~также набор чисел $\varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}$,
+    такие, что:
     $$
-        \forall \alpha \in \Z^{m \times n}{:}\
-        \exists \beta_1 \in \GL^m(\Z), \beta_2 \in \GL^n(\Z){:} \
-        \exists \varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}{:} \
         \beta_1 \alpha \beta_2 = \diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
     $$
     причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ (так называемые инвариантные факторы) и~$r = \rank(\alpha)$.
@@ -422,10 +434,12 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 \end{proof}
 
 Сформулируем ещё одну вспомогательную теорему \cite{TsikhSad14}.
-Обозначим \textit{$\Z$-линейную оболочку} векторов $\alpha_1, \ldots, \alpha_n$ как
-$\Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1, \ldots, k_n \in \Z \}$.
+\textit{$\Z$-линейную оболочку} векторов $\alpha_1, \ldots, \alpha_n$ обозначим как
+$$
+    \Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1, \ldots, k_n \in \Z \}.
+$$
 
-Говорим, что $\alpha_1, \ldots, \alpha_n$ \textit{порождают всю решётку} $\Z^k$, если $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k$.
+Если $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k$, то~говорим, что $\alpha_1, \ldots, \alpha_n$ \textit{порождают всю решётку} $\Z^k$.
 
 \begin{theorem}
 \label{theorem:TsikhSadykov}
@@ -586,7 +600,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 \end{theorem}
 
 \begin{proof}
-    Снова рассмотрим нормальную форму Смита для~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
+    Снова рассмотрим нормальную форму для~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
     $\phi_{\beta_1^{-1}}$~— изоморфизм, поэтому $\ker(\phi_{\beta}) = \ker(\phi_{\varepsilon \beta_2^{-1}})$.
 
     Строки матрицы $\beta_2^{-1}$ обозначим как $b_i$.
@@ -633,10 +647,11 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     $\image(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
     поэтому $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$.
     В~силу леммы \ref{lemma:faithful}, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
-    Умножив обе части равенства на~матрицу
-    $\diag(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$, получим, что $\delta' {\beta'}_2^{-1} \alpha = 0$;
-    но~это значит, что $\ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
-    Совершенно аналогично получим обратное включение. Таким образом, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+    Умножив обе части равенства на~матрицу $\diag(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$, получим, что $\delta' {\beta'}_2^{-1} \alpha = 0$;
+    но~это значит, что $$
+        \ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}}).
+    $$
+    Совершенно аналогично получим обратное включение. В~силу экстенсиональности, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
 
     Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
     называемую также \textit{группой компонент.}
@@ -650,7 +665,8 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
         \omega(\varepsilon) \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \cong \omega(\varepsilon').
     $$
 
-    Изоморфные группы имеют одинаковые порядки, а~значит $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$.
+    Окончательно, $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$,
+    так как изоморфные группы имеют одинаковые порядки.
 \end{proof}
 
 Таким образом, для~всякой алгебраической подгруппы $H$ тора можно определить число $\Pi(H)$
@@ -720,13 +736,13 @@ $$
 \begin{proof}
     Элементы группа $G \times H$ представляются как пары $(g, h)$, где $g \in G$ и~$h \in H$, поэтому
     линейная независимость над~$G \times H$ запишется как:
-    $$
-        \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
-    $$
+    \begin{gather*}
+        \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
+    \end{gather*}
     Кроме того, ясно, что
-    $$
-        (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
-    $$
+    \begin{gather*}
+        (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow\\ g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
+    \end{gather*}
     а~также
     $$
         (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
@@ -1003,7 +1019,7 @@ $$
 Теперь аналогичная теорема доказывается без~изменений.
 
 \begin{theorem*}
-    Всякий голоморфный $f \in \Hom((\torus)^n, \torus)$ является мономом, то~есть:
+    Всякий голоморфный $f \in \Hom((\torus)^n, \torus)$~— моном, то~есть:
     $$
         \exists \alpha \in \Z^n{:}\ \forall z{:}\ f(z) = z^\alpha.
     $$
@@ -1071,7 +1087,7 @@ $$
 \subsection{Вычет Гротендика}
 
 Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$ над~$\complex$.
-Обозначим $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
+Пусть $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
 Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
 Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим $\gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}$.
 
@@ -1087,8 +1103,8 @@ $$
   \operatorname*{res}\limits_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n}
 $$
 
-Существенную трудность при~вычислении такого вычета представляет устройство цикла $\gamma_z$.
-В~случае $g_i(z) = z$ цикл $\gamma_z$ является просто $n$-мерный тором, и~вычисление вычета
+Существенную трудность при~его вычислении представляет устройство цикла $\gamma_z$.
+В~случае $g_i(z) = z$ цикл $\gamma_z$ является просто $n$-мерным тором, и~вычисление вычета
 сводится к~вычислению коэффициента в~ряде~Лорана, как и~одномерном случае; однако в~общем случае
 нетривиальна даже топологическая структура $\gamma_z$.
 
@@ -1121,7 +1137,7 @@ Volume~1. New~York: Chelsea~(1965).
 
 \bibitem{GelKho02} O.~A.~Gelfond, A.~G.~Khovanskii, “Toric geometry and Grothendieck residues”, Mosc.~Math.~J., 2:1~(2002), 99–112.
 
-\bibitem{MacLane71} S.~MacLane. Categories for~the~Working Mathematician. Springer-Verlag, New~York, (1971) Graduate Texts in Mathematics, Vol.~5.
+\bibitem{MacLane71} S.~MacLane. Categories for the~Working Mathematician. Springer-Verlag, New~York, (1971) Graduate Texts in~Mathematics, Vol.~5.
 
 \bibitem{Mil65} J.~Milnor. Lectures on~the~H-Cobordism Theorem. Princeton University Press, Princeton (1965).
 
@@ -1141,7 +1157,7 @@ Volume~1. New~York: Chelsea~(1965).
 
 \subsection{Основные понятия теории категорий}
 
-Под~\textit{упорядоченным графом} \cite{MacLane71} понимаем упорядоченную четвёртку $(O, A, \dom, \cod)$,
+Под~\textit{упорядоченным графом} \cite{MacLane71} понимаем упорядоченную четвёртку $(O,\allowbreak A,\allowbreak \dom,\allowbreak \cod)$,
 где $A$ и~$O$~— множества, $\dom$ и~$\cod$~— функции $A \rightarrow O$.
 Для~графа определим множество \textit{перемножаемых стрелок} как $A \times_O A = \{ (g, f) \in A \times A \ |\ \dom(g) = \cod(f) \}$.
 
@@ -1156,7 +1172,7 @@ Volume~1. New~York: Chelsea~(1965).
     \item $\id(b) \circ f = f$, если $\cod(f) = b$ (левая унитальность).
 \end{enumerate}
 
-Элементы множества $O$ называются \textit{объектами} категории $C = (O, A, \dom, \cod, \id, \circ)$,
+Для~категории $C = (O, A, \dom, \cod, \id, \circ)$ элементы множества $O$ называются \textit{объектами},
 а~элементы множества $A$~— \textit{стрелками} (или морфизмами) этой категории. Обозначим $\Ob(C) = O$ и~$\Arr(C) = A$.
 Стрелки $\id(x)$ называются \textit{единичными,} а~стрелка $f \circ g$~— \textit{композицией.} Для~категории $C$ также будем писать $\id_C$ и~$\circ_C$.
 Для~объектов $a, b \in \Ob(C)$ определим \textit{множество стрелок}:
@@ -1190,8 +1206,8 @@ $$
 Нетрудно видеть, что функтор переводит изоморфизмы в~изоморфизмы.
 
 \textit{Подграфом} ориентированного графа $D$ называется граф $D'$ такой, что $\Ob(D') \subseteq \Ob(D)$, $\Arr(D') \subseteq \Arr(D)$,
-$\dom_{D'} = \dom_{D} |_{\Arr(D')}$ и~$\cod_{D'} = \cod_{D} |_{\Arr(D')}$.
-Также в~таком случае говорим, что граф $D$ \textit{содержит} (под)граф $D'$.
+а~также $\dom_{D'} = \dom_{D} |_{\Arr(D')}$ и~$\cod_{D'} = \cod_{D} |_{\Arr(D')}$.
+Говорим, что граф $D$ \textit{содержит} (под)граф $D'$.
 Аналогично говорим, что $C'$~— \textit{подкатегория} в~$C$, если $C'$ в~ней подграф, $\id_{C'} = \id_{C} |_{\Ob(C')}$
 и~$\circ_{C'} = \circ_{C} |_{\Arr(C') \times \Arr(C')}$.
 Если задан произвольный набор подкатегорий $C_i$ для~$i \in I$, то~ясно, что определено их пересечение, которое тоже является подкатегорией:
@@ -1229,7 +1245,7 @@ $$
   \forall x \in \Ob(C){:}\ \exists! f \in \Arr(C){:}\ f \in \hom_C(0, x).
 $$
 
-Эту единственную стрелку из~инициального объекта обозначаем $!_x \in \hom_C(0, x)$.
+Эту единственную стрелку обозначаем $!_x \in \hom_C(0, x)$.
 
 \textit{Копроизведением} (или суммой) объектов $a$ и~$b \in \Ob(C)$ называется упорядоченная тройка $(c, \inl, \inr)$,
 где $c \in \Ob(C)$, $\inl \in \hom_C(a, c)$ и~$\inr \in \hom_C(b, c)$, такая, что
@@ -1358,7 +1374,7 @@ $o \in \Ob(A)$ объект $T(o)$~— инициальный в~$B$.
 \end{theorem*}
 
 \begin{proof}
-    Непосредственно следует из~единственности инициального объекта и~предыдущей теоремы.
+    Немедленно следует из~единственности инициального объекта и~предыдущей теоремы.
 \end{proof}
 
 \subsection{Категории с кобордизмами}
@@ -1386,7 +1402,7 @@ $i$~— естественное преобразование $\partial \Rightar
 что $f(\partial M) \subseteq \partial N$). Тогда функция $M \mapsto \partial M$ задаёт эндофунктор,
 стрелочная функция которого~— просто ограничение на~границу: $f \mapsto f|_{\partial M}$.
 
-Кроме того, поскольку $\partial M \subseteq M$, определены функции-включения $C^p(\partial M, M)$,
+Кроме того, поскольку $\partial M \subseteq M$, определены включения $C^p(\partial M, M)$,
 которые (очевидно) также определяют естественное преобразование. Таким образом, задана категория с~кобордизмами.
 \medskip
 
@@ -1459,10 +1475,16 @@ $$
            \end{cases}
 $$
 
-$\partial(\id((F, x, \phi))) = \id(\partial((F, x, \phi)))$ в~силу того, что $\rec(F, \colim(F), \incl(F)) = \id(\colim(F))$.
+$\partial(\id((F, x, \phi))) = \id(\partial((F, x, \phi)))$ верно в~силу того, что
+\begin{align*}
+    \rec(F, \colim(F), \incl(F)) = \id(\colim(F)).
+\end{align*}
 $\partial((u, \varepsilon) \circ (v, \eta)) = \partial((u, \varepsilon)) \circ \partial((v, \eta))$
-в~силу того, что $\rec(F, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j \circ \eta_j) =
-                  \rec(G, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \eta_j)$.
+верно в~силу того, что
+\begin{align*}
+    \phantom{=}&\ \rec(F, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j \circ \eta_j) \\
+              =&\ \rec(G, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \eta_j).
+\end{align*}
 
 Также определим естественное преобразование $i : \partial \Rightarrow 1_C$:
 $$
@@ -1518,20 +1540,23 @@ $\mathrm{Cob}_\Gamma(a, b)$ вместе со~стрелками в~опреде
 Рассмотрим теперь две категории с~кобордизмами $\Gamma_1 = (C_1, \partial_1, i_1)$ и~$\Gamma_2 = (C_2, \partial_2, i_2)$.
 Функтор $T : C_1 \rightarrow C_2$ называется \textit{граничным,} если $T \circ \partial_1 = \partial_2 \circ T$.
 
-\begin{lemma*}
+\begin{statement*}
     Аддитивный граничный функтор $T$ переводит замкнутные объекты в~замкнутые, точные~— в~точные, а~кобордизмы~— в~кобордизмы.
-\end{lemma*}
+\end{statement*}
 
 \begin{proof}
-    Пусть $a \in \Ob(C_1)$ замкнут. $\partial(a)$ инициален, а~потому и~$T(\partial(a)) = \partial(T(a))$.
+    Действительно:
+    \begin{enumerate}
+        \item Пусть $a \in \Ob(C_1)$ замкнут. $\partial(a)$ инициален, а~потому и~$T(\partial(a)) = \partial(T(a))$.
 
-    Пусть $a = \partial(b)$. Тогда $T(a) = T(\partial(b)) = \partial(T(b))$.
+        \item Пусть $a = \partial(b)$. Тогда $T(a) = T(\partial(b)) = \partial(T(b))$.
 
-    Пусть $(c, i, j)$~— кобордизм между $a$ и~$b \in \Ob(C_1)$.
-    Тогда $T(i) \in \hom_{C_2}(T(a), T(\partial(c))) = \hom_{C_2}(T(a), \partial(T(c)))$
-    и~$T(j) \in \hom_{C_2}(T(b), T(\partial(c))) = \hom_{C_2}(T(b), \partial(T(c)))$.
-    В~силу аддитивности, $(\partial(T(c)), T(i), T(j)) = (T(\partial(c)), T(i), T(j))$~— копроизведение,
-    а~потому $(T(c), T(i), T(j))$~— кобордизм.
+        \item Пусть $(c, i, j)$~— кобордизм между $a$ и~$b \in \Ob(C_1)$.
+              В~силу того, что $T$~— граничный, $T(i) \in \hom_{C_2}(T(a), T(\partial(c))) = \hom_{C_2}(T(a), \partial(T(c)))$
+              и~$T(j) \in \hom_{C_2}(T(b), T(\partial(c))) = \hom_{C_2}(T(b), \partial(T(c)))$.
+              По~аддитивности, $(\partial(T(c)),\allowbreak T(i),\allowbreak T(j)) = (T(\partial(c)), T(i), T(j))$~— копроизведение,
+              а~потому $(T(c),\allowbreak T(i),\allowbreak T(j))$~— кобордизм.
+    \end{enumerate}
 \end{proof}
 
 ?
