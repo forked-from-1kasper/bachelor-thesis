@@ -48,7 +48,7 @@
     \begin{tabular}{l@{}}
       \textbf{УТВЕРЖДАЮ}\\
       Заведующий кафедрой\\
-      \hspace{1.5cm} / А.~К.~Цих\\
+      \hspace{1.5cm} ${\big/}$ А.~К.~Цих\\
       «\underline{\hspace{0.9cm}}» \underline{\hspace{1.5cm}} 2024 г.
     \end{tabular}
   \end{flushright}
@@ -64,15 +64,18 @@
 
   \vspace{1.5cm}
   \begin{tabular}{lL{0.15\textwidth}L{0.35\textwidth}l}
-    Руководитель   &  & профессор, доктор физико-математических наук & А.~К.~Цих   \rule{0pt}{23pt}\\
-    Выпускник      &  &                                              & Н.~А.~Мишко \rule{0pt}{23pt}\\
-    Нормоконтролер &  &                                              & А.~А.~Ааааа \rule{0pt}{28pt}
+    Руководитель   &  & профессор, доктор физико-математических наук & А.~К.~Цих    \rule{0pt}{23pt}\\
+    Выпускник      &  &                                              & Н.~А.~Мишко  \rule{0pt}{23pt}\\
+    Нормоконтролер &  &                                              & Т.~Н.~Шипина \rule{0pt}{28pt}
   \end{tabular}
 
   \vfill
   Красноярск, 2024
 \end{titlepage}
 \stepcounter{page}
+
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\bfseries}
 
 \section*{\centeringРеферат}
 \thispagestyle{empty}
@@ -135,7 +138,7 @@ $$
 
 \section{Теорема Артина}
 
-Как~$\Hom(G, H)$ обозначим множество гомоморфизмов между группами $G$ и~$H$.
+Как~$\Hom(G, H)$ обозначим множество всех гомоморфизмов между группами $G$ и~$H$.
 
 Пусть $G$~— группа, $K$~— поле, а~$K^{\times}$~— его мультипликативная группа.
 В~таком случае произвольный гомоморфизм $f \in \Hom(G, K^{\times})$ называют \textbf{характером.}
@@ -159,33 +162,27 @@ $$
 
 Пусть теперь утверждение теоремы верно для~любых $n$ различных характеров. Докажем его для~$(n + 1)$ характера.
 Пусть $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
-
 Зафиксируем произвольный $y \in G$. Тогда для~любого $x \in G$ имеем:
 \begin{equation}\label{Artin:first}
     \alpha_1 f_1(yx) + \alpha_2 f_2(yx) + \ldots + \alpha_n f_n(yx) + \alpha_{n + 1} f_{n + 1}(yx) = 0
     %\sum_{i = 1}^{n + 1} \alpha_i f_i(yx) = 0
 \end{equation}
-
 Поскольку все $f_i$~— гомоморфизмы, $f_i(yx) = f_i(y) f_i(x)$, а~потому:
 $$
-    \alpha_1 f_1(y) f_1(x) + \alpha_2 f_2(y) f_2(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+    \alpha_1 f_1(y) f_1(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
 $$
-
 С~другой стороны, для~$x \in G$ также верно, что:
 $$
     \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0
 $$
-
 Умножим это равенство на~$f_{n + 1}(y)$:
 \begin{equation}\label{Artin:second}
-    \alpha_1 f_{n + 1}(y) f_1(x) + \alpha_2 f_{n + 1}(y) f_2(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+    \alpha_1 f_{n + 1}(y) f_1(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
 \end{equation}
-
 Вычитая \eqref{Artin:first} из~\eqref{Artin:second}, получаем:
 $$
     \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0
 $$
-
 Тогда, в~силу произвольности $x$, получаем линейную комбинацию $n$ характеров:
 $$
     \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0
@@ -1116,7 +1113,7 @@ stub
 
 \usection{Список использованных источников}
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 
 \bibitem{Schm94} W.~M.~Schmidt, Heights of points on subvarieties of $\mathbb{G}^n_m$.
 In~Number Theory 93–94, ed. by~S.~David, London Math. Soc. Lecture Note Ser.~235,
@@ -1558,6 +1555,8 @@ $\mathrm{Cob}_\Gamma(a, b)$ вместе со~стрелками в~опреде
               а~потому $(T(c),\allowbreak T(i),\allowbreak T(j))$~— кобордизм.
     \end{enumerate}
 \end{proof}
+
+<слабые кобордизмы>
 
 ?
 
