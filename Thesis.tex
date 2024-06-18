@@ -19,11 +19,13 @@
 \usepackage{tikz-cd}
 \usepackage{hhline}
 \usepackage{array}
+\usepackage{url}
 
 \usepackage{tocloft}
 
 \input{Common}
 
+\urlstyle{same}
 \allowdisplaybreaks
 
 \setlength{\parindent}{12.5mm}
@@ -49,25 +51,25 @@
     \begin{tabular}{l@{}}
       \textbf{УТВЕРЖДАЮ}\\
       Заведующий кафедрой\\
-      \hspace{1.5cm} ${\big/}$ А.~К.~Цих\\
+      \hspace{1.5cm} / А.~К.~Цих\\
       «\underline{\hspace{0.9cm}}» \underline{\hspace{1.5cm}} 2024 г.
     \end{tabular}
   \end{flushright}
 
-  \vspace{2cm}
+  \vspace{1cm}
   \textbf{БАКАЛАВРСКАЯ РАБОТА}
 
-  \vspace{0.7cm}
+  \vspace{0.1cm}
   \textbf{Направление} 01.03.01 Математика
 
-  \vspace{0.7cm}
+  \vspace{0.6cm}
   \textbf{АЛГЕБРАИЧЕСКИЕ ПОДГРУППЫ КОМПЛЕКСНОГО ТОРА}
 
   \vspace{1.5cm}
-  \begin{tabular}{lL{0.15\textwidth}L{0.32\textwidth}l}
-    Руководитель   &  & профессор, доктор физико-математических наук & А.~К.~Цих    \rule{0pt}{23pt}\\
-    Выпускник      &  &                                              & Н.~А.~Мишко  \rule{0pt}{23pt}\\
-    Нормоконтролер &  &                                              & Т.~Н.~Шипина \rule{0pt}{28pt}
+  \begin{tabular}{m{0.22\linewidth}m{0.13\linewidth}m{0.36\linewidth}m{0.18\linewidth}}
+    Руководитель   & \rule{0pt}{40pt} & профессор, доктор физико-{\allowbreak}математических наук & А.~К.~Цих    \\ %\hline
+    Выпускник      & \rule{0pt}{40pt} &                                                           & Н.~А.~Мишко  \\ %\hline
+    Нормоконтролер & \rule{0pt}{40pt} &                                                           & Т.~Н.~Шипина
   \end{tabular}
 
   \vfill
@@ -77,13 +79,13 @@
 \titleformat*{\section}{\bfseries}
 \titleformat*{\subsection}{\bfseries}
 
-\section*{\centeringРеферат}
+\section*{\centering\MakeUppercase{Реферат}}
 \thispagestyle{empty}
 
 ???
 \pagebreak
 
-\renewcommand{\contentsname}{\hfill\bfseries\Large Содержание\hfill}
+\renewcommand{\contentsname}{\hfill\bfseries\normalsize\MakeUppercase{Содержание}\hfill}
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \tableofcontents
@@ -166,28 +168,28 @@ $$
 Пусть $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
 Зафиксируем произвольный $y \in G$. Тогда для~любого $x \in G$ имеем:
 \begin{equation}\label{Artin:first}
-    \alpha_1 f_1(yx) + \alpha_2 f_2(yx) + \ldots + \alpha_n f_n(yx) + \alpha_{n + 1} f_{n + 1}(yx) = 0
-    %\sum_{i = 1}^{n + 1} \alpha_i f_i(yx) = 0
+    \alpha_1 f_1(yx) + \alpha_2 f_2(yx) + \ldots + \alpha_n f_n(yx) + \alpha_{n + 1} f_{n + 1}(yx) = 0.
+    %\sum_{i = 1}^{n + 1} \alpha_i f_i(yx) = 0.
 \end{equation}
 Поскольку все $f_i$~— гомоморфизмы, $f_i(yx) = f_i(y) f_i(x)$, а~потому:
 $$
-    \alpha_1 f_1(y) f_1(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+    \alpha_1 f_1(y) f_1(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0.
 $$
 С~другой стороны, для~$x \in G$ также верно, что:
 $$
-    \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0
+    \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0.
 $$
 Умножим это равенство на~$f_{n + 1}(y)$:
 \begin{equation}\label{Artin:second}
-    \alpha_1 f_{n + 1}(y) f_1(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+    \alpha_1 f_{n + 1}(y) f_1(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0.
 \end{equation}
 Вычитая \eqref{Artin:first} из~\eqref{Artin:second}, получаем:
 $$
-    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0
+    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0.
 $$
 Тогда, в~силу произвольности $x$, получаем линейную комбинацию $n$ характеров:
 $$
-    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0
+    \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0.
 $$
 
 Но~в~таком случае, по~индуктивной гипотезе, $\alpha_i (f_{n + 1}(y) - f_i(y)) = 0$.
@@ -197,7 +199,6 @@ $$
 
 Таким образом, с~учётом вышесказанного, $\alpha_{n + 1} f_{n + 1} = \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
 Согласно базе индукции, $\alpha_{n + 1} = 0$.
-
 \end{proof}
 
 \section{Доказательство теоремы Шмидта}
@@ -901,7 +902,7 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
     \begin{align*}
                          & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
         \Leftrightarrow\ & \forall p \in \primes{:}\ \forall \beta \in \N{:}\ \forall x \in \Z^n{:}\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
-        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in \Z^n{:}\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x
+        \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in \Z^n{:}\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x.
     \end{align*}
 \end{lemma*}
 
@@ -1102,7 +1103,7 @@ $$
 
 Зафиксируем также ещё один многочлен Лорана $f$. \textit{Вычетом Гротендика} назовём следующий интеграл:
 $$
-  \operatorname*{res}\limits_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n}
+  \operatorname*{res}\limits_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n}.
 $$
 
 Существенную трудность при~его вычислении представляет устройство цикла $\gamma_z$.
@@ -1120,32 +1121,33 @@ stub
 
 \begin{thebibliography}{99}
 
-\bibitem{Schm94} W.~M.~Schmidt, Heights of points on subvarieties of $\mathbb{G}^n_m$.
-In~Number Theory 93–94, ed. by~S.~David, London Math. Soc. Lecture Note Ser.~235,
-Cambridge University Press, Cambridge 1996, 157–187.
+\bibitem{Schm94} Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ W.~M.~Schmidt~//
+London Mathematical Society Lecture Note Series. Issue~235: Number Theory.
+Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—187.
 
-\bibitem{Art48} E.~Artin, “Galois Theory,” 2nd~ed., Notre Dame, 1948.
+\bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London : University of~Notre Dame, 1942, 1944.~— 96~p.~— ISBN: 978-0~48~662342~9.
 
-\bibitem{Smth60} H.J.S.~Smith, On~systems of~linear indeterminate equations and~congruences. Philos. Trans. Royal
-Soc. London cli, 293—326. Reprinted in~The~Collected Mathematical Papers of~Henry John Stephen Smith,
-Volume~1. New~York: Chelsea~(1965).
+\bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~congruences. Philos.~/ H.J.S.~Smith~//
+Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~293—326.
 
-\bibitem{TsikhSad14} Садыков~Т.~М., Цих~А.~К. Гипергеометрические и~алгебраические функции многих переменных.
-М.: Наука, 2014.~— 408 с.~— ISBN: 978-5-02-039082-9.
+\bibitem{TsikhSad14} Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/ Т.~М.~Садыков, А.~К.~Цих;
+Москва : Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9.
 
-\bibitem{Brbk70} Bourbaki, Nicolas (1970). Algèbre: Chapitres 1 à~3. Éléments de~mathématique. Springer. ISBN~9783540338499. French paperback edition.
+\bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin : Springer, 2006.~— 652~p.~— ISBN: 978-3-54-033849-9.
 
-\bibitem{ShaII} B.~V.~Shabat, “Introduction to~complex analysis Part~II. Functions of~several variables.” (1992).
+\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables / B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-82-181975-3.
 
-\bibitem{GelKho02} O.~A.~Gelfond, A.~G.~Khovanskii, “Toric geometry and Grothendieck residues”, Mosc.~Math.~J., 2:1~(2002), 99–112.
+\bibitem{GelKho02} Gelfond, O.~A. Toric geometry and~Grothendieck residues~/ O.~A.~Gelfond, A.~G.~Khovanskii~//
+Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
 
-\bibitem{MacLane71} S.~MacLane. Categories for the~Working Mathematician. Springer-Verlag, New~York, (1971) Graduate Texts in~Mathematics, Vol.~5.
+\bibitem{MacLane71} MacLane, S. Categories for the~Working Mathematician~/ S.~MacLane; New~York : Springer-Verlag, 1971.~— 262~p.~— ISBN: 978-0-38-790035-3.
 
-\bibitem{Mil65} J.~Milnor. Lectures on~the~H-Cobordism Theorem. Princeton University Press, Princeton (1965).
+\bibitem{Mil65} Milnor, J. Lectures on~the~H-Cobordism Theorem~/ J.~Milnor; Princeton : Princeton University Press, 1965.~— 124~p.~— ISBN: 978-0-69-165113-2.
 
-\bibitem{Stong68} R.~E.~Stong, Notes on~Cobordism Theory. Princeton University Press, 1969.
+\bibitem{Stong68} Stong, R.~E. Notes on~Cobordism Theory~/ R.~E.~Stong; Princeton : Princeton University Press, 1969.~— 422~p.~— ISBN: 978-0-69-162221-7.
 
-\bibitem{Weston} T.~Weston, An~introduction to~cobordism theory.
+\bibitem{Weston} Weston T., An~introduction to~cobordism theory~/ T.~Weston~//
+Stanford University : [сайт].~— URL: \url{https://math.stanford.edu/~ralph/morsecourse/cobordismintro%20.pdf} (дата обращения: 23.08.2022).
 
 \end{thebibliography}
 \pagebreak
@@ -1226,7 +1228,7 @@ $$
 \[
     \begin{tikzcd}
         \arrow{d}{h_1} A \arrow{r}{f} & B \arrow{d}{h_2} \\
-                       C \arrow{r}{g} & D
+                       C \arrow{r}{g} & D.
     \end{tikzcd}
 \]
 
@@ -1243,7 +1245,7 @@ $\eta_x : \hom_B(F(x), G(x))$ для~каждого объекта $x \in \Ob(A)
 \[
   \begin{tikzcd}
     \arrow{d}{\eta_x} F(x) \arrow{r}{F(f)} & F(y) \arrow{d}{\eta_y} \\
-                      G(x) \arrow{r}{G(f)} & G(y)
+                      G(x) \arrow{r}{G(f)} & G(y).
   \end{tikzcd}
 \]
 
@@ -1274,12 +1276,12 @@ $$
 
 \textit{Копроизведением} (или суммой) объектов $a$ и~$b \in \Ob(C)$ называется упорядоченная тройка $(c, \inl, \inr)$,
 где $c \in \Ob(C)$, $\inl \in \hom_C(a, c)$ и~$\inr \in \hom_C(b, c)$, такая, что
-выполнено следующее \textit{универсальное свойство:} для~любого объекта $x \in \Ob(C)$ и~пары морфизмов $f \in \hom_C(a, x)$
-и~$g \in \hom_C(b, x)$ существует единственный \textit{(универсальный)} морфизм $h \in \hom_C(c, x)$ такой, что $h \circ \inl = f$
+выполнено следующее универсальное свойство: для~любого объекта $x \in \Ob(C)$ и~пары морфизмов $f \in \hom_C(a, x)$
+и~$g \in \hom_C(b, x)$ существует единственный (универсальный) морфизм $h \in \hom_C(c, x)$ такой, что $h \circ \inl = f$
 и~$h \circ \inr = g$; то~есть коммутативна следующая диаграмма:
 \[
     \begin{tikzcd}
-        & x & \\ a \arrow{r}{}[swap]{\inl} \arrow{ur}{f} & \arrow[dashed]{u}{h} c & \arrow{l}{\inr}[swap]{} \arrow{ul}{}[swap]{g} y
+        & x & \\ a \arrow{r}{}[swap]{\inl} \arrow{ur}{f} & \arrow[dashed]{u}{h} c & \arrow{l}{\inr}[swap]{} \arrow{ul}{}[swap]{g} y.
     \end{tikzcd}
 \]
 
@@ -1447,8 +1449,8 @@ $i$~— естественное преобразование $\partial \Rightar
 что $\psi_j \circ F(f) = \psi_i$:
 \[
     \begin{tikzcd}
-        &                               & \arrow{ld}{}[swap]{\psi_i} c \arrow{rd}{\psi_j} &      & \\
-        & F(i) \arrow{rr}{}[swap]{F(f)} &                                                 & F(j) &
+        &                               & \arrow{ld}{}[swap]{\psi_i} c \arrow{rd}{\psi_j} &       & \\
+        & F(i) \arrow{rr}{}[swap]{F(f)} &                                                 & F(j). &
     \end{tikzcd}
 \]
 
@@ -1458,7 +1460,7 @@ $i$~— естественное преобразование $\partial \Rightar
 \[
     \begin{tikzcd}
         F(j) \arrow{r}{\psi_j} \arrow{dr}{}[swap]{\phi_j} & \arrow{d}{u} c \\
-                                                          & x
+                                                          & x.
     \end{tikzcd}
 \]
 
@@ -1471,7 +1473,7 @@ $i$~— естественное преобразование $\partial \Rightar
 \[
     \begin{tikzcd}
         \arrow{d}{\varepsilon_j} F(j) \arrow{r}{\phi_j} & \arrow{d}{u} x \\
-                                 G(j) \arrow{r}{\psi_j} &              y
+                                 G(j) \arrow{r}{\psi_j} &              y.
     \end{tikzcd}
 \]
 
@@ -1513,7 +1515,7 @@ $\partial((u, \varepsilon) \circ (v, \eta)) = \partial((u, \varepsilon)) \circ \
 
 Также определим естественное преобразование $i : \partial \Rightarrow 1_C$:
 $$
-    i_{(F, x, \phi)} = (\rec(F, x, \phi), j \mapsto\ !_{F(j)})
+    i_{(F, x, \phi)} = (\rec(F, x, \phi), j \mapsto\ !_{F(j)}).
 $$
 
 Видно, что:
@@ -1638,7 +1640,7 @@ $$
 \[
   \begin{tikzcd}
     \arrow{d}{\phi_1} a + \partial(u_1) \arrow{r}{a + \partial(f)} & a + \partial(u_2) \arrow{d}{\phi_2} \\
-                      b + \partial(v_1) \arrow{r}{b + \partial(g)} & b + \partial(u_2)
+                      b + \partial(v_1) \arrow{r}{b + \partial(g)} & b + \partial(u_2).
   \end{tikzcd}
 \]
 
