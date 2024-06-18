@@ -25,6 +25,13 @@
 
 \input{Common}
 
+\def\title{Алгебраические подгруппы комплексного тора}
+\hypersetup{pdfinfo={Title=\title}}
+
+\newtotcounter{citenum}
+\def\oldbibitem{} \let\oldbibitem=\bibitem
+\def\bibitem{\stepcounter{citenum}\oldbibitem}
+
 \urlstyle{same}
 \allowdisplaybreaks
 
@@ -63,7 +70,7 @@
   \textbf{Направление} 01.03.01 Математика
 
   \vspace{0.6cm}
-  \textbf{АЛГЕБРАИЧЕСКИЕ ПОДГРУППЫ КОМПЛЕКСНОГО ТОРА}
+  \textbf{\MakeUppercase{\title}}
 
   \vspace{1.5cm}
   \begin{tabular}{m{0.22\linewidth}m{0.13\linewidth}m{0.36\linewidth}m{0.18\linewidth}}
@@ -81,6 +88,9 @@
 
 \section*{\centering\MakeUppercase{Реферат}}
 \thispagestyle{empty}
+
+Выпускная квалификационная работа по~теме «\title»
+содержит \pageref{TheEnd}~страниц текста, 1~приложение, \total{citenum}~использованных источников.
 
 ???
 \pagebreak
@@ -1151,6 +1161,8 @@ Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
 The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.stanford.edu/~ralph/morsecourse/cobordismintro%20.pdf} (дата обращения: 23.08.2022).
 
 \end{thebibliography}
+
+\label{TheEnd}
 \pagebreak
 
 \renewcommand{\thesection}{\Alph{section}}
