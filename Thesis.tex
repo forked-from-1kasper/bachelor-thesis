@@ -9,19 +9,14 @@
 
 \usepackage[hidelinks,unicode]{hyperref}
 \usepackage[threshold=0]{csquotes}
-\usepackage{indentfirst}
-\usepackage{enumerate}
-\usepackage{totcount}
-\usepackage{titlesec}
-\usepackage{etoolbox}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{tikz-cd}
-\usepackage{hhline}
-\usepackage{array}
-\usepackage{url}
 
-\usepackage{tocloft}
+\usepackage{indentfirst}
+
+\usepackage{titlesec, etoolbox, tocloft}
+\usepackage{amsmath, amsthm, amssymb}
+
+\usepackage{tikz-cd, array, enumerate}
+\usepackage{hhline, url, totcount}
 
 \input{Common}
 
@@ -126,22 +121,22 @@
 к~примеру, из~алгебраического тора $(K^\times)^n$ для~поля $K$.
 
 Естественным примером такой алгебраической группы служит множество решений системы биномиальных уравнений вида
-$$
+\[
     z_1^{\alpha_1} z_2^{\alpha_2} \ldots z_n^{\alpha_n} = z_1^{\beta_1} z_2^{\beta_2} \ldots z_n^{\beta_n}.
-$$
+\]
 
 Как показывает следующая теорема \cite{Schm94}, такие группы, на~самом деле, исчерпывают все алгебраические многообразия,
 глобально наследующие групповую структуру тора $(K^\times)$.
 
 Пусть $G$~— некоторая группа. Целочисленная степень элемента группы $g \in G$ определяется стандартным образом:
-$$
+\[
   g^k =
   \begin{cases}
     g \cdot g^{k - 1}, & k > 0; \\
     1, & k = 0; \\
     g^{-1} \cdot g^{k + 1}, & k < 0.
   \end{cases}
-$$
+\]
 
 Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
 обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
@@ -149,9 +144,9 @@ $$
 \begin{theorem*}[Шмидт]
     Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
     системой некоторого числа $N$ биномиальных уравнений, то~есть существуют $N$ таких показателей $\alpha_i, \beta_i \in \mathbb{Z}^n$, что
-    $$
+    \[
         H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N{:}\ z^{\alpha_i} = z^{\beta_i} \}.
-    $$
+    \]
 \end{theorem*}
 
 Для~её доказательства нам понадобится вспомогательное утверждение \cite{Art48}.
@@ -164,9 +159,9 @@ $$
 В~таком случае произвольный гомоморфизм $f \in \Hom(G, K^{\times})$ называют \textbf{характером.}
 Говорят, что характеры $f_1, f_2, \ldots, f_n$ \textbf{линейно независимы,}
 если
-$$
+\[
     \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K{:}\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
-$$
+\]
 
 \begin{theorem*}[Артин]
     Любые $n$ попарно различных характеров линейно независимы.
@@ -188,25 +183,25 @@ $$
     %\sum_{i = 1}^{n + 1} \alpha_i f_i(yx) = 0.
 \end{equation}
 Поскольку все $f_i$~— гомоморфизмы, $f_i(yx) = f_i(y) f_i(x)$, а~потому:
-$$
+\[
     \alpha_1 f_1(y) f_1(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0.
-$$
+\]
 С~другой стороны, для~$x \in G$ также верно, что:
-$$
+\[
     \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0.
-$$
+\]
 Умножим это равенство на~$f_{n + 1}(y)$:
 \begin{equation}\label{Artin:second}
     \alpha_1 f_{n + 1}(y) f_1(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0.
 \end{equation}
 Вычитая \eqref{Artin:first} из~\eqref{Artin:second}, получаем:
-$$
+\[
     \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0.
-$$
+\]
 Тогда, в~силу произвольности $x$, получаем линейную комбинацию $n$ характеров:
-$$
+\[
     \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0.
-$$
+\]
 
 Но~в~таком случае, по~индуктивной гипотезе, $\alpha_i (f_{n + 1}(y) - f_i(y)) = 0$.
 Теперь, выбрав для~каждого $i = 1, \ldots, n$ такое $y$, что $f_{n + 1}(y) \neq f_i(y)$
@@ -220,17 +215,17 @@ $$
 \section{Доказательство теоремы Шмидта}
 
 \textit{Многочленом Лорана} над~кольцом $K$ называется функция $(K^\times)^k \rightarrow K$ вида
-$$
+\[
     z \mapsto \sum_{i \in I} a_i z^{\alpha_i},
-$$
+\]
 где $a_i \in K$ и~$I \subseteq \mathbb{Z}^k$~— конечный набор индексов.
 
 \begin{proof}
   Пусть $I \subseteq \mathbb{Z}^n$~— множество индексов,
   а~$P_j(z) = \sum_{i \in I} a_{ji} z^i$~— многочлены ($k$ штук), задающие подгруппу:
-  $$
-      H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
-  $$
+  \[
+    H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
+  \]
 
   Поскольку $z_1^{i} z_2^{i} = (z_1 z_2)^i$, отображение $z \mapsto z^i$ определяет
   характер $\chi_i \in \Hom(H, K^{\times})$.
@@ -240,19 +235,19 @@ $$
   Обозначим этот характер, соответствующий каждому $I_k$, как $\chi_k = \chi_{i_1} = \chi_{i_2}$.
 
   Собрав подобные слагаемые при~каждом $\chi_k$ в~многочленах $P_j$, получим:
-  $$
-      P_j = \sum_{i \in I} a_{ji} \chi_i = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k.
-  $$
+  \[
+    P_j = \sum_{i \in I} a_{ji} \chi_i = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k.
+  \]
 
   Но~$P_j$ равны нулю на~всём $H$, поэтому:
-  $$
-  \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k = 0.
-  $$
+  \[
+    \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k = 0.
+  \]
 
   Все $\chi_k$ попарно различны по~их заданию, поэтому к~ним применима теорема Артина. Из~неё заключаем, что:
-  $$
-  \sum_{i \in I_k} a_{ji} = 0.
-  $$
+  \[
+    \sum_{i \in I_k} a_{ji} = 0.
+  \]
 
   Наконец, пусть $N_k$~— мощность $I_k$, $N = \sum_{k = 1}^m (N_k - 1)$ и~$I_k = \{i_{k, 1},\allowbreak i_{k, 2},\allowbreak \ldots,\allowbreak i_{k, N_k}\}$.
   $I_k$ были взяты так, что характеры $\chi_{i_{k, i}}$ и~$\chi_{i_{k, j}}$ совпадают на~$H$ для~фиксированного $k$ и~любых $i$ и~$j$.
@@ -261,9 +256,9 @@ $$
 
   Поскольку равенство рефлексивно, симметрично и~транзитивно, система всех уравнений $z^{i_{k, i}} = z^{i_{k, j}}$ равносильна
   системе $N$ уравнений, составленной из~подряд идущих индексов:
-  $$
-      z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}, \ldots, z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}, z^{i_{2, 1}} = z^{i_{2, 2}}, \ldots, z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}.
-  $$
+  \[
+    z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}, \ldots, z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}, z^{i_{2, 1}} = z^{i_{2, 2}}, \ldots, z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}.
+  \]
   Множество решений этой системы обозначим как $A$.
 
   Покажем, что $A$ совпадает с~$H$. Действительно, пусть $z \in H$. Тогда, как уже отмечалось выше,
@@ -271,9 +266,9 @@ $$
 
   Наоборот, пусть $z \in A$. Тогда, по~заданию $A$, $z^{i_{k, j_1}} = z^{i_{k, j_1 + 1}} = \ldots = z^{i_{k, j_2 - 1}} = z^{i_{k, j_2}}$
   для~любых $1 \leq j_1 \leq j_2 \leq N_k$. Выберем в~каждом $I_k$ по~представителю $i_k \in I_k$ и~соберём подобные слагаемые:
-  $$
-      P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0,
-  $$
+  \[
+    P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0,
+  \]
   что означает $z \in H$, то~есть $A \subseteq H$.
 
   Таким образом, $H = A$, поэтому в~качестве $\alpha_i$ и~$\beta_i$ достаточно взять подряд идущие индексы во~всех $I_k$.
@@ -300,12 +295,12 @@ $\phi_\alpha$~— гомоморфизм.
 \begin{proof}
     Действительно, рассмотрим $t \in G^n$. Тогда $i$-я компонента вектора $\phi_\alpha(\phi_\beta(t))$
     равна
-    $$ \phi_\beta^{\alpha_i}(t) = (t^{\beta_1})^{\alpha_i^1} \cdot \ldots \cdot (t^{\beta_m})^{\alpha_i^m}
+    $ \phi_\beta^{\alpha_i}(t) = (t^{\beta_1})^{\alpha_i^1} \cdot \ldots \cdot (t^{\beta_m})^{\alpha_i^m}
                                 = t_1^{\beta_1^1 \alpha_i^1 + \ldots + \beta_m^1 \alpha_i^m} \cdot
                                   \ldots \cdot
                                   t_n^{\beta_1^n \alpha_i^1 + \ldots + \beta_m^n \alpha_i^m}
                                 = t^{(\alpha \beta)_i}.
-    $$
+    $
 \end{proof}
 
 Вместе эти два утверждения составляют условие на~функториальность. Более точно, рассмотрим категорию
@@ -313,14 +308,15 @@ $\mathrm{Matr}(R)$ матриц над~кольцом $R$, объектами к
 между числами $m$ и~$n$~— матрицы $R^{n \times m}$, и~категорию $\mathrm{Grp}$ малых групп,
 объектами которой являются малые группы, а~стрелками~— гомоморфизмы между ними.
 Тогда определён функтор $\phi : \mathrm{Matr}(\Z) \rightarrow \mathrm{Grp}$:
-$$
+\[
     \phi = \begin{cases}
         k \mapsto G^k; \\
         \alpha \mapsto \phi_\alpha.
     \end{cases}
-$$
+\]
 
-Как показывает лемма \ref{lemma:faithful}, в~полях нулевой характеристики этот функтор~— строгий.
+Как показывает лемма \ref{lemma:faithful}, в~полях нулевой характеристики этот функтор~— строгий
+(подробнее общее понятие функтора изложено в~приложении).
 
 \begin{lemma}
 \label{lemma:infiniteMulOrder}
@@ -330,11 +326,11 @@ $$
 
 \begin{proof}
     Действительно, рассмотрим $2 = 1 + 1 \in K^\times$. Тогда для~всякого $n > 0$:
-    $$
+    \[
         2^n - 1 = (1 + 1)^n - 1 = \sum_{k = 0}^n C^n_k 1^k 1^{n - k} - 1
                                 = \sum_{k = 0}^n C^n_k \cdot 1 - 1
                                 = \left(\sum_{k = 1}^n C^n_k \right) \cdot 1.
-    $$
+    \]
 
     Справа имеем сумму $\sum_{k = 1}^n C^n_k > 0$ единиц. Поскольку $\mathrm{char}(K) = 0$,
     она не равна нулю, то~есть $2^n - 1 \neq 0$.
@@ -357,9 +353,9 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
     Наоборот, пусть $\phi_\alpha = \phi_\beta$. По~лемме \ref{lemma:infiniteMulOrder} зафиксируем
     элемент $z \in K^\times$ бесконечного мультипликативного порядка.
     Тогда для~всякого $1 \leq i \leq n$ верно, что
-    $$
+    \[
         (z^{\alpha_1^i}, \ldots, z^{\alpha_k^i}) = \phi_\alpha(z \cdot e_i) = \phi_\beta(z \cdot e_i) = (z^{\beta_1^i}, \ldots, z^{\beta_k^i}).
-    $$
+    \]
 
     Таким образом, $z^{\alpha_j^i} = z^{\beta_j^i}$, то~есть $z^{\alpha_j^i - \beta_j^i} = 1$.
     $z$ имеет бесконечный мультипликативный порядок, поэтому $\alpha_j^i - \beta_j^i = 0$.
@@ -381,16 +377,16 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
     Возьмём $t \in G^k$ такой, что $\phi_\alpha(t) = 1$, и~докажем, что $t = 1$.
 
     Действительно, поскольку $\alpha_i$ порождают всю решётку, каждый $e_j$ выражается как линейная комбинация векторов $\alpha_i$:
-    $$
-        e_j = b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n.
-    $$
+    \[
+      e_j = b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n.
+    \]
 
     $\phi_\alpha(t) = 1$ означает, что $t^{\alpha_i} = 1$ для~всех $1 \leq i \leq n$.
     Зафиксируем $1 \leq j \leq k$ и~возведём это равенство в~степень $b^j_i$: $t^{b^j_i \alpha_i} = (t^{\alpha_i})^{b^j_i} = 1^{b^j_i} = 1$.
     Наконец, перемножим полученные равенства:
-    $$
-        t_j = t^{e_j} = t^{b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n} = t^{b^j_1 \alpha_1} \ldots t^{b^j_n \alpha_n} = 1 \cdot \ldots \cdot 1 = 1,
-    $$
+    \[
+      t_j = t^{e_j} = t^{b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n} = t^{b^j_1 \alpha_1} \ldots t^{b^j_n \alpha_n} = 1 \cdot \ldots \cdot 1 = 1,
+    \]
     что и~требовалось.
 \end{proof}
 
@@ -409,9 +405,9 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
     пара матриц $\beta_1 \in \GL^m(\Z)$ и~$\beta_2 \in \GL^n(\Z)$,
     а~также набор чисел $\varepsilon_1, \ldots, \varepsilon_r \in \Z \setminus \{0\}$,
     такие, что:
-    $$
+    \[
         \beta_1 \alpha \beta_2 = \diag^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
-    $$
+    \]
     причём $\varepsilon_1 \divides \varepsilon_2 \divides \ldots \divides \varepsilon_r$ (так называемые инвариантные факторы) и~$r = \rank(\alpha)$.
 \end{theorem*}
 
@@ -427,9 +423,9 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 \begin{lemma}
 \label{lemma:injectivityOutOfSNF}
     $\phi_\alpha : (\complex^\times)^k \rightarrow (\complex^\times)^n$ инъективна тогда и~только тогда, когда
-    $$
+    \[
         \SNF(\alpha) = \diag^{n \times k}_k(1, 1, \ldots, 1).
-    $$
+    \]
 \end{lemma}
 
 \begin{proof}
@@ -451,9 +447,9 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 
 Сформулируем ещё одну вспомогательную теорему \cite{TsikhSad14}.
 \textit{$\Z$-линейную оболочку} векторов $\alpha_1, \ldots, \alpha_n$ обозначим как
-$$
+\[
     \Span_\Z(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1, \ldots, k_n \in \Z \}.
-$$
+\]
 
 Если $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k$, то~говорим, что $\alpha_1, \ldots, \alpha_n$ \textit{порождают всю решётку} $\Z^k$.
 
@@ -507,18 +503,18 @@ $$
 
 \begin{proof}
     Снова представим $\alpha$ в~виде $\alpha = \beta_1^{-1} \varepsilon \beta_2^{-1}$, где
-    $$
+    \[
         \varepsilon = \SNF(\alpha) = \diag^{n \times k}_r(\varepsilon_1, \ldots, \varepsilon_r).
-    $$
+    \]
 
     Рассмотрим $\delta = \diag^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
     $\phi_{\alpha'}$ инъективна как композиция инъективных функций. С~другой стороны, очевидно, что:
-    $$
+    \[
         \image(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} (G^k)))
                             = \phi_{\beta_1^{-1}} (\phi_\varepsilon (G^k))
                             = \phi_{\beta_1^{-1}} (\phi_{\delta} (G^r))
                             = \image(\phi_{\alpha'}).
-    $$
+    \]
 
     Нетрудно видеть, что $\alpha'$ имеет левой обратной матрицу $\beta' = \delta^{\top} \beta$,
     а~потому гомоморфизм $\phi_{\alpha'}$ имеет левым обратным гомоморфизм $\phi_{\beta'}$.
@@ -593,9 +589,9 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 
     Ядро $\varepsilon$ задаётся векторами вида $(0, \ldots, 0, t_{k + 1}, \ldots, t_{n})$.
     Рассмотрим матрицу $\delta \in \Z^{n \times (n - k)}$, соответствующую линейному оператору
-    $$
+    \[
         (t_1, \ldots, t_{n - k}) \mapsto (0, \ldots, 0, t_1, \ldots, t_{n - k}).
-    $$
+    \]
 
     Пусть также $\alpha = \beta_2 \delta$. Докажем, что $\image(\phi_\alpha) = \ker(\phi_\beta)$.
 
@@ -623,9 +619,9 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     Для~вектора $u \in \omega(\varepsilon)$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
     Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \omega(\varepsilon){:}\ z \in H_u$.
     Ясно, что множества $H_u$ дизъюнктны, поэтому $\ker(\phi_{\beta})$ распадается в~дизъюнктное объединение:
-    $$
+    \[
         \ker(\phi_{\beta}) = \bigsqcup_{u \in \omega(\varepsilon)} H_u.
-    $$
+    \]
 
     Векторов $u \in \omega(\varepsilon)$ ровно $\Pi(\beta)$ штук, поэтому достаточно показать, что каждая компонента $H_u$ связна.
 
@@ -664,22 +660,23 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
     поэтому $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$.
     В~силу леммы \ref{lemma:faithful}, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
     Умножив обе части равенства на~матрицу $\diag(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$, получим, что $\delta' {\beta'}_2^{-1} \alpha = 0$;
-    но~это значит, что $$
-        \ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}}).
-    $$
+    но~это значит, что
+    \[
+      \ker(\phi_{\delta \beta_2^{-1}}) = \image(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}}).
+    \]
     Совершенно аналогично получим обратное включение. В~силу экстенсиональности, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
 
     Рассмотрим фактор-группу $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
     называемую также \textit{группой компонент.}
-    Отображение $$\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$$
+    Отображение \[ \phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \} \]
     индуцирует инъективный гомоморфизм из~фактора. Помимо этого, в~теореме \ref{theorem:connectedComponentsNumbers} была построена биекция между компонентами $H_u$ (которая обобщается
     без~изменений на~случай произвольного поля $K$), а~потому все они непусты.
     Это означает, что $\phi_{\delta \beta_2^{-1}}$ сюръективно, а~потому индуцированное отображение тоже сюръективно.
     Аналогично проводятся рассуждения для~группы $\omega_K(\varepsilon')$.
     Таким образом, получаем цепочку изоморфизмов:
-    $$
+    \[
         \omega(\varepsilon) \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \cong \omega(\varepsilon').
-    $$
+    \]
 
     Окончательно, $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$,
     так как изоморфные группы имеют одинаковые порядки.
@@ -714,9 +711,9 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 Для~вектора $\alpha = (\alpha_1, \ldots, \alpha_k) \in \Z^k$ и~элемента $g \in G$
 под~$g \alpha$ понимаем вектор $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$.
 Говорим, что набор векторов $\alpha_1, \ldots, \alpha_n \in \Z^k$ \textit{линейно независим над~абелевой группой} $G$, если
-$$
+\[
     \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
-$$
+\]
 
 Видно, что линейная независимость векторов $\Z^k$ над~аддитивной группой $\R$ эквивалентна линейной независимости
 в~векторном пространстве $\R^k$. Однако, например, $\R / 2 \pi \Z$, как известно, не~обладает структурой кольца,
@@ -731,13 +728,15 @@ $$
 
 \begin{proof}
     Имеет место цепочка эквивалентностей:
-    \begin{align*}
+    \[
+    \begin{aligned}
                        \ & \phi_\alpha\ \text{инъективно}
         \Leftrightarrow \ker(\phi_\alpha) = \{ 1 \}
         \Leftrightarrow \ker(\phi_\alpha) \subseteq \{ 1 \} \\
         \Leftrightarrow\ & (\forall t \in G^k{:}\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
         \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in G{:}\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
-    \end{align*}
+    \end{aligned}
+    \]
 
     Но~последнее условие~— это в~точности определение линейной независимости над~$G$.
 \end{proof}
@@ -760,9 +759,9 @@ $$
         (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow\\ g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
     \end{gather*}
     а~также
-    $$
+    \[
         (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
-    $$
+    \]
 
     Зафиксировав поочерёдно $g_1 = \ldots = g_n = 0$ и~$h_1 = \ldots = h_n = 0$, получим импликацию слева направо.
     Импликация справа налево очевидна в~свете выше указанных эквивалентностей.
@@ -774,13 +773,20 @@ $$
 \end{lemma}
 
 \begin{proof}
+    \def\fgieq{$f(g_1) = \ldots = f(g_n) = 0$} % a bit of LaTeX black magic
+    \newlength{\fgieqlength}\settowidth{\fgieqlength}{\fgieq}
+
     Поскольку $f$~— изоморфизм, получаем цепочку эквивалентностей:
-    \begin{align*}
+    \[
+    \begin{aligned}[b]
                        &\ \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
         \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
-        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow f(g_1) = \ldots = f(g_n) = 0 \\
-        \Leftrightarrow&\ \forall h_1, \ldots, h_n \in G{:}\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
-    \end{align*}
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow \makebox[0.9\fgieqlength][l]{\fgieq} \\
+                                                                                               % shrink that box to make sure that \qedhere is aligned properly
+        \Leftrightarrow&\ \forall h_1, \ldots, h_n \in H{:}\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
+    \end{aligned}
+    \qedhere
+    \]
 \end{proof}
 
 Применив леммы, получим критерий инъективности для~случая $K = \complex$.
@@ -826,17 +832,19 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
     Как известно, $\R$ является (бесконечномерным) векторным пространством над~$\Q$, а~всякое векторное пространство
     при~условии аксиомы выбора имеет базис (Гамеля) \cite{Brbk70}. Пользуясь этим, зафиксируем базис Гамеля $B$ для~$\R$ над~$\Q$.
     Разложим $r_i$ по~этому базису:
-    $$
+    \[
         r_i = q_i^1 b_1 + \ldots + q_i^s b_s,
-    $$
+    \]
     где $q_i^j \in \Q$ и~$b_j \in B$. Векторов $r_i$ конечное число, поэтому наборы базисных векторов $b_j$ для~них можно выбрать одинаковыми.
 
     Подставим разложение в~линейную комбинацию:
-    \begin{align*}
+    \[
+    \begin{aligned}
         r_1 \mu_1 + \ldots + r_n \mu_n & = (q_1^1 b_1 + \ldots + q_1^s b_s) \mu_1 + \ldots + (q_n^1 b_1 + \ldots + q_n^s b_s) \mu_n \\
                                        & = (q_1^1 \mu_1 + \ldots + q_n^1 \mu_n) b_1 + \ldots + (q_1^s \mu_1 + \ldots + q_n^s \mu_n) b_s \\
                                        & = 0.
-    \end{align*}
+    \end{aligned}
+    \]
 
     В~каждой проекции получаем нулевую рациональную линейную комбинацию чисел $b_j$. В~силу линейной независимости,
     все эти проекции равны нулю, поэтому равны нулю и~составленные из~них векторы: $q_1^j \mu_1 + \ldots + q_n^j \mu_n = 0$.
@@ -878,9 +886,9 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 
 \begin{lemma*}
     Если $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / \Z$, то:
-    $$
+    \[
         \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x.
-    $$
+    \]
 \end{lemma*}
 
 \begin{proof}
@@ -901,25 +909,30 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 
 \begin{proof}
     Выбрав $x_j = 1$ и~$x_1 = \ldots = x_{j - 1} = x_{j + 1} = \ldots = x_k = 0$, получим, что:
-    \begin{align*}
+    \[
+    \begin{aligned}[b]
                          & \forall d \in \Z{:}\ \forall x \in \Z^k{:}\ d \divides x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \divides x \\
             \Rightarrow\ & \forall j{:}\ \forall d \in \Z{:}\ d \divides \alpha^j \Rightarrow d \divides 1 \\
         \Leftrightarrow\ & \forall j{:}\ \gcd(\alpha^j) = 1.
-    \end{align*}
-
-    Нетрудно видеть, что использование поля $\complex$ в~этой лемме \textit{существенно;} поскольку, например,
-    отображение $t \mapsto (t^3, t^2)$ инъективно над~$\R$, но~не~над~$\complex$.
+    \end{aligned}
+    \qedhere
+    \]
 \end{proof}
+
+Нетрудно видеть, что использование поля $\complex$ в~этой лемме \textit{существенно;} поскольку, например,
+отображение $t \mapsto (t^3, t^2)$ инъективно над~$\R$, но~не~над~$\complex$.
 
 Множество простых чисел обозначим как $\primes \subseteq \Z$.
 
 \begin{lemma*}
     Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
-    \begin{align*}
+    \[
+    \begin{aligned}
                          & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
         \Leftrightarrow\ & \forall p \in \primes{:}\ \forall \beta \in \N{:}\ \forall x \in \Z^n{:}\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
         \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in \Z^n{:}\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x.
-    \end{align*}
+    \end{aligned}
+    \]
 \end{lemma*}
 
 \begin{proof}
@@ -947,12 +960,14 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 
 \begin{consequence*}
     Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
-    \begin{align*}
+    \[
+    \begin{aligned}
                          & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
         \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in (\Z / p\Z)^n{:}\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
         \Leftrightarrow\ & \forall p \in \primes{:}\ \mu_1, \ldots, \mu_n\ \text{линейно независимы над~полем}\ \Z / p\Z \\
         \Leftrightarrow\ & \forall p \in \primes{:}\ \rank_{\Z / p \Z}(\mu) = \max(n, k).
-    \end{align*}
+    \end{aligned}
+    \]
 \end{consequence*}
 
 Наконец, мы можем передоказать уже упомянутое достаточное условие.
@@ -978,13 +993,13 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 \section{Голоморфные характеры}
 
 Пусть $K$~— поле. Для~каждого многочлена Лорана $f(z) = \sum_{i \in I} a_i z^i$ и~индекса $k \in \Z^n$ рассмотрим отображение
-$$
+\[
     \mathrm{coeff}_k(f) =
     \begin{cases}
         a_k, & \text{если $k \in I$}; \\
         0,   & \text{иначе.}
     \end{cases}
-$$
+\]
 
 Нетрудно видеть, что справедливы следующие утверждения.
 \begin{lemma*}
@@ -1004,18 +1019,18 @@ $$
 \begin{proof}
     Действительно, для~произвольного $w \in K^n$ в~силу того, что $f$~— гомоморфизм,
     выполняется равенство $f \circ (z \mapsto wz) = f(w) \cdot f$. Откуда:
-    $$
+    \[
         w^k \cdot \mathrm{coeff}_k(f) = \mathrm{coeff}_k(f \circ (z \mapsto wz)) = \mathrm{coeff}_k(f(w) \cdot f) = f(w) \cdot \mathrm{coeff}_k(f),
-    $$
+    \]
     а~значит $(f(w) - w^k) \cdot \mathrm{coeff}_k(f) = 0$.
     Поскольку $f$ нигде не~равен нулю, существует $k_0$ такой, что $\mathrm{coeff}_{k_0}(f) \neq 0$;
     но~тогда $f(w) - w^{k_0} = 0$ для~всех $w$.
 \end{proof}
 
 Отдельно рассмотрим случай $K = \complex$. Как известно, в~этом случае коэффициенты можно представить как интегралы:
-$$
+\[
     \mathrm{coeff}_k(f) = \frac{1}{(2 \pi i)^n} \oint_{T_\varepsilon} \frac{f(z)}{z^k} \frac{dz_1}{z_1} \wedge \ldots \wedge \frac{dz_n}{z_n},
-$$
+\]
 где $T_\varepsilon = \{ z \in (\torus)^n\ |\ |z_1| = \varepsilon_1 \wedge \ldots \wedge |z_n| = \varepsilon_n \}$~— вещественный тор,
 а~$\varepsilon = (\varepsilon_1, \ldots, \varepsilon_n)$~— вектор положительных чисел.
 
@@ -1023,22 +1038,24 @@ $$
 Тогда сформулированная лемма остаётся справедливой. Действительно, пункты~1—3 верны в~силу линейности интеграла.
 Пункт~4 получим, сделав замену переменных $z \mapsto z \cdot w = \xi$ и~пользуясь тем, что интегралы
 по~гомотопным циклам от~голоморфной функции равны.
-\begin{align*}
+\[
+\begin{aligned}
     \mathrm{coeff}_k(f \circ (z \mapsto wz)) &= \frac{1}{(2 \pi i)^n} \oint_{T_\varepsilon} \frac{(f \circ (z \mapsto wz))(z)}{z^k} \frac{dz_1}{z_1} \wedge \ldots \wedge \frac{dz_n}{z_n} \\
                                              &= \frac{1}{(2 \pi i)^n} \oint_{T_\varepsilon} \frac{f(wz)}{z^k} \frac{dz_1}{z_1} \wedge \ldots \wedge \frac{dz_n}{z_n} \\
                                              &= \frac{1}{(2 \pi i)^n} \oint_{T_{\varepsilon'}} \frac{f(\xi)}{(\xi / w)^k} \frac{d(\xi_1 / w_1)}{\xi_1 / w_1} \wedge \ldots \wedge \frac{d(\xi_n / w_n)}{\xi_n / w_n} \\
                                              &= \frac{w^k}{(2 \pi i)^n} \oint_{T_{\varepsilon'}} \frac{f(\xi)}{\xi^k} \frac{d\xi_1}{\xi_1} \wedge \ldots \wedge \frac{d\xi_n}{\xi_n} \\
                                              &= \frac{w^k}{(2 \pi i)^n} \oint_{T_{\varepsilon}} \frac{f(\xi)}{\xi^k} \frac{d\xi_1}{\xi_1} \wedge \ldots \wedge \frac{d\xi_n}{\xi_n} \\
                                              &= w^k \cdot \mathrm{coeff}_k(f),
-\end{align*}
+\end{aligned}
+\]
 где $\varepsilon' = (\varepsilon_1 |w_1|, \ldots, \varepsilon_n |w_n|)$.
 Теперь аналогичная теорема доказывается без~изменений.
 
 \begin{theorem*}
     Всякий голоморфный $f \in \Hom((\torus)^n, \torus)$~— моном, то~есть:
-    $$
+    \[
         \exists \alpha \in \Z^n{:}\ \forall z{:}\ f(z) = z^\alpha.
-    $$
+    \]
 \end{theorem*}
 
 \usection{Заключение}
@@ -1052,9 +1069,9 @@ $$
 \begin{theorem*}
   Пусть $D \subseteq \complex$~— область. Если $f \in \Hol(D)$, а~кусочно-гладкие кривые $\gamma_1$
   и~$\gamma_2 \subseteq D$ гомотопны в~$D$, то
-  $$
+  \[
     \int_{\gamma_1} f(z)dz = \int_{\gamma_2} f(z)dz.
-  $$
+  \]
 \end{theorem*}
 
 Рассмотрим область $D$ и~её подмножество $D^\prime = D \setminus \{ z_1, \ldots, z_k \} \subseteq D$, где $z_i \in D$.
@@ -1066,9 +1083,9 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
 не~попадают никакие другие особые точки $f$, кроме выбранной $z_0$).
 
 В~таком случае \textit{вычетом} $f$ в~точке $z = z_0$ называют интеграл
-$$
+\[
   \operatorname*{res}\limits_{z_0} f = \operatorname*{res}\limits_{z = z_0} f(z) = \lim\limits_{\epsilon \to 0} \frac{1}{2 \pi i} \oint_{\Gamma_\epsilon} f(z)dz = \frac{1}{2 \pi i} \oint_{\Gamma_{\epsilon_0}} f(z)dz,
-$$
+\]
 где $\epsilon_0$ достаточно мало в~описанном выше смысле.
 
 Следующая теорема позволяет сводить вычисление интеграла от~голоморфной функции к~вычислению вычетов в~её особых точках,
@@ -1077,9 +1094,9 @@ $$
   Пусть $D \subseteq \complex$~— односвязная область, $\gamma \subseteq D$~— замкнутая кусочно-гладкая кривая,
   $z_i \in D$, $f \in \Hol(D^\prime)$, где $D^\prime = D \setminus \{ z_1, \ldots, z_k \}$.
   Тогда:
-  $$
+  \[
     \oint_{\gamma} f(z)dz = 2 \pi i \sum_{k = 1}^{n} \mathrm{Ind}_{\gamma}(z_k) \operatorname*{res}\limits_{z_k} f,
-  $$
+  \]
   где $\mathrm{Ind}_{\gamma}(z)$~— индекс точки $z$ относительно кривой $\gamma$.
 \end{theorem*}
 
@@ -1106,9 +1123,9 @@ $$
 Пусть $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
 Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
 Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим
-$$
+\[
     \gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}.
-$$
+\]
 
 Почти для~всех $\epsilon$ множество $\gamma_{z, \epsilon}$ представляет собой гладкое вещественное подмногообразие многообразия $U$.
 Для~достаточно малых ненулевых $\epsilon$ многообразие $\gamma_{z, \epsilon}$ является компактным подмногообразием $U \setminus \Gamma$.
@@ -1118,9 +1135,9 @@ $$
 Класс цикла в~$n$-мерной группе гомологий $U \setminus \Gamma$ не~зависит от~выбора $\epsilon$, но,~очевидно, зависит от~порядка уравнений $g_1(z) = 0, \ldots, g_n(z) = 0$.
 
 Зафиксируем также ещё один многочлен Лорана $f$. \textit{Вычетом Гротендика} назовём следующий интеграл:
-$$
+\[
   \operatorname*{res}\limits_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n}.
-$$
+\]
 
 Существенную трудность при~его вычислении представляет устройство цикла $\gamma_z$.
 В~случае $g_i(z) = z$ цикл $\gamma_z$ является просто $n$-мерным тором, и~вычисление вычета
@@ -1201,12 +1218,12 @@ The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.s
 а~элементы множества $A$~— \textit{стрелками} (или морфизмами) этой категории. Обозначим $\Ob(C) = O$ и~$\Arr(C) = A$.
 Стрелки $\id(x)$ называются \textit{единичными,} а~стрелка $f \circ g$~— \textit{композицией.} Для~категории $C$ также будем писать $\id_C$ и~$\circ_C$.
 Для~объектов $a, b \in \Ob(C)$ определим \textit{множество стрелок}:
-$$
+\[
     \hom_C(a, b) = \{ f \in \Arr(C)\ | \ \dom(f) = a \wedge \cod(f) = b \}.
-$$
+\]
 
 \textit{Функтором} между категориями $A$ и~$B$ называется упорядоченная пара $T = (T_1, T_2)$,
-где $T_1$~— функция $\Ob(A) \rightarrow \Ob(B)$, а~$T_2$~— $\Arr(A) \rightarrow \Arr(B)$,
+где $T_1 : \Ob(A) \rightarrow \Ob(B)$ и~$T_2 : \Arr(A) \rightarrow \Arr(B)$,
 такая, что для~всяких объектов $a, b, c \in \Ob(A)$ и~стрелок $f \in \hom_C(a, b)$ и~$g \in \hom_C(b, c)$ выполняются
 следующие условия:
 \begin{enumerate}
@@ -1236,9 +1253,9 @@ $$
 Аналогично говорим, что $C'$~— \textit{подкатегория} в~$C$, если $C'$ в~ней подграф, $\id_{C'} = \id_{C} |_{\Ob(C')}$
 и~$\circ_{C'} = \circ_{C} |_{\Arr(C') \times \Arr(C')}$.
 Если задан произвольный набор подкатегорий $C_i$ для~$i \in I$, то~ясно, что определено их пересечение, которое тоже является подкатегорией:
-$$
+\[
     \bigcap\limits_{i \in I} C_i = \left( \bigcap\limits_{i \in I} \Ob(C_i), \bigcap\limits_{i \in I} \Arr(C_i), \dom, \cod, \id, \circ \right).
-$$
+\]
 
 \textit{Диаграммой} в~категории называем любой (обычно конечный либо счётный) её подграф.
 Как и~всякий ориентированный граф, диграмма графически изображается с~помощью вершин,
@@ -1255,7 +1272,7 @@ $$
 (то~есть наименьшая подкатегория, содержащая данный подграф) назовём \textit{пополнением} $\overline{D}$.
 
 Категория $C$ называется \textit{тонкой,} если между любой парой объектов имеется не~более одного морфизма,
-то~есть $$\forall a, b \in \Ob(C){:}\ \forall f, g \in \hom_C(a, b){:}\ f = g.$$
+то~есть \[ \forall a, b \in \Ob(C){:}\ \forall f, g \in \hom_C(a, b){:}\ f = g. \]
 Говорим, что \textit{диаграмма коммутативна,} если её пополнение~— тонкая категория.
 
 Если даны функторы $F, G : A \rightarrow B$, то~\textit{естественным преобразованием} $\eta : F \Rightarrow G$ называется набор морфизмов
@@ -1287,9 +1304,9 @@ $\eta_x : \hom_B(F(x), G(x))$ для~каждого объекта $x \in \Ob(A)
 
 \textit{Инициальным объектом} в~категории $C$ называется такой объект $0 \in \Ob(C)$,
 что из~него во~всякой другой объект категории существует ровно одна стрелка:
-$$
+\[
   \forall x \in \Ob(C){:}\ \exists! f \in \Arr(C){:}\ f \in \hom_C(0, x).
-$$
+\]
 
 Эту единственную стрелку обозначаем $!_x \in \hom_C(0, x)$.
 
@@ -1332,9 +1349,9 @@ $o \in \Ob(A)$ объект $T(o)$~— инициальный в~$B$.
 \begin{proof}
     По~доказанному ранее, $\rec(f \circ i, f \circ j) = f$ и~$\rec(g \circ i, g \circ j)$.
     Но~тогда имеем:
-    $$
+    \[
         f = \rec(f \circ i, f \circ j) = \rec(g \circ i, g \circ j) = g.
-    $$
+    \]
 \end{proof}
 
 \begin{lemma*}
@@ -1347,13 +1364,13 @@ $o \in \Ob(A)$ объект $T(o)$~— инициальный в~$B$.
     Обозначим как $\rec_1$ универсальную стрелку для~первой тройки,
     а~как $\rec_2$~— для~второй. Пусть $\phi = \rec_1(i_2, j_2)$
     и~$\psi = \rec_2(i_1, j_1)$. Тогда:
-    $$
+    \[
         \phi \circ \psi \circ i_2 = \phi \circ \rec_2(i_1, j_1) \circ i_2
                                   = \phi \circ i_1
                                   = \rec_1(i_2, j_2) \circ i_1
                                   = i_2
                                   = \id_C(c_2) \circ i_2.
-    $$
+    \]
 
     Аналогично, $\phi \circ \psi \circ j_2 = \id_C(c_2) \circ j_2$.
     В~силу предыдущей леммы, $\phi \circ \psi = \id_C(c_2)$.
@@ -1383,18 +1400,21 @@ $o \in \Ob(A)$ объект $T(o)$~— инициальный в~$B$.
 
     Снова в~силу единственности имеем стрелку $\psi : c \cong a + b$.
     Тогда $h = \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi) \in \hom_B(T(c), x)$, причём:
-    \begin{align*}
+    \[
+    \begin{aligned}
         h \circ T(i) &= \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi \circ i) \\
                      &= \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\inl_{a, b}) \\
                      &= \rec_{T(a), T(b)}(f, g) \circ \inl_{T(a), T(b)} \\
                      &= f.
-    \end{align*}
+    \end{aligned}
+    \]
     Аналогично $h \circ T(j) = g$. Наконец, пусть $h' \in \hom_B(T(c), x)$,
     $h' \circ T(i) = f$ и~$h' \circ T(j) = g$.
 
     $u = T(\psi^{-1}) \circ \phi_{a, b}$~— изоморфизм как композиция изоморфизмов,
     поэтому $h = h' \Leftrightarrow h \circ u = h' \circ u$. Далее,
-    \begin{align*}
+    \[
+    \begin{aligned}
         h \circ u \circ \inl_{T(a), T(b)} &= \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi \circ \psi^{-1}) \circ \phi_{a, b} \circ \inl_{T(a), T(b)} \\
                                           &= \rec_{T(a), T(b)}(f, g) \circ \inl_{T(a), T(b)} \\
                                           &= f \\
@@ -1404,7 +1424,8 @@ $o \in \Ob(A)$ объект $T(o)$~— инициальный в~$B$.
                                           &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\psi \circ i) \\
                                           &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\inl_{a, b}) \\
                                           &= h' \circ u \circ \inl_{T(a), T(b)}.
-    \end{align*}
+    \end{aligned}
+    \]
     Аналогично, $h \circ u \circ \inr_{T(a), T(b)} = h' \circ u \circ \inr_{T(a), T(b)}$, поэтому $h \circ u = h' \circ u$.
 \end{proof}
 
@@ -1501,44 +1522,47 @@ $(\id_C(x), 1_F)$ определяет тождественный морфизм
 Далее, пусть заданы морфизм $(u, \varepsilon)$ между $(G, y, \psi)$ и~$(H, z, \xi)$ и~$(v, \eta)$ между $(F, x, \phi)$ и~$(G, y, \psi)$.
 Композицию определим покомпонентно: $(u, \varepsilon) \circ (v, \eta) = (u \circ v, \varepsilon \circ \eta)$.
 При~этом:
-$$
+\[
     (u \circ v) \circ \phi_j = u \circ (v \circ \phi_j)
                              = u \circ (\psi_j \circ \eta_j)
                              = (u \circ \psi_j) \circ \eta_j
                              = (\xi_j \circ \varepsilon_j) \circ \eta_j
                              = \xi_j \circ (\varepsilon_j \circ \eta_j).
-$$
+\]
 
 Наконец, поскольку композиция в~категории $C$ и~вертикальная композиция функторов ассоциативны
 и~унитальны, то~такова и~композиция морфизмов коконусов.
 
 Пусть теперь категория $C$ содержит все копределы из~$J$ и~инициальный объект $0 \in \Ob(C)$.
 Определим граничный эндофунктор следующим образом:
-$$
+\[
 \partial = \begin{cases}
              (F, x, \phi) \mapsto (\Delta_0, \colim(F), j \mapsto\ !_{\colim(F)}); \\
              (u, \varepsilon) \mapsto (\rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), 1_{\Delta_0}).
            \end{cases}
-$$
+\]
 
 $\partial(\id((F, x, \phi))) = \id(\partial((F, x, \phi)))$ верно в~силу того, что
-\begin{align*}
+\[
     \rec(F, \colim(F), \incl(F)) = \id(\colim(F)).
-\end{align*}
+\]
 $\partial((u, \varepsilon) \circ (v, \eta)) = \partial((u, \varepsilon)) \circ \partial((v, \eta))$
 верно в~силу того, что
-\begin{align*}
+\[
+\begin{aligned}
     \phantom{=}&\ \rec(F, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j \circ \eta_j) \\
               =&\ \rec(G, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \eta_j).
-\end{align*}
+\end{aligned}
+\]
 
 Также определим естественное преобразование $i : \partial \Rightarrow 1_C$:
-$$
+\[
     i_{(F, x, \phi)} = (\rec(F, x, \phi), j \mapsto\ !_{F(j)}).
-$$
+\]
 
 Видно, что:
-\begin{align*}
+\[
+\begin{aligned}
     \phantom{=}&\ i_{(G, y, \psi)} \circ \partial((u, \varepsilon)) \\
               =&\ (\rec(G, y, \psi), j \mapsto\ !_{G(j)}) \circ (\rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), 1_{\Delta_0}) \\
               =&\ (\rec(G, y, \psi) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), j \mapsto\ !_{G(j)} \circ \id(\Delta_0(j))) \\
@@ -1546,7 +1570,8 @@ $$
               =&\ (\rec(F, y, j \mapsto u \circ \phi_j), j \mapsto\ !_{G(j)}) \\
               =&\ (u \circ \rec(F, x, \phi), j \mapsto \varepsilon_i\ \circ\ !_{F(j)}) \\
               =&\ (u, \varepsilon) \circ i_{(F, x, \phi)}.
-\end{align*}
+\end{aligned}
+\]
 
 Аддитивность $\partial$ следует из~того, что копределы коммутируют с~копроизведением,
 то~есть существует естественный изоморфизм $\colim(F + G) \cong \colim(F) + \colim(G)$,
@@ -1570,12 +1595,12 @@ $\Gamma = (C, \partial, i)$ будем обозначать как $\Cob_\Gamma(
 $\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённом выше смысле образует категорию,
 изоморфизмы в~которой соответствует эквивалентности кобордизмов, определённой в~\cite{Mil65}.
 Отметим существование из~неё забывающего функтора $|\cdot| : \Cob_\Gamma(a, b) \rightarrow C$:
-$$
+\[
     | \cdot | = \begin{cases}
         (c, i, j) \mapsto c; \\
         \phi \mapsto \phi.
     \end{cases}
-$$
+\]
 Поэтому для~любой пары кобордизмов $\varepsilon_1, \varepsilon_2 \in \Cob_\Gamma(a, b)$
 имеет место собственная категория $\Cob_\Gamma(|\varepsilon_1|, |\varepsilon_2|)$.
 
@@ -1589,9 +1614,9 @@ $$
 
 \begin{proof}
     Пусть $(c, i, j) \in \Cob_\Gamma(a, b)$. Тогда $\partial(c) \cong a + b$, поэтому:
-    $$
+    \[
         0 \cong \partial(\partial(c)) \cong \partial(a + b) \cong \partial(a) + \partial(b).
-    $$
+    \]
     Нетрудно показать, что если $x + y \cong 0$, то~$x \cong y \cong 0$.
     В~частности, $\partial(a) \cong \partial(b) \cong 0$.
 
@@ -1620,7 +1645,7 @@ $$
               В~силу того, что $T$~— граничный, $T(i) \in \hom_{C_2}(T(a), T(\partial(c))) = \hom_{C_2}(T(a), \partial(T(c)))$
               и~$T(j) \in \hom_{C_2}(T(b), T(\partial(c))) = \hom_{C_2}(T(b), \partial(T(c)))$.
               По~аддитивности, $(\partial(T(c)),\allowbreak T(i),\allowbreak T(j)) = (T(\partial(c)), T(i), T(j))$~— копроизведение,
-              а~потому $(T(c),\allowbreak T(i),\allowbreak T(j))$~— кобордизм.
+              а~потому $(T(c),\allowbreak T(i),\allowbreak T(j))$~— кобордизм. \qedhere
     \end{enumerate}
 \end{proof}
 
@@ -1669,29 +1694,31 @@ $$
 Тогда видим, что в~произвольной категории с~кобордизмами:
 \begin{enumerate}
     \item Слабая кобордантность рефлексивна; более того, имеем включение из~$C$ в~$\Cob^w(a, a)$:
-    $$
+    \[
         R = \begin{cases}
             x \mapsto (x, x, \id(a + \partial(x))); \\
             f \mapsto (f, f).
         \end{cases}
-    $$
+    \]
     \item Слабая кобордантность симметрична; более того, определён изоморфизм между $\Cob^w(a, b)$ и~$\Cob^w(b, a)$:
-    $$
+    \[
         S = \begin{cases}
             (x, y, \phi) \mapsto (y, x, \phi^{-1}); \\
             (f, g) \mapsto (g, f).
         \end{cases}
-    $$
+    \]
     \item Слабая кобордантность транзитивна \cite{Weston}, поскольку если имеем $(u, v_1) \in \Cob^w(a, b)$ и~$(v_2, w) \in \Cob^w(b, c)$,
     то $(u + v_2, v_1 + w) \in \Cob^w(a, c)$:
-    \begin{align*}
+    \[
+    \begin{aligned}
         a + \partial(u + v_2) & \cong a + \partial(u) + \partial(v_2) \\
                               & \cong b + \partial(v_1) + \partial(v_2) \\
                               & \cong \partial(v_1) + b + \partial(v_2) \\
                               & \cong \partial(v_1) + c + \partial(w) \\
                               & \cong c + \partial(v_1) + \partial(w) \\
                               & \cong c + \partial(v_1 + w).
-    \end{align*}
+    \end{aligned}
+    \]
 \end{enumerate}
 
 Наконец, в~случае гладких многообразий без~границы кобордантность эквивалентна слабой кобордантности.
