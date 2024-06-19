@@ -820,7 +820,7 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 Естественным кажется, что, поскольку рассматриваемые вектора $\alpha^j$ целочисленные, их линейная независимость
 над~$\R$ должна сводиться к~линейной независимости над~$\Z$. Докажем это.
 
-\begin{lemma*}
+\begin{lemma*}[\cite{SE20}]
   $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Q$.
 \end{lemma*}
 
@@ -1165,9 +1165,12 @@ Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~
 \bibitem{TsikhSad14} Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/ Т.~М.~Садыков, А.~К.~Цих;
 Москва : Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9.
 
+\bibitem{SE20} Linearly independent over $\mathbb{Z}$, also linearly independent over $\mathbb{R}$? / Y-S.~Smyrlis~//
+Mathematics Stack Exchange~: [сайт].~— URL: \url{https://math.stackexchange.com/a/3881619} (дата обращения: 18.03.2024).
+
 \bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin : Springer, 2006.~— 652~p.~— ISBN: 978-3-54-033849-9.
 
-\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables / B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-82-181975-3.
+\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables~/ B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-82-181975-3.
 
 \bibitem{GelKho02} Gelfond, O.~A. Toric geometry and~Grothendieck residues~/ O.~A.~Gelfond, A.~G.~Khovanskii~//
 Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
@@ -1177,6 +1180,9 @@ Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
 \bibitem{Mil65} Milnor, J. Lectures on~the~H-Cobordism Theorem~/ J.~Milnor; Princeton : Princeton University Press, 1965.~— 124~p.~— ISBN: 978-0-69-165113-2.
 
 \bibitem{Stong68} Stong, R.~E. Notes on~Cobordism Theory~/ R.~E.~Stong; Princeton : Princeton University Press, 1969.~— 422~p.~— ISBN: 978-0-69-162221-7.
+
+\bibitem{HoTTbook} Homotopy Type Theory: Univalent Foundations of Mathematics / The~{Uni\-va\-lent} Foundations Program //
+The HoTT Book | Homotopy Type {The\-o\-ry}~: [сайт].~— URL: \url{https://homotopytypetheory.org/book/} (дата обращения: 01.05.2024).
 
 \bibitem{Weston} Weston T., An~introduction to~cobordism theory~/ T.~Weston~//
 {Stan\-ford} University. School of~Humanities and~Sciences.
@@ -1320,8 +1326,9 @@ $\eta_x : \hom_B(F(x), G(x))$ для~каждого объекта $x \in \Ob(A)
   \end{tikzcd}
 \]
 
-Также пишем $c = a + b$, $\inl = \inl_{a, b}$, $\inr = \inr_{a, b}$
-и~$h = \rec_{a, b}(f, g)$.
+Также пишем $c = a + b$, $\inl = \inl_{a, b}$, $\inr = \inr_{a, b}$ и~$h = \rec_{a, b}(f, g)$\rlap{.}\footnote{
+  Подобные обозначения характерны прежде всего для~работ в~области теории типов, см., например, раздел~1.7 в~\cite{HoTTbook}.
+}
 
 Наконец, функтор $T : A \rightarrow B$ \textit{полуаддитивен}\rlap{\textit{,}}\footnote{
   Нестандартный термин, не~следует путать с~полуаддитивной категорией.
