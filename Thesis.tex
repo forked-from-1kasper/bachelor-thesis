@@ -1188,6 +1188,8 @@ The HoTT Book | Homotopy Type {The\-o\-ry}~: [сайт].~— URL: \url{https://h
 {Stan\-ford} University. School of~Humanities and~Sciences.
 The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.stanford.edu/~ralph/morsecourse/cobordismintro%20.pdf} (дата обращения: 23.08.2022).
 
+\bibitem{Lean} Programming Language and Theorem Prover~— Lean.~— URL: \url{https://lean-lang.org/} (дата обращения: 01.05.2024).
+
 \end{thebibliography}
 
 \label{TheEnd}
@@ -1204,7 +1206,9 @@ The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.s
 
 \subsection{Основные понятия теории категорий}
 
-Под~\textit{ориентированным графом} (или направленным) \cite{MacLane71} понимаем упорядоченную четвёртку $(O,\allowbreak A,\allowbreak \dom,\allowbreak \cod)$,
+Стандартные двуместные функции будем писать в~инфиксной записи; то~есть $f \circ g$ или~$f \circ_X g$, но~не~$\circ(f, g)$ или~$\circ_X(f, g)$.
+
+Под~\textit{ориентированным (или направленным) графом} \cite{MacLane71} понимаем упорядоченную четвёртку $(O,\allowbreak A,\allowbreak \dom,\allowbreak \cod)$,
 где $A$ и~$O$~— множества, $\dom$ и~$\cod$~— функции $A \rightarrow O$.
 Для~графа определим множество \textit{перемножаемых стрелок} как $A \times_O A = \{ (g, f) \in A \times A \ |\ \dom(g) = \cod(f) \}$.
 
@@ -1467,7 +1471,7 @@ $i$~— естественное преобразование $\partial \Rightar
 и~б) всех копроизведений в~$C$.
 
 \medskip
-\noindent\textbf{Пример.} Рассмотрим категорию $\mathbf{Manifold}_p^n$ $n$-мерных $C^p$-гладких многообразий (с~границей),
+\noindent\textbf{Пример.} Рассмотрим категорию компактных $n$-мерных $C^p$-гладких многообразий (с~границей),
 где $1 \leq p \leq \infty$, стрелки в~которой~— $C^p$-отображения, переводящие границы в~границы (то~есть такие $f \in C^p(M, N)$,
 что $f(\partial M) \subseteq \partial N$). Тогда функция $M \mapsto \partial M$ задаёт эндофунктор,
 стрелочная функция которого~— просто ограничение на~границу: $f \mapsto f|_{\partial M}$.
@@ -1476,7 +1480,7 @@ $i$~— естественное преобразование $\partial \Rightar
 которые (очевидно) также определяют естественное преобразование. Таким образом, задана категория с~кобордизмами.
 \medskip
 
-\noindent\textbf{Пример.} Рассмотрим категорию $\mathbf{Manifold}_p$ $C^p$-гладких многообразий произвольной размерности,
+\noindent\textbf{Пример.} Рассмотрим категорию компактных $C^p$-гладких многообразий произвольной размерности,
 стрелки в~которой определены как в~предыдущем случае. Ясно, что эту категорию можно наделить структурой
 категории с~кобордизмами точно таким~же образом.
 
@@ -1633,6 +1637,14 @@ $\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённ
 Объект $a$ \textit{точен,} если $\exists b \in \Ob(C){:}\ a = \partial(b)$.
 
 \begin{statement*}
+  Если $a$ и~$b$ точны, то~они кобордантны.
+\end{statement*}
+
+\begin{proof}
+  Пусть $a = \partial(u)$ и~$b = \partial(v)$. Тогда $\partial(u + v) \cong \partial(u) + \partial(v) = a + b$.
+\end{proof}
+
+\begin{statement*}
   Аддитивный граничный функтор $T$ переводит замкнутные объекты в~замкнутые, точные~— в~точные, а~кобордизмы~— в~кобордизмы.
 \end{statement*}
 
@@ -1732,7 +1744,7 @@ $\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённ
 \end{statement*}
 
 \begin{proof}
-  Пусть $I \in \mathbf{Manifold}_p$~— стандартный интервал $[0; 1]$.
+  Пусть $I$~— стандартный интервал $[0; 1]$.
   Как известно, если $x$~— многообразие без~границы,
   то~имеется диффеоморфизм $\partial(x \times I) \cong x + x$.
 
@@ -1743,6 +1755,10 @@ $\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённ
   Поскольку $\phi : a + \partial u \cong b + \partial v$, можем склеить $c_1$ и~$c_2$ по~общей
   границе, получив $c$ такой, что $\partial c \cong a + b$.
 \end{proof}
+
+Части приложения, не~касающиеся случая гладких многообразий, были формализованы с~использованием
+средства автоматической проверки доказательств Lean Theorem Prover \cite{Lean}. Исходный код доступен по~ссылке:
+\url{https://github.com/forked-from-1kasper/lean4-categories}.
 
 \pagebreak
 
