@@ -826,7 +826,7 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 Естественным кажется, что, поскольку рассматриваемые вектора $\alpha^j$ целочисленные, их линейная независимость
 над~$\R$ должна сводиться к~линейной независимости над~$\Z$. Докажем это.
 
-\begin{lemma*}[\cite{SE20}]
+\begin{lemma*}[\cite{Smyr20}]
   $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Q$.
 \end{lemma*}
 
@@ -1112,16 +1112,17 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
 \end{theorem*}
 
 Таким образом, в~случае $n > 1$ невозможно вокруг особой точки голоморфной функции
-выбрать малую сферу так, чтобы функция была голоморфна на~всей сфере (в~противном случае,
-функцию можно было~бы продолжить внутрь сферы); а~потому интеграл по~такой сфере, в~общем случае, не~определён.
+выбрать малую сферу так, чтобы функция была голоморфна в~окрестности этой сферы (в~противном случае,
+функцию можно было~бы продолжить внутрь сферы). Следовательно, любая такая сфера содержит
+особые точки, а~потому интеграл по~ней, в~общем случае, не~определён.
 
-В~отличие от~многомерных голоморфных функций, голоморфные отображение, то~есть функции $\complex^n \rightarrow \complex^n$,
+В~отличие от~многомерных голоморфных функций, голоморфные отображения, то~есть функции $\complex^n \rightarrow \complex^n$,
 \textit{могут} иметь изолированные нули или особые точки. Этот факт приводит к~построению так называемого \textit{вычета Гротендика.}
 
 \subsection{Вычет Гротендика}
 Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$ над~$\complex$.
 Пусть $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
-Также зафиксируем некоторое изолирование решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
+Также зафиксируем некоторое изолированное решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
 Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим
 \[
   \gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}.
@@ -1139,7 +1140,7 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
   \operatorname*{res}\limits_{z} \frac{f}{g_1 \ldots g_n} = \frac{1}{(2 \pi i)^n} \int_{\gamma_z} \frac{f}{g_1 \ldots g_n}.
 \]
 
-Существенную трудность при~его вычислении представляет устройство цикла $\gamma_z$.
+Существенную трудность \cite{Tsikh92} при~его вычислении представляет устройство цикла $\gamma_z$.
 В~случае $g_i(z) = z$ цикл $\gamma_z$ является просто $n$-мерным тором, и~вычисление вычета
 сводится к~вычислению коэффициента в~ряде~Лорана, как и~одномерном случае; однако в~общем случае
 нетривиальна даже топологическая структура $\gamma_z$. Выдвигаем гипотезу, что для~изучения
@@ -1251,7 +1252,7 @@ $(W;\allowbreak V_0,\allowbreak V_1;\allowbreak h_0,\allowbreak h_1)$ такую
 London Mathematical Society Lecture Note Series. Issue~235: Number Theory.
 Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—187.
 
-\bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London : University of~Notre Dame, 1942, 1944.~— 96~p.~— ISBN: 978-0-48-662342-9.
+\bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London : University of~Notre Dame, 1942, 1944.~— 96~p.~— ISBN: 978-0-486-62342-9.
 
 \bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~congruences. Philos.~/ H.J.S.~Smith~//
 Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~293—326.
@@ -1259,24 +1260,29 @@ Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~
 \bibitem{TsikhSad14} Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/ Т.~М.~Садыков, А.~К.~Цих;
 Москва : Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9.
 
-\bibitem{SE20} Linearly independent over $\mathbb{Z}$, also linearly independent over $\mathbb{R}$? / Y-S.~Smyrlis~//
+\bibitem{Smyr20} Linearly independent over $\mathbb{Z}$, also linearly independent over $\mathbb{R}$? / Y-S.~Smyrlis~//
 Mathematics Stack Exchange~: [сайт].~— URL: \url{https://math.stackexchange.com/a/3881619} (дата обращения: 18.03.2024).
 
-\bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin : Springer, 2006.~— 652~p.~— ISBN: 978-3-54-033849-9.
+\bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin : Springer, 2006.~— 652~p.~— ISBN: 978-3-540-33849-9.
 
-\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables~/ B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-82-181975-3.
+\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables~/ B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-8218-1975-3.
 
 \bibitem{GelKho02} Gelfond, O.~A. Toric geometry and~Grothendieck residues~/ O.~A.~Gelfond, A.~G.~Khovanskii~//
 Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
 
-\bibitem{MacLane71} MacLane, S. Categories for the~Working Mathematician~/ S.~MacLane; New~York : Springer-Verlag, 1971.~— 262~p.~— ISBN: 978-0-38-790035-3.
+\bibitem{Tsikh92} Tsikh, A.~K. Multidimensional Residues and~Their Applications~/ A.~K.~Tsikh; Providence : American Mathematical Society, 1992.~— 188~p.~— ISBN: 978-0-8218-4560-8.
 
-\bibitem{Mil65} Milnor, J. Lectures on~the~H-Cobordism Theorem~/ J.~Milnor; Princeton : Princeton University Press, 1965.~— 124~p.~— ISBN: 978-0-69-165113-2.
+\bibitem{Mil65} Milnor, J. Lectures on~the~H-Cobordism Theorem~/ J.~Milnor; Princeton : Princeton University Press, 1965.~— 124~p.~— ISBN: 978-0-691-65113-2.
 
-\bibitem{Stong68} Stong, R.~E. Notes on~Cobordism Theory~/ R.~E.~Stong; Princeton : Princeton University Press, 1969.~— 422~p.~— ISBN: 978-0-69-162221-7.
+\bibitem{MacLane71} MacLane, S. Categories for the~Working Mathematician~/ S.~MacLane; New~York : Springer-Verlag, 1971.~— 262~p.~— ISBN: 978-0-387-90035-3.
 
 \bibitem{HoTTbook} Homotopy Type Theory: Univalent Foundations of Mathematics / The~{Uni\-va\-lent} Foundations Program //
 The HoTT Book | Homotopy Type {The\-o\-ry}~: [сайт].~— URL: \url{https://homotopytypetheory.org/book/} (дата обращения: 01.05.2024).
+
+\bibitem{Stong68} Stong, R.~E. Notes on~Cobordism Theory~/ R.~E.~Stong; Princeton : Princeton University Press, 1969.~— 422~p.~— ISBN: 978-0-691-62221-7.
+
+\bibitem{Trim11} Cobordism categories that don’t involve manifolds / T.~Trimble~//
+Mathematics Stack Exchange~: [сайт].~— URL: \url{https://mathoverflow.net/a/59696} (дата обращения: 27.06.2022).
 
 \bibitem{Weston} Weston T., An~introduction to~cobordism theory~/ T.~Weston~//
 {Stan\-ford} University. School of~Humanities and~Sciences.
@@ -1583,7 +1589,7 @@ $i$~— естественное преобразование $\partial \Rightar
 не~является снова многообразием.
 \medskip
 
-\noindent\textbf{Пример.} Зафиксируем пару категорий $J$ (называемую индексной) и~$C$. \textit{Коконусом} называется упорядоченная
+\noindent\textbf{Пример} \cite{Trim11}. Зафиксируем пару категорий $J$ (называемую индексной) и~$C$. \textit{Коконусом} называется упорядоченная
 тройка $(F, c, \psi)$, где $F : J \rightarrow C$~— функтор, $c \in \Ob(C)$~— объект
 и~$\psi$~— семейство морфизмов $\psi_x \in \hom_C(F(x), c)$ такое, что для~любой
 пары объектов $i, j \in \Ob(J)$ и~стрелки $f \in \hom_J(i, j)$ верно,
