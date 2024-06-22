@@ -38,6 +38,9 @@
 \newtotcounter{citenum}
 \preto{\bibitem}{\stepcounter{citenum}}
 
+\patchcmd{\thebibliography}{\leftmargin\labelwidth}{\setlength\leftmargin{0mm}}{}{}
+\patchcmd{\thebibliography}{\advance\leftmargin\labelsep}{}{}{}
+
 \makeatletter
   \renewcommand\@biblabel[1]{#1.}
 \makeatother
@@ -1265,45 +1268,45 @@ $(W;\allowbreak V_0,\allowbreak V_1;\allowbreak h_0,\allowbreak h_1)$ такую
 
 \bibitem{Schm94} Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ W.~M.~{Sch\-midt}~//
 London Mathematical Society Lecture Note Series. Issue~235: Number Theory.
-Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—187.
+Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—\allowbreak187.
 
-\bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London : University of~Notre Dame, 1942, 1944.~— 96~p.~— ISBN: 978-0-486-62342-9.
+\bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London~: University of~Notre Dame, 1942, 1944.~— 96~p.~— ISBN: 978-0-486-62342-9.
 
 \bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~{con\-gru\-ences}. Philos.~/ H.J.S.~Smith~//
 Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~293—326.
 
 \bibitem{TsikhSad14} Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/ Т.~М.~Садыков, А.~К.~Цих;
-Москва : Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9.
+Москва~: Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9.
 
 \bibitem{Smyr20} Linearly independent over $\mathbb{Z}$, also linearly independent over $\mathbb{R}$? / Y-S.~Smyrlis~//
 Mathematics Stack Exchange~: [сайт].~— URL: \url{https://math.stackexchange.com/a/3881619} (дата обращения: 18.03.2024).
 
-\bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin : Springer, 2006.~— 652~p.~— ISBN: 978-3-540-33849-9.
+\bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin~: Springer, 2006.~— 652~p.~— ISBN: 978-3-540-33849-9.
 
-\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables~/ B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-8218-1975-3.
+\bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables~/ B.~V.~Shabat; Providence~: American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-8218-1975-3.
 
 \bibitem{GelKho02} Gelfond, O.~A. Toric geometry and~Grothendieck residues~/ O.~A.~{Gel\-fond}, A.~G.~Khovanskii~//
 Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
 
-\bibitem{Tsikh92} Tsikh, A.~K. Multidimensional Residues and~Their Applications~/ A.~K.~Tsikh; Providence : American Mathematical Society, 1992.~— 188~p.~— ISBN: 978-0-8218-4560-8.
+\bibitem{Tsikh92} Tsikh, A.~K. Multidimensional Residues and~Their Applications~/ A.~K. Tsikh; Providence~: American Mathematical Society, 1992.~— 188~p.~— ISBN: 978-0-8218-4560-8.
 
-\bibitem{Mil65} Milnor, J. Lectures on~the~H-Cobordism Theorem~/ J.~Milnor; Princeton : Princeton University Press, 1965.~— 124~p.~— ISBN: 978-0-691-65113-2.
+\bibitem{Mil65} Milnor, J. Lectures on~the~H-Cobordism Theorem~/ J.~Milnor; Princeton~: Princeton University Press, 1965.~— 124~p.~— ISBN: 978-0-691-65113-2.
 
-\bibitem{MacLane71} MacLane, S. Categories for the~Working Mathematician~/ S.~MacLane; New~York : Springer-Verlag, 1971.~— 262~p.~— ISBN: 978-0-387-90035-3.
+\bibitem{MacLane71} MacLane, S. Categories for the~Working Mathematician~/ S.~MacLane; New~York~: Springer-Verlag, 1971.~— 262~p.~— ISBN: 978-0-387-90035-3.
 
-\bibitem{HoTTbook} Homotopy Type Theory: Univalent Foundations of Mathematics / The~{Uni\-va\-lent} Foundations Program //
+\bibitem{HoTTbook} Homotopy Type Theory: Univalent Foundations of Mathematics~/ The {Uni\-va\-lent} Foundations Program~//
 The HoTT Book | Homotopy Type {The\-o\-ry}~: [сайт].~— URL: \url{https://homotopytypetheory.org/book/} (дата обращения: 01.05.2024).
 
-\bibitem{Stong68} Stong, R.~E. Notes on~Cobordism Theory~/ R.~E.~Stong; Princeton : Princeton University Press, 1969.~— 422~p.~— ISBN: 978-0-691-62221-7.
+\bibitem{Stong68} Stong, R.~E. Notes on~Cobordism Theory~/ R.~E.~Stong; Princeton~: Princeton University Press, 1969.~— 422~p.~— ISBN: 978-0-691-62221-7.
 
-\bibitem{Trim11} Cobordism categories that don’t involve manifolds / T.~Trimble~//
+\bibitem{Trim11} Cobordism categories that don’t involve manifolds~/ T.~Trimble~//
 {Math\-Over\-flow}~: [сайт].~— URL: \url{https://mathoverflow.net/a/59696} (дата обращения: 27.06.2022).
 
 \bibitem{Weston} Weston T., An~introduction to~cobordism theory~/ T.~Weston~//
 {Stan\-ford} University. School of~Humanities and~Sciences.
-The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.stanford.edu/~ralph/morsecourse/cobordismintro%20.pdf} (дата обращения: 23.08.2022).
+The~Department of~{Math\-e\-mat\-ics}~: [сайт].~— URL: \url{https://math.stanford.edu/~ralph/morsecourse/cobordismintro%20.pdf} (дата обращения: 23.08.2022).
 
-\bibitem{Lean} Programming Language and Theorem Prover~— Lean : [сайт].~— URL: \url{https://lean-lang.org/} (дата обращения: 01.05.2024).
+\bibitem{Lean} Programming Language and Theorem Prover~— Lean~: [сайт].~— URL: \url{https://lean-lang.org/} (дата обращения: 01.05.2024).
 \end{thebibliography}
 
 \label{TheEnd}
