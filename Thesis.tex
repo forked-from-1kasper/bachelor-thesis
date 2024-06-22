@@ -147,7 +147,7 @@
   Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
   системой некоторого числа $N$ биномиальных уравнений, то~есть существуют $N$ таких показателей $\alpha_i, \beta_i \in \mathbb{Z}^n$, что
   \[
-    H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N{:}\ z^{\alpha_i} = z^{\beta_i} \}.
+    H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N.\ z^{\alpha_i} = z^{\beta_i} \}.
   \]
 \end{theorem*}
 
@@ -162,7 +162,7 @@
 Говорят, что характеры $f_1, f_2, \ldots, f_n$ \textit{линейно независимы,}
 если
 \[
-  \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K{:}\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
+  \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K.\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
 \]
 
 \begin{theorem*}[\notewrap{Артин}]
@@ -225,7 +225,7 @@
   Пусть $I \subseteq \mathbb{Z}^n$~— множество индексов,
   а~$P_j(z) = \sum_{i \in I} a_{ji} z^i$~— многочлены ($k$ штук), задающие подгруппу:
   \[
-    H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
+    H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k.\ P_j(z) = 0 \}.
   \]
 
   Поскольку $z_1^{i} z_2^{i} = (z_1 z_2)^i$, отображение $z \mapsto z^i$ определяет
@@ -289,7 +289,7 @@ $\phi_\alpha$~— гомоморфизм.
 
 \begin{statement*}
   $
-    \forall \alpha \in \Z^{k \times m}, \beta \in \Z^{m \times n}{:}\ \phi_\alpha \circ \phi_\beta = \phi_{\alpha \beta}
+    \forall \alpha \in \Z^{k \times m}, \beta \in \Z^{m \times n}.\ \phi_\alpha \circ \phi_\beta = \phi_{\alpha \beta}
   $.
 \end{statement*}
 
@@ -344,7 +344,7 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 \begin{lemma}[\notewrap{строгость}]
 \label{lemma:faithful}
   $
-    \mathrm{char}(K) = 0 \Rightarrow \forall \alpha, \beta \in \Z^{n \times k}{:} \ \phi_\alpha = \phi_\beta \Leftrightarrow \alpha = \beta
+    \mathrm{char}(K) = 0 \Rightarrow \forall \alpha, \beta \in \Z^{n \times k}.\ \phi_\alpha = \phi_\beta \Leftrightarrow \alpha = \beta
   $.
 \end{lemma}
 
@@ -367,7 +367,7 @@ $j$-ю компоненту вектора $\alpha_i$ обозначим как 
 Для~этого заметим, что очевидно следующее утверждение.
 
 \begin{statement*}
-  $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k \Leftrightarrow \forall i{:}\ e_i \in \Span_\Z(\alpha_1, \ldots, \alpha_n)$.
+  $\Span_\Z(\alpha_1, \ldots, \alpha_n) = \Z^k \Leftrightarrow \forall i.\ e_i \in \Span_\Z(\alpha_1, \ldots, \alpha_n)$.
 \end{statement*}
 
 \begin{lemma}
@@ -621,8 +621,8 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
   $\phi_{\beta_1^{-1}}$~— изоморфизм, поэтому $\ker(\phi_{\beta}) = \ker(\phi_{\varepsilon \beta_2^{-1}})$.
 
   Строки матрицы $\beta_2^{-1}$ обозначим как $b_i$.
-  Для~вектора $u \in \omega(\varepsilon)$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
-  Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \omega(\varepsilon){:}\ z \in H_u$.
+  Для~вектора $u \in \omega(\varepsilon)$ рассмотрим множество $H_u = \{z \in (\torus)^n \ | \ \forall 1 \leq i \leq r.\ z^{b_i} = u_i\}$.
+  Условие $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$, очевидно, эквивалентно условию $\exists u \in \omega(\varepsilon).\ z \in H_u$.
   Ясно, что множества $H_u$ дизъюнктны, поэтому $\ker(\phi_{\beta})$ распадается в~дизъюнктное объединение:
   \[
     \ker(\phi_{\beta}) = \bigsqcup_{u \in \omega(\varepsilon)} H_u.
@@ -718,7 +718,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
 под~$g \alpha$ понимаем вектор $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$.
 Говорим, что набор векторов $\alpha_1, \ldots, \alpha_n \in \Z^k$ \textit{линейно независим над~абелевой группой} $G$, если
 \[
-  \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
+  \forall g_1, \ldots, g_n \in G.\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
 \]
 
 Видно, что линейная независимость векторов $\Z^k$ над~аддитивной группой $\R$ эквивалентна линейной независимости
@@ -739,8 +739,8 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
                      \ & \phi_\alpha\ \text{инъективно}
       \Leftrightarrow \ker(\phi_\alpha) = \{ 1 \}
       \Leftrightarrow \ker(\phi_\alpha) \subseteq \{ 1 \} \\
-      \Leftrightarrow\ & (\forall t \in G^k{:}\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
-      \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in G{:}\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
+      \Leftrightarrow\ & (\forall t \in G^k.\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
+      \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in G.\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
   \end{aligned}
   \]
 
@@ -758,7 +758,7 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
   Элементы группа $G \times H$ представляются как пары $(g, h)$, где $g \in G$ и~$h \in H$, поэтому
   линейная независимость над~$G \times H$ запишется как:
   \begin{gather*}
-    \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
+    \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H.\\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
   \end{gather*}
   Кроме того, ясно, что
   \begin{gather*}
@@ -785,11 +785,11 @@ $|G \times H| = |G| |H|$, поэтому $\Pi(\alpha) = |\omega_K(\varepsilon_1)
   Поскольку $f$~— изоморфизм, получаем цепочку эквивалентностей:
   \[
   \begin{aligned}[b]
-                     &\ \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
-      \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
-      \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow \makebox[0.9\fgieqlength][l]{\fgieq} \\
+                     &\ \forall g_1, \ldots, g_n \in G.\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+      \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G.\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+      \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G.\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow \makebox[0.9\fgieqlength][l]{\fgieq} \\
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% shrink that box to make sure that \qedhere is aligned properly
-      \Leftrightarrow&\ \forall h_1, \ldots, h_n \in H{:}\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
+      \Leftrightarrow&\ \forall h_1, \ldots, h_n \in H.\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
   \end{aligned}
   \qedhere
   \]
@@ -893,7 +893,7 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 \begin{lemma*}
   Если $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / \Z$, то:
   \[
-    \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x.
+    \forall d \in \Z.\ \forall x \in \Z^n.\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x.
   \]
 \end{lemma*}
 
@@ -906,20 +906,20 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 Из~доказанного немедленно следует простой критерий для~проверки неинъективности $\phi_\alpha$.
 
 \begin{lemma*}
-  Если $\phi_\alpha$ инъективно, то~$\forall j{:}\ \gcd(\alpha^j) = 1$.
+  Если $\phi_\alpha$ инъективно, то~$\forall j.\ \gcd(\alpha^j) = 1$.
 \end{lemma*}
 
 \begin{consequence*}
-  Если $\exists j{:}\ \gcd(\alpha^j) \neq 1$, то~$\phi_\alpha$ не~является инъективным отображением.
+  Если $\exists j.\ \gcd(\alpha^j) \neq 1$, то~$\phi_\alpha$ не~является инъективным отображением.
 \end{consequence*}
 
 \begin{proof}
   Выбрав $x_j = 1$ и~$x_1 = \ldots = x_{j - 1} = x_{j + 1} = \ldots = x_k = 0$, получим, что:
   \[
   \begin{aligned}[b]
-                     & \forall d \in \Z{:}\ \forall x \in \Z^k{:}\ d \divides x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \divides x \\
-        \Rightarrow\ & \forall j{:}\ \forall d \in \Z{:}\ d \divides \alpha^j \Rightarrow d \divides 1 \\
-    \Leftrightarrow\ & \forall j{:}\ \gcd(\alpha^j) = 1.
+                     & \forall d \in \Z.\ \forall x \in \Z^k.\ d \divides x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \divides x \\
+        \Rightarrow\ & \forall j.\ \forall d \in \Z.\ d \divides \alpha^j \Rightarrow d \divides 1 \\
+    \Leftrightarrow\ & \forall j.\ \gcd(\alpha^j) = 1.
   \end{aligned}
   \qedhere
   \]
@@ -934,9 +934,9 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
   Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
   \[
   \begin{aligned}
-                     & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
-    \Leftrightarrow\ & \forall p \in \primes{:}\ \forall \beta \in \N{:}\ \forall x \in \Z^n{:}\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
-    \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in \Z^n{:}\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x.
+                     & \forall d \in \Z.\ \forall x \in \Z^n.\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \forall \beta \in \N.\ \forall x \in \Z^n.\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \forall x \in \Z^n.\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x.
   \end{aligned}
   \]
 \end{lemma*}
@@ -968,10 +968,10 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
   Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
   \[
   \begin{aligned}
-                     & \forall d \in \Z{:}\ \forall x \in \Z^n{:}\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
-    \Leftrightarrow\ & \forall p \in \primes{:}\ \forall x \in (\Z / p\Z)^n{:}\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
-    \Leftrightarrow\ & \forall p \in \primes{:}\ \mu_1, \ldots, \mu_n\ \text{линейно независимы над~полем}\ \Z / p\Z \\
-    \Leftrightarrow\ & \forall p \in \primes{:}\ \rank_{\Z / p \Z}(\mu) = \max(n, k).
+                     & \forall d \in \Z.\ \forall x \in \Z^n.\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \forall x \in (\Z / p\Z)^n.\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \mu_1, \ldots, \mu_n\ \text{линейно независимы над~полем}\ \Z / p\Z \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \rank_{\Z / p \Z}(\mu) = \max(n, k).
   \end{aligned}
   \]
 \end{consequence*}
@@ -1058,7 +1058,7 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 \begin{theorem*}
   Всякий голоморфный $f \in \Hom((\torus)^n, \torus)$~— моном, то~есть:
   \[
-    \exists \alpha \in \Z^n{:}\ \forall z{:}\ f(z) = z^\alpha.
+    \exists \alpha \in \Z^n.\ \forall z.\ f(z) = z^\alpha.
   \]
 \end{theorem*}
 
@@ -1126,7 +1126,7 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
 Также зафиксируем некоторое изолированное решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
 Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим
 \[
-  \gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i{:}\ |g_i(z)| = \epsilon_i \}.
+  \gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i.\ |g_i(z)| = \epsilon_i \}.
 \]
 
 Почти для~всех $\epsilon$ множество $\gamma_{z, \epsilon}$ представляет собой гладкое вещественное подмногообразие многообразия $U$.
@@ -1382,7 +1382,7 @@ The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.s
 (то~есть наименьшая подкатегория, содержащая данный подграф) назовём \textit{пополнением} $\overline{D}$.
 
 Категория $C$ называется \textit{тонкой,} если между любой парой объектов имеется не~более одного морфизма,
-то~есть \[ \forall a, b \in \Ob(C){:}\ \forall f, g \in \hom_C(a, b){:}\ f = g. \]
+то~есть \[ \forall a, b \in \Ob(C).\ \forall f, g \in \hom_C(a, b).\ f = g. \]
 Говорим, что \textit{диаграмма коммутативна,} если её пополнение~— тонкая категория.
 
 Если даны функторы $F, G : A \rightarrow B$, то~\textit{естественным преобразованием} $\eta : F \Rightarrow G$ называется набор морфизмов
@@ -1415,7 +1415,7 @@ $\eta_x : \hom_B(F(x), G(x))$ для~каждого объекта $x \in \Ob(A)
 \textit{Инициальным объектом} в~категории $C$ называется такой объект $0 \in \Ob(C)$,
 что из~него во~всякой другой объект категории существует ровно одна стрелка:
 \[
-  \forall x \in \Ob(C){:}\ \exists! f \in \Arr(C){:}\ f \in \hom_C(0, x).
+  \forall x \in \Ob(C).\ \exists! f \in \Arr(C).\ f \in \hom_C(0, x).
 \]
 
 Эту единственную стрелку обозначаем $!_x \in \hom_C(0, x)$.
@@ -1736,7 +1736,7 @@ $\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённ
 Функтор $T : C_1 \rightarrow C_2$ называется \textit{граничным,} если $T \circ \partial_1 = \partial_2 \circ T$.
 
 Говорим, что объект $a \in \Ob(C)$ \textit{замкнут,} если $\partial(a)$~— инициальный объект.
-Объект $a$ \textit{точен,} если $\exists b \in \Ob(C){:}\ a = \partial(b)$.
+Объект $a$ \textit{точен,} если $\exists b \in \Ob(C).\ a = \partial(b)$.
 
 \begin{statement*}
   Если $a$ и~$b$ точны, то~они кобордантны.
