@@ -20,11 +20,12 @@
 
 \input{Common}
 
+\allowdisplaybreaks
+
 \def\title{Алгебраические подгруппы комплексного тора}
 \hypersetup{pdfinfo={Title=\title}}
 
 \urlstyle{same}
-\allowdisplaybreaks
 
 \setlength{\parindent}{12.5mm}
 \linespread{1.3}
@@ -40,6 +41,7 @@
 
 \patchcmd{\thebibliography}{\leftmargin\labelwidth}{\setlength\leftmargin{0mm}}{}{}
 \patchcmd{\thebibliography}{\advance\leftmargin\labelsep}{}{}{}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 
 \makeatletter
   \renewcommand\@biblabel[1]{#1.}
@@ -156,12 +158,12 @@
   \end{cases}
 \]
 
-Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
+Для~векторов $\alpha = (\alpha_1, \ldots, \alpha_n) \in \Z^n$ и~$z = (z_1, \ldots, z_n) \in G^n$ (где $G$~— группа)
 обозначим $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
 
 \begin{theorem*}[\notewrap{Шмидт}]
   Пусть $K$~— поле. Всякая алгебраическая подгруппа $H$ группы $(K^{\times})^n$ задаётся
-  системой некоторого числа $N$ биномиальных уравнений, то~есть существуют $N$ таких показателей $\alpha_i, \beta_i \in \mathbb{Z}^n$, что
+  системой некоторого числа $N$ биномиальных уравнений, то~есть существуют $N$ таких показателей $\alpha_i, \beta_i \in \Z^n$, что
   \[
     H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N.\ z^{\alpha_i} = z^{\beta_i} \}.
   \]
@@ -235,10 +237,10 @@
 \[
   z \mapsto \sum_{i \in I} a_i z^{\alpha_i},
 \]
-где $a_i \in K$ и~$I \subseteq \mathbb{Z}^k$~— конечный набор индексов.
+где $a_i \in K$ и~$I \subseteq \Z^k$~— конечный набор индексов.
 
 \begin{proof}
-  Пусть $I \subseteq \mathbb{Z}^n$~— множество индексов,
+  Пусть $I \subseteq \Z^n$~— множество индексов,
   а~$P_j(z) = \sum_{i \in I} a_{ji} z^i$~— многочлены ($k$ штук), задающие подгруппу:
   \[
     H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k.\ P_j(z) = 0 \}.
@@ -1096,7 +1098,7 @@ $\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quatern
 
 Из~теоремы в~частности следует, что для~произвольной $f \in \Hol(D^\prime)$ и~её изолированной
 особой точки $z_0 \in D \setminus D^\prime$ интегралы $\oint_{\Gamma_\epsilon} f(z)dz$ по~окружностям
-$\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят от~$\epsilon \in \mathbb{R}_{+}$
+$\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят от~$\epsilon \in \R_{+}$
 при~достаточно малом $\epsilon$ (конкретнее, таком, что в~круг $\{ z \in D \ | \ |z - z_0| < \epsilon \}$
 не~попадают никакие другие особые точки $f$, кроме выбранной $z_0$).
 
@@ -1140,7 +1142,7 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
 Зафиксируем набор многочленов Лорана $g_1, \ldots, g_n$ над~$\complex$.
 Пусть $g(z) = g_1(z) \ldots g_n(z)$ и~$\Gamma = \{ z \in (\complex^\times)^n \ | \ g(z) = 0 \}$.
 Также зафиксируем некоторое изолированное решение $z \in \Gamma$ системы $g_1(z) = \ldots = g_n(z) = 0$ и~его окрестность $U \subseteq (\complex^\times)^n$.
-Для~всякого $\epsilon \in \mathbb{R}_{+}^n$ определим
+Для~всякого $\epsilon \in \R_{+}^n$ определим
 \[
   \gamma_{z, \epsilon} = \{ z \in (\complex^\times)^n\ | \ \forall i.\ |g_i(z)| = \epsilon_i \}.
 \]
@@ -1165,14 +1167,14 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
 можно использовать аппарат кобордизмов и~теорию Морса.
 
 \subsection{Кобордизмы и теория Морса}
-Обозначим $\mathbb{R}^n_+ = \{ (x_1, \ldots, x_n) \in \mathbb{R}^n\ |\ x_n \geq 0 \}$.
+Обозначим $\R^n_+ = \{ (x_1, \ldots, x_n) \in \R^n\ |\ x_n \geq 0 \}$.
 \textit{$n$-мерным} \textit{$k$-гладким} \textit{многообразием} называем топологическое пространство $(X, \tau)$
 вместе с~\textit{гладкой структурой} $A$, состоящей из~пар $(U, h)$, где $U \in \tau$
 (называемое координатной окрестностью) и~$h$~— гомеоморфизм между $U$ и~открытым
-подмножеством пространства $\mathbb{R}^n_+$, удовлетворяющей следующим условиям:
+подмножеством пространства $\R^n_+$, удовлетворяющей следующим условиям:
 \begin{enumerate}
   \item Координатные окрестности покрывают $X$.
-  \item Если $(U_1, h_1), (U_2, h_2) \in \tau$, то~$h_1 \circ h_2^{-1} : h_2(U_1 \cup U_2) \rightarrow \mathbb{R}^n_+$~— $k$-гладкое отображение
+  \item Если $(U_1, h_1), (U_2, h_2) \in \tau$, то~$h_1 \circ h_2^{-1} : h_2(U_1 \cup U_2) \rightarrow \R^n_+$~— $k$-гладкое отображение
         (называемое отображением перехода).
   \item Набор $A$ максимален по~отношению к~предыдущему условию; то~есть если $(U, h) \notin A$,
   то~это условие не~выполняется для~набора $A \cup \{(U, h)\}$.
@@ -1181,7 +1183,7 @@ $\Gamma_\epsilon = \{ z \in D \ | \ |z - z_0| = \epsilon \}$ не~зависят
 Обычно под~гладким (без~указания класса гладкости) многообразием понимают $\infty$-гладкое многообразие.
 
 \textit{Границей многообразия $W$,} которую обозначают $\partial W$, называют множество точек,
-не~имеющих окрестности, гомеоморфной $\mathbb{R}^n$. \textit{Триадой} гладких многообразий \cite{Mil65} называют
+не~имеющих окрестности, гомеоморфной $\R^n$. \textit{Триадой} гладких многообразий \cite{Mil65} называют
 тройку $(W; V_0, V_1)$, где~$W$~— компактное гладкое многообразие, причём $V_0 \cap V_1 = \varnothing$
 и~$\partial W = V_0 \cup V_1$.
 
@@ -1218,7 +1220,7 @@ $(W;\allowbreak V_0,\allowbreak V_1;\allowbreak h_0,\allowbreak h_1)$ такую
 \end{lemma*}
 
 Число $\lambda$ при~этом называется \textit{индексом} критической точки. В~каноническом случае $n = 2$
-и~$\lambda = 1$ получаем представление $f(x_1, x_2) = C - x_1^2 + x_2^2$ для~константы $C \in \mathbb{R}$.
+и~$\lambda = 1$ получаем представление $f(x_1, x_2) = C - x_1^2 + x_2^2$ для~константы $C \in \R$.
 Тогда прообразы $f^{-1}(\varepsilon)$ задаются уравнением $x_1^2 - x_2^2 = C - \varepsilon = \varepsilon'$,
 то~есть представляют собой семейство гипербол.
 
@@ -1278,7 +1280,7 @@ Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~
 \bibitem{TsikhSad14} Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/ Т.~М.~Садыков, А.~К.~Цих;
 Москва~: Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9.
 
-\bibitem{Smyr20} Linearly independent over $\mathbb{Z}$, also linearly independent over $\mathbb{R}$? / Y-S.~Smyrlis~//
+\bibitem{Smyr20} Linearly independent over $\Z$, also linearly independent over $\R$? / Y-S.~Smyrlis~//
 Mathematics Stack Exchange~: [сайт].~— URL: \url{https://math.stackexchange.com/a/3881619} (дата обращения: 18.03.2024).
 
 \bibitem{Brbk70} Bourbaki, N. Algèbre: Chapitres 1 à~3. Éléments de~mathématique~/ N.~Bourbaki; Berlin~: Springer, 2006.~— 652~p.~— ISBN: 978-3-540-33849-9.
