@@ -1,0 +1,285 @@
+\section{Линейная независимость над абелевой группой}
+Во~всякой абелевой группе $G$ естественным образом определено умножение на~целые числа.
+Для~вектора $\alpha = (\alpha_1, \ldots, \alpha_k) \in \Z^k$ и~элемента $g \in G$
+под~$g \alpha$ понимаем вектор $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$.
+Говорим, что набор векторов $\alpha_1, \ldots, \alpha_n \in \Z^k$ \textit{линейно независим над~абелевой группой} $G$, если
+\[
+  \forall g_1, \ldots, g_n \in G.\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
+\]
+
+Видно, что линейная независимость векторов $\Z^k$ над~аддитивной группой $\R$ эквивалентна линейной независимости
+в~векторном пространстве $\R^k$. Однако, например, $\R / 2 \pi \Z$, как известно, не~обладает структурой кольца,
+поэтому и~не~имеет смысла говорить о~модуле $(\R / 2 \pi \Z)^k$ над~$\R / 2 \pi \Z$, как и~о~линейной независимости
+в~нём.
+
+Сразу отметим, каким образом данное определение связано с~изучаемыми параметризациями $\phi_\alpha$.
+
+\begin{theorem}
+  $\phi_\alpha : G^k \rightarrow G^n$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группой $G$.
+\end{theorem}
+
+\begin{proof}
+  Имеет место цепочка эквивалентностей:
+  \[
+  \begin{aligned}
+                     \ & \phi_\alpha\ \text{инъективно}
+      \Leftrightarrow \ker(\phi_\alpha) = \{ 1 \}
+      \Leftrightarrow \ker(\phi_\alpha) \subseteq \{ 1 \} \\
+      \Leftrightarrow\ & (\forall t \in G^k.\ t^{\alpha_1} = 1 \wedge \ldots \wedge t^{\alpha_n} = 1 \Rightarrow t = 1) \\
+      \Leftrightarrow\ & (\forall t_1, \ldots, t_k \in G.\ t_1^{\alpha^1} \ldots t_k^{\alpha^k} = 1 \Rightarrow t_1 = \ldots = t_k = 1).
+  \end{aligned}
+  \]
+
+  Но~последнее условие~— это в~точности определение линейной независимости над~$G$.
+\end{proof}
+
+Далее нам понадобятся две общие леммы.
+
+\begin{lemma}
+  Пусть $G$ и~$H$~— абелевы группы. $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$G \times H$
+  тогда и~только тогда, когда они~же линейно независимы над~$G$ и~над~$H$.
+\end{lemma}
+
+\begin{proof}
+  Элементы группа $G \times H$ представляются как пары $(g, h)$, где $g \in G$ и~$h \in H$, поэтому
+  линейная независимость над~$G \times H$ запишется как:
+  \begin{gather*}
+    \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H.\\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
+  \end{gather*}
+  Кроме того, ясно, что
+  \begin{gather*}
+    (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow\\ g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
+  \end{gather*}
+  а~также
+  \[
+    (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
+  \]
+
+  Зафиксировав поочерёдно $g_1 = \ldots = g_n = 0$ и~$h_1 = \ldots = h_n = 0$, получим импликацию слева направо.
+  Импликация справа налево очевидна в~свете выше указанных эквивалентностей.
+\end{proof}
+
+\begin{lemma}
+  Пусть $G$ и~$H$~— абелевы группы, $f : G \rightarrow H$~— изоморфизм. Тогда $\mu_1, \ldots, \mu_n \in \Z^k$
+  линейно независимы над~$G$ тогда и~только тогда, когда они линейно независимы над~$H$.
+\end{lemma}
+
+\begin{proof}
+  \def\fgieq{$f(g_1) = \ldots = f(g_n) = 0$} % a bit of LaTeX black magic
+  \newlength{\fgieqlength}\settowidth{\fgieqlength}{\fgieq}
+
+  Поскольку $f$~— изоморфизм, получаем цепочку эквивалентностей:
+  \[
+  \begin{aligned}[b]
+                     &\ \forall g_1, \ldots, g_n \in G.\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+      \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G.\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+      \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G.\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow \makebox[0.9\fgieqlength][l]{\fgieq} \\
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% shrink that box to make sure that \qedhere is aligned properly
+      \Leftrightarrow&\ \forall h_1, \ldots, h_n \in H.\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
+  \end{aligned}
+  \qedhere
+  \]
+\end{proof}
+
+Применив леммы, получим критерий инъективности для~случая $K = \complex$.
+
+\begin{consequence*}
+  $\phi_\alpha$ инъективно тогда и~только тогда, когда $\alpha^j$ линейно независимы над~группами $\R$ и~$\R / 2 \pi \Z$.
+\end{consequence*}
+
+\begin{proof}
+  Пусть $S^1 = \{ z \in \complex\ | \ |z| = 1 \}$~— группа окружности, подгруппа в~$\torus$.
+  Посредством тригонометрического представления $z = re^{i \theta}$ группа $\torus$
+  изоморфна произведению $\R_{> 0}^\times \times S^1$. Отображение $t \mapsto e^t$ определяет
+  изоморфизм групп $\R$ и~$\R_{> 0}^\times$, а~отображение $\theta \mapsto e^{i\theta}$~— групп $\R / 2 \pi \Z$ и~$S^1$;
+  что~доказывает следствие в~силу двух предыдущих лемм.
+\end{proof}
+
+\begin{consequence*}
+  Если $\phi_\alpha$ инъективно над~$K = \complex$, то~$\rank(\alpha) = k$.
+\end{consequence*}
+
+\begin{proof}
+  Как отмечалось выше, линейная независимость над~$\R$ эквивалентна стандартной линейно независимости
+  в~векторном пространстве $\R^k$ над~$\R$, а~она, в~свою очередь, эквивалентна полноте ранга.
+\end{proof}
+
+В~частности, это означает, что параметризация с~числом переменных $k > n$ заведомо неинъективна, чего и~следовало ожидать.
+
+Заметив, что $\R_{>0}^\times \cong \R_{>0}^\times \times \Z / 1\Z$, $\R^\times \cong \R_{>0}^\times \times \Z / 2 \Z$
+и~$\quaternion^\times \cong \R_{>0}^\times \times S^3$ (кватернионы), легко получить подобные условия для~инъективности
+$\phi_\alpha$ над~группами $\R_{>0}^\times$, $\R^\times$ и~$\quaternion^\times$.
+
+Естественным кажется, что, поскольку рассматриваемые вектора $\alpha^j$ целочисленные, их линейная независимость
+над~$\R$ должна сводиться к~линейной независимости над~$\Z$. Докажем это.
+
+\begin{lemma*}[\cite{Smyr20}]
+  $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Q$.
+\end{lemma*}
+
+\begin{proof}
+  Импликация слева направа очевидна. Обратно, пусть $\mu_1,\allowbreak \ldots,\allowbreak \mu_n$ линейно независимы над~$\Q$.
+  Рассмотрим их линейную комбинацию: $r_1 \mu_1 + \ldots + r_n \mu_n = 0$.
+
+  Как известно, $\R$ является (бесконечномерным) векторным пространством над~$\Q$, а~всякое векторное пространство
+  при~условии аксиомы выбора имеет базис (Гамеля) \cite{Brbk70}. Пользуясь этим, зафиксируем базис Гамеля $B$ для~$\R$ над~$\Q$.
+  Разложим $r_i$ по~этому базису:
+  \[
+    r_i = q_i^1 b_1 + \ldots + q_i^s b_s,
+  \]
+  где $q_i^j \in \Q$ и~$b_j \in B$. Векторов $r_i$ конечное число, поэтому наборы базисных векторов $b_j$ для~них можно выбрать одинаковыми.
+
+  Подставим разложение в~линейную комбинацию:
+  \[
+  \begin{aligned}
+    r_1 \mu_1 + \ldots + r_n \mu_n & = (q_1^1 b_1 + \ldots + q_1^s b_s) \mu_1 + \ldots + (q_n^1 b_1 + \ldots + q_n^s b_s) \mu_n \\
+                                   & = (q_1^1 \mu_1 + \ldots + q_n^1 \mu_n) b_1 + \ldots + (q_1^s \mu_1 + \ldots + q_n^s \mu_n) b_s \\
+                                   & = 0.
+  \end{aligned}
+  \]
+
+  В~каждой проекции получаем нулевую рациональную линейную комбинацию чисел $b_j$. В~силу линейной независимости,
+  все эти проекции равны нулю, поэтому равны нулю и~составленные из~них векторы: $q_1^j \mu_1 + \ldots + q_n^j \mu_n = 0$.
+
+  Однако все $q_i^j$ рациональны, а~$\mu_i$ линейно независимы над~$\Q$, поэтому $q_i^j = 0$.
+  Таким образом, $r_i = q_i^1 b_1 + \ldots + q_i^s b_s = 0 \cdot b_1 + \ldots + 0 \cdot b_s = 0$.
+\end{proof}
+
+\begin{lemma*}
+  $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\Q$ тогда и~только тогда, когда линейно независимы над~$\Z$.
+\end{lemma*}
+
+\begin{proof}
+  Импликация слева направа снова очевидна. Обратно, пусть $q_1 \mu_1 + \ldots + q_n \mu_n = 0$, где $q_i \in \Q$.
+  Выберем для~дробей $q_i$ общий знаменатель $q \in \N \setminus \{ 0 \}$. Числители обозначим как $p_i \in \Z$, то~есть $q_i = p_i / q$.
+
+  В~таком случае $(p_1 \mu_1 + \ldots + p_n \mu_n) / q = 0$, откуда и~$p_1 \mu_1 + \ldots + p_n \mu_n = 0$.
+  Все $p_i$~— целые числа, поэтому по~линейной независимости над~$\Z$ получаем, что $p_1 = \ldots = p_n = 0$.
+  Таким образом, $q_i = p_i / q = 0 / q = 0$.
+\end{proof}
+
+\begin{consequence*}
+  $\mu_1, \ldots, \mu_n \in \Z^k$ линейно независимы над~$\R$ тогда и~только тогда, когда линейно независимы над~$\Z$.
+\end{consequence*}
+
+Изучим подробнее следствия из~линейной независимости над~$\R / 2 \pi \Z$.
+
+\begin{statement*}
+  $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / 2 \pi \Z$
+  тогда и~только тогда, когда они~же линейно независимы над~$\R / \Z$.
+\end{statement*}
+
+\begin{proof}
+  Следует из~того, что группы $\R / 2 \pi \Z$ и~$\R / \Z$ изоморфны.
+\end{proof}
+
+Далее для~числа $d \in \Z$ и~вектора $x \in \Z^k$ под~$d \divides x$ понимаем, что $d \divides x_i$ для~всех $1 \leq i \leq k$
+или, что эквивалентно, $d \divides \gcd(x_1, \ldots, x_n)$.
+
+\begin{lemma*}
+  Если $\mu_1, \ldots, \mu_n$ линейно независимы над~$\R / \Z$, то:
+  \[
+    \forall d \in \Z.\ \forall x \in \Z^n.\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x.
+  \]
+\end{lemma*}
+
+\begin{proof}
+  Действительно, рассмотрим дроби $q_i = x_i / d \in \R / \Z$. Делимость $x_1 \mu_1 + \ldots + x_n \mu_n$ на~$d$ означает,
+  что в~$\R / \Z$ выполнено $(x_1 \mu_1 + \ldots + x_n \mu_n) / d = 0$, то~есть $q_1 \mu_1 + \ldots + q_n \mu_n = 0$.
+  Однако в~силу линейной независимости верно, что $q_1 = \ldots = q_n = 0$, а~это означает $d \divides x_i$ для~всех $1 \leq i \leq n$.
+\end{proof}
+
+Из~доказанного немедленно следует простой критерий для~проверки неинъективности $\phi_\alpha$.
+
+\begin{lemma*}
+  Если $\phi_\alpha$ инъективно, то~$\forall j.\ \gcd(\alpha^j) = 1$.
+\end{lemma*}
+
+\begin{consequence*}
+  Если $\exists j.\ \gcd(\alpha^j) \neq 1$, то~$\phi_\alpha$ не~является инъективным отображением.
+\end{consequence*}
+
+\begin{proof}
+  Выбрав $x_j = 1$ и~$x_1 = \ldots = x_{j - 1} = x_{j + 1} = \ldots = x_k = 0$, получим, что:
+  \[
+  \begin{aligned}[b]
+                     & \forall d \in \Z.\ \forall x \in \Z^k.\ d \divides x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \divides x \\
+        \Rightarrow\ & \forall j.\ \forall d \in \Z.\ d \divides \alpha^j \Rightarrow d \divides 1 \\
+    \Leftrightarrow\ & \forall j.\ \gcd(\alpha^j) = 1.
+  \end{aligned}
+  \qedhere
+  \]
+\end{proof}
+
+Нетрудно видеть, что использование поля $\complex$ в~этой лемме \textit{существенно;} поскольку, например,
+отображение $t \mapsto (t^3, t^2)$ инъективно над~$\R$, но~не~над~$\complex$.
+
+Множество простых чисел обозначим как $\primes \subseteq \Z$.
+
+\begin{lemma*}
+  Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
+  \[
+  \begin{aligned}
+                     & \forall d \in \Z.\ \forall x \in \Z^n.\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \forall \beta \in \N.\ \forall x \in \Z^n.\ p^\beta \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \divides x \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \forall x \in \Z^n.\ p \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \divides x.
+  \end{aligned}
+  \]
+\end{lemma*}
+
+\begin{proof}
+  Импликации слева направо очевидны. Докажем импликации справа налево.
+
+  Зафиксируем произвольное $d \in \Z$ и~некоторый вектор $x \in \Z^k$.
+  Разложим $d$ на~простые множители: $d = p_1^{\beta_1} \ldots p_m^{\beta_m}$.
+
+  Поскольку $x_1 \mu_1 + \ldots + x_n \mu_n$ делится на~$d$, то~оно делится и~на~каждое $p_i^{\beta_i}$.
+  Пользуясь предпосылкой, получаем, что $p_i^{\beta_i} \divides x$ для~всех $1 \leq i \leq m$;
+  но~тогда и~$d = p_1^{\beta_1} \ldots p_m^{\beta_m} \divides x$, что и~требовалось.
+
+  Далее, зафиксируем степень $\beta \in \N$ и~простое число $p$.
+  Поскольку $x_1 \mu_1 + \ldots + x_n \mu_n$ делится на~$p^\beta$,
+  то~оно делится и~на~$p$, поэтому из~предпосылки следует, что $p \divides x$.
+
+  Но~это означает, что $x_i / p$~— целые числа, а~$(x_1 / p) \mu_1 + \ldots + (x_n / p) \mu_n$ делится на~$p^{\beta - 1}$.
+  Снова применив предпосылку, получим, что $p \divides x / p$.
+  Повторив эту процедуру $\beta$ раз, окончательно заключим, что $p \divides x / p^{\beta - 1}$;
+  но~это эквивалентно $p^\beta \divides x$.
+\end{proof}
+
+Последнее условие можно переписать как линейную независимость векторов $\mu_i$ над~полями $\Z / p\Z$ для~всех простых $p$,
+что эквивалентно условию на~максимальность ранга матрицы $\mu$.
+
+\begin{consequence*}
+  Для~произвольных целочисленных векторов $\mu_1, \ldots, \mu_n$ верно, что:
+  \[
+  \begin{aligned}
+                     & \forall d \in \Z.\ \forall x \in \Z^n.\ d \divides x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \divides x \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \forall x \in (\Z / p\Z)^n.\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \mu_1, \ldots, \mu_n\ \text{линейно независимы над~полем}\ \Z / p\Z \\
+    \Leftrightarrow\ & \forall p \in \primes.\ \rank_{\Z / p \Z}(\mu) = \max(n, k).
+  \end{aligned}
+  \]
+\end{consequence*}
+
+Наконец, мы можем передоказать уже упомянутое достаточное условие, используя разработанный инструментарий.
+
+\begin{lemma*}
+  Если $\phi_\alpha$ инъективно, то~$\alpha_i$ порождают всю решётку.
+\end{lemma*}
+
+\begin{proof}
+  От~противного. Пусть $\alpha_i$ не~порождают решётку. Тогда миноры максимальной размерности
+  матрицы $\alpha$ имеют общий делитель $d > 1$.
+
+  Возьмём некоторый простой делитель $p$ числа $d$. Поскольку максимальные миноры
+  делятся на~$d$, то~они делятся и~на~$p$; поэтому в~поле $\Z / p \Z$
+  все максимальные миноры $\alpha$ равны нулю, что означает $\rank_{\Z / p \Z}(\alpha) < \max(n, k)$ \cite{Brbk70},
+  но~это противоречит заключению из~следствия.
+\end{proof}
+
+\begin{consequence}
+\label{consequence:InjectivityCondition}
+  $\phi_\alpha$ инъективно тогда и~только тогда, когда~$\alpha_i$ порождают всю решётку.
+\end{consequence}
+

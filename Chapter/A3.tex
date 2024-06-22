@@ -1,0 +1,168 @@
+\subsection{Кобордизмы и слабые кобордизмы}
+\textit{Кобордизмом} между парой объектов $a$ и~$b \in \Ob(C)$ называется тройка $(c, i, j)$,
+где $c \in \Ob(C)$, $i \in \hom_C(a, \partial(c))$ и~$j \in \hom_C(b, \partial(c))$,
+такая, что $(\partial(c), i, j)$~— копроизведение. \textit{Морфизмом кобордизмов} $\epsilon_1 = (c_1, i_1, j_1)$
+и~$\epsilon_2 = (c_2, i_2, j_2)$ между объектами $a$ и~$b$ называется стрелка $\phi \in \hom_C(c_1, c_2)$
+такая, что $\partial(\phi) \circ i_1 = i_2$ и~$\partial(\phi) \circ j_1 = j_2$. Также говорим, что объекты \textit{кобордантны,}
+если между ними существует кобордизм. Множество всех кобордизмов между объектами $a$ и~$b$ в~категории с~кобордизмами
+$\Gamma = (C, \partial, i)$ будем обозначать как $\Cob_\Gamma(a, b)$.
+
+$\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённом выше смысле образует категорию,
+изоморфизмы в~которой соответствует эквивалентности кобордизмов, определённой в~\cite{Mil65}.
+Отметим существование из~неё забывающего функтора $|\cdot| : \Cob_\Gamma(a, b) \rightarrow C$:
+\[
+  | \cdot | = \begin{cases}
+    (c, i, j) \mapsto c; \\
+    \phi \mapsto \phi.
+  \end{cases}
+\]
+Поэтому для~любой пары кобордизмов $\varepsilon_1, \varepsilon_2 \in \Cob_\Gamma(a, b)$
+имеет место собственная категория $\Cob_\Gamma(|\varepsilon_1|, |\varepsilon_2|)$.
+
+\begin{statement*}
+  Во~всякой категории с~кобордизмами $(C, \partial, i)$:
+  \begin{enumerate}
+    \item Если $a$ и~$b$ кобордантны, то~$\partial(a) \cong \partial(b) \cong 0$.
+    \item Для~любого $a$ объекты $\partial(a)$ и~$0$ кобордантны.
+  \end{enumerate}
+\end{statement*}
+
+\begin{proof}
+  Пусть $(c, i, j) \in \Cob_\Gamma(a, b)$. Тогда $\partial(c) \cong a + b$, поэтому:
+  \[
+    0 \cong \partial(\partial(c)) \cong \partial(a + b) \cong \partial(a) + \partial(b).
+  \]
+  Нетрудно показать, что если $x + y \cong 0$, то~$x \cong y \cong 0$.
+  В~частности, $\partial(a) \cong \partial(b) \cong 0$.
+
+  Далее, $\partial(a) \cong \partial(a) + 0$, поэтому само $a$ задаёт кобордизм между $a$ и~$0$.
+\end{proof}
+
+Рассмотрим две категории с~кобордизмами $\Gamma_1 = (C_1, \partial_1, i_1)$ и~$\Gamma_2 = (C_2, \partial_2, i_2)$.
+Функтор $T : C_1 \rightarrow C_2$ называется \textit{граничным,} если $T \circ \partial_1 = \partial_2 \circ T$.
+
+Говорим, что объект $a \in \Ob(C)$ \textit{замкнут,} если $\partial(a)$~— инициальный объект.
+Объект $a$ \textit{точен,} если $\exists b \in \Ob(C).\ a = \partial(b)$.
+
+\begin{statement*}
+  Если $a$ и~$b$ точны, то~они кобордантны.
+\end{statement*}
+
+\begin{proof}
+  Пусть $a = \partial(u)$ и~$b = \partial(v)$. Тогда $\partial(u + v) \cong \partial(u) + \partial(v) = a + b$.
+\end{proof}
+
+\begin{statement*}
+  Аддитивный граничный функтор $T$ переводит замкнутные объекты в~замкнутые, точные~— в~точные, а~кобордизмы~— в~кобордизмы.
+\end{statement*}
+
+\begin{proof}
+  Действительно:
+  \begin{enumerate}
+    \item Пусть $a \in \Ob(C_1)$ замкнут. $\partial(a)$ инициален, а~потому, в~силу аддитивности,
+    инициален и~$T(\partial(a)) = \partial(T(a))$.
+
+    \item Пусть $a = \partial(b)$. Тогда $T(a) = T(\partial(b)) = \partial(T(b))$.
+
+    \item Пусть $(c, i, j)$~— кобордизм между $a$ и~$b \in \Ob(C_1)$.
+          В~силу того, что $T$~— граничный, $T(i) \in \hom_{C_2}(T(a), T(\partial(c))) = \hom_{C_2}(T(a), \partial(T(c)))$
+          и~$T(j) \in \hom_{C_2}(T(b), T(\partial(c))) = \hom_{C_2}(T(b), \partial(T(c)))$.
+          По~аддитивности, $(\partial(T(c)),\allowbreak T(i),\allowbreak T(j)) = (T(\partial(c)), T(i), T(j))$~— копроизведение,
+          а~потому $(T(c),\allowbreak T(i),\allowbreak T(j))$~— кобордизм. \qedhere
+  \end{enumerate}
+\end{proof}
+
+Нетрудно видеть, что копроизведение симметрично (с~точностью до~изоморфизма).
+
+\begin{statement*}
+  Если $(c, i, j)$~— копроизведение $a$ и~$b$, то~$(c, j, i)$~— копроизведение $b$ и~$a$.
+  В~частности, в~категории со~всеми копроизведениями, $a + b \cong b + a$.
+\end{statement*}
+
+Поэтому отношение кобордантности симметрично в~любой категории с~кобордизмами. Более того, отображение $(c, i, j) \mapsto (c, j, i)$
+определяет изоморфизм между категориями $\Cob_\Gamma(a, b)$ и~$\Cob_\Gamma(b, a)$.
+Однако не~для~всякой категории кобордантность транзитивна и~даже рефлексивна.
+
+\begin{example*}
+  Для~любой категории $C$ с~инициальным объектом $0$, очевидно, тройка $(C, \Delta_0, !)$
+  является категорией с~кобордизмами. Если категория $C$ не~содержит (бинарных) копроизведений,
+  то~все категории $\Cob(a, b)$ пусты; в~частности, пуста $\Cob(a, a)$.
+  Подойдёт, например, категория $C = \mathbf{Field}_p$ полей характеристики $p$.
+\end{example*}
+
+В~более простом случае, когда категория $C$ содержит все копроизведения, рассмотрим смежное понятие.
+Под~\textit{слабым кобордизмом}\footnote{
+  В~\cite{Stong68} для~этого понятия используется термин «кобордизм», поскольку, как мы далее
+  увидим, в~(каноническом для~него) случае гладких многообразий существование слабого кобордизма
+  логически эквивалентно существованию (определённого ранее) кобордизма. Однако чтобы избежать путаницы,
+  мы добавляем прилагательное «слабый». Кроме того, структуры категории, которыми мы их оснастим, не~эквивалентны.
+} между объектами $a$ и~$b$
+понимаем тройку $(u, v, \phi)$, где $u, v \in \Ob(C)$ и~$\phi : a + \partial(u) \cong b + \partial(v)$.
+
+Заметим, что $x \mapsto a + x$ определяет функтор. \textit{Морфизмом} слабых кобордизмов $(u_1, v_1, \phi_1)$
+и~$(u_2, v_2, \phi_2)$ называем пару $(f, g)$, где $f \in \hom_C(u_1, u_2)$ и~$g \in \hom_C(v_1, v_2)$,
+такую, что $\phi_2 \circ (a + \partial(f)) = (b + \partial(g)) \circ \phi_1$; то~есть такую, что следующая
+диаграмма коммутативна:
+\[
+  \begin{tikzcd}
+    \arrow{d}{\phi_1} a + \partial(u_1) \arrow{r}{a + \partial(f)} & a + \partial(u_2) \arrow{d}{\phi_2} \\
+                      b + \partial(v_1) \arrow{r}{b + \partial(g)} & b + \partial(u_2).
+  \end{tikzcd}
+\]
+
+С~единицей $\id((u, v, f)) = (\id(u), \id(v))$ слабые кобордизмы между $a$ и~$b$ образуют категорию, обозначаемую $\Cob^w(a, b)$.
+Аналогично, объекты $a$ и~$b$ \textit{слабо кобордантны,} если $\Cob^w(a, b)$ непусто.
+
+Тогда видим, что в~произвольной категории с~кобордизмами:
+\begin{enumerate}
+  \item Слабая кобордантность рефлексивна; более того, имеем включение из~$C$ в~$\Cob^w(a, a)$:
+  \[
+    R = \begin{cases}
+      x \mapsto (x, x, \id(a + \partial(x))); \\
+      f \mapsto (f, f).
+    \end{cases}
+  \]
+  \item Слабая кобордантность симметрична; более того, определён изоморфизм между $\Cob^w(a, b)$ и~$\Cob^w(b, a)$:
+  \[
+    S = \begin{cases}
+      (x, y, \phi) \mapsto (y, x, \phi^{-1}); \\
+      (f, g) \mapsto (g, f).
+    \end{cases}
+  \]
+  \item Слабая кобордантность транзитивна \cite{Weston}: если $(u,\allowbreak v_1) \in \Cob^w(a,\allowbreak b)$ и~$(v_2,\allowbreak w) \in \Cob^w(b,\allowbreak c)$,
+  то $(u + v_2, v_1 + w) \in \Cob^w(a, c)$:
+  \[
+  \begin{aligned}
+    a + \partial(u + v_2) & \cong a + \partial(u) + \partial(v_2) \\
+                          & \cong b + \partial(v_1) + \partial(v_2) \\
+                          & \cong \partial(v_1) + b + \partial(v_2) \\
+                          & \cong \partial(v_1) + c + \partial(w) \\
+                          & \cong c + \partial(v_1) + \partial(w) \\
+                          & \cong c + \partial(v_1 + w).
+  \end{aligned}
+  \]
+\end{enumerate}
+
+Наконец, в~случае гладких многообразий без~границы кобордантность эквивалентна слабой кобордантности.
+
+\begin{statement*}[\cite{Weston}]
+  Если $a$ и~$b$~— гладкие многообразия, то~$a$ кобордантно $b$ тогда и~только тогда,
+  когда $a$ слабо кобордантно $b$.
+\end{statement*}
+
+\begin{proof}
+  Пусть $I$~— стандартный интервал $[0; 1]$.
+  Как известно, если $x$~— многообразие без~границы,
+  то~имеется диффеоморфизм $\partial(x \times I) \cong x + x$.
+
+  Пусть $(c, i, j) \in \Cob(a, b)$. В~таком случае, $a + \partial c \cong a + a + b \cong b + \partial(a \times I)$,
+  то~есть $(c, a \times I) \in \Cob^w(a, b)$.
+  Обратно, пусть $(u, v, \phi) \in \Cob^w(a, b)$. Рассмотрим $c_1 = a \times I + u$ и~$c_2 = b \times I + v$.
+  Тогда $\partial c_1 \cong a + a + \partial u $ и~$\partial c_2 \cong b + b + \partial v$.
+  Поскольку $\phi : a + \partial u \cong b + \partial v$, можем склеить $c_1$ и~$c_2$ по~общей
+  границе, получив $c$ такой, что $\partial c \cong a + b$.
+\end{proof}
+
+Части приложения, не~касающиеся случая гладких многообразий, были формализованы с~использованием
+средства автоматической проверки доказательств Lean Theorem Prover \cite{Lean}. Исходный код доступен по~ссылке:
+\url{https://github.com/forked-from-1kasper/lean4-categories}.

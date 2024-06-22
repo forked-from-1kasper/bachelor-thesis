@@ -1,0 +1,139 @@
+\subsection{Категории с кобордизмами}
+\textit{Категорией с~кобордизмами} называем\footnote{
+  В~английском языке «cobordism category» используется для~обозначения как вводимого понятия,
+  так и~для~категории, объекты которой~— многообразия, а~стрелки~— кобордизмы между ними (последнюю
+  ещё называют «category of~cobordisms»). В~русском языке нет устоявшихся переводов, поэтому
+  во~избежание путаницы первое предлагаем переводить как «категорию с~кобордизмами», а~второе~—
+  как «категорию кобордизмов».
+} упорядоченную тройку $(C, \partial, i)$, где $C$~— категория, $\partial$~— функтор $C \rightarrow C$,
+$i$~— естественное преобразование $\partial \Rightarrow 1_C$, такую, что:
+\begin{enumerate}
+  \item $\partial$~— аддитивный функтор.
+  \item $\partial(\partial(x))$~— инициальный объект в~$C$ для~всех $x \in \Ob(C)$.
+\end{enumerate}
+
+От~определения, данного в~\cite{Stong68}, данное отличается тем, что не~требует существования а) малой подкатегории $C_0$
+такой, что всякий объект из~$C$ изоморфен некоторому из~$C_0$ (это также эквивалентно тому, что скелет $C$~— малая категория),
+и~б) всех копроизведений в~$C$.
+
+\begin{example}
+Рассмотрим категорию компактных $n$-мерных $C^p$-гладких многообразий (с~границей),
+где $1 \leq p \leq \infty$, стрелки в~которой~— $C^p$-отображения, переводящие границы в~границы (то~есть такие $f \in C^p(M, N)$,
+что $f(\partial M) \subseteq \partial N$). Тогда функция $M \mapsto \partial M$ задаёт эндофунктор,
+стрелочная функция которого~— просто ограничение на~границу: $f \mapsto f|_{\partial M}$.
+
+Кроме того, поскольку $\partial M \subseteq M$, определены включения $C^p(\partial M, M)$,
+которые (очевидно) также определяют естественное преобразование. Таким образом, задана категория с~кобордизмами.
+\end{example}
+
+\begin{example}
+Рассмотрим категорию компактных $C^p$-гладких многообразий произвольной размерности,
+стрелки в~которой определены как в~предыдущем случае. Ясно, что эту категорию можно наделить структурой
+категории с~кобордизмами точно таким~же образом.
+
+Предыдущий пример входит в~эту категорию как подкатегория, но, в~отличие от~него, в~этой категории
+существуют \textit{не~все} копроизведения, поскольку дизъюнктная сумма многообразий различной размерности
+не~является снова многообразием.
+\end{example}
+
+\begin{example}[\cite{Trim11}]
+Зафиксируем пару категорий $J$ (называемую индексной) и~$C$. \textit{Коконусом} называется упорядоченная
+тройка $(F, c, \psi)$, где $F : J \rightarrow C$~— функтор, $c \in \Ob(C)$~— объект
+и~$\psi_x \in \hom_C(F(x), c)$~— такое семейство морфизмов, что для~любой
+пары объектов $i, j \in \Ob(J)$ и~стрелки $f \in \hom_J(i, j)$ верно,
+что $\psi_j \circ F(f) = \psi_i$:
+\[
+  \begin{tikzcd}
+    &                               & \arrow{ld}{}[swap]{\psi_i} c \arrow{rd}{\psi_j} &       & \\
+    & F(i) \arrow{rr}{}[swap]{F(f)} &                                                 & F(j). &
+  \end{tikzcd}
+\]
+
+\textit{Копределом} называется такой коконус $(F, c, \psi)$, что для~всякого другого коконуса $(F, x, \phi)$
+существует единственная стрелка $u \in \hom_C(c, x)$ такая, что для~любого $j \in \Ob(J)$
+верно, что $u \circ \psi_j = \phi_j$:
+\[
+  \begin{tikzcd}
+    F(j) \arrow{r}{\psi_j} \arrow{dr}{}[swap]{\phi_j} & \arrow{d}{u} c \\
+                                                      & x.
+  \end{tikzcd}
+\]
+
+Также пишем $c = \colim(F)$, $\psi = \incl(F)$ и~$u = \rec(F, x, \phi)$.
+
+Определим структуру категории $\mathrm{Cocone}(J, C)$ на~всех коконусах между $J$ и~$C$.
+\textit{Морфизмом коконусов} $(F, x, \phi)$ и~$(G, y, \psi)$ называется пара $(u, \varepsilon)$,
+где $u \in \hom_C(x, y)$ и~$\varepsilon : F \Rightarrow G$, такая, что для~всякого $j \in \Ob(J)$
+выполняется $u \circ \phi_j = \psi_j \circ \varepsilon_j$:
+\[
+  \begin{tikzcd}
+    \arrow{d}{\varepsilon_j} F(j) \arrow{r}{\phi_j} & \arrow{d}{u} x \\
+                             G(j) \arrow{r}{\psi_j} &              y.
+  \end{tikzcd}
+\]
+
+$(\id_C(x), 1_F)$ определяет тождественный морфизм для~коконуса $(F, x, \phi)$.
+
+Далее, пусть заданы морфизм $(u, \varepsilon)$ между $(G, y, \psi)$ и~$(H, z, \xi)$ и~$(v, \eta)$ между $(F, x, \phi)$ и~$(G, y, \psi)$.
+Композицию определим покомпонентно: $(u, \varepsilon) \circ (v, \eta) = (u \circ v, \varepsilon \circ \eta)$.
+При~этом:
+\[
+  (u \circ v) \circ \phi_j = u \circ (v \circ \phi_j)
+                           = u \circ (\psi_j \circ \eta_j)
+                           = (u \circ \psi_j) \circ \eta_j
+                           = (\xi_j \circ \varepsilon_j) \circ \eta_j
+                           = \xi_j \circ (\varepsilon_j \circ \eta_j).
+\]
+
+Наконец, поскольку композиция в~категории $C$ и~вертикальная композиция функторов ассоциативны
+и~унитальны, то~такова и~композиция морфизмов коконусов.
+
+Пусть теперь категория $C$ содержит все копределы из~$J$ и~инициальный объект $0 \in \Ob(C)$.
+Определим граничный эндофунктор следующим образом:
+\[
+\partial = \begin{cases}
+             (F, x, \phi) \mapsto (\Delta_0, \colim(F), j \mapsto\ !_{\colim(F)}); \\
+             (u, \varepsilon) \mapsto (\rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), 1_{\Delta_0}).
+           \end{cases}
+\]
+$\partial(\id((F, x, \phi))) = \id(\partial((F, x, \phi)))$ верно в~силу того, что
+\[
+  \rec(F, \colim(F), \incl(F)) = \id(\colim(F)).
+\]
+$\partial((u, \varepsilon) \circ (v, \eta)) = \partial((u, \varepsilon)) \circ \partial((v, \eta))$
+верно в~силу того, что
+\[
+\begin{aligned}
+  \phantom{=}&\ \rec(F, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j \circ \eta_j) \\
+            =&\ \rec(G, \colim(H), j \mapsto \incl_j(H) \circ \varepsilon_j) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \eta_j).
+\end{aligned}
+\]
+
+Также определим естественное преобразование $i : \partial \Rightarrow 1_C$:
+\[
+  i_{(F, x, \phi)} = (\rec(F, x, \phi), j \mapsto\ !_{F(j)}).
+\]
+
+Видно, что:
+\[
+\begin{aligned}
+  \phantom{=}&\ i_{(G, y, \psi)} \circ \partial((u, \varepsilon)) \\
+            =&\ (\rec(G, y, \psi), j \mapsto\ !_{G(j)}) \circ (\rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), 1_{\Delta_0}) \\
+            =&\ (\rec(G, y, \psi) \circ \rec(F, \colim(G), j \mapsto \incl_j(G) \circ \varepsilon_j), j \mapsto\ !_{G(j)} \circ \id(\Delta_0(j))) \\
+            =&\ (\rec(F, y, j \mapsto \psi_j \circ \varepsilon_j), j \mapsto\ !_{G(j)}) \\
+            =&\ (\rec(F, y, j \mapsto u \circ \phi_j), j \mapsto\ !_{G(j)}) \\
+            =&\ (u \circ \rec(F, x, \phi), j \mapsto \varepsilon_i\ \circ\ !_{F(j)}) \\
+            =&\ (u, \varepsilon) \circ i_{(F, x, \phi)}.
+\end{aligned}
+\]
+
+Аддитивность $\partial$ следует из~того, что копределы коммутируют с~копроизведением,
+то~есть существует естественный изоморфизм $\colim(F + G) \cong \colim(F) + \colim(G)$,
+и~что $\colim(\Delta_0) \cong 0$.
+
+Наконец, $\partial(\partial((F, x, \phi)))) = (\Delta_0, \colim(\Delta_0), j \mapsto\ !_{\colim(\Delta_0)}) \cong 0$,
+то~есть $(\mathrm{Cocone}(J, C), \partial, i)$~— категория с~кобордизмами.
+
+Этот пример примечателен тем, что не~требует для~своего построения привлечения многообразий либо их обобщений.
+\end{example}
+

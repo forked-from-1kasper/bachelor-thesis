@@ -1,0 +1,247 @@
+\subsection{Основные понятия теории категорий}
+Стандартные двухместные функции будем писать в~инфиксной записи; то~есть $f \circ g$ или~$f \circ_X g$, но~не~$\circ(f, g)$ или~$\circ_X(f, g)$.
+
+Под~\textit{ориентированным (или направленным) графом} \cite{MacLane71} понимаем упорядоченную четвёртку $(O,\allowbreak A,\allowbreak \dom,\allowbreak \cod)$,
+где $A$ и~$O$~— множества, $\dom$ и~$\cod$~— функции $A \rightarrow O$.
+Для~графа определим множество \textit{перемножаемых стрелок} как $A \times_O A = \{ (g, f) \in A \times A \ |\ \dom(g) = \cod(f) \}$.
+
+\textit{Категорией} называется граф вместе с~парой функций $\id : O \rightarrow A$
+и~$\circ : A \times_O A \rightarrow A$ таких, что для~всех $a, b \in O$ и~$f, g, h \in A$ верно:
+\begin{enumerate}
+  \item $\dom(\id(a)) = \cod(\id(a)) = a$.
+  \item $\dom(f \circ g) = \dom(f)$, если $(f, g) \in A \times_O A$.
+  \item $\cod(f \circ g) = \cod(g)$, если $(f, g) \in A \times_O A$.
+  \item $f \circ (g \circ h) = (f \circ g) \circ h$, если $(f, g), (g, h) \in A \times_O A$ (ассоциативность).
+  \item $f \circ \id(a) = f$, если $\dom(f) = a$ (правая унитальность).
+  \item $\id(b) \circ f = f$, если $\cod(f) = b$ (левая унитальность).
+\end{enumerate}
+
+Для~категории $C = (O, A, \dom, \cod, \id, \circ)$ элементы множества $O$ называются \textit{объектами},
+а~элементы множества $A$~— \textit{стрелками} (или морфизмами) этой категории. Обозначим $\Ob(C) = O$ и~$\Arr(C) = A$.
+Стрелки $\id(x)$ называются \textit{единичными,} а~стрелка $f \circ g$~— \textit{композицией.} Для~категории $C$ также будем писать $\id_C$ и~$\circ_C$.
+Для~объектов $a, b \in \Ob(C)$ определим \textit{множество стрелок}:
+\[
+  \hom_C(a, b) = \{ f \in \Arr(C)\ | \ \dom(f) = a \wedge \cod(f) = b \}.
+\]
+
+\textit{Функтором} между категориями $A$ и~$B$ называется упорядоченная пара $T = (T_1, T_2)$,
+где $T_1 : \Ob(A) \rightarrow \Ob(B)$ и~$T_2 : \Arr(A) \rightarrow \Arr(B)$,
+такая, что для~всяких объектов $a, b, c \in \Ob(A)$ и~стрелок $f \in \hom_C(a, b)$ и~$g \in \hom_C(b, c)$ выполняются
+следующие условия:
+\begin{enumerate}
+  \item $T_2(f) \in \hom_C(T_1(a), T_1(b))$.
+  \item $T_2(\id(a)) = \id(T_1(a))$.
+  \item $T_2(g \circ f) = T_2(g) \circ T_2(f)$.
+\end{enumerate}
+
+В~этом случае пишем $T : A \rightarrow B$. $T_1$ называется \textit{объектной функцией,} а~$T_2$~— \textit{стрелочной.}
+Всюду далее будем следовать общепринятому соглашению: объектную и~стрелочную функции одного функтора обозначаем одной и~той~же буквой.
+Функтор категории в~себя также называется \textit{эндофунктором.}
+
+Для~всякой категории определён единичный функтор $1_C : C \rightarrow C$, объектная и~стрелочная функции которого~— тождественные.
+Для~зафиксированных категорий $A$, $B$ и~объекта $b \in \Ob(B)$ определён \textit{диагональный функтор} $\Delta_b : A \rightarrow B$
+такой, что $\Delta_b(a) = b$ и~$\Delta_b(f) = \id_B(b)$ для~любых $a \in \Ob(A)$ и~$f \in \Arr(A)$.
+
+Если дана пара функтор $F = (F_1, F_2) : B \rightarrow C$ и~$G = (G_1, G_2) : A \rightarrow B$,
+то~определена их \textit{композиция} $F \circ G = (F_1 \circ G_1, F_2 \circ G_2) : A \rightarrow C$.
+
+Стрелка $f \in \hom_C(a, b)$ называется \textit{изоморфизмом,} если существует стрелка $g \in \hom_C(b, a)$
+такая, что $f \circ g = \id(b)$ и~$g \circ f = \id(a)$. Тогда также пишем $f : a \cong b$.
+Нетрудно видеть, что функтор переводит изоморфизмы в~изоморфизмы.
+
+\textit{Подграфом} ориентированного графа $D$ называется граф $D'$ такой, что $\Ob(D') \subseteq \Ob(D)$, $\Arr(D') \subseteq \Arr(D)$,
+а~также $\dom_{D'} = \dom_{D} |_{\Arr(D')}$ и~$\cod_{D'} = \cod_{D} |_{\Arr(D')}$.
+Говорим, что граф $D$ \textit{содержит} (под)граф $D'$.
+Аналогично говорим, что $C'$~— \textit{подкатегория} в~$C$, если $C'$ в~ней подграф, $\id_{C'} = \id_{C} |_{\Ob(C')}$
+и~$\circ_{C'} = \circ_{C} |_{\Arr(C') \times \Arr(C')}$.
+Если задан произвольный набор подкатегорий $C_i$ для~$i \in I$, то~ясно, что определено их пересечение, которое тоже является подкатегорией:
+\[
+  \bigcap\limits_{i \in I} C_i = \left( \bigcap\limits_{i \in I} \Ob(C_i), \bigcap\limits_{i \in I} \Arr(C_i), \dom, \cod, \id, \circ \right).
+\]
+
+\textit{Диаграммой} в~категории называем любой (обычно конечный либо счётный) её подграф.
+Как и~всякий ориентированный граф, диграмма графически изображается с~помощью вершин,
+в~теории категорий обычно обозначаемых буквами без~дополнительной обводки, и~стрелок.
+Например:
+\[
+  \begin{tikzcd}
+    \arrow{d}{h_1} A \arrow{r}{f} & B \arrow{d}{h_2} \\
+                   C \arrow{r}{g} & D.
+  \end{tikzcd}
+\]
+
+Для~всякого подграфа $D$ категории $C$ пересечение всех содержащих его подкатегорий
+(то~есть наименьшая подкатегория, содержащая данный подграф) назовём \textit{пополнением} $\overline{D}$.
+
+Категория $C$ называется \textit{тонкой,} если между любой парой объектов имеется не~более одного морфизма,
+то~есть \[ \forall a, b \in \Ob(C).\ \forall f, g \in \hom_C(a, b).\ f = g. \]
+Говорим, что \textit{диаграмма коммутативна,} если её пополнение~— тонкая категория.
+
+Если даны функторы $F, G : A \rightarrow B$, то~\textit{естественным преобразованием} $\eta : F \Rightarrow G$ называется набор морфизмов
+$\eta_x : \hom_B(F(x), G(x))$ для~каждого объекта $x \in \Ob(A)$ такой, что $G(f) \circ \eta_x = \eta_y \circ F(f)$
+для~всякой стрелки $f \in \hom_A(x, y)$; то~есть следующая диаграмма коммутативна:
+\[
+  \begin{tikzcd}
+    \arrow{d}{\eta_x} F(x) \arrow{r}{F(f)} & F(y) \arrow{d}{\eta_y} \\
+                      G(x) \arrow{r}{G(f)} & G(y).
+  \end{tikzcd}
+\]
+
+Стрелки $\eta_x$ называют \textit{компонентами} преобразования. Если все компонентны естественного
+преобразования~— изоморфизмы, то~говорят, что определён \textit{естественный изоморфизм.} Пишем $\eta : F \cong G$.
+
+Для~всякого функтора $F$ также обозначим как~$1_F$ тождественное естественное преобразование, все компонентны которого~— единичные стрелки.
+Далее, если заданы естественные преобразования $\varepsilon : G \Rightarrow H$ и~$\eta : F \Rightarrow G$,
+то~определена их \textit{вертикальная композиция} $\varepsilon \circ \eta : F \Rightarrow H$,
+где $(\varepsilon \circ \eta)_x = \varepsilon_x \circ \eta_x$.
+
+Как и~для~объектов в~категории, говорим, что категории $A$ и~$B$ \textit{изоморфны,} если существует
+пара функторов $F : A \rightarrow B$ и~$G : B \rightarrow A$ такая, что $F \circ G = 1_B$ и~$G \circ F = 1_A$.
+Изоморфизм категорий~— слишком сильное требование, поэтому в~теории категорий чаще используется более слабое
+условие эквивалентности категорий, которое, тем не~менее, сохраняет все существенные категорные свойства.
+По~аналогии с~переходом от~гомеоморфизма к~гомотопической эквивалентности в~топологии, для~которого нужно ослабить
+равенство до~существования гомотопии, в~случае категорий равенство нужно ослабить до~естественного изоморфизма.
+То~есть, категории $A$ и~$B$ эквивалентны, если существуют $F : A \rightarrow B$ и~$G : B \rightarrow A$
+такие, что $F \circ G \cong 1_B$ и~$G \circ F \cong 1_A$.
+
+\textit{Инициальным объектом} в~категории $C$ называется такой объект $0 \in \Ob(C)$,
+что из~него во~всякой другой объект категории существует ровно одна стрелка:
+\[
+  \forall x \in \Ob(C).\ \exists! f \in \Arr(C).\ f \in \hom_C(0, x).
+\]
+
+Эту единственную стрелку обозначаем $!_x \in \hom_C(0, x)$.
+
+\textit{Копроизведением} (или суммой) объектов $a$ и~$b \in \Ob(C)$ называется упорядоченная тройка $(c, \inl, \inr)$,
+где $c \in \Ob(C)$, $\inl \in \hom_C(a, c)$ и~$\inr \in \hom_C(b, c)$, такая, что
+выполнено следующее универсальное свойство: для~любого объекта $x \in \Ob(C)$ и~пары морфизмов $f \in \hom_C(a, x)$
+и~$g \in \hom_C(b, x)$ существует единственный (универсальный) морфизм $h \in \hom_C(c, x)$ такой, что $h \circ \inl = f$
+и~$h \circ \inr = g$; то~есть коммутативна следующая диаграмма:
+\[
+  \begin{tikzcd}
+    & x & \\ a \arrow{r}{}[swap]{\inl} \arrow{ur}{f} & \arrow[dashed]{u}{h} c & \arrow{l}{\inr}[swap]{} \arrow{ul}{}[swap]{g} y.
+  \end{tikzcd}
+\]
+
+Также пишем $c = a + b$, $\inl = \inl_{a, b}$, $\inr = \inr_{a, b}$ и~$h = \rec_{a, b}(f, g)$\rlap{.}\footnote{
+  Подобные обозначения характерны прежде всего для~работ в~области теории типов, см., например, раздел~1.7 в~\cite{HoTTbook}.
+  \vspace{7pt} % footnote spacing is crumbled for some reason
+}
+
+Наконец, функтор $T : A \rightarrow B$ \textit{полуаддитивен}\rlap{\textit{,}}\footnote{
+  Нестандартный термин, не~следует путать с~полуаддитивной категорией.
+} если для~всякого копроизведения $(c, i, j)$ объектов $a$ и~$b \in \Ob(A)$
+тройка $(T(c), T(i), T(j))$~— копроизведение $T(a)$ и~$T(b)$. Функтор $T$ \textit{аддитивен,} если он полуаддитивен и~для~всякого инициального объекта
+$o \in \Ob(A)$ объект $T(o)$~— инициальный в~$B$.
+
+\begin{lemma*}[\notewrap{$\eta$-правило}]
+  Если тройка $(c, i, j)$ является копроизведением, $x \in \Ob(C)$
+  и~$f \in \hom_C(c,\allowbreak x)$, то~$\rec(f \circ i, f \circ j) = f$.
+\end{lemma*}
+
+\begin{proof}
+  Действительно, $\rec(f \circ i, f \circ j) \circ i = f \circ i$
+  и~$\rec(f \circ i, f \circ j) \circ j = f \circ j$.
+  В~силу единственности такой стрелки получаем лемму.
+\end{proof}
+
+\begin{lemma*}
+  Пусть $(c, i, j)$~— копроизведение, $x \in \Ob(C)$, $f, g \in \hom_C(c, x)$.
+  Если $f \circ i = g \circ i$ и~$f \circ j = g \circ j$, то~$f = g$.
+\end{lemma*}
+
+\begin{proof}
+  По~доказанному ранее, $\rec(f \circ i, f \circ j) = f$ и~$\rec(g \circ i, g \circ j) = g$.
+  Но~тогда имеем: $f = \rec(f \circ i, f \circ j) = \rec(g \circ i, g \circ j) = g$.
+\end{proof}
+
+\begin{lemma*}
+  Пусть $(c_1, i_1, j_1)$ и~$(c_2, i_2, j_2)$~— копроизведения $a$ и~$b$.
+  Тогда существует $\phi : c_1 \cong c_2$, причём $\phi \circ i_1 = i_2$
+  и~$\phi \circ j_1 = j_2$.
+\end{lemma*}
+
+\begin{proof}
+  Обозначим как $\rec_1$ универсальную стрелку для~первой тройки,
+  а~как $\rec_2$~— для~второй. Пусть $\phi = \rec_1(i_2, j_2)$
+  и~$\psi = \rec_2(i_1, j_1)$. Тогда:
+  \[
+    \phi \circ \psi \circ i_2 = \phi \circ \rec_2(i_1, j_1) \circ i_2
+                              = \phi \circ i_1
+                              = \rec_1(i_2, j_2) \circ i_1
+                              = i_2
+                              = \id_C(c_2) \circ i_2.
+  \]
+
+  Аналогично, $\phi \circ \psi \circ j_2 = \id_C(c_2) \circ j_2$.
+  В~силу предыдущей леммы, $\phi \circ \psi = \id_C(c_2)$.
+  Точно так~же получаем, что $\psi \circ \phi = \id_C(c_1)$.
+  Наконец, $\phi \circ i_1 = \rec_1(i_2, j_2) \circ i_1 = i_2$
+  и~$\phi \circ j_1 = \rec_1(i_2, j_2) \circ j_1 = j_2$.
+\end{proof}
+
+\begin{theorem*}[\notewrap{критерий полуаддитивности}]
+  Пусть категории $A$ и~$B$ содержат все копроизведения.
+  Тогда функтор $T : A \rightarrow B$ полуаддитивен тогда и~только тогда, когда:
+  \begin{enumerate}
+    \item Для~всякой пары объектов $a, b \in \Ob(A)$ определён изоморфизм $\phi_{a, b} : T(a) + T(b) \cong T(a + b)$.
+    \item $\phi_{a, b} \circ \inl_{T(a), T(b)} = T(\inl_{a, b})$.
+    \item $\phi_{a, b} \circ \inr_{T(a), T(b)} = T(\inr_{a, b})$.
+  \end{enumerate}
+\end{theorem*}
+
+\begin{proof}
+  Слева направо: пусть $T$ полуаддитивен. Так как $(a + b,\allowbreak \inl_{a, b},\allowbreak \inr_{a, b})$~— копроизведение,
+  по~полуаддитивности, $(T(a + b), T(\inl_{a, b}), T(\inr_{a, b}))$~— тоже.
+  Копроизведение единственно, поэтому $\phi : T(a) + T(b) \cong T(a + b)$, причём $\phi \circ \inl_{T(a), T(b)} = T(\inl_{a, b})$
+  и~$\phi \circ \inr_{T(a), T(b)} = T(\inr_{a, b})$.
+
+  Обратно, пусть $(c, i, j)$~— некоторое копроизведение $a$ и~$b$. Докажем, что $(T(c), T(i), T(j))$~— копроизведение.
+  Зафиксируем объект $x \in \Ob(B)$ и~пару стрелок $f \in \hom_B(T(a), x)$ и~$g \in \hom_B(T(b), x)$.
+
+  Снова в~силу единственности имеем стрелку $\psi : c \cong a + b$.
+  Тогда $h = \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi) \in \hom_B(T(c), x)$, причём:
+  \[
+  \begin{aligned}
+    h \circ T(i) &= \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi \circ i) \\
+                 &= \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\inl_{a, b}) \\
+                 &= \rec_{T(a), T(b)}(f, g) \circ \inl_{T(a), T(b)} \\
+                 &= f.
+  \end{aligned}
+  \]
+  Аналогично $h \circ T(j) = g$. Наконец, пусть $h' \in \hom_B(T(c), x)$,
+  $h' \circ T(i) = f$ и~$h' \circ T(j) = g$.
+
+  $u = T(\psi^{-1}) \circ \phi_{a, b}$~— изоморфизм как композиция изоморфизмов,
+  поэтому $h = h' \Leftrightarrow h \circ u = h' \circ u$. Далее,
+  \[
+  \begin{aligned}
+    h \circ u \circ \inl_{T(a), T(b)} &= \rec_{T(a), T(b)}(f, g) \circ \phi_{a, b}^{-1} \circ T(\psi \circ \psi^{-1}) \circ \phi_{a, b} \circ \inl_{T(a), T(b)} \\
+                                      &= \rec_{T(a), T(b)}(f, g) \circ \inl_{T(a), T(b)} \\
+                                      &= f \\
+                                      &= h' \circ T(i) \\
+                                      &= h' \circ u \circ u^{-1} \circ T(i) \\
+                                      &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\psi) \circ T(i) \\
+                                      &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\psi \circ i) \\
+                                      &= h' \circ u \circ \phi_{a,b}^{-1} \circ T(\inl_{a, b}) \\
+                                      &= h' \circ u \circ \inl_{T(a), T(b)}.
+  \end{aligned}
+  \]
+  Аналогично, $h \circ u \circ \inr_{T(a), T(b)} = h' \circ u \circ \inr_{T(a), T(b)}$, поэтому $h \circ u = h' \circ u$.
+\end{proof}
+
+\begin{theorem*}[\notewrap{критерий аддитивности}]
+  Пусть категории $A$ и~$B$ содержат все копроизведения и~инициальный объект.
+  Тогда функтор $T : A \rightarrow B$ аддитивен тогда и~только тогда, когда:
+  \begin{enumerate}
+    \item Для~всякой пары объектов $a, b \in \Ob(A)$ определён изоморфизм $\phi_{a, b} : T(a) + T(b) \cong T(a + b)$.
+    \item $\phi_{a, b} \circ \inl_{T(a), T(b)} = T(\inl_{a, b})$.
+    \item $\phi_{a, b} \circ \inr_{T(a), T(b)} = T(\inr_{a, b})$.
+    \item $T(0_A) \cong 0_B$.
+  \end{enumerate}
+\end{theorem*}
+
+\begin{proof}
+  Немедленно следует из~единственности инициального объекта и~предыдущей теоремы.
+\end{proof}
+
