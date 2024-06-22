@@ -10,6 +10,16 @@
   {.5em}                 % Space after theorem head
   {\thmname{#1}\thmnumber{ #2}\thmnote{\normalfont{ #3}}}
 
+\newtheoremstyle{examplethm}
+  {\topsep}
+  {\topsep}
+  {\normalfont}
+  {0pt}
+  {\bfseries}
+  {.}
+  {.5em}
+  {\thmname{#1}\thmnumber{ #2}\thmnote{\normalfont{ #3}}}
+
 \theoremstyle{sfuthm}
 
 \newtheorem{statement}{Утверждение}
@@ -21,6 +31,11 @@
 \newtheorem*{consequence*}{Следствие}
 \newtheorem*{theorem*}{Теорема}
 \newtheorem*{lemma*}{Лемма}
+
+\theoremstyle{examplethm}
+
+\newtheorem{example}{Пример}
+\newtheorem*{example*}{Пример}
 
 \newcommand{\divides}{\mid}
 
