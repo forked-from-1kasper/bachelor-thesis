@@ -16,16 +16,12 @@
 \usepackage{amsmath, amsthm, amssymb}
 
 \usepackage{tikz-cd, array, enumerate}
-\usepackage{hhline, url, totcount}
+\usepackage{hhline, xurl, totcount}
 
 \input{Common}
 
 \def\title{Алгебраические подгруппы комплексного тора}
 \hypersetup{pdfinfo={Title=\title}}
-
-\newtotcounter{citenum}
-\def\oldbibitem{} \let\oldbibitem=\bibitem
-\def\bibitem{\stepcounter{citenum}\oldbibitem}
 
 \urlstyle{same}
 \allowdisplaybreaks
@@ -38,6 +34,23 @@
 \titleformat*{\section}{\bfseries}
 \titleformat*{\subsection}{\bfseries}
 \titlelabel{\thetitle.\:}
+
+\newtotcounter{citenum}
+\preto{\bibitem}{\stepcounter{citenum}}
+
+\makeatletter
+  \renewcommand\@biblabel[1]{#1.}
+\makeatother
+
+\renewcommand\labelenumi{\theenumi)}
+\renewcommand\labelenumii{\theenumii)}
+\renewcommand\labelenumiii{\theenumiii)}
+\renewcommand\labelenumiv{\theenumiv)}
+
+\setlength\leftmargini{12.5mm}
+\setlength\leftmarginii{5mm}
+\setlength\leftmarginiii{5mm}
+\setlength\leftmarginiv{5mm}
 
 \begin{document}
 
@@ -1223,22 +1236,22 @@ $(W;\allowbreak V_0,\allowbreak V_1;\allowbreak h_0,\allowbreak h_1)$ такую
 Кроме того, если кобордизм \textit{элементарный} ($f$ имеет ровно одну критическую точку), то, как доказывается
 в~главе~3 в~\cite{Mil65}, гипербола для~$\varepsilon = -1$ представляет порождающий элемент группы относительных
 гомологий $H_\lambda(W, V_0)$. Исследование групп относительных гомологий возвращает нас к~интегралам, введённым
-в~предыдущем параграфе. Выдвигаем гипотезу, что подобная процедура может быть проделана для~случаев произвольных
+в~предыдущем подразделе. Выдвигаем гипотезу, что подобная процедура может быть проделана для~случаев произвольных
 размерности $n$ и~индекса $\lambda$.
 
 \pagebreak
 \usection{Заключение}
 В~ходе работе были:
 \begin{enumerate}
-  \item Получены условия инъективности мономиальных параметризаций в~случае поля комплексных чисел (теорема \ref{theorem:InjectivityCondition}).
+  \item Для~случая поля комплексных чисел получены условия инъективности мономиальных параметризаций (теорема \ref{theorem:InjectivityCondition}).
   \item Получено достаточное условие алгебраичности для~образа мономиальной параметризации
         в~случае алгебраического замкнутого поля (теорема \ref{theorem:AlgebraicityCondition}).
   \item Получен конструктивный критерий существования мономиальной параметризации
         в~случае поля нулевой харакетристики (теорема \ref{theorem:ExistenceCondition}), а~также,
         как следствие, топологический критерий для~случая поля комплексных чисел (следствие \ref{consequence:ExistenceCondition}).
   \item Предложено понятие линейной независимости над~абелевой группой, исследованы его базовые свойства
-        и~получено альтернативное доказательство условия инъективности мономиальных параметризаций
-        на~этом основании (следствие \ref{consequence:InjectivityCondition}).
+        и~на~этом основании получено альтернативное доказательство условия инъективности мономиальных
+        параметризаций (следствие \ref{consequence:InjectivityCondition}).
 \end{enumerate}
 
 Результаты работы имеют преимущественно теоретическое значение. Полученный критерий существования,
@@ -1247,15 +1260,16 @@ $(W;\allowbreak V_0,\allowbreak V_1;\allowbreak h_0,\allowbreak h_1)$ такую
 \pagebreak
 
 \usection{Список использованных источников}
-\begin{thebibliography}{99}
+\begin{thebibliography}{}
+\setlength\itemindent{12.5mm}
 
-\bibitem{Schm94} Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ W.~M.~Schmidt~//
+\bibitem{Schm94} Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ W.~M.~{Sch\-midt}~//
 London Mathematical Society Lecture Note Series. Issue~235: Number Theory.
 Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—187.
 
 \bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London : University of~Notre Dame, 1942, 1944.~— 96~p.~— ISBN: 978-0-486-62342-9.
 
-\bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~congruences. Philos.~/ H.J.S.~Smith~//
+\bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~{con\-gru\-ences}. Philos.~/ H.J.S.~Smith~//
 Philosophical Transactions of~the~Royal Society.~— 1861.~— Vol.~151.~— P.~293—326.
 
 \bibitem{TsikhSad14} Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/ Т.~М.~Садыков, А.~К.~Цих;
@@ -1268,7 +1282,7 @@ Mathematics Stack Exchange~: [сайт].~— URL: \url{https://math.stackexchang
 
 \bibitem{ShaII} Shabat, B.~V. Introduction to~complex analysis. Part~II. Functions of~several variables~/ B.~V.~Shabat; Providence : American Mathematical Society, 1992.~— 371~p.~— ISBN: 978-0-8218-1975-3.
 
-\bibitem{GelKho02} Gelfond, O.~A. Toric geometry and~Grothendieck residues~/ O.~A.~Gelfond, A.~G.~Khovanskii~//
+\bibitem{GelKho02} Gelfond, O.~A. Toric geometry and~Grothendieck residues~/ O.~A.~{Gel\-fond}, A.~G.~Khovanskii~//
 Moscow Mathematical Journal.~— 2002.~— Vol.~2.~— P.~99—112.
 
 \bibitem{Tsikh92} Tsikh, A.~K. Multidimensional Residues and~Their Applications~/ A.~K.~Tsikh; Providence : American Mathematical Society, 1992.~— 188~p.~— ISBN: 978-0-8218-4560-8.
@@ -1290,7 +1304,6 @@ The HoTT Book | Homotopy Type {The\-o\-ry}~: [сайт].~— URL: \url{https://h
 The~Department of~{Math\-e\-mat\-ics} : [сайт].~— URL: \url{https://math.stanford.edu/~ralph/morsecourse/cobordismintro%20.pdf} (дата обращения: 23.08.2022).
 
 \bibitem{Lean} Programming Language and Theorem Prover~— Lean : [сайт].~— URL: \url{https://lean-lang.org/} (дата обращения: 01.05.2024).
-
 \end{thebibliography}
 
 \label{TheEnd}
@@ -1823,7 +1836,7 @@ $\Cob_\Gamma(a, b)$ вместе со~стрелками в~определённ
       (f, g) \mapsto (g, f).
     \end{cases}
   \]
-  \item Слабая кобордантность транзитивна \cite{Weston}, поскольку если имеем $(u, v_1) \in \Cob^w(a, b)$ и~$(v_2, w) \in \Cob^w(b, c)$,
+  \item Слабая кобордантность транзитивна \cite{Weston}: если $(u,\allowbreak v_1) \in \Cob^w(a,\allowbreak b)$ и~$(v_2,\allowbreak w) \in \Cob^w(b,\allowbreak c)$,
   то $(u + v_2, v_1 + w) \in \Cob^w(a, c)$:
   \[
   \begin{aligned}
