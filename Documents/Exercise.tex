@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[a4paper,oneside]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
@@ -22,7 +22,8 @@
 
 \usepackage{stackengine}
 
-\setlength{\parindent}{0in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
 \def\paddedtext#1#2{\leavevmode\hbox to#1{\hss#2\hss}\ignorespaces}
 \def\rightpaddedtext#1#2{\leavevmode\hbox to#1{#2\hss}\ignorespaces}
@@ -79,41 +80,27 @@
 
 Группа \markedfield{ИМ20-04Б}{номер}{6pt} Направление (специальность) \markedfield{01.03.01}{код}{6pt}
 
-\markedfield{Математика}{полное наименование}{6pt}
+\uline{\hfill Математика \hfill}\par{\vspace{2pt}\centering\subscript{полное наименование}\par}
 
-\vspace{2pt}
-
-Тема выпускной квалификационной работы \uline{Алгебраические подгруппы комплексно- \hfill}
-
-\uline{го тора \hfill}
+Тема выпускной квалификационной работы \uline{Алгебраические подгруппы ком\-пле\-ксно\-го тора \hfill}
 
 Утверждена приказом по~университету № \uline{\paddedtext{1cm}{}} от \uline{\hfill}
 
-Руководитель ВКР: \uline{А. К. Цих, доктор физико-математических наук, профессор, \hfill}
+Руководитель ВКР: \uline{А. К. Цих, доктор физико-математических наук, профессор, кафедра теории функций Сибирского федерального университета \hfill}\par
+{\centering\subscript{инициалы, фамилия, должность, ученое звание и место работы}\par}
 
-\markedfield{кафедра теории функций Сибирского федерального университета}{инициалы, фамилия, должность, ученое звание и место работы}{1pt}
+Исходные данные для~ВКР:
+\uline{1.~Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ W.~M.~Schmidt~//
+       London Mathematical Society Lecture Note Series. Issue~235: Number Theory.
+       Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—187.
+       2.~Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменных~/
+       Т.~М.~Садыков, А.~К.~Цих; Москва : Наука, 2014.~— 408~с.~— ISBN: 978-5-02-039082-9. \hfill}
 
-\vspace{2pt}
-
-Исходные данные для~ВКР: \uline{1.Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ \hfill}
-
-\uline{W.~M.~Schmidt~// London Mathematical Society Lecture Note Series. Issue~235: Number \hfill}
-
-\uline{Theory. Séminaire de~théorie des~nombres de~Paris 1993–94.~— 1996.~— P.~157—187. \hfill}
-
-\uline{2.~Садыков, Т.~М. Гипергеометрические и~алгебраические функции многих переменн- \hfill}
-
-\uline{ых~/ Т.~М.~Садыков, А.~К.~Цих; Москва : Наука, 2014.~— 408~с.~— ISBN: 978-5-02-03908 \hfill}
-
-\uline{2-9. \hfill}
-
-Перечень разделов ВКР: \uline{1.~Введение. 2.~Задание алгебраических подгрупп тора. \hfill}
-
-\uline{3.~Мономиальные параметризации и~их свойства. 4.~Линейная независимость над \hfill}
-
-\uline{абелевой группой. 5.~Голоморфные характеры. 6.~Дальнейшие перспективы. \hfill}
-
-\uline{7.~Список использованных источников. 8.~Приложение. \hfill}
+Перечень разделов ВКР:
+\uline{1.~Введение. 2.~Задание алгебраических подгрупп тора.
+       3.~Мономиальные параметризации и~их свойства. 4.~Линейная независимость над
+       абелевой группой. 5.~Голоморфные характеры. 6.~Дальнейшие перспективы.
+       7.~Список использованных источников. 8.~Приложение. \hfill}
 
 Перечень графического материала: \uline{Отсутствует. \hfill}
 
