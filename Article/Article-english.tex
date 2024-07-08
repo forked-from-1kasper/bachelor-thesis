@@ -1,0 +1,393 @@
+\documentclass[twoside]{article}
+
+\usepackage{sfuEng}
+
+
+%%%%%%%%%%%%%%%%%%%%%  ЗДЕСЬ МОЖНО ПОДГРУЗИТЬ ДОПОЛНИТЕЛЬНЫЕ СТИЛЕВЫЕ ФАЙЛЫ, ЕСЛИ МАЛО УЖЕ ЗАГРУЖЕННЫХ %%%%%%%%%%%%%%%
+\usepackage{} %%% и т.д.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% ЭТА ЧАСТЬ ЗАПОЛНЯЕТСЯ РЕДАКЦИЕЙ  %%%%%%%%%%%%%%
+\setcounter{page}{258}
+
+\god{2009}
+
+\nomer{2(3)}
+
+
+\pp{258--270}                 %%%% Диапазон страниц
+
+\firstvar{10.05.2009}         %%%% Дата получения статьи
+
+\lastvar{10.06.2009}          %%%% Дата получения последнего варианта
+
+\toprint{20.06.2009}          %%%% Дата принятия к печати
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%  ЭТА ЧАСТЬ ЗАПОЛНЯЕТСЯ АВТОРОМ %%%%%%%%%%%%%%%%%
+
+\udk{512.74}
+
+ %%%%%%%%%% Название статьи
+
+\tit{Algebraic subgroups of the complex torus}
+
+
+%%%%%%%%%%%%%%%%%% Краткая аннотация
+
+\abstract{We study monomial parameterizations of~algebraic subgroups of~the~torus
+over an~arbitrary field and separately over the~field of~complex numbers. It is proved that every
+monomial parameterization defines an~algebraic group. The~necessary and~sufficient conditions for
+the~injectivity and existence of~such parameterizations are obtained.}
+
+%%%%%%%%%%%%%%%%%% Ключевые слова
+\keywords{algebraic subgroups,
+monomial parameterization, complex algebraic torus.}
+
+
+
+%%%%%%%%%% Название статьи на русском
+
+\Rustit{Алгебраические подгруппы комплексного тора}
+
+\authorRus{Николай А. Мишко}
+
+
+
+%%%%%%%%%%%%%%%%%% Краткая аннотация на английском
+
+\russianabstract{В~работе изучаются мономиальные параметризации алгебраических подгрупп тора
+над произвольным полем и отдельно над полем комплексных чисел. Доказывается, что всякая
+мономиальная параметризация определяет алгебраическую группу. Получены необходимые
+и~достаточные условия инъективности и~существования такого рода параметризаций.}
+
+%%%%%%%%%%%%%%%%%% Ключевые слова на английском
+
+\russiankeywords{алгебраические подгруппы,
+мономиальная параметризация, комплексный алгебраический тор.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitBegin %% DON'T CHANGE!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Авторы, адреса рабочие, электронные адреса%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% Заполнять в скобках:\author{Имя}{Адрес}{e-mail} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% адрес разбивать на строки c помощью \\ (см. образец)
+
+\author{Nikolay A. Mishko}
+{Siberian Federal University,\\
+Krasnoyarsk, Russia} {siegmentationfault@yandex.ru}
+
+
+
+
+
+ \maketitEnd  %% DON'T CHANGE!!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ДАЛЕЕ ТЕКСТ СТАТЬИ АВТОРА %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\p}{\partial}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\baselinestretch}{1}
+\newtheorem {theorem}{Theorem}[section]
+\newtheorem {rem}{Remark}[section]
+
+\renewcommand{\thetheorem}{\arabic{section}.\arabic{theorem}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textit{An~algebraic subgroup} of~a~group $G$ is a~subgroup endowed with an~algebraic variety structure,
+i.e.~defined by~means of~a~system of~polynomial equations. A~natural example of~the~algebraic group is a~set
+of~solutions of~a~system of~binomial equations:
+$$
+    z_1^{\alpha_1} z_2^{\alpha_2} \ldots z_n^{\alpha_n} = z_1^{\beta_1} z_2^{\beta_2} \ldots z_n^{\beta_n}.
+$$
+
+The~following theorem shows that such groups in~fact exhaust all algebraic varieties globally inheriting
+the~group structure of~the~torus $(K^\times)^n$.
+
+For~vectors $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ and~$z = (z_1, \ldots, z_n) \in G^n$ (where $G$ is~a~group)
+we write $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
+
+\medskip\noindent\textbf{Теорема} (Шмидт) \cite{Schm94}. \emph{Let $K$ be a~field. Every algebraic subgroup $H$
+    of~the~group $(K^{\times})^n$ is~defined by~a~system of~some number $N$ of~binomial equations, namely,
+    there are $N$ indices $\alpha_i, \beta_i \in \mathbb{Z}^n$ such that
+    $$
+        H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N{:}\ z^{\alpha_i} = z^{\beta_i} \}.
+    $$
+}
+
+Next we'll give a~self-contained (independent of~other major theorems) proof of~this theorem.
+For~this purpose we need an~auxiliary statement.
+
+\section*{1. Artin's theorem}
+We denote the~set of~homomorphisms between groups $G$ and~$H$ by~$\mathrm{Hom}(G, H)$.
+
+Let $G$ be a~group, $K$ be a~field, and $K^{\times}$ be its multiplicative group. Then an~arbitrary
+homomorphism $f \in \mathrm{Hom}(G, K^{\times})$ is called \textit{a~character.} The~characters $f_1, f_2, \ldots, f_n$
+are \textit{linearly independent} if
+$$
+    \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K{:}\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
+$$
+
+\noindent\textbf{Теорема} (Артин) \cite{Art48}.\emph{
+    Any $n$ pairwise distinct characters are linearly independent.
+}\medskip
+
+\noindent{\it Proof.}
+    Let us prove by induction on~the~number of~characters $n$.
+
+    Take an~arbitrary character $f$. Since it is a~homomorphism, $f(1_G) = 1$
+    where $1_G$ is a~unit in~the~group $G$. But then if $\alpha f = 0$, then
+    $\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$ what proves the~base case.
+
+    Now let the~statement of~theorem be true for any $n$ distinct characters. Let us prove
+    it for $n + 1$ characters. Let $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
+
+    Fix an~arbitrary $y \in G$. The for any $x \in G$ we have:
+    \begin{equation}\label{Artin:first}
+        \alpha_1 f_1(yx) + \alpha_2 f_2(yx) + \ldots + \alpha_n f_n(yx) + \alpha_{n + 1} f_{n + 1}(yx) = 0
+    \end{equation}
+
+    Since all $f_i$ are homomorphisms, $f_i(yx) = f_i(y) f_i(x)$, and therefore:
+    $$
+        \alpha_1 f_1(y) f_1(x) + \alpha_2 f_2(y) f_2(x) + \ldots + \alpha_n f_n(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+    $$
+
+    On the~other hand, for $x \in G$ it is also true that:
+    $$
+        \alpha_1 f_1(x) + \alpha_2 f_2(x) + \ldots + \alpha_n f_n(x) + \alpha_{n + 1} f_{n + 1}(x) = 0
+    $$
+
+    Multiplying this equation by~$f_{n + 1}(y)$, we'll get:
+    \begin{equation}\label{Artin:second}
+        \alpha_1 f_{n + 1}(y) f_1(x) + \alpha_2 f_{n + 1}(y) f_2(x) + \ldots + \alpha_n f_{n + 1}(y) f_n(x) + \alpha_{n + 1} f_{n + 1}(y) f_{n + 1}(x) = 0
+    \end{equation}
+
+    Subtracting \eqref{Artin:first} from \eqref{Artin:second}, we obtain:
+    $$
+        \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1(x) + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n(x) = 0
+    $$
+
+    $x$ was chosen arbitrarily, so we get a~linear combination of~$n$ characters:
+    $$
+        \alpha_1 (f_{n + 1}(y) - f_1(y)) f_1 + \ldots + \alpha_n (f_{n + 1}(y) - f_n(y)) f_n = 0
+    $$
+
+    But then, using the~inductive hypothesis, $\alpha_i (f_{n + 1}(y) - f_i(y)) = 0$. Now, choosing $y$
+    for each $i = 1, \ldots, n$ such that $f_{n + 1}(y) \neq f_i(y)$ (it's always possible because all $f_i$
+    are pairwise distinct), we obtain that $\alpha_1 = \alpha_2 = \ldots = \alpha_n = 0$.
+
+    Thus, given the~above, $\alpha_{n + 1} f_{n + 1} = \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
+    According to~the~base case again, $\alpha_{n + 1} = 0$.
+\hfill$\Box$
+
+\section*{2. Proof of Schmidt's theorem}
+
+\noindent{\it Proof.}
+    Let $I \subseteq \mathbb{Z}^n$ be a~finite set of~indices, and let $P_j(z) = \sum_{i \in I} a_{ji} z^i$ be the~$k$ polynomials
+    defining the~subgroup:
+    $$
+        H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
+    $$
+
+    Since $z_1^{i} z_2^{i} = (z_1 z_2)^i$, the~mapping $z \mapsto z^i$ defines character $\chi_i \in \mathrm{Hom}(H, K^{\times})$.
+
+    Consider an~equivalence relation $i \sim j \Leftrightarrow \chi_i = \chi_j$ on~the~set $I$. It partitions $I$
+    into $m$ classes $I_1$, $I_2$, \textellipsis, $I_m$. Then for~all $i_1, i_2 \in I_j$ it is true that $\chi_{i_1} = \chi_{i_2}$.
+    Let us denote this character corresponding to~each $I_k$ by~$\chi_k = \chi_{i_1} = \chi_{i_2}$.
+
+    Combining like terms at~each~$\chi_k$ in~the~polynomials $P_j$, we obtain:
+    $$
+        P_j = \sum_{i \in I} a_{ji} \chi_i = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k.
+    $$
+
+    But $P_j$ vanishes on~the~whole $H$, so:
+    $$
+        \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k = 0.
+    $$
+
+    All $\chi_k$ are pairwise distinct by~their definition, so Artin's theorem applies. We conclude that:
+    $$
+    \sum_{i \in I_k} a_{ji} = 0.
+    $$
+
+    Finally, let $N_k$ be~the~cardinality of~$I_k$, $I_k = \{i_{k, 1}, i_{k, 2}, \ldots, i_{k, N_k}\}$, and~$N = \sum_{k = 1}^m (N_k - 1)$.
+    $I_k$ were taken such that the~characters $\chi_{i_{k, i}}$ and~$\chi_{i_{k, j}}$ coincide on~$H$ for fixed $k$ and any $i$ and $j$.
+    In~other words, this means that any element $z \in H$ satisfies the~equations $z^{i_{k, i}} = z^{i_{k, j}}$ for all $1 \leq i \leq N_k$
+    and~$1 \leq j \leq N_k$.
+
+    Since the~equality is reflexive, symmetric and transitive, the~system of~all equations $z^{i_{k, i}} = z^{i_{k, j}}$
+    is equivalent to~the~system of~$N$ equations composed of~consecutive indices:
+    $$
+        z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}, \ldots, z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}, z^{i_{2, 1}} = z^{i_{2, 2}}, \ldots, z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}.
+    $$
+    We denote the~set of~solutions of~this system by~$A$.
+
+    Let us show that $A$ coincides with $H$. Indeed, let $z \in H$. Then, as noted before,
+    by~definition of~$I_k$ is is true that $z^{i_{k, j}} = \chi_k(z) = z^{i_{k, j + 1}}$;
+    that is, $z \in A$ and~$H \subseteq A$.
+
+    Conversely, let $z \in A$. Then by~definition of~$A$ we have $z^{i_{k, j_1}} = z^{i_{k, j_1 + 1}} = \ldots = z^{i_{k, j_2 - 1}} = z^{i_{k, j_2}}$
+    for all $1 \leq j_1 \leq j_2 \leq N_k$. Choose a~representative $i_k \in I_k$ in~each~$I_k$
+    and combine like terms:
+    $$
+        P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0,
+    $$
+    what means $z \in H$, that is, $A \subseteq H$.
+
+    Thus, $H = A$, so it suffices to take all the~consecutive indices from $I_k$ as $\alpha_i$ and $\beta_i$.
+\hfill$\Box$\medskip
+
+\section*{3. Injectivity of monomial parameterizations}
+
+For~an abelian group $G$ and~vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ consider the~mapping
+$\phi_\alpha(t) = (t^{\alpha_1}, t^{\alpha_2}, \ldots, t^{\alpha_n})$ from~$G^k$ to~$G^n$ where $\alpha$ is~a~matrix
+with rows $\alpha_i$. Since $(t_1 \cdot t_2)^{\alpha_i} = t_1^{\alpha_i} \cdot t_2^{\alpha_i}$,
+$\phi_\alpha$ is a~homomorphism. Further we will that if $K$ is a~field, then the~mapping $\phi_\alpha$
+for the~group $G = K^\times$ defines \textit{a~parameterization} of~some algebraic group.
+
+\medskip\noindent\textbf{Proposition.}\emph{
+    $\phi_{E} = 1_{G^n}$ where $E$ is an~$n \times n$ identity matrix, $1_X$ is~an~identity function on~$X$.
+}
+
+\medskip\noindent\textbf{Proposition.}\emph{
+    $
+        \forall \alpha \in \mathbb{Z}^{k \times m}, \beta \in \mathbb{Z}^{m \times n}{:}\ \phi_\alpha \circ \phi_\beta = \phi_{\alpha \beta}
+    $.
+}
+
+\noindent{\it Proof.}
+    Indeed, consider $t \in G^n$. Then the~$i$-th component of~$\phi_\alpha(\phi_\beta(t))$
+    is equal to $\phi_\beta^{\alpha_i}(t) = (t^{\beta_1})^{\alpha_i^1} \ldots (t^{\beta_m})^{\alpha_i^m}
+                                          = t_1^{\beta_1^1 \alpha_i^1 + \ldots + \beta_m^1 \alpha_i^m}
+                                            \ldots
+                                            t_n^{\beta_1^n \alpha_i^1 + \ldots + \beta_m^n \alpha_i^m}
+                                          = t^{(\alpha \beta)_i}$.
+\hfill$\Box$\medskip
+
+Together these two propositions constitute a~condition for functoriality. More precisely, consider the~category $\mathrm{Matr}(R)$ of~matrices over the~ring $R$
+whose objects are the~natural numbers and the~arrows between the~numbers $m$ and $n$ are the~matrices $R^{n \times m}$,
+and the~category $\mathrm{Grp}$ of~small groups with small groups as objects and homomorphisms between them as arrows.
+Then the~functor $\phi : \mathrm{Matr}(\mathbb{Z}) \rightarrow \mathrm{Grp}$ is defined:
+$$
+    \phi = \begin{cases}
+        k \mapsto G^k; \\
+        \alpha \mapsto \phi_\alpha.
+    \end{cases}
+$$
+
+As lemma~2 shows, in~fields of characteristic zero this functor is faithful.
+
+\medskip\noindent\textbf{Lemma~1.}\emph{
+    Let $K$ be a~field such that $\mathrm{char}(K) = 0$.
+    Then $K^\times$ contains an~element of~infinite order.
+}\medskip
+
+\noindent{\it Proof.}
+    Indeed, consider $2 = 1 + 1 \in K^\times$. Then for any $n > 0$:
+    $$
+        2^n - 1 = (1 + 1)^n - 1 = \sum_{k = 0}^n C^n_k 1^k 1^{n - k} - 1
+                                = \sum_{k = 0}^n C^n_k \cdot 1 - 1
+                                = \left(\sum_{k = 1}^n C^n_k \right) \cdot 1.
+    $$
+
+    On~the~right side we have the~sum of $\sum_{k = 1}^n C^n_k > 0$ units. Since $\mathrm{char}(K) = 0$,
+    it is not equal to zero, that is, $2^n - 1 \neq 0$.
+\hfill$\Box$\medskip
+
+We denote \textit{a~standard basis} over~$\mathbb{Z}^k$ by~$e_i$, that is, a~vector with one on~the~$i$-th place
+and zeroes on~the~others. We denote the~$j$-th component of~the~vector $\alpha_i$ by~$\alpha_i^j$
+and the~vector consisting of~the~$j$-th components by~$\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
+
+\medskip\noindent\textbf{Lemma~2.}\emph{
+    $
+        \mathrm{char}(K) = 0 \Rightarrow \forall \alpha, \beta \in \mathbb{Z}^{n \times k}{:} \ \phi_\alpha = \phi_\beta \Leftrightarrow \alpha = \beta
+    $.
+}\medskip
+
+\noindent{\it Proof.}
+    The~left-to-right implication is obvious.
+
+    Conversely, let $\phi_\alpha = \phi_\beta$. Using lemma~1 we fix an~element $z \in K^\times$
+    of~infinite multiplicative order. Then for all $1 \leq i \leq n$ it is true that
+    $$
+        (z^{\alpha_1^i}, \ldots, z^{\alpha_k^i}) = \phi_\alpha(z \cdot e_i) = \phi_\beta(z \cdot e_i) = (z^{\beta_1^i}, \ldots, z^{\beta_k^i}).
+    $$
+
+    Thus, $z^{\alpha_j^i} = z^{\beta_j^i}$, that is, $z^{\alpha_j^i - \beta_j^i} = 1$.
+    $z$ has infinite multiplicative order, so $\alpha_j^i - \beta_j^i = 0$.
+\hfill$\Box$\medskip
+
+It is easy to~obtain a~necessary condition for the~injectivity of the mapping $\phi_\alpha$. For this purpose,
+we note that the~following proposition is obvious.
+
+\medskip\noindent\textbf{Proposition.}\emph{
+    $\mathrm{Span}_\mathbb{Z}(\alpha_1, \ldots, \alpha_n) = \mathbb{Z}^k \Leftrightarrow \forall i{:}\ e_i \in \mathrm{Span}_\mathbb{Z}(\alpha_1, \ldots, \alpha_n)$.
+}
+
+\medskip\noindent\textbf{Lemma~3.}\emph{
+    If vectors $\alpha_i \in \mathbb{Z}^k$ span the~whole lattice $\mathbb{Z}^k$, then $\phi_\alpha$ is injective.
+}\medskip
+
+\noindent{\it Proof.}
+    $\phi_\alpha$ is a~homomorphism, so it suffices to~show that $\ker(\phi_\alpha) = \{1\}$.
+    We'll take $t \in G^k$ such that $\phi_\alpha(t) = 1$ and prove that $t = 1$.
+
+    Indeed, since $\alpha_i$ span the~whole lattice, each $e_j$ can be expressed as their linear combination:
+    $
+        e_j = b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n.
+    $
+
+    $\phi_\alpha(t) = 1$ means that $t^{\alpha_i} = 1$ for all $1 \leq i \leq n$.
+    Fix $1 \leq j \leq k$ and raise to~the power of~$b^j_i$ both sides of~this equation:
+    $t^{b^j_i \alpha_i} = (t^{\alpha_i})^{b^j_i} = 1^{b^j_i} = 1$.
+    Finally, multiply the~obtained equations:
+    $
+        t_j = t^{e_j} = t^{b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n} = t^{b^j_1 \alpha_1} \ldots t^{b^j_n \alpha_n} = 1 \cdot \ldots \cdot 1 = 1.
+    $
+\hfill$\Box$\medskip
+
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+
+\medskip
+
+\emph{This work is supported by~the~Krasnoyarsk Mathematical Center and financed
+by~the~Ministry of~Science and~Higher Education of~the~Russian Federation (Agreement No. 075-02-2024-1429).}
+
+\bigskip
+
+\begin{thebibliography}{9}
+
+\bibitem{Schm94} Schmidt, W.~M. Heights of points on subvarieties of $\mathbb{G}^n_m$~/ W.~M.~{Sch\-midt}~//
+London Mathematical Society Lecture Note Series. Issue~235: Number Theory.
+S\'eminaire de~th\'eorie des~nombres de~Paris 1993–94.~-- 1996.~-- P.~157--\allowbreak187.
+
+\bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London~: University of~Notre Dame, 1942, 1944.~-- 96~p.~-- ISBN: 978-0-486-62342-9.
+
+\bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~{con\-gru\-ences}. Philos.~/ H.J.S.~Smith~//
+Philosophical Transactions of~the~Royal Society.~-- 1861.~-- Vol.~151.~-- P.~293--326.
+
+\bibitem{TsikhSad14} Sadykov, T.~M. Multivariate Hypergeometric and~Algebraic Functions~/ T.~M.~Sadykov, A.~K.~Tsikh;
+Moscow~: Nauka, 2014.~-- 408~p.~-- ISBN: 978-5-02-039082-9.
+
+\bibitem{Brbk70} Bourbaki, N. Alg\`ebre: Chapitres 1 \`a~3. \'El\'ements de~math\'ematique~/ N.~Bourbaki; Berlin~: Springer, 2006.~-- 652~p.~-- ISBN: 978-3-540-33849-9.
+
+\end{thebibliography}
+
+\makeRusTit   %% DON'T CHANGE!!!
+\end{document}
+

@@ -1,0 +1,224 @@
+
+
+%Калибровка СР1251
+% Style for LaTeX-2e version of Siberian Federal University
+% Created by V.M. Trutnev
+% Version 1
+% 02/11/2009
+% Updated
+
+%%
+%% This is file `sfu.sty', 25.11.2009
+%%
+\ProvidesFile{sfuEng.sty}
+          [2009/11/25 v1 ]%FileInfo
+
+
+%
+\textheight = 235mm \textwidth  = 165mm
+%
+\RequirePackage{amssymb,amsmath} \RequirePackage{eufrak}
+\RequirePackage{verbatim}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T2A]{fontenc}
+\RequirePackage[russian,english]{babel}
+\RequirePackage{indentfirst}
+\RequirePackage{array}
+\RequirePackage{graphicx} \RequirePackage{ifpdf} \ifpdf
+\DeclareGraphicsRule{*}{mps}{*}{} \fi \pagestyle{plain}
+%%%%%%%%% DIMENSIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\oddsidemargin=0pt \evensidemargin=1.4truecm \voffset=0cm
+\textwidth 147mm \textheight 215mm
+\renewcommand{\baselinestretch}{1.1}   %% Don't change!!!
+%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\refname}{References}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% DEFINITION OF STYLES OF CHAPTERS
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+
+\renewcommand{\thefootnote}{ }
+%\thispagestyle{empty} \phantom{.}
+
+%\renewcommand {\thesection }{\thechapter\arabic{section}.}
+\setcounter{equation}{0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sloppy
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} % сноска в виде "*"
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  TITEL %%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+
+\long\def\tit#1{\gdef\@tit{\Large\bfseries \noindent #1}}
+\gdef\@tit{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       UDK      %%%%%%%%%%%%%%%%%%%%%%%%%
+\long\def\udk#1{\gdef\@udk{\noindent УДК #1}} \gdef\@udk{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  AUTHOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\def\author#1#2#3{
+\begin{flushright}\large
+ {\bfseries#1}\footnote{#3}\\
+{\small \mdseries #2}\\
+\end{flushright}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def\abstract#1{\gdef\@abstract{\noindent {\small
+\itshape #1} \rmfamily\normalsize\par}} \gdef\@abstract{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Keywords %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def\keywords#1{\gdef\@keywords{\noindent{\small\itshape
+Keywords: #1} \rmfamily\normalsize
+\par}}
+\gdef\@keywords{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%% NUMBER %%%%%%%%%%%%%%
+\def\nomer#1{\gdef\@nomer{#1}}
+\gdef\@nomer{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% YEAR %%%%%%%%
+
+\def\god#1{\gdef\@god{#1}}
+\gdef\@god{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% e-mail %%%%%%%%%%%
+\def\mail#1{\gdef\@mail{e-mail: #1}}
+\gdef\@mail{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PAGES       %%%%%%%
+\def\pp#1{\gdef\@pp{#1}}
+\gdef\@pp{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%% RECEIVED - DATES %%%%%%%%%%%%%%%
+
+\def\firstvar#1{\gdef\@firstvar{\footnotesize  Received  #1}}
+\gdef\@firstvar{}
+
+\def\lastvar#1{\gdef\@lastvar{\footnotesize   received in
+revised form   #1}}
+\gdef\@lastvar{}
+
+\def\toprint#1{\gdef\@toprint{\footnotesize   accepted  #1}}
+\gdef\@toprint{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITUL  %%%%%%%%%%%%
+\def\maketitBegin{
+
+\@udk
+
+\@tit
+
+\mdseries }
+
+
+
+\def\maketitEnd{
+ \centerline{\@firstvar, \@lastvar, \@toprint }
+
+\vskip 1mm \hrule \vskip 1mm
+
+\@abstract
+
+\medskip
+
+\@keywords
+
+
+ \vskip 1mm
+ \hrule
+\vspace{3ex}
+
+
+\markright{\footnotesize
+    Journal of Siberian Federal University. Mathematics  \& Physics
+\@god, \@nomer, \@pp \protect } \footnotetext[0]{\hskip
+-5mm\copyright\  Siberian Federal University. All rights
+reserved}}
+
+\renewcommand{\@oddhead}{\raisebox{0pt}[\headheight][0pt]{% начало блока
+\vbox{\hbox to\textwidth{ \strut\hfill \textrm{\rightmark}\hfill}\hrule}%
+}% конец блока
+}% конец макроопределения
+\renewcommand{\@evenhead}{\raisebox{0pt}[\headheight][0pt]{% начало блока
+\vbox{\hbox to\textwidth{ \strut\hfill \textrm{\rightmark}\hfill}\hrule}%
+}% конец блока
+}% конец макроопределения
+
+%\renewcommand{\@evenhead}{\hfil\textrm{\rightmark}\hfil} %
+\renewcommand{\@oddfoot}{\hfil\textrm{-- \thepage\ --}\hfil}%
+\renewcommand{\@evenfoot}{\hfil\textrm{-- \thepage\ --}\hfil}%
+
+
+%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    RUS_PART   %%%%%%%%%%%%%%%%%
+\long\def\Rustit#1{
+\gdef\@Rustit{\selectlanguage{russian}{\Large\bfseries \noindent #1}}%
+}
+\gdef\@Rustit{}
+\def\authorRus#1{\gdef\@authorRus{\selectlanguage{russian}
+\begin{flushright}
+\large
+ \bfseries #1
+\end{flushright}
+}}
+ \gdef\@authorRus{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% RUSSIAN VESRION ABSTRACT, KEYWORDS %%%%%%%%%%%%
+\long\def\russianabstract#1{\gdef\@russianabstract{\selectlanguage{russian}{\noindent \itshape  \small #1 } \par}}
+\gdef\@englishabstract{}
+
+
+
+\long\def\russiankeywords#1{\gdef\@russiankeywords{\selectlanguage{russian}%
+{\noindent \small \itshape Ключевые слова: #1 }  \par}}
+\gdef\@russiankeywords{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  RUSSIAN     HEADINGS             %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\makeRusTit{\selectlanguage{russian}
+\medskip
+\@Rustit
+\nopagebreak
+\@authorRus
+
+\vskip 1mm
+\hrule \vskip 1mm
+\@russianabstract
+\medskip
+\@russiankeywords
+}
+
+%%%%%%%%%%%%% END OF STYLE FILE %%%%%%%%%%%%%%%%%
+
