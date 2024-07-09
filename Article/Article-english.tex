@@ -323,6 +323,11 @@ and the~vector consisting of~the~$j$-th components by~$\alpha^j = (\alpha_1^j, \
     $z$ has infinite multiplicative order, so $\alpha_j^i - \beta_j^i = 0$.
 \hfill$\Box$\medskip
 
+We denote a~\textit{$\mathbb{Z}$-linear span} of~$\alpha_1$, $\ldots$, $\alpha_n$
+by~$\mathrm{Span}_\mathbb{Z}(\alpha_1, \ldots, \alpha_n) = \{ k_1 \alpha_1 + \ldots + k_n \alpha_n \ | \ k_1,\allowbreak \ldots,\allowbreak k_n \in \mathbb{Z} \}$.
+We say that $\alpha_1$, $\ldots$, $\alpha_n$ span the~whole lattice $\mathbb{Z}^k$ if
+$\mathrm{Span}_\mathbb{Z}(\alpha_1, \ldots, \alpha_n) = \mathbb{Z}^k$.
+
 It is easy to~obtain a~necessary condition for the~injectivity of the mapping $\phi_\alpha$. For this purpose,
 we note that the~following proposition is obvious.
 
@@ -351,6 +356,77 @@ we note that the~following proposition is obvious.
         t_j = t^{e_j} = t^{b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n} = t^{b^j_1 \alpha_1} \ldots t^{b^j_n \alpha_n} = 1 \cdot \ldots \cdot 1 = 1.
     $
 \hfill$\Box$\medskip
+
+Now we will show that the~obtained necessary condition is also sufficient for~the~group $G = {\mathbb{C}^\times}$.
+
+We will use the~existence of~\textit{Smith's normal form} for~integer matrices \cite{Smth60}.
+Let $\mathrm{diag}^{m \times n}_r(x_1,\allowbreak \ldots,\allowbreak x_r)$ be a~diagonal matrix $\mathrm{diag}(x_1,\allowbreak \ldots,\allowbreak x_r)$
+augmented (or cut off) from the~bottom right by~zeroes to a~matrix of size $m \times n$.
+
+\medskip\noindent\textbf{Theorem} (on~the~existence of~Smith's normal form).\emph{
+    $$
+        \forall \alpha \in \mathbb{Z}^{m \times n}{:}\
+        \exists \beta_1 \in \mathrm{GL}^m(\mathbb{Z}), \beta_2 \in \mathrm{GL}^n(\mathbb{Z}){:} \
+        \exists \varepsilon_1, \ldots, \varepsilon_r \in \mathbb{Z} \setminus \{0\}{:} \
+        \beta_1 \alpha \beta_2 = \mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
+    $$
+    where $\varepsilon_1 \mid \varepsilon_2 \mid \ldots \mid \varepsilon_r$ (the so~called invariant factors) and~$r = \mathrm{rank}(\alpha)$.
+}\medskip
+
+Since the numbers $\varepsilon_1$, $\ldots$, $\varepsilon_r$ are chosen in~a~unique way up to~the~invertible element,
+that is, up to $\pm 1$ in~case of~$\mathbb{Z}$, we can always choose them positive. For them we denote
+the~matrix $\mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$ by~$\mathrm{SNF}(\alpha)$.
+
+In~addition, since $\phi$ defines the~functor, it is clear that $\phi_\beta$ is bijective if $\beta \in \mathrm{GL}^n(\mathbb{Z})$.
+Indeed, $\phi_\beta \circ \phi_{\beta^{-1}} = \phi_{\beta \beta^{-1}} = \phi_E = 1_{(K^\times)^n}$
+and~$\phi_{\beta^{-1}} \circ \phi_\beta = \phi_{\beta^{-1} \beta} = \phi_E = 1_{(K^\times)^n}$. Therefore,
+the~following lemma holds.
+
+\medskip\noindent\textbf{Lemma~4.}\emph{
+    $\phi_\alpha : (\mathbb{C}^\times)^k \rightarrow (\mathbb{C}^\times)^n$ is injective if and only if
+    $$
+        \mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_k(1, 1, \ldots, 1).
+    $$
+}
+
+\noindent{\it Proof.}
+    Using the~theorem, let us take unimodular matrices $\beta_1 \in \mathrm{GL}^n(\mathbb{Z})$ and~$\beta_2 \in \mathrm{GL}^k(\mathbb{Z})$
+    such that $\beta_1 \alpha \beta_2 = \mathrm{SNF}(\alpha)$.
+    Then, $\alpha = \beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}$ and~$\phi_\alpha = \phi_{\beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}}
+                                                                                    = \phi_{\beta_1^{-1}} \circ \phi_{\mathrm{SNF}(\alpha)} \circ \phi_{\beta_2^{-1}}$.
+
+    Since, by~the~remark above, $\phi_{\beta_1^{-1}}$ and~$\phi_{\beta_2^{-1}}$ are bijective, $\phi_\alpha$ is injective if and only if
+    $\phi_{\mathrm{SNF(\alpha)}}$ is injective.
+
+    $\phi_{\mathrm{SNF(\alpha)}}(t_1, \ldots, t_k) = (t_1^{\varepsilon_1}, \ldots, t_r^{\varepsilon_r}, 1, \ldots, 1)$, but $t \mapsto t^\varepsilon$
+    is injective over $\mathbb{C}^\times$ only if $\varepsilon = \pm 1$ (otherwise $t^\varepsilon = t^\varepsilon \cdot 1 = t^\varepsilon \cdot u^\varepsilon = (tu)^\varepsilon$
+    where $u \neq 1$ is~a~nontrivial $\varepsilon$-th root of~unity).
+    By~choice of~signs, $\phi_{\mathrm{SNF(\alpha)}}$ is injective only if $\varepsilon_1 = \ldots = \varepsilon_r = 1$
+    and~$r = k \leq n$.
+\hfill$\Box$\medskip
+
+Let us formulate one more auxiliary theorem \cite{TsikhSad14}.
+
+\medskip\noindent\textbf{Theorem~1.}\emph{
+    Let $\alpha \in \mathbb{Z}^{n \times k}$. The~following statements are equivalent:
+    \begin{enumerate}
+        \item The~rows of~the~matrix $\alpha$ span the~whole lattice $\mathbb{Z}^k$.
+        \item The~minors of~the~maximum order of~the~matrix $\alpha$ are coprime.
+        \item $\mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_k(1, \ldots, 1)$.
+    \end{enumerate}
+}
+
+Thus, from lemma~4 and~theorem~1 we obtain a~necessary and~sufficient condition for~the~injectivity of~$\phi_\alpha$.
+
+\medskip\noindent\textbf{Theorem.}\emph{
+    $\phi_\alpha$ is injective over the~field $K = \mathbb{C}$ if and only if $\alpha_i$ span the~whole lattice $\mathbb{Z}^k$.
+}
+
+\section*{4. Monomial parameterizability of~torus subgroups}
+
+As in~the~case of~the~theory of~curves and surfaces, we say that a~subgroup of~an~algebraic torus
+is \textit{parameterizable} if it can be represented as an~image of~some mapping. Similarly, a~subgroup
+is \textit{monomially parameterizable} if it can be represented as an~image of~$\phi_\alpha$ for some matrix $\alpha$.
 
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
