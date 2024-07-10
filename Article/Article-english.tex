@@ -142,7 +142,7 @@ $$
     Let us prove by induction on~the~number of~characters $n$.
 
     Take an~arbitrary character $f$. Since it is a~homomorphism, $f(1_G) = 1$
-    where $1_G$ is a~unit in~the~group $G$. But then if $\alpha f = 0$, then
+    where $1_G$ is an~identity element in~the~group $G$. But then if $\alpha f = 0$, then
     $\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$ what proves the~base case.
 
     Now let the~statement of~theorem be true for any $n$ distinct characters. Let us prove
@@ -359,11 +359,11 @@ we note that the~following proposition is obvious.
 
 Now we will show that the~obtained necessary condition is also sufficient for~the~group $G = {\mathbb{C}^\times}$.
 
-We will use the~existence of~\textit{Smith's normal form} for~integer matrices \cite{Smth60}.
+We will use the~existence of~\textit{Smith normal form} for~integer matrices \cite{Smth60}.
 Let $\mathrm{diag}^{m \times n}_r(x_1,\allowbreak \ldots,\allowbreak x_r)$ be a~diagonal matrix $\mathrm{diag}(x_1,\allowbreak \ldots,\allowbreak x_r)$
 augmented (or cut off) from the~bottom right by~zeroes to a~matrix of size $m \times n$.
 
-\medskip\noindent\textbf{Theorem} (on~the~existence of~Smith's normal form).\emph{
+\medskip\noindent\textbf{Theorem} (on~the~existence of~Smith normal form).\emph{
     $$
         \forall \alpha \in \mathbb{Z}^{m \times n}{:}\
         \exists \beta_1 \in \mathrm{GL}^m(\mathbb{Z}), \beta_2 \in \mathrm{GL}^n(\mathbb{Z}){:} \
@@ -425,12 +425,12 @@ Thus, from lemma~4 and~theorem~1 we obtain a~necessary and~sufficient condition 
 \section*{4. Monomial parameterizability of~torus subgroups}
 
 As in~the~case of~the~theory of~curves and surfaces, we say that a~subgroup of~an~algebraic torus
-is \textit{parameterizable} if it can be represented as an~image of~some mapping. Similarly, a~subgroup
-is \textit{monomially parameterizable} if it can be represented as an~image of~$\phi_\alpha$ for some matrix $\alpha$.
+is \textit{parameterizable} if it can be expressed as an~image of~some mapping. Similarly, a~subgroup
+is \textit{monomially parameterizable} if it can be expressed as an~image of~$\phi_\alpha$ for some matrix $\alpha$.
 
 Since $\phi_\alpha$ is the~homomorphism, its image $\mathrm{Im}(\phi_\alpha)$ is a~subgroup in~$(K^\times)^n$.
 Next we'll study two questions: whether $\mathrm{Im}(\phi_\alpha)$ is an~algebraic subgroup and whether
-any algebraic subgroup is represented by~some $\phi_\alpha$.
+any algebraic subgroup is expressed by~some $\phi_\alpha$.
 
 For this, first of all, we note that the~system of binomial equations $z^{\beta'_i} = z^{\beta''^i}$ is equivalent
 to~the system $z^{\beta'_i - \beta''_i} = 1$, that is, exactly the~kernel of the~operator $\phi_{\beta'_i - \beta''_i}$;
@@ -449,7 +449,7 @@ to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xr
 \hfill$\Box$\medskip
 
 \medskip\noindent\textbf{Lemma~6.}\emph{
-    $\phi_\alpha$ for $\alpha \in \mathbb{Z}^{n \times k}$ can be represented as some image $\mathrm{Im}(\phi_\beta)$
+    $\phi_\alpha$ for $\alpha \in \mathbb{Z}^{n \times k}$ can be expressed as some image $\mathrm{Im}(\phi_\beta)$
     if the~mappings $g \mapsto g^{\varepsilon_i}$ are surjective in~$G$ for all $\varepsilon_i$ из~$\mathrm{SNF}(\alpha)$.
 }\medskip
 
@@ -517,6 +517,127 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 \medskip\noindent\textbf{Lemma~7.}\emph{
     If $\Pi(\beta) = 1$, then there is $\alpha$ such that $\ker(\phi_\beta) = \mathrm{Im}(\phi_\alpha)$.
 }\medskip
+
+\noindent{\it Proof.}
+    Let $H = \ker(\phi_\beta)$. Without loss of generality, we assume that the~rows of~the~matrix $\beta$ are linearly independent
+    over $Z$ (it is clear that the~rows expressed as a~linear combination of~the~other rows can be removed from the~matrix $\beta$
+    without changing the~kernel).
+
+    Let us write the~Smith normal form for $\beta$: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$.
+    Since, according to~the~remark above, $\beta$ has full rank, the~matrix $\varepsilon$ has no zero rows.
+    Furthermore, $\Pi(\beta) = 1$, so $|\omega_K(\varepsilon_i)| = 1$, that is, the~equations $z^{\varepsilon_i} = 1$
+    have only $z = 1$ as a~solution.
+
+    The~kernel of~$\varepsilon$ is given by~vectors of~the~form $(0,\allowbreak \ldots,\allowbreak 0,\allowbreak t_{k + 1},\allowbreak \ldots, t_{n})$.
+    Consider a~matrix $\delta \in \mathbb{Z}^{n \times (n - k)}$ corresponding to~the~linear operator
+    $$
+        (t_1, \ldots, t_{n - k}) \mapsto (0, \ldots, 0, t_1, \ldots, t_{n - k}).
+    $$
+
+    Let also $\alpha = \beta_2 \delta$. We'll prove that $\mathrm{Im}(\phi_\alpha) = \ker(\phi_\beta)$.
+
+    Indeed, by~definition of~$\delta$ it holds that $\delta$, $\varepsilon \delta = 0$, so $\phi_{\beta} \circ \phi_{\alpha} = \phi_{\beta_1^{-1} \varepsilon \beta_2^{-1} \beta_2 \delta} = \phi_{\beta_1^{-1} \varepsilon \delta} = \phi_{0} = 1$,
+    that is, $\mathrm{Im}(\phi_{\alpha}) \subseteq \ker(\phi_{\beta})$.
+
+    Conversely, let $z \in \ker(\phi_\beta)$. Then $\phi_{\beta_1^{-1}} (\phi_{\varepsilon \beta_2^{-1}}(z)) = \phi_\beta(z) = 1$,
+    so $\phi_{\varepsilon}(\phi_{\beta_2^{-1}}(z)) = \phi_{\varepsilon \beta_2^{-1}}(z) = \phi_{\beta_1}(1) = 1$.
+    From the~form of~the~matrix $\varepsilon$ we obtain that
+    $
+        \phi_{\beta_2^{-1}}(z) = (1,\allowbreak \ldots,\allowbreak 1,\allowbreak t_{k + 1},\allowbreak \ldots, t_n) = \phi_\delta(t_{k + 1}, \ldots, t_n)
+    $; that is, $z = \phi_{\beta_2}(\phi_\delta(t_{k + 1}, \ldots, t_n)) = \phi_\alpha(t_{k + 1}, \ldots, t_n)$ for~some $t_j$.
+    Thus, $z \in \mathrm{Im}(\phi_\alpha)$ and $\ker(\phi_\beta) \subseteq \mathrm{Im}(\phi_\alpha)$.
+\hfill$\Box$\medskip
+
+\medskip\noindent\textbf{Теорема 3.}\emph{
+    The~number of~connected components of~$\ker(\phi_\beta) \subseteq ({\mathbb{C}^\times})^n$ is equal to~$\Pi(\beta)$.
+}\medskip
+
+\noindent{\it Proof.}
+    Consider again the~Smith normal form of~$\beta$: $\beta$ = $\beta_1^{-1} \varepsilon \beta_2^{-1}$.
+    $\phi_{\beta_1^{-1}}$ is isomorphism, so $\ker(\phi_{\beta}) = \ker(\phi_{\varepsilon \beta_2^{-1}})$.
+
+    We denote the~rows of~$\beta_2^{-1}$ by~$b_i$. For a~vector $u \in \omega(\varepsilon)$ consider
+    the~set $H_u = \{z \in ({\mathbb{C}^\times})^n \ | \ \forall 1 \leq i \leq r{:}\ z^{b_i} = u_i\}$.
+    The~condition $\phi_\varepsilon(\phi_{\beta_2^{-1}}(z)) = 1$ is obviously equivalent to~the~condition
+    $\exists u \in \omega(\varepsilon){:}\ z \in H_u$. Clearly, the~sets $H_u$ are disjunctive,
+    so $\ker(\phi_{\beta})$ decomposes into a~disjunctive union:
+    $
+        \ker(\phi_{\beta}) = \bigsqcup_{u \in \omega(\varepsilon)} H_u.
+    $
+    There are exactly $\Pi(\beta)$ vectors $u \in \omega(\varepsilon)$, so it suffices to~show that
+    each component $H_u$ is connected.
+
+    Since, by~definition, $H_1 = \ker(\phi_{\delta \beta_2^{-1}})$ where $\delta = \mathrm{diag}^{k \times n}_r(1, \ldots, 1)$
+    and $\Pi(\delta \beta_2^{-1}) = 1$, the~component $H_1$ is connected by~the~remark.
+
+    Fix $u$ and consider the~matrix $\tau = \mathrm{diag}(1 / u_1, \ldots, 1 / u_r, 1, \ldots, 1)$
+    and~the~mapping $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
+    $\psi$ is a~continuous bijection, moreover, $\psi^{-1} = \phi_{\beta_2} \circ \phi_{\tau^{-1}} \circ \phi_{\beta_2^{-1}}$.
+
+    By~definition, $\phi_{\beta_2^{-1}}(\psi(z)) = \phi_{\tau \beta_2^{-1}}(z)$. So if $z \in H_u$,
+    then $\psi(z)^{b_i} = z^{b_i} / u_i = u_i / u_i = 1$. Conversely, if $z \in H_1$, then $\psi^{-1}(z)^{b_i} = u_i z^{b_i} = u_i$.
+    Thus, $\psi(H_u) = H_1$, that is, $H_u$ is homeomorphic to~$H_1$, but $H_1$ is connected.
+\hfill$\Box$\medskip
+
+As we saw before, any algebraic subgroup $H$ of the~torus $(K^\times)^n$ can be expressed as $\ker(\phi_\beta)$
+for some $\beta$. Notice that $\Pi(\beta)$ does not depend on~the~choice of~$\beta$ for~the~group $H$.
+
+\medskip\noindent\textbf{Theorem~4.}\emph{
+    If $\mathrm{char}(K) = 0$ and $\ker(\phi_{\beta}) = \ker(\phi_{\beta'})$, then $\Pi(\beta) = \Pi(\beta')$.
+}\medskip
+
+\noindent{\it Proof.}
+    Let us write down the~Smith normal forms: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$
+    and~$\beta' = {\beta'}_1^{-1} \varepsilon' {\beta'}_2^{-1}$. So we have: $\ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\beta}) = \ker(\phi_{\beta'}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$.
+
+    Let $\varepsilon = \mathrm{diag}^{k \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$
+    and~$\varepsilon' = \mathrm{diag}^{k' \times n}_{r'}(\varepsilon'_1, \ldots, \varepsilon'_r)$.
+    We write $\delta = \mathrm{diag}^{k \times n}_r(1, \ldots, 1)$ and~$\delta' = \mathrm{diag}^{k' \times n}_{r'}(1, \ldots, 1)$.
+
+    Since $\Pi(\delta \beta_2^{-1}) = \Pi(\delta' {\beta'}_2^{-1}) = 1$, both groups are parameterized
+    according to~lemma~7 by~some $\phi_\alpha$ и~$\phi_{\alpha'}$ respectively.
+
+    $\mathrm{Im}(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
+    so $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$. Using lemma~2, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
+    Multiplying both sides of~the~equality by~the~matrix $\mathrm{diag}(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$
+    one obtains that $\delta' {\beta'}_2^{-1} \alpha = 0$; but this means that $\ker(\phi_{\delta \beta_2^{-1}}) = \mathrm{Im}(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+    Similarly we get the~converse inclusion. Thus, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
+
+    Consider the~quotient group $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
+    also called \textit{the~component group.} The~mapping $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$
+    induces an~injective homomorphism from the~quotient. In addtion, in~the~theorem~3 the~bijection between the~components $H_u$
+    was constructed (it generalises unchanged to~the~case of~an~arbitrary field $K$), and hence they are all nonempty.
+    This means that $\phi_{\delta \beta_2^{-1}}$ is surjective, so the~induced mapping is also surjective.
+    The~reasoning is similar for~the~group $\omega_K(\varepsilon')$. Thus, we have a~chain of~isomorphisms:
+    $$
+        \omega(\varepsilon) \cong \ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}}) \cong \omega(\varepsilon').
+    $$
+
+    Isomorphic groups have the~same order, and hence $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$.
+\hfill$\Box$\medskip
+
+Finally, for any algebraic subgroup $H$ of~the~torus we can define a~number $\Pi(H)$ equal to~$\Pi(\beta)$
+for any $\beta$ such that $H = \ker(\phi_\beta)$.
+
+Now for any algebraic subgroup $H \subseteq (\mathbb{C}^\times)^n$ we defined \textit{the~identity component} $H^\circ$
+as a~connected component containing an~identity element of~the~group $H$. It follows from theorem~3
+that $\Pi(H^\circ) = 1$. Thus, the~following statements are proved.
+
+\medskip\noindent\textbf{Theorem~5.}\emph{
+    An~algebraic subgroup $H$ of~the~torus $(K^\times)^n$ is parameterizable if and only if $\Pi(H) = 1$.
+}
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    An~algebraic subgroup $H$ of~the~torus $(\mathbb{C}^\times)^n$ is parameterizable if and only if it is connected.
+}
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    Every algebraic subgroup $H$ of~the~torus $(\mathbb{C}^\times)^n$ contains a~parameterizable subgroup $H^\circ$ of~the~same dimension.
+}\medskip
+
+\noindent{\it Proof.}
+    All components of~$H$ are homeomorphic, what immediately proves the~theorem.
+\hfill$\Box$\medskip
 
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
