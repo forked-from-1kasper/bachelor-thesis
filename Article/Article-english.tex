@@ -639,6 +639,80 @@ that $\Pi(H^\circ) = 1$. Thus, the~following statements are proved.
     All components of~$H$ are homeomorphic, what immediately proves the~theorem.
 \hfill$\Box$\medskip
 
+\section*{5. Linear independence over an~abelian group}
+
+In~any abelian group $G$ there is naturally defined multiplication by~integers.
+For a~vector $\alpha = (\alpha_1, \ldots, \alpha_k) \in \mathbb{Z}^k$ and~element $g \in G$
+by~$g \alpha$ we mean the~vector $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$. We say that
+the~collection of~vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ is \textit{linearly independent
+over an~abelian group} if
+$$
+    \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0.
+$$
+
+We see that the~linear independence of~vectors from $\mathbb{Z}^k$ over the~additive group of~the~field $\mathbb{R}$
+is equivalent to~the~ordinary linear independence in~the~vector space $\mathbb{R}^k$. However, for example,
+$\mathbb{R} / 2 \pi \mathbb{Z}$, as it is known, has no ring structure, so it makes no sense
+to~talk about the~$\mathbb{R} / 2 \pi \mathbb{Z}$-module $(\mathbb{R} / 2 \pi \mathbb{Z})^k$,
+as well as about linear independence in it.
+
+Let us immediately show how this definition is related to~the~studied parameterizations $\phi_\alpha$.
+
+\medskip\noindent\textbf{Theorem~6.}\emph{
+    $\phi_\alpha : G^k \rightarrow G^n$ is injective if and only if $\alpha^j$ are linearly independent over the~group $G$.
+}\medskip
+
+\noindent{\it Proof.} It follows directly from the~fact that injectivity of~a~homomorphism is equivalent to the~triviality of~its kernel.
+\hfill$\Box$\medskip
+
+Next, we need two general lemmas.
+
+\medskip\noindent\textbf{Lemma~8.}\emph{
+    Let $G$ and~$H$ be abelian groups. $\mu_1,\allowbreak \ldots,\allowbreak \mu_n \in \mathbb{Z}^k$ are linearly independent
+    over~$G \times H$ if and only if the are linearly independent over~$G$ and~over~$H$.
+}\medskip
+
+\noindent{\it Proof.}
+    The~elements of~$G \times H$ can be expressed as pairs $(g, h)$ where $g \in G$ and~$h \in H$,
+    so linear independence over~$G \times H$ can be written as:
+    $$
+        \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
+    $$
+    Furthermore, it is clear that
+    $$
+        (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Leftrightarrow g_1 \mu_1 + \ldots + g_n \mu_n = 0 \wedge h_1 \mu_1 + \ldots + h_n \mu_n = 0,
+    $$
+    as well as
+    $$
+        (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
+    $$
+
+    By~fixing $g_1 = \ldots = g_n = 0$ and~then $h_1 = \ldots = h_n = 0$, we'll obtain the~left-to-right
+    implication. The~right-to-left implication is obvious.
+\hfill$\Box$\medskip
+
+\medskip\noindent\textbf{Lemma~9.}\emph{
+    Let $G$ and~$H$ be abelian groups, $f : G \rightarrow H$ be an~isomorphism. Then $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$
+    are linearly independent over~$G$ if and only if they are linearly independent over~$H$.
+}\medskip
+
+\noindent{\it Proof.}
+    Since $f$ is an~isomorphic, we obtain a~chain of~equivalences:
+    \begin{align*}
+                       &\ \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
+        \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1) \alpha_1 + \ldots + f(g_n) \alpha_n = 0 \Rightarrow f(g_1) = \ldots = f(g_n) = 0 \\
+        \Leftrightarrow&\ \forall h_1, \ldots, h_n \in H{:}\ h_1 \alpha_1 + \ldots + h_n \alpha_n = 0 \Rightarrow h_1 = \ldots = h_n = 0.
+        \tag*{$\Box$}
+    \end{align*}
+{}
+
+Applying the~lemmas, we obtain the~injectivity criterion for~the~case $K = \mathbb{C}$.
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    $\phi_\alpha$ is injective if and only if $\alpha^j$ are linearly independent over the~groups $\mathbb{R}$ and~$\mathbb{R} / 2 \pi \mathbb{Z}$.
+}\medskip
+
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
