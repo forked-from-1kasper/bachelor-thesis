@@ -37,7 +37,7 @@
 
 \abstract{We study monomial parameterizations of~algebraic subgroups of~the~torus
 over an~arbitrary field and separately over the~field of~complex numbers. It is proved that every
-monomial parameterization defines an~algebraic group. The~necessary and~sufficient conditions for
+monomial parameterization defines an~algebraic group. The~necessary and sufficient conditions for
 the~injectivity and existence of~such parameterizations are obtained.}
 
 %%%%%%%%%%%%%%%%%% Ключевые слова
@@ -100,21 +100,21 @@ Krasnoyarsk, Russia} {siegmentationfault@yandex.ru}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textit{An~algebraic subgroup} of~a~group $G$ is a~subgroup endowed with an~algebraic variety structure,
-i.e.~defined by~means of~a~system of~polynomial equations. A~natural example of~the~algebraic group is a~set
-of~solutions of~a~system of~binomial equations:
+\textit{An~algebraic subgroup} of a~group $G$ is a~subgroup endowed with an~algebraic variety structure,
+i.e.~defined by~means of a~system of polynomial equations. A~natural example of the~algebraic group is a~set
+of solutions of a~system of binomial equations:
 $$
     z_1^{\alpha_1} z_2^{\alpha_2} \ldots z_n^{\alpha_n} = z_1^{\beta_1} z_2^{\beta_2} \ldots z_n^{\beta_n}.
 $$
 
 The~following theorem shows that such groups in~fact exhaust all algebraic varieties globally inheriting
-the~group structure of~the~torus $(K^\times)^n$.
+the~group structure of the~torus $(K^\times)^n$.
 
-For~vectors $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ and~$z = (z_1, \ldots, z_n) \in G^n$ (where $G$ is~a~group)
+For~vectors $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ and $z = (z_1, \ldots, z_n) \in G^n$ (where $G$ is~a~group)
 we write $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
 
 \medskip\noindent\textbf{Теорема} (Шмидт) \cite{Schm94}. \emph{Let $K$ be a~field. Every algebraic subgroup $H$
-    of~the~group $(K^{\times})^n$ is~defined by~a~system of~some number $N$ of~binomial equations, namely,
+    of the~group $(K^{\times})^n$ is~defined by~a~system of~some number $N$ of binomial equations, namely,
     there are $N$ indices $\alpha_i, \beta_i \in \mathbb{Z}^n$ such that
     $$
         H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq i \leq N{:}\ z^{\alpha_i} = z^{\beta_i} \}.
@@ -125,7 +125,7 @@ Next we'll give a~self-contained (independent of~other major theorems) proof of~
 For~this purpose we need an~auxiliary statement.
 
 \section*{1. Artin's theorem}
-We denote the~set of~homomorphisms between groups $G$ and~$H$ by~$\mathrm{Hom}(G, H)$.
+We denote the~set of homomorphisms between groups $G$ and $H$ by~$\mathrm{Hom}(G, H)$.
 
 Let $G$ be a~group, $K$ be a~field, and $K^{\times}$ be its multiplicative group. Then an~arbitrary
 homomorphism $f \in \mathrm{Hom}(G, K^{\times})$ is called \textit{a~character.} The~characters $f_1, f_2, \ldots, f_n$
@@ -139,13 +139,13 @@ $$
 }\medskip
 
 \noindent{\it Proof.}
-    Let us prove by induction on~the~number of~characters $n$.
+    Let us prove by induction on~the~number of characters $n$.
 
     Take an~arbitrary character $f$. Since it is a~homomorphism, $f(1_G) = 1$
-    where $1_G$ is an~identity element in~the~group $G$. But then if $\alpha f = 0$, then
+    where $1_G$ is an~identity element in the~group $G$. But then if $\alpha f = 0$, then
     $\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$ what proves the~base case.
 
-    Now let the~statement of~theorem be true for any $n$ distinct characters. Let us prove
+    Now let the~statement of theorem be true for any $n$ distinct characters. Let us prove
     it for $n + 1$ characters. Let $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
 
     Fix an~arbitrary $y \in G$. The for any $x \in G$ we have:
@@ -189,7 +189,7 @@ $$
 \section*{2. Proof of Schmidt's theorem}
 
 \noindent{\it Proof.}
-    Let $I \subseteq \mathbb{Z}^n$ be a~finite set of~indices, and let $P_j(z) = \sum_{i \in I} a_{ji} z^i$ be the~$k$ polynomials
+    Let $I \subseteq \mathbb{Z}^n$ be a~finite set of indices, and let $P_j(z) = \sum_{i \in I} a_{ji} z^i$ be the~$k$ polynomials
     defining the~subgroup:
     $$
         H = \{ z \in (K^{\times})^n\ |\ \forall 1 \leq j \leq k{:}\ P_j(z) = 0 \}.
@@ -201,7 +201,7 @@ $$
     into $m$ classes $I_1$, $I_2$, \textellipsis, $I_m$. Then for~all $i_1, i_2 \in I_j$ it is true that $\chi_{i_1} = \chi_{i_2}$.
     Let us denote this character corresponding to~each $I_k$ by~$\chi_k = \chi_{i_1} = \chi_{i_2}$.
 
-    Combining like terms at~each~$\chi_k$ in~the~polynomials $P_j$, we obtain:
+    Combining like terms at~each~$\chi_k$ in the~polynomials $P_j$, we obtain:
     $$
         P_j = \sum_{i \in I} a_{ji} \chi_i = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) \chi_k.
     $$
@@ -216,24 +216,24 @@ $$
     \sum_{i \in I_k} a_{ji} = 0.
     $$
 
-    Finally, let $N_k$ be~the~cardinality of~$I_k$, $I_k = \{i_{k, 1}, i_{k, 2}, \ldots, i_{k, N_k}\}$, and~$N = \sum_{k = 1}^m (N_k - 1)$.
-    $I_k$ were taken such that the~characters $\chi_{i_{k, i}}$ and~$\chi_{i_{k, j}}$ coincide on~$H$ for fixed $k$ and any $i$ and $j$.
+    Finally, let $N_k$ be~the~cardinality of~$I_k$, $I_k = \{i_{k, 1}, i_{k, 2}, \ldots, i_{k, N_k}\}$, and $N = \sum_{k = 1}^m (N_k - 1)$.
+    $I_k$ were taken such that the~characters $\chi_{i_{k, i}}$ and $\chi_{i_{k, j}}$ coincide on~$H$ for fixed $k$ and any $i$ and $j$.
     In~other words, this means that any element $z \in H$ satisfies the~equations $z^{i_{k, i}} = z^{i_{k, j}}$ for all $1 \leq i \leq N_k$
-    and~$1 \leq j \leq N_k$.
+    and $1 \leq j \leq N_k$.
 
     Since the~equality is reflexive, symmetric and transitive, the~system of~all equations $z^{i_{k, i}} = z^{i_{k, j}}$
-    is equivalent to~the~system of~$N$ equations composed of~consecutive indices:
+    is equivalent to~the~system of~$N$ equations composed of consecutive indices:
     $$
         z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}, \ldots, z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}, z^{i_{2, 1}} = z^{i_{2, 2}}, \ldots, z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}.
     $$
-    We denote the~set of~solutions of~this system by~$A$.
+    We denote the~set of solutions of~this system by~$A$.
 
     Let us show that $A$ coincides with $H$. Indeed, let $z \in H$. Then, as noted before,
     by~definition of~$I_k$ is is true that $z^{i_{k, j}} = \chi_k(z) = z^{i_{k, j + 1}}$;
-    that is, $z \in A$ and~$H \subseteq A$.
+    that is, $z \in A$ and $H \subseteq A$.
 
     Conversely, let $z \in A$. Then by~definition of~$A$ we have $z^{i_{k, j_1}} = z^{i_{k, j_1 + 1}} = \ldots = z^{i_{k, j_2 - 1}} = z^{i_{k, j_2}}$
-    for all $1 \leq j_1 \leq j_2 \leq N_k$. Choose a~representative $i_k \in I_k$ in~each~$I_k$
+    for all $1 \leq j_1 \leq j_2 \leq N_k$. Choose a~representative $i_k \in I_k$ in each~$I_k$
     and combine like terms:
     $$
         P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0,
@@ -245,7 +245,7 @@ $$
 
 \section*{3. Injectivity of monomial parameterizations}
 
-For~an abelian group $G$ and~vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ consider the~mapping
+For~an abelian group $G$ and vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ consider the~mapping
 $\phi_\alpha(t) = (t^{\alpha_1}, t^{\alpha_2}, \ldots, t^{\alpha_n})$ from~$G^k$ to~$G^n$ where $\alpha$ is~a~matrix
 with rows $\alpha_i$. Since $(t_1 \cdot t_2)^{\alpha_i} = t_1^{\alpha_i} \cdot t_2^{\alpha_i}$,
 $\phi_\alpha$ is a~homomorphism. Further we will that if $K$ is a~field, then the~mapping $\phi_\alpha$
@@ -281,7 +281,7 @@ $$
     \end{cases}
 $$
 
-As lemma~2 shows, in~fields of characteristic zero this functor is faithful.
+As lemma~2 shows, in fields of characteristic zero this functor is faithful.
 
 \medskip\noindent\textbf{Lemma~1.}\emph{
     Let $K$ be a~field such that $\mathrm{char}(K) = 0$.
@@ -300,9 +300,9 @@ As lemma~2 shows, in~fields of characteristic zero this functor is faithful.
     it is not equal to zero, that is, $2^n - 1 \neq 0$.
 \hfill$\Box$\medskip
 
-We denote \textit{a~standard basis} over~$\mathbb{Z}^k$ by~$e_i$, that is, a~vector with one on~the~$i$-th place
-and zeroes on~the~others. We denote the~$j$-th component of~the~vector $\alpha_i$ by~$\alpha_i^j$
-and the~vector consisting of~the~$j$-th components by~$\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
+We denote \textit{a~standard basis} over $\mathbb{Z}^k$ by~$e_i$, that is, a~vector with one on~the~$i$-th place
+and zeroes on~the~others. We denote the~$j$-th component of the~vector $\alpha_i$ by~$\alpha_i^j$
+and the~vector consisting of the~$j$-th components by~$\alpha^j = (\alpha_1^j, \alpha_2^j, \ldots, \alpha_n^j)$.
 
 \medskip\noindent\textbf{Lemma~2.}\emph{
     $
@@ -359,27 +359,27 @@ we note that the~following proposition is obvious.
 
 Now we will show that the~obtained necessary condition is also sufficient for~the~group $G = {\mathbb{C}^\times}$.
 
-We will use the~existence of~\textit{Smith normal form} for~integer matrices \cite{Smth60}.
+We will use the~existence of \textit{Smith normal form} for~integer matrices \cite{Smth60}.
 Let $\mathrm{diag}^{m \times n}_r(x_1,\allowbreak \ldots,\allowbreak x_r)$ be a~diagonal matrix $\mathrm{diag}(x_1,\allowbreak \ldots,\allowbreak x_r)$
 augmented (or cut off) from the~bottom right by~zeroes to a~matrix of size $m \times n$.
 
-\medskip\noindent\textbf{Theorem} (on~the~existence of~Smith normal form).\emph{
+\medskip\noindent\textbf{Theorem} (on~the~existence of Smith normal form).\emph{
     $$
         \forall \alpha \in \mathbb{Z}^{m \times n}{:}\
         \exists \beta_1 \in \mathrm{GL}^m(\mathbb{Z}), \beta_2 \in \mathrm{GL}^n(\mathbb{Z}){:} \
         \exists \varepsilon_1, \ldots, \varepsilon_r \in \mathbb{Z} \setminus \{0\}{:} \
         \beta_1 \alpha \beta_2 = \mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
     $$
-    where $\varepsilon_1 \mid \varepsilon_2 \mid \ldots \mid \varepsilon_r$ (the so~called invariant factors) and~$r = \mathrm{rank}(\alpha)$.
+    where $\varepsilon_1 \mid \varepsilon_2 \mid \ldots \mid \varepsilon_r$ (the so~called invariant factors) and $r = \mathrm{rank}(\alpha)$.
 }\medskip
 
-Since the numbers $\varepsilon_1$, $\ldots$, $\varepsilon_r$ are chosen in~a~unique way up to~the~invertible element,
-that is, up to $\pm 1$ in~case of~$\mathbb{Z}$, we can always choose them positive. For them we denote
+Since the numbers $\varepsilon_1$, $\ldots$, $\varepsilon_r$ are chosen in a~unique way up to the~invertible element,
+that is, up to $\pm 1$ in~case of $\mathbb{Z}$, we can always choose them positive. For them we denote
 the~matrix $\mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$ by~$\mathrm{SNF}(\alpha)$.
 
 In~addition, since $\phi$ defines the~functor, it is clear that $\phi_\beta$ is bijective if $\beta \in \mathrm{GL}^n(\mathbb{Z})$.
 Indeed, $\phi_\beta \circ \phi_{\beta^{-1}} = \phi_{\beta \beta^{-1}} = \phi_E = 1_{(K^\times)^n}$
-and~$\phi_{\beta^{-1}} \circ \phi_\beta = \phi_{\beta^{-1} \beta} = \phi_E = 1_{(K^\times)^n}$. Therefore,
+and $\phi_{\beta^{-1}} \circ \phi_\beta = \phi_{\beta^{-1} \beta} = \phi_E = 1_{(K^\times)^n}$. Therefore,
 the~following lemma holds.
 
 \medskip\noindent\textbf{Lemma~4.}\emph{
@@ -390,19 +390,19 @@ the~following lemma holds.
 }
 
 \noindent{\it Proof.}
-    Using the~theorem, let us take unimodular matrices $\beta_1 \in \mathrm{GL}^n(\mathbb{Z})$ and~$\beta_2 \in \mathrm{GL}^k(\mathbb{Z})$
+    Using the~theorem, let us take unimodular matrices $\beta_1 \in \mathrm{GL}^n(\mathbb{Z})$ and $\beta_2 \in \mathrm{GL}^k(\mathbb{Z})$
     such that $\beta_1 \alpha \beta_2 = \mathrm{SNF}(\alpha)$.
-    Then, $\alpha = \beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}$ and~$\phi_\alpha = \phi_{\beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}}
+    Then, $\alpha = \beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}$ and $\phi_\alpha = \phi_{\beta_1^{-1} \mathrm{SNF}(\alpha) \beta_2^{-1}}
                                                                                     = \phi_{\beta_1^{-1}} \circ \phi_{\mathrm{SNF}(\alpha)} \circ \phi_{\beta_2^{-1}}$.
 
-    Since, by~the~remark above, $\phi_{\beta_1^{-1}}$ and~$\phi_{\beta_2^{-1}}$ are bijective, $\phi_\alpha$ is injective if and only if
+    Since, by~the~remark above, $\phi_{\beta_1^{-1}}$ and $\phi_{\beta_2^{-1}}$ are bijective, $\phi_\alpha$ is injective if and only if
     $\phi_{\mathrm{SNF(\alpha)}}$ is injective.
 
     $\phi_{\mathrm{SNF(\alpha)}}(t_1, \ldots, t_k) = (t_1^{\varepsilon_1}, \ldots, t_r^{\varepsilon_r}, 1, \ldots, 1)$, but $t \mapsto t^\varepsilon$
     is injective over $\mathbb{C}^\times$ only if $\varepsilon = \pm 1$ (otherwise $t^\varepsilon = t^\varepsilon \cdot 1 = t^\varepsilon \cdot u^\varepsilon = (tu)^\varepsilon$
     where $u \neq 1$ is~a~nontrivial $\varepsilon$-th root of~unity).
     By~choice of~signs, $\phi_{\mathrm{SNF(\alpha)}}$ is injective only if $\varepsilon_1 = \ldots = \varepsilon_r = 1$
-    and~$r = k \leq n$.
+    and $r = k \leq n$.
 \hfill$\Box$\medskip
 
 Let us formulate one more auxiliary theorem \cite{TsikhSad14}.
@@ -410,23 +410,23 @@ Let us formulate one more auxiliary theorem \cite{TsikhSad14}.
 \medskip\noindent\textbf{Theorem~1.}\emph{
     Let $\alpha \in \mathbb{Z}^{n \times k}$. The~following statements are equivalent:
     \begin{enumerate}
-        \item The~rows of~the~matrix $\alpha$ span the~whole lattice $\mathbb{Z}^k$.
-        \item The~minors of~the~maximum order of~the~matrix $\alpha$ are coprime.
+        \item The~rows of the~matrix $\alpha$ span the~whole lattice $\mathbb{Z}^k$.
+        \item The~minors of the~maximum order of the~matrix $\alpha$ are coprime.
         \item $\mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_k(1, \ldots, 1)$.
     \end{enumerate}
 }
 
-Thus, from lemma~4 and~theorem~1 we obtain a~necessary and~sufficient condition for~the~injectivity of~$\phi_\alpha$.
+Thus, from lemma~4 and theorem~1 we obtain a~necessary and sufficient condition for~the~injectivity of~$\phi_\alpha$.
 
 \medskip\noindent\textbf{Theorem.}\emph{
     $\phi_\alpha$ is injective over the~field $K = \mathbb{C}$ if and only if $\alpha_i$ span the~whole lattice $\mathbb{Z}^k$.
 }
 
-\section*{4. Monomial parameterizability of~torus subgroups}
+\section*{4. Monomial parameterizability of torus subgroups}
 
-As in~the~case of~the~theory of~curves and surfaces, we say that a~subgroup of~an~algebraic torus
-is \textit{parameterizable} if it can be expressed as an~image of~some mapping. Similarly, a~subgroup
-is \textit{monomially parameterizable} if it can be expressed as an~image of~$\phi_\alpha$ for some matrix $\alpha$.
+As in the~case of the~theory of curves and surfaces, we say that a~subgroup of an~algebraic torus
+is \textit{parameterizable} if it can be expressed as an~image of some mapping. Similarly, a~subgroup
+is \textit{monomially parameterizable} if it can be expressed as an~image of $\phi_\alpha$ for some matrix $\alpha$.
 
 Since $\phi_\alpha$ is the~homomorphism, its image $\mathrm{Im}(\phi_\alpha)$ is a~subgroup in~$(K^\times)^n$.
 Next we'll study two questions: whether $\mathrm{Im}(\phi_\alpha)$ is an~algebraic subgroup and whether
@@ -438,7 +438,7 @@ therefore, the~first question is equivalent to whether a~given homomorphism $\ph
 to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xrightarrow[]{\phi_\beta} (K^\times)^m$.
 
 \medskip\noindent\textbf{Lemma~5.}\emph{
-    Let $G$ be a~group, $H$ be an~abelian group, $f \in \mathrm{Hom}(G, H)$, $g \in \mathrm{Hom}(H, G)$, and~$g \circ f = 1_G$.
+    Let $G$ be a~group, $H$ be an~abelian group, $f \in \mathrm{Hom}(G, H)$, $g \in \mathrm{Hom}(H, G)$, and $g \circ f = 1_G$.
     Then the~sequence $G \xrightarrow[]{f} H \xrightarrow[]{f \circ g - 1_H} H$ is exact.
 }\medskip
 
@@ -460,7 +460,7 @@ to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xr
     $
 
     Consider $\delta = \mathrm{diag}^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
-    $\phi_{\alpha'}$ is injective since it is a~composition of~injective functions. On~the~other hand, it is obvious that:
+    $\phi_{\alpha'}$ is injective since it is a~composition of injective functions. On~the~other hand, it is obvious that:
     $$
         \mathrm{Im}(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} (G^k)))
                                  = \phi_{\beta_1^{-1}} (\phi_\varepsilon (G^k))
@@ -468,8 +468,8 @@ to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xr
                                  = \mathrm{Im}(\phi_{\alpha'}).
     $$
 
-    It is easy to see that $\beta' = \delta^{\top} \beta$ is a~left inverse of~the~matrix $\alpha'$,
-    and hence $\phi_{\beta'}$ is a~left inverse of~$\phi_{\alpha'}$. Since $(\phi_{\alpha'} \circ \phi_{\beta'}) \phi_{-E} = \phi_{\alpha' \beta' - E}$,
+    It is easy to see that $\beta' = \delta^{\top} \beta$ is a~left inverse of the~matrix $\alpha'$,
+    and hence $\phi_{\beta'}$ is a~left inverse of $\phi_{\alpha'}$. Since $(\phi_{\alpha'} \circ \phi_{\beta'}) \phi_{-E} = \phi_{\alpha' \beta' - E}$,
     we only need to~apply lemma~5.
 \hfill$\Box$\medskip
 
@@ -479,22 +479,22 @@ to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xr
 }\medskip
 
 The~answer to~the~second question is somewhat more complicated. For example, the~equation $z^n = 1$ defines an~algebraic
-group for any $n \in \mathbb{Z}$ consisting of~$n$~points on~$\mathbb{C}^\times$; but if $n \neq 0, \pm 1$
+group for any $n \in \mathbb{Z}$ consisting of $n$~points on~$\mathbb{C}^\times$; but if $n \neq 0, \pm 1$
 it is easy to see that it cannot be parameterized by~any $\phi_\alpha$.
 
 Indeed, notice that the~group $\mathrm{Im}(\phi_\alpha)$ is isomorphic to~the~group $(\mathbb{C}^\times)^r$.
-In~the~proof of~lemma~6 we saw that for any $\phi_\alpha$ we can construct an~injective $\phi_{\alpha'} : (\mathbb{C}^\times)^r \rightarrow (\mathbb{C}^\times)^n$
+In~the~proof of lemma~6 we saw that for any $\phi_\alpha$ we can construct an~injective $\phi_{\alpha'} : (\mathbb{C}^\times)^r \rightarrow (\mathbb{C}^\times)^n$
 such that $\mathrm{Im}(\phi_\alpha) = \mathrm{Im}(\phi_{\alpha'})$; but then $\phi_{\alpha'}$ defines the~desired isomorphism.
 Thus, the~following proposition holds.
 
 \medskip\noindent\textbf{Proposition.}\emph{
     For any matrix $\alpha \in \mathbb{Z}^{n \times k}$ the~group $\mathrm{Im}(\phi_\alpha)$ is isomorphic to an~algebraic torus
-    of~dimension at mosk $k$.
+    of dimension at mosk $k$.
 }\medskip
 
-Moreover, since the~mapping $\phi_{\alpha'}$ is polynomial, it is, in particular, continuous in~the~standard topology
+Moreover, since the~mapping $\phi_{\alpha'}$ is polynomial, it is, in particular, continuous in the~standard topology
 on~$K = \mathbb{C}$. The~set $(\mathbb{C}^\times)^r$ is connected, and, as we know, the~continuous image
-of~a~connected set is connected, so next proposition is also true.
+of a~connected set is connected, so next proposition is also true.
 
 \medskip\noindent\textbf{Proposition.}\emph{
     $\mathrm{Im}(\phi_\alpha) \subseteq (\mathbb{C}^\times)^n$ is connected.
@@ -504,14 +504,14 @@ Now notice that the~group $z^n = 1$ is connected exactly when $n = 0, \pm 1$.
 This indicates that the~criterion for the~existence of a~monomial parameterization
 for~an~algebraic torus subgroup is connectedness.
 
-We denote the~group of~$n$-th root of unity in~the~field $K$ (given by~the~equation $z^n = 1$) by~$\omega_K(n) \subseteq K^\times$.
+We denote the~group of~$n$-th root of unity in the~field $K$ (given by~the~equation $z^n = 1$) by~$\omega_K(n) \subseteq K^\times$.
 For~a~vector $x \in \mathbb{Z}^k$ we denote $\omega_K(x) = \omega_K(x_1) \times \ldots \times \omega_K(x_k) \subseteq (K^\times)^k$.
 For brevity, we will write $\omega(x) = \omega_\mathbb{C}(x)$. It is known that the~group $\omega(x)$ is isomorphic
 to~the~group $\mathbb{Z} / x_1 \mathbb{Z} \times \ldots \times \mathbb{Z} / x_k \mathbb{Z}$.
 
 To~prove the~criterion described before, consider the~number $\Pi(\alpha) = |\omega_K(\varepsilon)|$
-where $|G|$ is the~order of~the~group $G$. $|G \times H| = |G| |H|$, so $\Pi(\alpha) = |\omega_K(\varepsilon_1)| \cdot \ldots \cdot |\omega_K(\varepsilon_r)|$.
-Since $\omega(n)$ is isomorphic to~$\mathbb{Z} / n \mathbb{Z}$, in~case of~the~field $K = \mathbb{C}$ it is also true that
+where $|G|$ is the~order of the~group $G$. $|G \times H| = |G| |H|$, so $\Pi(\alpha) = |\omega_K(\varepsilon_1)| \cdot \ldots \cdot |\omega_K(\varepsilon_r)|$.
+Since $\omega(n)$ is isomorphic to~$\mathbb{Z} / n \mathbb{Z}$, in~case of the~field $K = \mathbb{C}$ it is also true that
 $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 
 \medskip\noindent\textbf{Lemma~7.}\emph{
@@ -519,8 +519,8 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 }\medskip
 
 \noindent{\it Proof.}
-    Let $H = \ker(\phi_\beta)$. Without loss of generality, we assume that the~rows of~the~matrix $\beta$ are linearly independent
-    over $Z$ (it is clear that the~rows expressed as a~linear combination of~the~other rows can be removed from the~matrix $\beta$
+    Let $H = \ker(\phi_\beta)$. Without loss of generality, we assume that the~rows of the~matrix $\beta$ are linearly independent
+    over $Z$ (it is clear that the~rows expressed as a~linear combination of the~other rows can be removed from the~matrix $\beta$
     without changing the~kernel).
 
     Let us write the~Smith normal form for $\beta$: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$.
@@ -528,7 +528,7 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
     Furthermore, $\Pi(\beta) = 1$, so $|\omega_K(\varepsilon_i)| = 1$, that is, the~equations $z^{\varepsilon_i} = 1$
     have only $z = 1$ as a~solution.
 
-    The~kernel of~$\varepsilon$ is given by~vectors of~the~form $(0,\allowbreak \ldots,\allowbreak 0,\allowbreak t_{k + 1},\allowbreak \ldots, t_{n})$.
+    The~kernel of~$\varepsilon$ is given by~vectors of the~form $(0,\allowbreak \ldots,\allowbreak 0,\allowbreak t_{k + 1},\allowbreak \ldots, t_{n})$.
     Consider a~matrix $\delta \in \mathbb{Z}^{n \times (n - k)}$ corresponding to~the~linear operator
     $$
         (t_1, \ldots, t_{n - k}) \mapsto (0, \ldots, 0, t_1, \ldots, t_{n - k}).
@@ -541,7 +541,7 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 
     Conversely, let $z \in \ker(\phi_\beta)$. Then $\phi_{\beta_1^{-1}} (\phi_{\varepsilon \beta_2^{-1}}(z)) = \phi_\beta(z) = 1$,
     so $\phi_{\varepsilon}(\phi_{\beta_2^{-1}}(z)) = \phi_{\varepsilon \beta_2^{-1}}(z) = \phi_{\beta_1}(1) = 1$.
-    From the~form of~the~matrix $\varepsilon$ we obtain that
+    From the~form of the~matrix $\varepsilon$ we obtain that
     $
         \phi_{\beta_2^{-1}}(z) = (1,\allowbreak \ldots,\allowbreak 1,\allowbreak t_{k + 1},\allowbreak \ldots, t_n) = \phi_\delta(t_{k + 1}, \ldots, t_n)
     $; that is, $z = \phi_{\beta_2}(\phi_\delta(t_{k + 1}, \ldots, t_n)) = \phi_\alpha(t_{k + 1}, \ldots, t_n)$ for~some $t_j$.
@@ -549,7 +549,7 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 \hfill$\Box$\medskip
 
 \medskip\noindent\textbf{Теорема 3.}\emph{
-    The~number of~connected components of~$\ker(\phi_\beta) \subseteq ({\mathbb{C}^\times})^n$ is equal to~$\Pi(\beta)$.
+    The~number of connected components of $\ker(\phi_\beta) \subseteq ({\mathbb{C}^\times})^n$ is equal to~$\Pi(\beta)$.
 }\medskip
 
 \noindent{\it Proof.}
@@ -571,7 +571,7 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
     and $\Pi(\delta \beta_2^{-1}) = 1$, the~component $H_1$ is connected by~the~remark.
 
     Fix $u$ and consider the~matrix $\tau = \mathrm{diag}(1 / u_1, \ldots, 1 / u_r, 1, \ldots, 1)$
-    and~the~mapping $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
+    and the~mapping $\psi = \phi_{\beta_2} \circ \phi_\tau \circ \phi_{\beta_2^{-1}}$.
     $\psi$ is a~continuous bijection, moreover, $\psi^{-1} = \phi_{\beta_2} \circ \phi_{\tau^{-1}} \circ \phi_{\beta_2^{-1}}$.
 
     By~definition, $\phi_{\beta_2^{-1}}(\psi(z)) = \phi_{\tau \beta_2^{-1}}(z)$. So if $z \in H_u$,
@@ -588,25 +588,25 @@ for some $\beta$. Notice that $\Pi(\beta)$ does not depend on~the~choice of~$\be
 
 \noindent{\it Proof.}
     Let us write down the~Smith normal forms: $\beta = \beta_1^{-1} \varepsilon \beta_2^{-1}$
-    and~$\beta' = {\beta'}_1^{-1} \varepsilon' {\beta'}_2^{-1}$. So we have: $\ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\beta}) = \ker(\phi_{\beta'}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$.
+    and $\beta' = {\beta'}_1^{-1} \varepsilon' {\beta'}_2^{-1}$. So we have: $\ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\beta}) = \ker(\phi_{\beta'}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$.
 
     Let $\varepsilon = \mathrm{diag}^{k \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$
-    and~$\varepsilon' = \mathrm{diag}^{k' \times n}_{r'}(\varepsilon'_1, \ldots, \varepsilon'_r)$.
-    We write $\delta = \mathrm{diag}^{k \times n}_r(1, \ldots, 1)$ and~$\delta' = \mathrm{diag}^{k' \times n}_{r'}(1, \ldots, 1)$.
+    and $\varepsilon' = \mathrm{diag}^{k' \times n}_{r'}(\varepsilon'_1, \ldots, \varepsilon'_r)$.
+    We write $\delta = \mathrm{diag}^{k \times n}_r(1, \ldots, 1)$ and $\delta' = \mathrm{diag}^{k' \times n}_{r'}(1, \ldots, 1)$.
 
     Since $\Pi(\delta \beta_2^{-1}) = \Pi(\delta' {\beta'}_2^{-1}) = 1$, both groups are parameterized
     according to~lemma~7 by~some $\phi_\alpha$ и~$\phi_{\alpha'}$ respectively.
 
     $\mathrm{Im}(\phi_\alpha) = \ker(\phi_{\delta \beta_2^{-1}}) \subseteq \ker(\phi_{\varepsilon \beta_2^{-1}}) = \ker(\phi_{\varepsilon' {\beta'}_2^{-1}})$,
     so $\phi_{\varepsilon' {\beta'}_2^{-1}} \circ \phi_\alpha = 1$. Using lemma~2, $\varepsilon' {\beta'}_2^{-1} \alpha = 0$.
-    Multiplying both sides of~the~equality by~the~matrix $\mathrm{diag}(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$
+    Multiplying both sides of the~equality by~the~matrix $\mathrm{diag}(1 / \varepsilon'_1, \ldots, 1 / \varepsilon'_r, 1, \ldots, 1)$
     one obtains that $\delta' {\beta'}_2^{-1} \alpha = 0$; but this means that $\ker(\phi_{\delta \beta_2^{-1}}) = \mathrm{Im}(\phi_\alpha) \subseteq \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
     Similarly we get the~converse inclusion. Thus, $\ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\delta' {\beta'}_2^{-1}})$.
 
     Consider the~quotient group $\ker(\phi_\beta) / \ker(\phi_{\delta \beta_2^{-1}}) = \ker(\phi_{\beta'}) / \ker(\phi_{\delta' {\beta'}_2^{-1}})$,
     also called \textit{the~component group.} The~mapping $\phi_{\delta \beta_2^{-1}} : \ker(\phi_\beta) \rightarrow \omega_K(\varepsilon) \times \{ 1 \} \times \ldots \times \{ 1 \}$
-    induces an~injective homomorphism from the~quotient. In addtion, in~the~theorem~3 the~bijection between the~components $H_u$
-    was constructed (it generalises unchanged to~the~case of~an~arbitrary field $K$), and hence they are all nonempty.
+    induces an~injective homomorphism from the~quotient. In addtion, in the~theorem~3 the~bijection between the~components $H_u$
+    was constructed (it generalises unchanged to~the~case of an~arbitrary field $K$), and hence they are all nonempty.
     This means that $\phi_{\delta \beta_2^{-1}}$ is surjective, so the~induced mapping is also surjective.
     The~reasoning is similar for~the~group $\omega_K(\varepsilon')$. Thus, we have a~chain of~isomorphisms:
     $$
@@ -616,23 +616,23 @@ for some $\beta$. Notice that $\Pi(\beta)$ does not depend on~the~choice of~$\be
     Isomorphic groups have the~same order, and hence $\Pi(\beta) = |\omega_K(\varepsilon)| = |\omega_K(\varepsilon')| = \Pi(\beta')$.
 \hfill$\Box$\medskip
 
-Finally, for any algebraic subgroup $H$ of~the~torus we can define a~number $\Pi(H)$ equal to~$\Pi(\beta)$
+Finally, for any algebraic subgroup $H$ of the~torus we can define a~number $\Pi(H)$ equal to~$\Pi(\beta)$
 for any $\beta$ such that $H = \ker(\phi_\beta)$.
 
 Now for any algebraic subgroup $H \subseteq (\mathbb{C}^\times)^n$ we defined \textit{the~identity component} $H^\circ$
-as a~connected component containing an~identity element of~the~group $H$. It follows from theorem~3
+as a~connected component containing an~identity element of the~group $H$. It follows from theorem~3
 that $\Pi(H^\circ) = 1$. Thus, the~following statements are proved.
 
 \medskip\noindent\textbf{Theorem~5.}\emph{
-    An~algebraic subgroup $H$ of~the~torus $(K^\times)^n$ is parameterizable if and only if $\Pi(H) = 1$.
+    An~algebraic subgroup $H$ of the~torus $(K^\times)^n$ is parameterizable if and only if $\Pi(H) = 1$.
 }
 
 \medskip\noindent\textbf{Consequence.}\emph{
-    An~algebraic subgroup $H$ of~the~torus $(\mathbb{C}^\times)^n$ is parameterizable if and only if it is connected.
+    An~algebraic subgroup $H$ of the~torus $(\mathbb{C}^\times)^n$ is parameterizable if and only if it is connected.
 }
 
 \medskip\noindent\textbf{Consequence.}\emph{
-    Every algebraic subgroup $H$ of~the~torus $(\mathbb{C}^\times)^n$ contains a~parameterizable subgroup $H^\circ$ of~the~same dimension.
+    Every algebraic subgroup $H$ of the~torus $(\mathbb{C}^\times)^n$ contains a~parameterizable subgroup $H^\circ$ of~the~same dimension.
 }\medskip
 
 \noindent{\it Proof.}
@@ -642,7 +642,7 @@ that $\Pi(H^\circ) = 1$. Thus, the~following statements are proved.
 \section*{5. Linear independence over an~abelian group}
 
 In~any abelian group $G$ there is naturally defined multiplication by~integers.
-For a~vector $\alpha = (\alpha_1, \ldots, \alpha_k) \in \mathbb{Z}^k$ and~element $g \in G$
+For a~vector $\alpha = (\alpha_1, \ldots, \alpha_k) \in \mathbb{Z}^k$ and element $g \in G$
 by~$g \alpha$ we mean the~vector $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$. We say that
 the~collection of~vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ is \textit{linearly independent
 over an~abelian group} if
@@ -651,7 +651,7 @@ $$
 $$
 
 We see that the~linear independence of~vectors from $\mathbb{Z}^k$ over the~additive group of~the~field $\mathbb{R}$
-is equivalent to~the~ordinary linear independence in~the~vector space $\mathbb{R}^k$. However, for example,
+is equivalent to~the~ordinary linear independence in the~vector space $\mathbb{R}^k$. However, for example,
 $\mathbb{R} / 2 \pi \mathbb{Z}$, as it is known, has no ring structure, so it makes no sense
 to~talk about the~$\mathbb{R} / 2 \pi \mathbb{Z}$-module $(\mathbb{R} / 2 \pi \mathbb{Z})^k$,
 as well as about linear independence in it.
@@ -662,19 +662,19 @@ Let us immediately show how this definition is related to~the~studied parameteri
     $\phi_\alpha : G^k \rightarrow G^n$ is injective if and only if $\alpha^j$ are linearly independent over the~group $G$.
 }\medskip
 
-\noindent{\it Proof.} It follows directly from the~fact that injectivity of~a~homomorphism is equivalent to the~triviality of~its kernel.
+\noindent{\it Proof.} It follows directly from the~fact that injectivity of a~homomorphism is equivalent to the~triviality of~its kernel.
 \hfill$\Box$\medskip
 
 Next, we need two general lemmas.
 
 \medskip\noindent\textbf{Lemma~8.}\emph{
-    Let $G$ and~$H$ be abelian groups. $\mu_1,\allowbreak \ldots,\allowbreak \mu_n \in \mathbb{Z}^k$ are linearly independent
-    over~$G \times H$ if and only if the are linearly independent over~$G$ and~over~$H$.
+    Let $G$ and $H$ be abelian groups. $\mu_1,\allowbreak \ldots,\allowbreak \mu_n \in \mathbb{Z}^k$ are linearly independent
+    over $G \times H$ if and only if the are linearly independent over $G$ and over $H$.
 }\medskip
 
 \noindent{\it Proof.}
-    The~elements of~$G \times H$ can be expressed as pairs $(g, h)$ where $g \in G$ and~$h \in H$,
-    so linear independence over~$G \times H$ can be written as:
+    The~elements of~$G \times H$ can be expressed as pairs $(g, h)$ where $g \in G$ and $h \in H$,
+    so linear independence over $G \times H$ can be written as:
     $$
         \forall (g_1, h_1) \ldots, (g_n, h_n) \in G \times H{:}\ (g_1, h_1) \mu_1 + \ldots + (g_n, h_n) \mu_n = 0 \Rightarrow (g_1, h_1) = \ldots = (g_n, h_n) = 0.
     $$
@@ -687,17 +687,17 @@ Next, we need two general lemmas.
         (g_1, h_1) = \ldots = (g_n, h_n) = 0 \Leftrightarrow g_1 = \ldots = g_n = 0 \wedge h_1 = \ldots = h_n = 0.
     $$
 
-    By~fixing $g_1 = \ldots = g_n = 0$ and~then $h_1 = \ldots = h_n = 0$, we'll obtain the~left-to-right
+    By~fixing $g_1 = \ldots = g_n = 0$ and then $h_1 = \ldots = h_n = 0$, we'll obtain the~left-to-right
     implication. The~right-to-left implication is obvious.
 \hfill$\Box$\medskip
 
 \medskip\noindent\textbf{Lemma~9.}\emph{
-    Let $G$ and~$H$ be abelian groups, $f : G \rightarrow H$ be an~isomorphism. Then $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$
-    are linearly independent over~$G$ if and only if they are linearly independent over~$H$.
+    Let $G$ and $H$ be abelian groups, $f : G \rightarrow H$ be an~isomorphism. Then $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$
+    are linearly independent over $G$ if and only if they are linearly independent over $H$.
 }\medskip
 
 \noindent{\it Proof.}
-    Since $f$ is an~isomorphic, we obtain a~chain of~equivalences:
+    Since $f$ is an~isomorphic, we obtain a~chain of equivalences:
     \begin{align*}
                        &\ \forall g_1, \ldots, g_n \in G{:}\ g_1 \alpha_1 + \ldots + g_n \alpha_n = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
         \Leftrightarrow&\ \forall g_1, \ldots, g_n \in G{:}\ f(g_1 \alpha_1 + \ldots + g_n \alpha_n) = 0 \Rightarrow g_1 = \ldots = g_n = 0 \\
@@ -710,26 +710,40 @@ Next, we need two general lemmas.
 Applying the~lemmas, we obtain the~injectivity criterion for~the~case $K = \mathbb{C}$.
 
 \medskip\noindent\textbf{Consequence.}\emph{
-    $\phi_\alpha$ is injective if and only if $\alpha^j$ are linearly independent over the~groups $\mathbb{R}$ and~$\mathbb{R} / 2 \pi \mathbb{Z}$.
+    $\phi_\alpha$ is injective if and only if $\alpha^j$ are linearly independent over the~groups $\mathbb{R}$ and $\mathbb{R} / 2 \pi \mathbb{Z}$.
 }\medskip
 
 \noindent{\it Proof.}
     Let $S^1 = \{ z \in \mathbb{C}\ | \ |z| = 1 \}$ be a~circle group, a~subgroup in~${\mathbb{C}^\times}$.
     From the~trigonometric form $z = re^{i \theta}$ we see that the~group ${\mathbb{C}^\times}$ is isomorphic
-    to~the~product $\mathbb{R}_{> 0}^\times \times S^1$. The~mapping $t \mapsto e^t$ defines the~isomorphism
-    of~the~groups $\mathbb{R}$ and~$\mathbb{R}_{> 0}^\times$, and the~mapping $\theta \mapsto e^{i\theta}$
-    defines the~isomorphism between $\mathbb{R} / 2 \pi \mathbb{Z}$ and~$S^1$; this proves a~corollary
-    by~virtue of~the~previous two lemmas.
+    to the~product $\mathbb{R}_{> 0}^\times \times S^1$. The~mapping $t \mapsto e^t$ defines the~isomorphism
+    of the~groups $\mathbb{R}$ and $\mathbb{R}_{> 0}^\times$, and the~mapping $\theta \mapsto e^{i\theta}$
+    defines the~isomorphism between $\mathbb{R} / 2 \pi \mathbb{Z}$ and $S^1$; this proves a~corollary
+    by~virtue of the~previous two lemmas.
 \hfill$\Box$\medskip
 
 \medskip\noindent\textbf{Consequence.}\emph{
-    If $\phi_\alpha$ is injective over~$K = \mathbb{C}$, then~$\mathrm{rank}(\alpha) = k$.
+    If $\phi_\alpha$ is injective over $K = \mathbb{C}$, then~$\mathrm{rank}(\alpha) = k$.
 }\medskip
 
 \noindent{\it Proof.}
-    As noted before, linear independence over~$\mathbb{R}$ is equivalent to linear independence
-    in~the~vector space $\mathbb{R}^k$ over~$\mathbb{R}$, and this in turn is equivalent to having full rank.
+    As noted before, linear independence over $\mathbb{R}$ is equivalent to linear independence
+    in the~vector space $\mathbb{R}^k$ over $\mathbb{R}$, and this in turn is equivalent to having full rank.
 \hfill$\Box$\medskip
+
+In particular, this means that a~parameterization with the~$k > n$ variables is automatically
+non-injective, which is to be expected.
+
+Noticing that $\mathbb{R}_{>0}^\times \cong \mathbb{R}_{>0}^\times \times \mathbb{Z} / 1\mathbb{Z}$, $\mathbb{R}^\times \cong \mathbb{R}_{>0}^\times \times \mathbb{Z} / 2 \mathbb{Z}$
+and $\mathbb{H}^\times \cong \mathbb{R}_{>0}^\times \times S^3$ (quaternions), it is easy to obtain similar conditions for~the~injectivity of~$\phi_\alpha$ over the~groups
+$\mathbb{R}_{>0}^\times$, $\mathbb{R}^\times$, and $\mathbb{H}^\times$.
+
+It seems natural that, since the~vectors $\alpha^j$ are integer-valued, their linear independence over $\mathbb{R}$
+must reduce to~linear independence over $\mathbb{Z}$. Let us prove this.
+
+\medskip\noindent\textbf{Lemma.}\emph{
+    $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$ are linearly independent over $\mathbb{R}$ if and only if they are linearly independent over $\mathbb{Q}$.
+}\medskip
 
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
 stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
@@ -745,7 +759,7 @@ stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub 
 \medskip
 
 \emph{This work is supported by~the~Krasnoyarsk Mathematical Center and financed
-by~the~Ministry of~Science and~Higher Education of~the~Russian Federation (Agreement No. 075-02-2024-1429).}
+by~the~Ministry of Science and Higher Education of the~Russian Federation (Agreement No. 075-02-2024-1429).}
 
 \bigskip
 
@@ -757,10 +771,10 @@ S\'eminaire de~th\'eorie des~nombres de~Paris 1993–94.~-- 1996.~-- P.~157--\al
 
 \bibitem{Art48} Artin, Е. Galois Theory~/ E.~Artin; London~: University of~Notre Dame, 1942, 1944.~-- 96~p.~-- ISBN: 978-0-486-62342-9.
 
-\bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and~{con\-gru\-ences}. Philos.~/ H.J.S.~Smith~//
-Philosophical Transactions of~the~Royal Society.~-- 1861.~-- Vol.~151.~-- P.~293--326.
+\bibitem{Smth60} Smith, H.J.S. On~systems of~linear indeterminate equations and {con\-gru\-ences}. Philos.~/ H.J.S.~Smith~//
+Philosophical Transactions of the~Royal Society.~-- 1861.~-- Vol.~151.~-- P.~293--326.
 
-\bibitem{TsikhSad14} Sadykov, T.~M. Multivariate Hypergeometric and~Algebraic Functions~/ T.~M.~Sadykov, A.~K.~Tsikh;
+\bibitem{TsikhSad14} Sadykov, T.~M. Multivariate Hypergeometric and Algebraic Functions~/ T.~M.~Sadykov, A.~K.~Tsikh;
 Moscow~: Nauka, 2014.~-- 408~p.~-- ISBN: 978-5-02-039082-9.
 
 \bibitem{Brbk70} Bourbaki, N. Alg\`ebre: Chapitres 1 \`a~3. \'El\'ements de~math\'ematique~/ N.~Bourbaki; Berlin~: Springer, 2006.~-- 652~p.~-- ISBN: 978-3-540-33849-9.
