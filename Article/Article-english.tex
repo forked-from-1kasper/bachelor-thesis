@@ -113,7 +113,7 @@ the~group structure of the~torus $(K^\times)^n$.
 For~vectors $\alpha = (\alpha_1, \ldots, \alpha_n) \in \mathbb{Z}^n$ and $z = (z_1, \ldots, z_n) \in G^n$ (where $G$ is~a~group)
 we write $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^{\alpha_n}$.
 
-\medskip\noindent\textbf{Теорема} (Шмидт) \cite{Schm94}. \emph{Let $K$ be a~field. Every algebraic subgroup $H$
+\medskip\noindent\textbf{Theorem} (Schmidt) \cite{Schm94}. \emph{Let $K$ be a~field. Every algebraic subgroup $H$
     of the~group $(K^{\times})^n$ is~defined by~a~system of~some number $N$ of binomial equations, namely,
     there are $N$ indices $\alpha_i, \beta_i \in \mathbb{Z}^n$ such that
     $$
@@ -134,7 +134,7 @@ $$
     \forall \alpha_1, \alpha_2, \ldots, \alpha_n \in K{:}\ \alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n = 0 \Rightarrow \alpha_1 = \alpha_2 = \ldots = \alpha_n = 0.
 $$
 
-\noindent\textbf{Теорема} (Артин) \cite{Art48}.\emph{
+\noindent\textbf{Theorem} (Artin) \cite{Art48}.\emph{
     Any $n$ pairwise distinct characters are linearly independent.
 }\medskip
 
@@ -411,7 +411,7 @@ Let us formulate one more auxiliary theorem \cite{TsikhSad14}.
     Let $\alpha \in \mathbb{Z}^{n \times k}$. The~following statements are equivalent:
     \begin{enumerate}
         \item The~rows of the~matrix $\alpha$ span the~whole lattice $\mathbb{Z}^k$.
-        \item The~minors of the~maximum order of the~matrix $\alpha$ are coprime.
+        \item The~maximal minors of the~matrix $\alpha$ are coprime.
         \item $\mathrm{SNF}(\alpha) = \mathrm{diag}^{n \times k}_k(1, \ldots, 1)$.
     \end{enumerate}
 }
@@ -548,7 +548,7 @@ $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
     Thus, $z \in \mathrm{Im}(\phi_\alpha)$ and $\ker(\phi_\beta) \subseteq \mathrm{Im}(\phi_\alpha)$.
 \hfill$\Box$\medskip
 
-\medskip\noindent\textbf{Теорема 3.}\emph{
+\medskip\noindent\textbf{Theorem~3.}\emph{
     The~number of connected components of $\ker(\phi_\beta) \subseteq ({\mathbb{C}^\times})^n$ is equal to~$\Pi(\beta)$.
 }\medskip
 
@@ -745,16 +745,153 @@ must reduce to~linear independence over $\mathbb{Z}$. Let us prove this.
     $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$ are linearly independent over $\mathbb{R}$ if and only if they are linearly independent over $\mathbb{Q}$.
 }\medskip
 
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
-stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub stub
+\noindent{\it Proof.}
+    The~left-to-right implication is obvious. Conversely, let $\mu_1, \ldots, \mu_n$ be linearly independent over $\mathbb{Q}$.
+    Consider their linear combination: $r_1 \mu_1 + \ldots + r_n \mu_n = 0$.
+
+    It is known that $\mathbb{R}$ is an~(infinite-dimensional) vector space over $\mathbb{Q}$, and any vector space has
+    a~(Hamel) basis under assumption of the~axiom of~choice~\cite{Brbk70}. Using this, let us fix a~Hamel basis $B$ for $\mathbb{R}$
+    over $\mathbb{Q}$. Let us decompose $r_i$ by this basis:
+    $$
+        r_i = q_i^1 b_1 + \ldots + q_i^s b_s
+    $$
+    where $q_i^j \in \mathbb{Q}$ and $b_j \in B$. There are finitely many vectors $r_i$,
+    so the~set of basis vectors $b_j$ for them can be chosen to be the~same.
+    Let us substitute the~decomposition into the~linear combination:
+    \begin{align*}
+        r_1 \mu_1 + \ldots + r_n \mu_n & = (q_1^1 b_1 + \ldots + q_1^s b_s) \mu_1 + \ldots + (q_n^1 b_1 + \ldots + q_n^s b_s) \mu_n \\
+                                       & = (q_1^1 \mu_1 + \ldots + q_n^1 \mu_n) b_1 + \ldots + (q_1^s \mu_1 + \ldots + q_n^s \mu_n) b_s \\
+                                       & = 0.
+    \end{align*}
+
+    In each coordinate we obtain a~rational linear combination of the~numbers $b_j$ equal to zero.
+    By~virtue of linear independence, all these coordinates are equal to zero, so we have:
+    $q_1^j \mu_1 + \ldots + q_n^j \mu_n = 0$.
+
+    However, all $q_i^j$ are rational, and $\mu_i$ are linearly independent over $\mathbb{Q}$, so $q_i^j = 0$.
+    Thus, $r_i = q_i^1 b_1 + \ldots + q_i^s b_s = 0 \cdot b_1 + \ldots + 0 \cdot b_s = 0$.
+\hfill$\Box$\medskip
+
+\medskip\noindent\textbf{Lemma.}\emph{
+    $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$ are linearly independent over $\mathbb{Q}$ if and only if they are linearly independent over $\mathbb{Z}$.
+}\medskip
+
+\noindent{\it Proof.}
+    The~left-to-right implication is again obvious. Conversely, let $q_1 \mu_1 + \ldots + q_n \mu_n = 0$ where $q_i \in \mathbb{Q}$.
+    We choose the~common denominator $q \in \mathbb{N} \setminus \{ 0 \}$ for the~fractions $q_i$.
+    We denote the~numerators by $p_i \in \mathbb{Z}$, that is, $q_i = p_i / q$.
+
+    Then $(p_1 \mu_1 + \ldots + p_n \mu_n) / q = 0$, so $p_1 \mu_1 + \ldots + p_n \mu_n = 0$.
+    All $p_i$ are integers, so using linear independence over $\mathbb{Z}$ we obtain that $p_1 = \ldots = p_n = 0$.
+    Thus, $q_i = p_i / q = 0 / q = 0$.
+\hfill$\Box$\medskip
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    $\mu_1, \ldots, \mu_n \in \mathbb{Z}^k$ are linearly independent over $\mathbb{R}$ if and only if they are linearly independent over $\mathbb{Z}$.
+}\medskip
+
+Let us study in~more detail the~corollaries of linear independence over $\mathbb{R} / 2 \pi \mathbb{Z}$.
+
+\medskip\noindent\textbf{Proposition.}\emph{
+    $\mu_1, \ldots, \mu_n$ are linearly independent over $\mathbb{R} / 2 \pi \mathbb{Z}$
+    if and only if they are linearly independent over $\mathbb{R} / \mathbb{Z}$.
+}\medskip
+
+\noindent{\it Proof.}
+    This follows from that the~groups $\mathbb{R} / 2 \pi \mathbb{Z}$ and $\mathbb{R} / \mathbb{Z}$ are isomorphic.
+\hfill$\Box$\medskip
+
+For a~number $d \in \mathbb{Z}$ and a~vector $x \in \mathbb{Z}^k$ by $d \mid x$ we mean that $d \mid x_i$ for all $1 \leq i \leq k$
+or, equivalently, $d \mid \gcd(x_1, \ldots, x_n)$.
+
+\medskip\noindent\textbf{Lemma.}\emph{
+    If $\mu_1, \ldots, \mu_n$ are linearly independent over $\mathbb{R} / \mathbb{Z}$, then:
+    $$
+        \forall d \in \mathbb{Z}{:}\ \forall x \in \mathbb{Z}^n{:}\ d \mid x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \mid x.
+    $$
+}
+
+\noindent{\it Proof.}
+    Indeed, consider $q_i = x_i / d \in \mathbb{R} / \mathbb{Z}$. The~divisibility of $x_1 \mu_1 + \ldots + x_n \mu_n$ by~$d$ means
+    that in~$\mathbb{R} / \mathbb{Z}$ it holds that $(x_1 \mu_1 + \ldots + x_n \mu_n) / d = 0$, i.e. $q_1 \mu_1 + \ldots + q_n \mu_n = 0$.
+    However, by virtue of linear independence, it is true that $q_1 = \ldots = q_n = 0$, but this means $d \mid x_i$ for all $1 \leq i \leq n$.
+\hfill$\Box$\medskip
+
+A~simple non-injectivity criterion follows immediately.
+
+\medskip\noindent\textbf{Lemma.}\emph{
+    If $\phi_\alpha$ is injective, then $\forall j{:}\ \gcd(\alpha^j) = 1$.
+}
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    If $\exists j{:}\ \gcd(\alpha^j) \neq 1$, then $\phi_\alpha$ is not an~injective mapping.
+}\medskip
+
+\noindent{\it Proof.}
+    Choosing $x_j = 1$ and $x_1 = \ldots = x_{j - 1} = x_{j + 1} = \ldots = x_k = 0$, we obtain that:
+    \begin{align*}
+                         & \forall d \in \mathbb{Z}{:}\ \forall x \in \mathbb{Z}^k{:}\ d \mid x_1 \alpha^1 + \ldots + x_k \alpha^k \Rightarrow d \mid x \\
+            \Rightarrow\ & \forall j{:}\ \forall d \in \mathbb{Z}{:}\ d \mid \alpha^j \Rightarrow d \mid 1
+        \Leftrightarrow \forall j{:}\ \gcd(\alpha^j) = 1.
+        \tag*{$\Box$}
+    \end{align*}
+{}
+
+We denote the~set of prime numbers by $\mathbb{P} \subseteq \mathbb{Z}$.
+
+\medskip\noindent\textbf{Lemma.}\emph{
+    For arbitrary integer vectors $\mu_1, \ldots, \mu_n$ it is true that:
+    \begin{align*}
+                         & \forall d \in \mathbb{Z}{:}\ \forall x \in \mathbb{Z}^n{:}\ d \mid x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \mid x \\
+        \Leftrightarrow\ & \forall p \in \mathbb{P}{:}\ \forall \beta \in \mathbb{N}{:}\ \forall x \in \mathbb{Z}^n{:}\ p^\beta \mid x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p^\beta \mid x \\
+        \Leftrightarrow\ & \forall p \in \mathbb{P}{:}\ \forall x \in \mathbb{Z}^n{:}\ p \mid x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow p \mid x
+    \end{align*}
+}
+
+\noindent{\it Proof.}
+    The left-to-right implications are obvious. Let us prove the~right-to-left ones.
+    Fix an~arbitrary $d \in \mathbb{Z}$ and some vector $x \in \mathbb{Z}^k$.
+    Factor $d$ into prime numbers: $d = p_1^{\beta_1} \ldots p_m^{\beta_m}$.
+
+    Since $x_1 \mu_1 + \ldots + x_n \mu_n$ is divisible by~$d$, it is also divisible by every $p_i^{\beta_i}$.
+    Using premise, we obtain that $p_i^{\beta_i} \mid x$ for all $1 \leq i \leq m$; but then
+    $d = p_1^{\beta_1} \ldots p_m^{\beta_m} \mid x$ as required.
+
+    Next, fix a~power $\beta \in \mathbb{N}$ and a~prime number $p$.
+    Since $x_1 \mu_1 + \ldots + x_n \mu_n$ is divisible $p^\beta$,
+    it is also divisible by~$p$, so it follow from the~premise that $p \mid x$.
+
+    But this means that $x_i / p$ are integers, so $(x_1 / p) \mu_1 + \ldots + (x_n / p) \mu_n$ is divisible by~$p^{\beta - 1}$.
+    Applying the~premise again, we obtain that $p \mid x / p$. Repeating this procedure $\beta$ times, we finally conclude
+    that $p \mid x / p^{\beta - 1}$; but this is equivalent to~$p^\beta \mid x$.
+\hfill$\Box$\medskip
+
+The last condition can be rewritten as linear independence of vectors $\mu_i$ over the~fields $\mathbb{Z} / p\mathbb{Z}$
+for all primes $p$, which is equivalent to having the~full rank for the~matrix $\mu$.
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    For arbitrary integer vectors $\mu_1, \ldots, \mu_n$ it is true that:
+    \begin{align*}
+                         & \forall d \in \mathbb{Z}{:}\ \forall x \in \mathbb{Z}^n{:}\ d \mid x_1 \mu_1 + \ldots + x_n \mu_n \Rightarrow d \mid x \\
+        \Leftrightarrow\ & \forall p \in \mathbb{P}{:}\ \forall x \in (\mathbb{Z} / p\mathbb{Z})^n{:}\ x_1 \mu_1 + \ldots + x_n \mu_n = 0 \Rightarrow x = 0 \\
+        \Leftrightarrow\ & \forall p \in \mathbb{P}{:}\ \mathrm{rank}_{\mathbb{Z} / p \mathbb{Z}}(\mu) = \max(n, k).
+    \end{align*}
+}
+
+Finally, we can re-prove the~already mentioned sufficient condition.
+
+\medskip\noindent\textbf{Consequence.}\emph{
+    If $\phi_\alpha$ is injective, then $\alpha_i$ span the~whole lattice.
+}\medskip
+
+\noindent{\it Proof.}
+    Assume that $\alpha_i$ do not generate the~lattice. Then the~maximal minors of the~matrix $\alpha$ have a~common divisor $d > 1$.
+
+    Take some prime divisor $p$ of the~number $d$. Since the~maximal minors are divisible by~$d$, they are also divisible by $p$;
+    therefore in the~field $\mathbb{Z} / p \mathbb{Z}$ all maximal minors of $\alpha$ are equal to zero.
+    So we have that $\mathrm{rank}_{\mathbb{Z} / p \mathbb{Z}}(\alpha) < \max(n, k)$~\cite{Brbk70},
+    but this contradicts the~corollary.
+\hfill$\Box$
 
 \medskip
 
