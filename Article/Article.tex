@@ -121,8 +121,8 @@ we write $z^\alpha = z_1^{\alpha_1} \cdot z_2^{\alpha_2} \cdot \ldots \cdot z_n^
     $$
 }
 
-Next we'll give a~self-contained (independent of~other major theorems) proof of~this theorem.
-For~this purpose we need an~auxiliary statement.
+Next, we'll give a~self-contained (independent of~other major theorems) proof of~this theorem.
+For~this purpose, we need an~auxiliary statement.
 
 \section*{1. Artin's theorem}
 We denote the~set of homomorphisms between groups $G$ and $H$ by~$\mathrm{Hom}(G, H)$.
@@ -143,7 +143,7 @@ $$
 
     Take an~arbitrary character $f$. Since it is a~homomorphism, $f(1_G) = 1$
     where $1_G$ is an~identity element in the~group $G$. But then if $\alpha f = 0$, then
-    $\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$ what proves the~base case.
+    $\alpha = \alpha \cdot 1 = \alpha \cdot f(1_G) = 0$, which proves the~base case.
 
     Now let the~statement of theorem be true for any $n$ distinct characters. Let us prove
     it for $n + 1$ characters. Let $\alpha_1 f_1 + \alpha_2 f_2 + \ldots + \alpha_n f_n + \alpha_{n + 1} f_{n + 1} = 0$.
@@ -221,7 +221,7 @@ $$
     In~other words, this means that any element $z \in H$ satisfies the~equations $z^{i_{k, i}} = z^{i_{k, j}}$ for all $1 \leq i \leq N_k$
     and $1 \leq j \leq N_k$.
 
-    Since the~equality is reflexive, symmetric and transitive, the~system of~all equations $z^{i_{k, i}} = z^{i_{k, j}}$
+    Since the~equality is reflexive, symmetric, and transitive, the~system of~all equations $z^{i_{k, i}} = z^{i_{k, j}}$
     is equivalent to~the~system of~$N$ equations composed of consecutive indices:
     $$
         z^{i_{1, 1}} = z^{i_{1, 2}}, z^{i_{1, 2}} = z^{i_{1, 3}}, \ldots, z^{i_{1, N_1 - 1}} = z^{i_{1, N_1}}, z^{i_{2, 1}} = z^{i_{2, 2}}, \ldots, z^{i_{m, N_m - 1}} = z^{i_{m, N_m}}.
@@ -229,7 +229,7 @@ $$
     We denote the~set of solutions of~this system by~$A$.
 
     Let us show that $A$ coincides with $H$. Indeed, let $z \in H$. Then, as noted before,
-    by~definition of~$I_k$ is is true that $z^{i_{k, j}} = \chi_k(z) = z^{i_{k, j + 1}}$;
+    by~definition of~$I_k$ it is true that $z^{i_{k, j}} = \chi_k(z) = z^{i_{k, j + 1}}$;
     that is, $z \in A$ and $H \subseteq A$.
 
     Conversely, let $z \in A$. Then by~definition of~$A$ we have $z^{i_{k, j_1}} = z^{i_{k, j_1 + 1}} = \ldots = z^{i_{k, j_2 - 1}} = z^{i_{k, j_2}}$
@@ -238,7 +238,7 @@ $$
     $$
         P_j(z) = \sum_{k = 1}^{m} \left( \sum_{i \in I_k} a_{ji} \right) z^{i_k} = \sum_{k = 1}^{m} 0 \cdot z^{i_k} = 0,
     $$
-    what means $z \in H$, that is, $A \subseteq H$.
+    which means $z \in H$, that is, $A \subseteq H$.
 
     Thus, $H = A$, so it suffices to take all the~consecutive indices from $I_k$ as $\alpha_i$ and $\beta_i$.
 \hfill$\Box$\medskip
@@ -248,7 +248,7 @@ $$
 For~an abelian group $G$ and vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ consider the~mapping
 $\phi_\alpha(t) = (t^{\alpha_1}, t^{\alpha_2}, \ldots, t^{\alpha_n})$ from~$G^k$ to~$G^n$ where $\alpha$ is~a~matrix
 with rows $\alpha_i$. Since $(t_1 \cdot t_2)^{\alpha_i} = t_1^{\alpha_i} \cdot t_2^{\alpha_i}$,
-$\phi_\alpha$ is a~homomorphism. Further we will that if $K$ is a~field, then the~mapping $\phi_\alpha$
+$\phi_\alpha$ is a~homomorphism. Further we will see that if $K$ is a~field, then the~mapping $\phi_\alpha$
 for the~group $G = K^\times$ defines \textit{a~parameterization} of~some algebraic group.
 
 \medskip\noindent\textbf{Proposition.}\emph{
@@ -297,7 +297,7 @@ As lemma~2 shows, in fields of characteristic zero this functor is faithful.
     $$
 
     On~the~right side we have the~sum of $\sum_{k = 1}^n C^n_k > 0$ units. Since $\mathrm{char}(K) = 0$,
-    it is not equal to zero, that is, $2^n - 1 \neq 0$.
+    this sum is not equal to zero, that is, $2^n - 1 \neq 0$.
 \hfill$\Box$\medskip
 
 We denote \textit{a~standard basis} over $\mathbb{Z}^k$ by~$e_i$, that is, a~vector with one on~the~$i$-th place
@@ -348,8 +348,8 @@ we note that the~following proposition is obvious.
         e_j = b^j_1 \alpha_1 + \ldots + b^j_n \alpha_n.
     $
 
-    $\phi_\alpha(t) = 1$ means that $t^{\alpha_i} = 1$ for all $1 \leq i \leq n$.
-    Fix $1 \leq j \leq k$ and raise to~the power of~$b^j_i$ both sides of~this equation:
+    $\phi_\alpha(t) = 1$ means $t^{\alpha_i} = 1$ for all $1 \leq i \leq n$.
+    Fix $1 \leq j \leq k$ and raise both sides of~this equation to~the power of~$b^j_i$:
     $t^{b^j_i \alpha_i} = (t^{\alpha_i})^{b^j_i} = 1^{b^j_i} = 1$.
     Finally, multiply the~obtained equations:
     $
@@ -357,7 +357,7 @@ we note that the~following proposition is obvious.
     $
 \hfill$\Box$\medskip
 
-Now we will show that the~obtained necessary condition is also sufficient for~the~group $G = {\mathbb{C}^\times}$.
+Now we will show that the~obtained necessary condition is also sufficient for the~group $G = {\mathbb{C}^\times}$.
 
 We will use the~existence of \textit{Smith normal form} for~integer matrices \cite{Smth60}.
 Let $\mathrm{diag}^{m \times n}_r(x_1,\allowbreak \ldots,\allowbreak x_r)$ be a~diagonal matrix $\mathrm{diag}(x_1,\allowbreak \ldots,\allowbreak x_r)$
@@ -370,11 +370,11 @@ augmented (or cut off) from the~bottom right by~zeroes to a~matrix of size $m \t
         \exists \varepsilon_1, \ldots, \varepsilon_r \in \mathbb{Z} \setminus \{0\}{:} \
         \beta_1 \alpha \beta_2 = \mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r),
     $$
-    where $\varepsilon_1 \mid \varepsilon_2 \mid \ldots \mid \varepsilon_r$ (the so~called invariant factors) and $r = \mathrm{rank}(\alpha)$.
+    where $\varepsilon_1 \mid \varepsilon_2 \mid \ldots \mid \varepsilon_r$ (the so-called invariant factors) and $r = \mathrm{rank}(\alpha)$.
 }\medskip
 
 Since the numbers $\varepsilon_1$, $\ldots$, $\varepsilon_r$ are chosen in a~unique way up to the~invertible element,
-that is, up to $\pm 1$ in~case of $\mathbb{Z}$, we can always choose them positive. For them we denote
+that is, up to $\pm 1$ in the~case of $\mathbb{Z}$, we can always choose them positive. For them we denote
 the~matrix $\mathrm{diag}^{m \times n}_r(\varepsilon_1, \ldots, \varepsilon_r)$ by~$\mathrm{SNF}(\alpha)$.
 
 In~addition, since $\phi$ defines the~functor, it is clear that $\phi_\beta$ is bijective if $\beta \in \mathrm{GL}^n(\mathbb{Z})$.
@@ -450,7 +450,7 @@ to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xr
 
 \medskip\noindent\textbf{Lemma~6.}\emph{
     $\phi_\alpha$ for $\alpha \in \mathbb{Z}^{n \times k}$ can be expressed as some image $\mathrm{Im}(\phi_\beta)$
-    if the~mappings $g \mapsto g^{\varepsilon_i}$ are surjective in~$G$ for all $\varepsilon_i$ из~$\mathrm{SNF}(\alpha)$.
+    if the~mappings $g \mapsto g^{\varepsilon_i}$ are surjective in~$G$ for all $\varepsilon_i$ from $\mathrm{SNF}(\alpha)$.
 }\medskip
 
 \noindent{\it Proof.}
@@ -459,7 +459,7 @@ to~the~exact sequence $(K^\times)^k \xrightarrow[]{\phi_\alpha} (K^\times)^n \xr
         \varepsilon = \mathrm{diag}^{n \times k}_r(\varepsilon_1, \ldots, \varepsilon_r).
     $
 
-    Consider $\delta = \mathrm{diag}^{n \times r}_r(1, \ldots, 1)$ и~$\alpha' = \beta^{-1} \delta$.
+    Consider $\delta = \mathrm{diag}^{n \times r}_r(1, \ldots, 1)$ and $\alpha' = \beta^{-1} \delta$.
     $\phi_{\alpha'}$ is injective since it is a~composition of injective functions. On~the~other hand, it is obvious that:
     $$
         \mathrm{Im}(\phi_\alpha) = \phi_{\beta_1^{-1}} (\phi_\varepsilon (\phi_{\beta_2^{-1}} (G^k)))
@@ -511,7 +511,7 @@ to~the~group $\mathbb{Z} / x_1 \mathbb{Z} \times \ldots \times \mathbb{Z} / x_k 
 
 To~prove the~criterion described before, consider the~number $\Pi(\alpha) = |\omega_K(\varepsilon)|$
 where $|G|$ is the~order of the~group $G$. $|G \times H| = |G| |H|$, so $\Pi(\alpha) = |\omega_K(\varepsilon_1)| \cdot \ldots \cdot |\omega_K(\varepsilon_r)|$.
-Since $\omega(n)$ is isomorphic to~$\mathbb{Z} / n \mathbb{Z}$, in~case of the~field $K = \mathbb{C}$ it is also true that
+Since $\omega(n)$ is isomorphic to~$\mathbb{Z} / n \mathbb{Z}$, in the~case of the~field $K = \mathbb{C}$ it is also true that
 $\Pi(\alpha) = \varepsilon_1 \cdot \ldots \cdot \varepsilon_r$.
 
 \medskip\noindent\textbf{Lemma~7.}\emph{
@@ -643,7 +643,7 @@ that $\Pi(H^\circ) = 1$. Thus, the~following statements are proved.
 
 In~any abelian group $G$ there is naturally defined multiplication by~integers.
 For a~vector $\alpha = (\alpha_1, \ldots, \alpha_k) \in \mathbb{Z}^k$ and element $g \in G$
-by~$g \alpha$ we mean the~vector $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$. We say that
+we mean by~$g \alpha$ the~vector $(\alpha_1 g, \ldots, \alpha_k g) \in G^k$. We say that
 the~collection of~vectors $\alpha_1, \ldots, \alpha_n \in \mathbb{Z}^k$ is \textit{linearly independent
 over an~abelian group} if
 $$
@@ -662,14 +662,14 @@ Let us immediately show how this definition is related to~the~studied parameteri
     $\phi_\alpha : G^k \rightarrow G^n$ is injective if and only if $\alpha^j$ are linearly independent over the~group $G$.
 }\medskip
 
-\noindent{\it Proof.} It follows directly from the~fact that injectivity of a~homomorphism is equivalent to the~triviality of~its kernel.
+\noindent{\it Proof.} It follows directly from the~fact that the~injectivity of a~homomorphism is equivalent to the~triviality of~its kernel.
 \hfill$\Box$\medskip
 
 Next, we need two general lemmas.
 
 \medskip\noindent\textbf{Lemma~8.}\emph{
     Let $G$ and $H$ be abelian groups. $\mu_1,\allowbreak \ldots,\allowbreak \mu_n \in \mathbb{Z}^k$ are linearly independent
-    over $G \times H$ if and only if the are linearly independent over $G$ and over $H$.
+    over $G \times H$ if and only if they are linearly independent over $G$ and over $H$.
 }\medskip
 
 \noindent{\it Proof.}
@@ -750,7 +750,7 @@ must reduce to~linear independence over $\mathbb{Z}$. Let us prove this.
     Consider their linear combination: $r_1 \mu_1 + \ldots + r_n \mu_n = 0$.
 
     It is known that $\mathbb{R}$ is an~(infinite-dimensional) vector space over $\mathbb{Q}$, and any vector space has
-    a~(Hamel) basis under assumption of the~axiom of~choice~\cite{Brbk70}. Using this, let us fix a~Hamel basis $B$ for $\mathbb{R}$
+    a~(Hamel) basis under the~assumption of the~axiom of~choice~\cite{Brbk70}. Using this, let us fix a~Hamel basis $B$ for $\mathbb{R}$
     over $\mathbb{Q}$. Let us decompose $r_i$ by this basis:
     $$
         r_i = q_i^1 b_1 + \ldots + q_i^s b_s
@@ -764,7 +764,7 @@ must reduce to~linear independence over $\mathbb{Z}$. Let us prove this.
                                        & = 0.
     \end{align*}
 
-    In each coordinate we obtain a~rational linear combination of the~numbers $b_j$ equal to zero.
+    We obtain in each coordinate a~rational linear combination of the~numbers $b_j$ equal to zero.
     By~virtue of linear independence, all these coordinates are equal to zero, so we have:
     $q_1^j \mu_1 + \ldots + q_n^j \mu_n = 0$.
 
@@ -801,7 +801,7 @@ Let us study in~more detail the~corollaries of linear independence over $\mathbb
     This follows from that the~groups $\mathbb{R} / 2 \pi \mathbb{Z}$ and $\mathbb{R} / \mathbb{Z}$ are isomorphic.
 \hfill$\Box$\medskip
 
-For a~number $d \in \mathbb{Z}$ and a~vector $x \in \mathbb{Z}^k$ by $d \mid x$ we mean that $d \mid x_i$ for all $1 \leq i \leq k$
+For a~number $d \in \mathbb{Z}$ and a~vector $x \in \mathbb{Z}^k$ we mean by $d \mid x$ that $d \mid x_i$ for all $1 \leq i \leq k$
 or, equivalently, $d \mid \gcd(x_1, \ldots, x_n)$.
 
 \medskip\noindent\textbf{Lemma.}\emph{
@@ -859,7 +859,7 @@ We denote the~set of prime numbers by $\mathbb{P} \subseteq \mathbb{Z}$.
 
     Next, fix a~power $\beta \in \mathbb{N}$ and a~prime number $p$.
     Since $x_1 \mu_1 + \ldots + x_n \mu_n$ is divisible $p^\beta$,
-    it is also divisible by~$p$, so it follow from the~premise that $p \mid x$.
+    it is also divisible by~$p$, so it follows from the~premise that $p \mid x$.
 
     But this means that $x_i / p$ are integers, so $(x_1 / p) \mu_1 + \ldots + (x_n / p) \mu_n$ is divisible by~$p^{\beta - 1}$.
     Applying the~premise again, we obtain that $p \mid x / p$. Repeating this procedure $\beta$ times, we finally conclude
